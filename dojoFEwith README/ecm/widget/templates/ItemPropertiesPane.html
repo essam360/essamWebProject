@@ -1,0 +1,17 @@
+<div class="ecmItemPropertiesPane" data-dojo-attach-point="containerNode">
+	<div data-dojo-type="dijit.layout.ContentPane" id="${id}_documentTypePane" data-dojo-attach-point="_documentTypePane" region="top" class="topPane">
+	   <div class="documentTypePane">
+	     <label class="dijitInline" data-dojo-attach-point="_classLabel" id="${id}_class_label">${_messages.document_type}:</label>
+	     <div class="dijitInline contentClassSelectorDiv" data-dojo-attach-point="_contentClassSelectorDiv" tabindex=0 aria-describedby="${id}_class_label"></div>
+	   </div>  
+	</div>
+	<div data-dojo-type="dijit.layout.ContentPane" region="center" id="${id}_documentPropertiesPane" class="centerPane" data-dojo-attach-point="_centerPane">
+	  <div data-dojo-type="idx.layout.TitlePane" collapsible=true data-dojo-attach-point="_commonPropertiesTitlePane" title="${_messages.custom_properties_title}">
+	    <div data-dojo-type="dijit.layout.ContentPane" tabindex="0" data-dojo-attach-point="_commonPropertiesContainer"></div>
+	  </div>
+      <div data-dojo-attach-point="customPropertiesPane">
+	  </div>
+	  <div data-dojo-type="idx.layout.TitlePane" data-dojo-attach-point="_systemPropertiesTitle" class="systemTitlePane" collapsible=true title="${_messages.system_properties_title}">
+	  </div>
+	</div>
+</div>

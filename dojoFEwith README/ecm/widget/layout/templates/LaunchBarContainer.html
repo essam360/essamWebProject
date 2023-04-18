@@ -1,0 +1,13 @@
+<div class="ecmLaunchBarContainer" data-dojo-attach-point="launchBarContainer">
+	<div role="navigation" data-dojo-attach-point="launchBarButtonArea" class="launchBarButtonArea" 
+			data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'${_launchBarButtonAreaDesign}',region:'${featureBarPosition}',gutters:false">
+		<div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'" class="launchBarButtonsContentPane">
+			<div data-dojo-attach-point="launchBarButtons" class="launchBarButtons"></div>
+		</div>
+		<div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'${_contextualAreaPosition}'" class="launchBarToolbarContentPane">
+			<div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="launchBarFeatureContextSelectorArea" class="launchBarFeatureContextSelectorArea"></div>
+			<div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="launchBarContextualArea" class="launchBarContextualArea"></div>
+		</div>
+	</div>
+	<div data-dojo-attach-point="launchBarContentArea" role="main" data-dojo-type="dijit/layout/StackContainer" class="launchBarContentArea" region="center"></div>
+</div>

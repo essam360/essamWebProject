@@ -1,0 +1,29 @@
+<div class="entryTemplateDestinationPane entryTemplatePane">
+    <div class="property">
+	   <fieldset>
+       <legend class="dijitHidden">${messages.entry_template_destination_show}</legend>
+           <input data-dojo-props="type: 'radio', name: '${id}_saveInShow', id: '${id}_save_in_show'" data-dojo-attach-point="saveInShow" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange" >
+   	       <label for="${id}_save_in_show">${messages.entry_template_destination_show}</label>
+           <div data-dojo-type="ecm/widget/HoverHelp" class="radioLabel" data-dojo-attach-point="saveInShowHoverHelp">${messages.entry_template_destination_show_hover}</div>
+           <input data-dojo-props="type: 'radio', name: '${id}_saveInShow', id: '${id}_save_in_hide'" data-dojo-attach-point="saveInHide" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange" >
+           <label for="${id}_save_in_hide">${messages.entry_template_destination_hide}</label>
+           <div data-dojo-type="ecm/widget/HoverHelp" class="radioLabel" data-dojo-attach-point="saveInHideHoverHelp">${messages.entry_template_destination_hide_hover}</div>
+       </fieldset>                    
+    </div>
+    <div class="property border">
+	   <label id="${id}_savein_label" for="${id}_savein-field">${messages.entry_template_folder_save_in_default}</label>&nbsp;
+	   <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-props="isFocusable: true" data-dojo-attach-point="saveInDropDownHoverHelp">${messages.entry_template_folder_save_in_default_hover}</div>
+	   <div data-dojo-type="ecm/widget/search/SearchInDropDown" data-dojo-attach-event="onFolderSelected: _onSaveInChange" data-dojo-attach-point="saveInDropDown"
+			 data-dojo-props='isRequired: false, "class": "folderSelectorControl", dropdownid: "${id}_savein-field", arialabelledby: "${id}_savein_label"'>
+	   </div>
+    </div>
+    <div class="property indented" data-dojo-attach-point="requireFileInFolderDiv" >
+	   <div data-dojo-props="id: '${id}_unfiled-allowed-field'" data-dojo-attach-point="requireFileInFolder" data-dojo-attach-event="onClick: _onFieldChange" data-dojo-type="ecm/widget/CheckBox"></div>
+	   <label data-dojo-attach-point="requireFileInFolderLabel" for="${id}_unfiled-allowed-field">${messages.entry_template_folder_file_in_required}</label>
+	   <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="requireFileInFolderHoverHelp">${messages.entry_template_folder_file_in_required_hover}</div>
+    </div>
+    <div class="property indented">
+	   <div data-dojo-props="id: '${id}_restrict-folder-choice-field'" data-dojo-attach-point="restrictFolderChoice" data-dojo-attach-event="onClick: _onFieldChange" data-dojo-type="ecm/widget/CheckBox"></div>
+	   <label data-dojo-attach-point="restrictFolderChoiceLabel" for="${id}_restrict-folder-choice-field">${messages.entry_template_folder_restrict_choice}</label>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="errorMessage" data-dojo-attach-point="_errorMessage"></div>
+<br>
+  	<div class="field">
+  	    <span class="required">*</span>
+  		<label for="${id}_holdName">
+  			${messages.holdName}
+  		</label>
+  		<input data-dojo-type="dijit.form.ValidationTextBox"
+  			name="${id}_holdName"
+  			id="${id}_holdName"
+  			required=true
+  			style="width: 98%"
+  			data-dojo-attach-point="_holdName"
+		data-dojo-attach-event="onKeyUp: _onNameChange">
+	</input>
+</div>
+<div class="field">
+	<label for="${id}_holdDescrption">
+		${messages.holdDescription}
+	</label>
+	<input data-dojo-type="dijit.form.ValidationTextBox"
+		name="${id}_holdDescription"
+		id="${id}_holdDescription"
+		required=false
+		style="width: 98%"
+		data-dojo-attach-point="_holdDescription"
+		data-dojo-attach-event="onKeyUp: _onDescriptionChange">
+	</input>
+</div>

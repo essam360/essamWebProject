@@ -1,0 +1,327 @@
+<div class="ecmAdminTab ecmLogging">
+  <div data-dojo-type="idx/layout/BorderContainer" data-dojo-attach-point="borderContainer" data-dojo-props="gutters: false, style: { width: '100%', height: '100%'}">
+	<div data-dojo-type="dijit/layout/ContentPane"  data-dojo-props="region: 'center'">
+		<div class="categoryInstructions" id="${id}_intro" data-dojo-attach-point="instructions">${messages.admin_settings_logging_instructions}&nbsp;<a data-dojo-attach-event="onclick: onHelp">${messages.learn_more}</a></div>
+		<table class="propertyTable" role="presentation">
+			<tr>
+				<td class="propertyRowLabel">
+					<label for="${id}_loggingLevelField">${messages.admin_logging_level}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="loggingLevelHoverHelp">${messages.admin_logging_level_hover}</div>
+				</td>
+				<td class="propertyRowValue">
+					<div data-dojo-attach-point="loggingLevel" data-dojo-type="ecm/widget/FilteringSelect" data-dojo-attach-event="onChange: _onFieldChange" 
+		                 data-dojo-props="id: '${id}_loggingLevelField', labelType: 'text', label: 'label', searchAttr: 'label'"></div> 
+				</td>
+			</tr>
+			<tr>
+				<td class="propertyRowLabel" valign="top">
+					<span class="ecmLabel" tabindex=0>${messages.admin_logging_classes}</span>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="logClassesFieldHoverHelp">${messages.admin_logging_classes_hover}</div>
+				</td>
+				<td class="propertyRowValue">
+					<fieldset>
+						<legend>${messages.admin_logging_classes_include}</legend>
+						<div>
+				   			<input data-dojo-attach-point="logClassesIncludeAll" data-dojo-attach-event="onClick:_onLogClassesIncludeAll, onChange: _onFieldChange" 
+						   			data-dojo-props="id: '${id}_classes-include-all-field', type: 'radio', name: '${id}_logClassesInclude', value: 'enable', 'class': 'radioButton2'"
+						   			data-dojo-type="ecm/widget/RadioButton" />
+				   			<label for="${id}_classes-include-all-field" style="margin-top:+5px">${messages.admin_logging_classes_include_all}</label>
+			   			</div>
+			   			<div class="fieldsetOption">
+				   			<input data-dojo-attach-point="logClassesIncludeSpecified" data-dojo-attach-event="onClick:_onLogClassesIncludeSpecified, onChange: _onFieldChange" data-dojo-type="ecm/widget/RadioButton" 
+						   		   data-dojo-props="id: '${id}_classes-include-specified-field', type: 'radio', name: '${id}_logClassesInclude', value: 'disable', 'class': 'radioButton2'" />
+				   			<label for="${id}_classes-include-specified-field" style="margin-top:+5px">${messages.admin_logging_classes_include_specified}</label>
+				   		</div>
+			   			<div>
+				   			<label for="${id}_classes-include-specified-list-field" style="display: none">${messages.admin_logging_classes_include_specified}</label>
+		  					<input data-dojo-attach-point="logClassesIncludeSpecifiedList" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" 
+		  					       data-dojo-props="id: '${id}_classes-include-specified-list-field', trim: true, propercase: false, required: true, 'class': 'logValidationBox', style: { 'min-width': '300px' }" />
+	  					</div>
+			   		</fieldset>
+					<br />
+					<fieldset>
+						<legend>${messages.admin_logging_classes_exclude}</legend>
+						<div>
+				   			<input data-dojo-attach-point="logClassesExcludeNone" data-dojo-attach-event="onChange: _onFieldChange, onClick: _onLogClassesExcludeNone" data-dojo-type="ecm/widget/RadioButton" 
+				   			       data-dojo-props="id: '${id}_classes-exclude-none-field', type: 'radio', name: '${id}_logClassesExclude', value: 'enable', 'class': 'radioButton2'" />
+				   			<label for="${id}_classes-exclude-none-field" style="margin-top:+5px">${messages.admin_logging_classes_exclude_none}</label>
+			   			</div>
+			   			<div class="fieldsetOption">
+				   			<input data-dojo-attach-point="logClassesExcludeSpecified" data-dojo-attach-event="onChange: _onFieldChange, onClick: _onLogClassesExcludeSpecified" data-dojo-type="ecm/widget/RadioButton"
+				   			       data-dojo-props="id: '${id}_classes-exclude-specified-field', type: 'radio', name: '${id}_logClassesExclude', value: 'disable', 'class': 'radioButton2'" />
+				   			<label for="${id}_classes-exclude-specified-field" style="margin-top:+5px">${messages.admin_logging_classes_exclude_specified}</label>
+				   		</div>
+			   			<div>
+				   			<label for="${id}_classes-exclude-specified-list-field" style="display: none">${messages.admin_logging_classes_exclude_specified}</label>
+	  						<input data-dojo-attach-point="logClassesExcludeSpecifiedList" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox"
+	  						       data-dojo-props="id: '${id}_classes-exclude-specified-list-field', trim: true, propercase: false, required: true, 'class': 'logValidationBox', style: { 'min-width': '300px' }" />
+  						</div>
+			   		</fieldset>
+				</td>
+			</tr>
+		</table>
+
+		<div class="categoryInstructions" id="${id}_logging_instrctions2">${messages.admin_settings_logging_instructions2}</div>			
+		
+		<table class="propertyTable" role="presentation">
+			<tr>
+				<td class="propertyRowLabel" valign="top">
+					<span class="ecmLabel" tabindex=0 aria-describedby="${id}_logging_instrctions2">${messages.admin_logging_debug}</span>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="logDebugFieldHoverHelp">${messages.admin_logging_debug_hover}</div>
+				</td>
+				<td class="propertyRowValue">
+					<fieldset>
+					<legend style="display: none;">${messages.admin_logging_debug}</legend>
+						<div>
+				   			<input data-dojo-attach-point="logDebugNone" data-dojo-attach-event="onChange: _onFieldChange, onClick: _onLogDebugNone" data-dojo-type="ecm/widget/RadioButton"
+				   			       aria-describedby="${id}_logging_instrctions2" 
+				   			       data-dojo-props="id: '${id}_debug-none-field', type: 'radio', name: '${id}_logDebug', value: 'enable', 'class': 'radioButton2'" />
+				   			<label for="${id}_debug-none-field" style="margin-top:+5px">${messages.admin_logging_debug_none}</label>
+			   			</div>
+			   			<div>
+				   			<input data-dojo-attach-point="logDebugHost" data-dojo-attach-event="onChange: _onFieldChange, onClick: _onLogDebugHost" data-dojo-type="ecm/widget/RadioButton"
+				   			       aria-describedby="${id}_logging_instrctions2" 
+				   			       data-dojo-props="id: '${id}_debug-host-field', type: 'radio', name: '${id}_logDebug', value: 'disable', 'class': 'radioButton2'" />
+				   			<label for="${id}_debug-host-field" style="margin-top:+5px">${messages.admin_logging_debug_host}</label>
+			   			</div>
+			   			<div>
+				   			<label for="${id}_debug-host-list-field" style="display: none;">${messages.admin_logging_debug_host}</label>
+	  						<input data-dojo-attach-point="logDebugHostList" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" 
+	  						       data-dojo-props="id: '${id}_debug-host-list-field', trim: true, propercase: false, required: true, 'class': 'logValidationBox', style: { 'min-width': '300px' }" />
+			   			</div>
+			   			<div>
+				   			<input data-dojo-attach-point="logDebugUser" data-dojo-attach-event="onChange: _onFieldChange, onClick: _onLogDebugUser" data-dojo-type="ecm/widget/RadioButton" 
+				   			       aria-describedby="${id}_logging_instrctions2" 
+				   			       data-dojo-props="id: '${id}_debug-user-field', type: 'radio', name: '${id}_logDebug', value: 'disable', 'class': 'radioButton2'" />
+				   			<label for="${id}_debug-user-field" style="margin-top:+5px">${messages.admin_logging_debug_user}</label>
+				   		</div>
+			   			<div class="fieldsetOption">
+				   			<label for="${id}_debug-user-list-field" style="display: none">${messages.admin_logging_debug_user}</label>
+	  						<input data-dojo-attach-point="logDebugUserList" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" 
+	  						       data-dojo-props="id: '${id}_debug-user-list-field', trim: true, propercase: false, required: true, 'class': 'logValidationBox', style: { 'min-width': '300px' }" />
+  						</div>
+			   		</fieldset>
+				</td>
+			</tr>
+		</table>
+	
+      <div data-dojo-type="idx/layout/TitlePane" data-dojo-attach-point="loggingTwisty" data-dojo-props='"aria-describedby": "${id}_daejaLoggingInstructions"'>
+      <div data-dojo-type="dijit/layout/ContentPane" style="width: 100%; height: 100%">
+        <div class="categoryInstructions" id="${id}_daejaLoggingInstructions">${messages.admin_daeja_logging_instructions}</div>
+          <table class="propertyTable" role="presentation">
+            <tbody class="propertyTable" width=100%>
+			    <tr>
+			    	<td class="propertyRowLabel">
+		    			<span class="ecmLabel" tabindex=0>${messages.admin_logging_viewone_pro}</span>
+	    			</td>
+    				<td class="propertyRowValue">
+                      <fieldset>
+  					  <legend style="display: none;">${messages.admin_logging_viewone_pro}</legend>
+                        <div data-dojo-props="id: '${id}_daeja_trace_enable', name: '${id}_daeja_trace_enable'" data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-point="daejaTraceEnable" data-dojo-attach-event="onChange: _onFieldChange"></div>
+						<label for="${id}_daeja_trace_enable">${messages.admin_daeja_logging_trace}</label>&nbsp;<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="v1proLoggingTraceHover">${messages.admin_v1pro_logging_trace_hover}</div>	
+						<br/>
+                        <div data-dojo-props="id: '${id}_daeja_trace_net_enable', name: '${id}_daeja_trace_net_enable'" data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-point="daejaTraceNetEnable" data-dojo-attach-event="onChange: _onFieldChange"></div>
+						<label for="${id}_daeja_trace_net_enable">${messages.admin_daeja_logging_trace_net}</label>&nbsp;<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="v1proLoggingTraceNetHover">${messages.admin_v1pro_logging_trace_net_hover}</div>	
+						<br/>
+                        <div data-dojo-props="id: '${id}_daeja_trace_annotation_enable', name: '${id}_daeja_trace_annotation_enable'" data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-point="daejaTraceAnnotationsEnable" data-dojo-attach-event="onChange: _onFieldChange"></div>
+						<label for="${id}_daeja_trace_annotation_enable">${messages.admin_daeja_logging_trace_annotations}</label>&nbsp;<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="v1proLoggingTraceAnnotationsHover">${messages.admin_v1pro_logging_trace_annotations_hover}</div>	
+                      </fieldset>   
+				    </td>
+			    </tr>
+                <tr>
+                    <td class="propertyRowLabel">
+                        <span class="ecmLabel" tabindex=0>${messages.admin_logging_viewone_virtual}</span>
+                    </td>
+                    <td class="propertyRowValue">
+                      <fieldset>
+  					  <legend style="display: none;">${messages.admin_logging_viewone_virtual}</legend>
+                        <div data-dojo-props="id: '${id}_daeja_virtual_trace_enable', name: '${id}_daeja_virtual_trace_enable'" data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-point="daejaVirtualTraceEnable" data-dojo-attach-event="onChange: _onFieldChange"></div>
+                        <label for="${id}_daeja_virtual_trace_enable">${messages.admin_daeja_logging_trace}</label>&nbsp;<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="virtualLoggingTraceHover">${messages.admin_virtual_logging_trace_hover}</div>  
+                        <br/>
+                        <div data-dojo-props="id: '${id}_daeja_virtual_trace_net_enable', name: '${id}_daeja_virtual_trace_net_enable'" data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-point="daejaVirtualTraceNetEnable" data-dojo-attach-event="onChange: _onFieldChange"></div>
+                        <label for="${id}_daeja_virtual_trace_net_enable">${messages.admin_daeja_logging_trace_net}</label>&nbsp;<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="virtualLoggingTraceNetHover">${messages.admin_virtual_logging_trace_net_hover}</div>   
+                        <br/>
+                        <div data-dojo-props="id: '${id}_daeja_virtual_trace_annotations_enable', name: '${id}_daeja_virtual_trace_annotations_enable'" data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-point="daejaVirtualTraceAnnotationsEnable" data-dojo-attach-event="onChange: _onFieldChange"></div>
+                        <label for="${id}_daeja_virtual_trace_annotations_enable">${messages.admin_daeja_logging_trace_annotations}</label>&nbsp;<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="virtualLoggingTraceAnnotationsHover">${messages.admin_virtual_logging_trace_annotations_hover}</div>   
+                        <br/>
+                        <label for="${id}_daeja_virtual_log_file">${messages.admin_daeja_logging_log_file}</label>&nbsp;<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="virtualLoggingLogFileHover">${messages.admin_virtual_logging_log_file_hover}</div><br/>
+                        <input data-dojo-attach-point="daejaVirtualLogFile" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" 
+                               data-dojo-props="id: '${id}_daeja_virtual_log_file', trim: true, propercase: false, required: false, style: { 'min-width': '350px' }" />
+                        <br/>
+                      </fieldset>
+                      </td>
+                </tr>   
+			    <tr>
+			    	<td class="propertyRowLabel">
+		    			<span class="ecmLabel" tabindex=0>${messages.admin_logging_viewone_streamer}</span>&nbsp;
+		    			<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-props="isFocusable: true" data-dojo-attach-point="loggingViewoneStreamerHover">${messages.admin_logging_viewone_streamer_hover}</div>
+	    			</td>
+    				<td class="propertyRowValue">
+                      <fieldset>
+  					  <legend style="display: none;">${messages.admin_logging_viewone_streamer}</legend>
+                        <div data-dojo-props="id: '${id}_daeja_streamer_trace_enable', name: '${id}_daeja_streamer_trace_enable'" data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-point="daejaStreamerTraceEnable" data-dojo-attach-event="onChange: _onFieldChange"></div>
+						<label for="${id}_daeja_streamer_trace_enable">${messages.admin_daeja_logging_trace}</label>&nbsp;<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="streamerLoggingTraceHover">${messages.admin_streamer_logging_trace_hover}</div> 	
+						<br/>
+                        <div data-dojo-props="id: '${id}_daeja_streamer_trace_net_enable', name: '${id}_daeja_streamer_trace_net_enable'" data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-point="daejaStreamerTraceNetEnable" data-dojo-attach-event="onChange: _onFieldChange"></div>
+						<label for="${id}_daeja_streamer_trace_net_enable">${messages.admin_daeja_logging_trace_net}</label>&nbsp;<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="streamerLoggingTraceNetHover">${messages.admin_streamer_logging_trace_net_hover}</div>	
+						<br/>
+						<label for="${id}_daeja_streamer_log_file">${messages.admin_daeja_logging_log_file}</label>&nbsp;<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="streamerLoggingLogFileHover">${messages.admin_streamer_logging_log_file_hover}</div><br/>
+  						<input data-dojo-attach-point="daejaStreamerLogFile" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" 
+  						       data-dojo-props="id: '${id}_daeja_streamer_log_file', trim: true, propercase: false, required: false, style: { 'min-width': '350px' }" />
+                        <br/>
+                      </fieldset>
+                      </td>
+    			</tr>	
+			    <tr>
+			    	<td class="propertyRowLabel">
+		    			<span class="ecmLabel" tabindex=0>${messages.admin_logging_viewone_redaction}</span>&nbsp;
+		    			<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-props="isFocusable: true" data-dojo-attach-point="loggingViewoneRedactionHover">${messages.admin_logging_viewone_redaction_hover}</div>
+	    			</td>
+    				<td class="propertyRowValue">
+                      <fieldset>
+  					  <legend style="display: none;">${messages.admin_logging_viewone_redaction}</legend>
+                        <div data-dojo-props="id: '${id}_daeja_redaction_trace_enable', name: '${id}_daeja_redaction_trace_enable'" data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-point="daejaRedactionTraceEnable" data-dojo-attach-event="onChange: _onFieldChange"></div>
+						<label for="${id}_daeja_redaction_trace_enable">${messages.admin_daeja_logging_trace}</label>&nbsp;<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="redactionLoggingTraceHover">${messages.admin_redaction_logging_trace_hover}</div> 	
+						<br/>
+                        <div data-dojo-props="id: '${id}_daeja_redaction_trace_net_enable', name: '${id}_daeja_redaction_trace_net_enable'" data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-point="daejaRedactionTraceNetEnable" data-dojo-attach-event="onChange: _onFieldChange"></div>
+						<label for="${id}_daeja_redaction_trace_net_enable">${messages.admin_daeja_logging_trace_net}</label>&nbsp;<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="redactionLoggingTraceNetHover">${messages.admin_redaction_logging_trace_net_hover}</div> 	
+						<br/>
+						<label for="${id}_daeja_redaction_log_file">${messages.admin_daeja_logging_log_file}</label>&nbsp;<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="redactionLoggingLogFileHover">${messages.admin_redaction_logging_log_file_hover}</div><br/>
+  						<input data-dojo-attach-point="daejaRedactionLogFile" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" 
+  						       data-dojo-props="id: '${id}_daeja_redaction_log_file', trim: true, propercase: false, required: false, style: { 'min-width': '350px' }" />
+                      </fieldset>   
+				    </td>
+			    </tr>
+            </tbody>
+          </table>
+      </div>
+      </div>
+
+	<div data-dojo-type="idx/layout/TitlePane" data-dojo-attach-point="msOfficeLoggingSection"
+	             data-dojo-props='"aria-describedby": "${id}_officeLoggingInstructions", open: false, style: { "margin-top": "10px", "margin-left": "0px" }'>
+		<div class="categoryInstructions" id="${id}_officeLoggingInstructions" data-dojo-attach-point="instructions">${messages.admin_office_settings_logging_instructions}&nbsp;<a href="" data-dojo-attach-event="onclick: onHelp">${messages.learn_more}</a></div>
+ 		<table class="propertyTable" role="presentation">
+				<tr>
+					<td class="propertyRowLabel">
+						<label for="${id}_OfficeLoggingLevelField">${messages.admin_logging_level}</label>&nbsp;
+						<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="officeLoggingLevelHoverHelp">${messages.admin_logging_level_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+						<div data-dojo-attach-point="officeLoggingLevel" data-dojo-type="ecm/widget/FilteringSelect" data-dojo-attach-event="onChange: _onFieldChange" 
+			                 data-dojo-props="id: '${id}_OfficeLoggingLevelField', labelType: 'text', label: 'label', searchAttr: 'label'"></div> 
+					</td>
+				</tr>
+				<tr>
+					<td class="propertyRowLabel" valign="top">
+						<span class="ecmLabel" tabindex=0>${messages.admin_office_logging_classes}</span>&nbsp;
+						<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="officeLogClassesFieldHoverHelp">${messages.admin_office_logging_classes_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+						<fieldset>
+							<legend>${messages.admin_logging_classes_include}</legend>
+							<div class="fieldsetOption">
+					   			<input data-dojo-attach-point="officeLogClassesIncludeAll" data-dojo-attach-event="onClick:_onOfficeLogClassesIncludeAll, onChange: _onFieldChange" 
+							   			data-dojo-props="id: '${id}_office-classes-include-all-field', type: 'radio', name: '${id}_officeLogClassesInclude', value: 'enable', 'class': 'radioButton2'"
+							   			data-dojo-type="ecm/widget/RadioButton" />
+					   			<label for="${id}_office-classes-include-all-field">${messages.admin_logging_classes_include_all}</label>
+				   			</div>
+					   		<div class="fieldsetOption">
+					   			<input data-dojo-attach-point="officeLogClassesIncludeSpecified" data-dojo-attach-event="onClick:_onOfficeLogClassesIncludeSpecified, onChange: _onFieldChange" data-dojo-type="ecm/widget/RadioButton" 
+							   		   data-dojo-props="id: '${id}_office-classes-include-specified-field', type: 'radio', name: '${id}_officeLogClassesInclude', value: 'disable', 'class': 'radioButton2'" />
+					   			<label for="${id}_classes-include-specified-field">${messages.admin_logging_classes_include_specified}</label>
+					   		</div>
+					   		<div>
+				   			<label for="${id}_office-classes-include-specified-list-field" style="display: none">${messages.admin_logging_classes_include_specified}</label>
+		  					<input data-dojo-attach-point="officeLogClassesIncludeSpecifiedList" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" 
+		  					       data-dojo-props="id: '${id}_office-classes-include-specified-list-field', trim: true, propercase: false, required: true, 'class': 'logValidationBox', style: { 'min-width': '300px' }" />
+		  					</div>
+				   		</fieldset>
+						<br />
+						<fieldset>
+							<legend>${messages.admin_logging_classes_exclude}</legend>
+							<div class="fieldsetOption">
+					   			<input data-dojo-attach-point="officeLogClassesExcludeNone" data-dojo-attach-event="onChange: _onFieldChange, onClick: _onOfficeLogClassesExcludeNone" data-dojo-type="ecm/widget/RadioButton" 
+					   			       data-dojo-props="id: '${id}_office-classes-exclude-none-field', type: 'radio', name: '${id}_officeLogClassesExclude', value: 'enable', 'class': 'radioButton2'" />
+					   			<label for="${id}_office-classes-exclude-none-field">${messages.admin_logging_classes_exclude_none}</label>
+				   			</div>
+				   			<div class="fieldsetOption">
+					   			<input data-dojo-attach-point="officeLogClassesExcludeSpecified" data-dojo-attach-event="onChange: _onFieldChange, onClick: _onOfficeLogClassesExcludeSpecified" data-dojo-type="ecm/widget/RadioButton"
+					   			       data-dojo-props="id: '${id}_office-classes-exclude-specified-field', type: 'radio', name: '${id}_officeLogClassesExclude', value: 'disable', 'class': 'radioButton2'" />
+					   			<label for="${id}_classes-exclude-specified-field">${messages.admin_logging_classes_exclude_specified}</label>
+					   		</div>
+				   			<div>
+					   			<label for="${id}_office-classes-exclude-specified-list-field" style="display: none">${messages.admin_logging_classes_exclude_specified}</label>
+		  						<input data-dojo-attach-point="officeLogClassesExcludeSpecifiedList" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox"
+		  						       data-dojo-props="id: '${id}_office-classes-exclude-specified-list-field', trim: true, propercase: false, required: true, 'class': 'logValidationBox', style: { 'min-width': '300px' }" />
+	  						</div>
+				   		</fieldset>
+					</td>
+				</tr>
+			</table>
+			<div class="categoryInstructions" id="${id}_logging_instrctions3">${messages.admin_office_settings_logging_instructions2}</div>	
+		
+		<table class="propertyTable" role="presentation">
+				<tr>
+					<td class="propertyRowLabel" valign="top">
+						<span class="ecmLabel" tabindex=0 aria-describedby="${id}_logging_instrctions3">${messages.admin_logging_debug}</span>&nbsp;
+						<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="officeLogDebugFieldHoverHelp">${messages.admin_office_logging_debug_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+						<fieldset>
+						<legend style="display: none;">${messages.admin_logging_debug}</legend>
+							<div>
+					   			<input data-dojo-attach-point="officeLogDebugNone" data-dojo-attach-event="onChange: _onFieldChange, onClick: _onOfficeLogDebugNone" data-dojo-type="ecm/widget/RadioButton"
+					   				   aria-describedby="${id}_logging_instrctions3" 
+					   			       data-dojo-props="id: '${id}_office-debug-none-field', type: 'radio', name: '${id}_officeLogDebug', value: 'enable', 'class': 'radioButton2'" />
+					   			<label for="${id}_office-debug-none-field">${messages.admin_logging_debug_none}</label>
+				   			</div>
+				   			<div class="fieldsetOption">
+					   			<input data-dojo-attach-point="officeLogDebugHost" data-dojo-attach-event="onChange: _onFieldChange, onClick: _onOfficeLogDebugHost" data-dojo-type="ecm/widget/RadioButton" 
+					   				   aria-describedby="${id}_logging_instrctions3" 
+					   			       data-dojo-props="id: '${id}_office-debug-host-field', type: 'radio', name: '${id}_officeLogDebug', value: 'disable', 'class': 'radioButton2'" />
+					   			<label for="${id}_office-debug-host-field">${messages.admin_logging_debug_host}</label>
+				   			</div>
+				   			<div>
+					   			<label for="${id}_office-debug-host-list-field" style="display: none;">${messages.admin_logging_debug_host}</label>
+		  						<input data-dojo-attach-point="officeLogDebugHostList" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" 
+		  						       data-dojo-props="id: '${id}_office-debug-host-list-field', trim: true, propercase: false, required: true, 'class': 'logValidationBox', style: { 'min-width': '300px' }" />
+				   			</div>
+				   			<div class="fieldsetOption">
+					   			<input data-dojo-attach-point="officeLogDebugUser" data-dojo-attach-event="onChange: _onFieldChange, onClick: _onOfficeLogDebugUser" data-dojo-type="ecm/widget/RadioButton" 
+					   				   aria-describedby="${id}_logging_instrctions3" 
+					   			       data-dojo-props="id: '${id}_office-debug-user-field', type: 'radio', name: '${id}_officeLogDebug', value: 'disable', 'class': 'radioButton2'" />
+					   			<label for="${id}_office-debug-user-field">${messages.admin_logging_debug_user}</label>
+					   		</div>
+				   			<div>
+					   			<label for="${id}_office-debug-user-list-field" style="display: none">${messages.admin_logging_debug_user}</label>
+		  						<input data-dojo-attach-point="officeLogDebugUserList" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" 
+		  						       data-dojo-props="id: '${id}_office-debug-user-list-field', trim: true, propercase: false, required: true, 'class': 'logValidationBox', style: { 'min-width': '300px' }" />
+	  						</div>
+				   		</fieldset>
+					</td>
+				</tr>
+				<tr>
+					<td class="propertyRowLabel" valign="top">
+						<span class="ecmLabel" tabindex=0>${messages.admin_office_logging_additional_settings}</span>&nbsp;
+						<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-props="isFocusable: true">${messages.admin_office_logging_additional_settings_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+						<fieldset>
+						<legend style="display: none;">${messages.admin_logging_debug}</legend>
+				   			<label for="${id}_office-logging-file-size-field1">${messages.admin_office_logging_file_size}</label>&nbsp;
+				   			<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="officeLoggingFileSizeHoverHelp">${messages.admin_office_logging_file_size_hover}</div>	  						
+				   			<input data-dojo-attach-point="officeLoggingFileSize" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="id: '${id}_office-logging-file-size-field1', trim: true,propercase: false, required: false, 'class': 'logValidationBox', style: { 'min-width': '180px' }" />
+				   			<br/>
+				   			<div class="showStackTraceCheckbox">
+				   			<div data-dojo-props="id: '${id}_id-office-show-stacktrace-on-dialogs', name: '${id}_id-officeShowStacktraceOnDialogs'" data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-point="officeShowStacktraceOnDialogs" data-dojo-attach-event="onChange: _onFieldChange"></div>
+						    <label for="${id}_id-office-show-stacktrace-on-dialogs">${messages.admin_office_logging_show_stacktrace_on_dialogs}</label>&nbsp;	
+						    <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="officeShowStacktraceOnDialogsHoverHelp">${messages.admin_office_logging_show_stacktrace_on_dialogs_hover}</div>
+						    </div>	   		
+				   		</fieldset>
+					</td>
+				</tr>
+			</table>
+		</div>		
+	</div>		
+  </div>
+</div>

@@ -1,0 +1,213 @@
+<div class="ecmAdminTab">
+  <div data-dojo-type="idx/layout/BorderContainer" data-dojo-attach-point="borderContainer" data-dojo-props="gutters: false, style: { width: '100%', height: '100%' }">
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'top', 'class': 'ecmAdminTabButtonBar'">   
+      <div class="categoryInstructions" id="${id}_intro" data-dojo-attach-point="instructions">${messages.admin_p8_instructions}</div>
+      <div class="adminToolbar">
+	        <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="saveAndCloseButton" data-dojo-attach-event="onClick: _onSaveAndClose">
+	            ${messages.save_and_close}
+	        </button>
+	        <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="saveButton" data-dojo-attach-event="onClick: onSave">
+	            ${messages.save}
+	        </button>
+	        <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="resetButton" data-dojo-attach-event="onClick: _onReset">
+	            ${messages.reset}
+	        </button>
+	        <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="closeButton" data-dojo-attach-event="onClick: _onClose">
+	            ${messages.close}
+	        </button>
+	  </div>
+    </div>
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props='region: "center"' data-dojo-attach-point="adminGeneralContentPane">
+      <div data-dojo-type="idx/layout/TitlePane" data-dojo-props='"aria-describedby": "${id}_communityInstructions"' data-dojo-attach-point="communityTwisty">
+        <div class="categoryInstructions" id="${id}_communityInstructions">${messages.admin_p8_download_instructions}</div>
+        <table class="propertyTable" role="presentation">
+			<tbody class="propertyTable" width=100%>
+				<tr>
+					<td class="propertyRowLabel" valign="middle">
+					  <label>${messages.admin_p8_download_cache}</label>
+					  <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="downloadCacheEnableHover">${messages.admin_p8_download_cache_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+		              <fieldset>
+        		        <legend style="display: none;" id="${id}_download_cache_legend">${messages.admin_p8_download_cache}</legend>
+			    		<input data-dojo-props="id: '${id}_download_cache_enable', type: 'radio', name: '${id}_download_cache_enable'" data-dojo-attach-point="downloadCacheEnable" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick: _onDownloadCacheEnable, onChange: _onFieldChange" />              
+		                <label for="${id}_download_cache_enable">${messages.enable}</label>
+                		<input data-dojo-props="id: '${id}_download_cache_disable', type: 'radio', name: '${id}_download_cache_enable', 'class': 'radioButton1'" data-dojo-attach-point="downloadCacheDisable" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick: _onDownloadCacheDisable, onChange: _onFieldChange">
+		                <label for="${id}_download_cache_disable">${messages.disable}</label>
+					  </fieldset>	
+					</td>
+				</tr>
+                <tr>
+					<td class="propertyRowLabel">
+						<label for="${id}_download_cache_folder_field">${messages.admin_p8_download_cache_folder}</label>&nbsp;
+					    <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="downloadCacheFolderHover">${messages.admin_p8_download_cache_folder_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+					   <input data-dojo-attach-point="downloadCacheFolder" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="id: '${id}_download_cache_folder_field', required: false, trim: true" />
+					</td>
+				</tr>
+                <tr>
+					<td class="propertyRowLabel">
+						<label for="${id}_download_cache_url_field">${messages.admin_p8_download_cache_url}</label>&nbsp;
+					    <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="downloadCacheUrlHover">${messages.admin_p8_download_cache_url_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+					   <input data-dojo-attach-point="downloadCacheUrl" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="id: '${id}_download_cache_url_field', required: false, trim: true" />
+					</td>
+				</tr>
+                <tr>
+					<td class="propertyRowLabel">
+						<label for="${id}_cache_max_files-field">${messages.admin_p8_download_cache_max_files}</label>&nbsp;
+					    <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="downloadCacheMaxFilesHover">${messages.admin_p8_download_cache_max_files_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+ 						<div data-dojo-attach-point="downloadCacheMaxFiles" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/NumberTextBox" data-dojo-props='id: "${id}_cache_max_files-field", required: false, style: { "margin-left": "30px", "margin-right": "5px", width: "100px" }, constraints: { min: 1, max: 1000000, places: 0 }'></div>
+					</td>
+				</tr>
+                <tr>
+					<td class="propertyRowLabel">
+						<label for="${id}_cache_max_size-field">${messages.admin_p8_download_cache_max_size}</label>&nbsp;
+					    <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="downloadCacheMaxSizeHover">${messages.admin_p8_download_cache_max_size_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+ 						<div data-dojo-attach-point="downloadCacheMaxSize" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/NumberTextBox" data-dojo-props='id: "${id}_cache_max_size-field", required: false, style: { "margin-left": "30px", "margin-right": "5px", width: "100px" }, constraints: { min: 1, max: 1000000, places: 0 }'></div>
+					</td>
+				</tr>
+                <tr>
+					<td class="propertyRowLabel">
+						<label for="${id}_cache_cleanup_min-field">${messages.admin_p8_download_cache_cleanup_min}</label>&nbsp;
+					    <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="downloadCacheCleanupMinHover">${messages.admin_p8_download_cache_cleanup_min_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+ 						<div data-dojo-attach-point="downloadCacheCleanupMin" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/NumberTextBox" data-dojo-props='id: "${id}_cache_cleanup_min-field", required: false, style: { "margin-left": "30px", "margin-right": "5px", width: "100px" }, constraints: { min: 1, max: 1000000, places: 0 }'></div>
+					</td>
+				</tr>
+                <tr>
+					<td class="propertyRowLabel">
+						<label for="${id}_cache_cleanup_duration-field">${messages.admin_p8_download_cache_cleanup_duration}</label>&nbsp;
+					    <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="downloadCacheCleanupDurationHover">${messages.admin_p8_download_cache_cleanup_duration_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+ 						<div data-dojo-attach-point="downloadCacheCleanupDuration" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/NumberTextBox" data-dojo-props='id: "${id}_cache_cleanup_duration-field", required: false, style: { "margin-left": "30px", "margin-right": "5px", width: "100px" }, constraints: { min: 1, max: 1000000, places: 0 }'></div>
+					</td>
+				</tr>
+                <tr>
+					<td class="propertyRowLabel">
+						<label for="${id}_cache_min_lifetime-field">${messages.admin_p8_download_cache_min_lifetime}</label>&nbsp;
+					    <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="downloadCacheMinLifetimeHover">${messages.admin_p8_download_cache_min_lifetime_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+ 						<div data-dojo-attach-point="downloadCacheMinLifetime" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/NumberTextBox" data-dojo-props='id: "${id}_cache_min_lifetime-field", required: false, style: { "margin-left": "30px", "margin-right": "5px", width: "100px" }, constraints: { min: 1, max: 1000000, places: 0 }'></div>
+					</td>
+				</tr>
+                <tr>
+					<td class="propertyRowLabel">
+						<label for="${id}_cache_size_threshold-field">${messages.admin_p8_download_cache_size_threshold}</label>&nbsp;
+					    <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="downloadCacheSizeThresholdHover">${messages.admin_p8_download_cache_size_threshold_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+ 						<div data-dojo-attach-point="downloadCacheSizeThreshold" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/NumberTextBox" data-dojo-props='id: "${id}_cache_size_threshold-field", required: false, style: { "margin-left": "30px", "margin-right": "5px", width: "100px" }, constraints: { min: 1, max: 1000000, places: 0 }'></div>
+					</td>
+				</tr>
+                <tr>
+					<td class="propertyRowLabel">
+						<label for="${id}_download_guard_header_field">${messages.admin_p8_download_guard_header}</label>&nbsp;
+					    <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="downloadCacheGuardHeaderHover">${messages.admin_p8_download_guard_header_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+					   <input data-dojo-attach-point="downloadCacheGuardHeader" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="id: '${id}_download_guard_header_field', required: false, trim: true" />
+					</td>
+				</tr>
+            </tbody>
+	  	</table>
+	  </div>
+	  
+	  <div data-dojo-type="idx/layout/TitlePane" data-dojo-props='"aria-describedby": "${id}_collaboration_config_instructions"' data-dojo-attach-point="collabConfigTwisty">
+	      <div class="categoryInstructions" id="${id}_collaboration_config_instructions">${messages.admin_p8_collaboration_config_instructions}</div>
+		  <table class="propertyTable" role="presentation">
+			<tbody class="propertyTable" width=100%>
+				<tr>
+					<td class="propertyRowLabel" valign="middle">
+					  <label>${messages.admin_p8_use_url_incoming}</label>
+					  <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="useUrlIncomingHover">${messages.admin_p8_use_url_incoming_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+		              <fieldset>
+        		        <legend style="display: none;" id="${id}_use_url_incoming_legend">${messages.admin_p8_use_url_incoming}</legend>
+        		        <div>
+				    		<input data-dojo-props="id: '${id}_use_url_incoming_enable', type: 'radio', name: '${id}_use_url_incoming'" data-dojo-attach-point="useUrlIncomingNone" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick: _onUseUrlIncomingNone, onChange: _onFieldChange" />              
+			                <label for="${id}_use_url_incoming_enable">${messages.yes}</label>
+		                </div>
+		                <div style="padding-top: 5px;">
+	                		<input data-dojo-props="id: '${id}_use_url_incoming_disable', type: 'radio', name: '${id}_use_url_incoming'" data-dojo-attach-point="useUrlIncomingUrl" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick: _onUseUrlIncomingUrl, onChange: _onFieldChange">
+			                <label for="${id}_use_url_incoming_disable">${messages.no}</label>
+			                <div class="marginLeft">
+			                  <span class="required">*</span>
+							  <label for="${id}_use_url_incoming_http_field">${messages.admin_p8_use_url_incoming_http}</label>&nbsp;
+							  <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="connectionsUrlHttpHover">${messages.admin_p8_use_url_incoming_http_hover}</div>
+							  <br/>
+						      <input data-dojo-attach-point="connectionsUrlHttp" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="id: '${id}_use_url_incoming_http_field', required: false, trim: true" />
+						    </div>  
+			                <div style="margin-top: 5px" class="marginLeft">
+			                  <span class="required">*</span>
+							  <label for="${id}_use_url_incoming_https_field">${messages.admin_p8_use_url_incoming_https}</label>&nbsp;
+							  <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="connectionsUrlHttpsHover">${messages.admin_p8_use_url_incoming_https_hover}</div>
+							  <br/>
+						      <input data-dojo-attach-point="connectionsUrlHttps" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="id: '${id}_use_url_incoming_https_field', required: false, trim: true" />
+						    </div>
+						 </div>
+					  </fieldset>	
+					</td>
+				</tr>
+				<tr>
+					<td class="propertyRowLabel" valign="middle">
+					  <label>${messages.admin_p8_hide_email_addresses}</label>
+					  <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="hideEmailAddressesEnableHover">${messages.admin_p8_hide_email_addresses_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+		              <fieldset>
+        		        <legend style="display: none;" id="${id}_hide_email_addresses_legend">${messages.admin_p8_hide_email_addresses}</legend>
+			    		<input data-dojo-props="id: '${id}_hide_email_addresses_enable', type: 'radio', name: '${id}_hide_email_addresses_enable'" data-dojo-attach-point="hideEmailAddressesEnable" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange" />              
+		                <label for="${id}_hide_email_addresses_enable">${messages.yes}</label>
+                		<input data-dojo-props="id: '${id}_hide_email_addresses_disable', type: 'radio', name: '${id}_hide_email_addresses_enable', 'class': 'radioButton1'" data-dojo-attach-point="hideEmailAddressesDisable" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange">
+		                <label for="${id}_hide_email_addresses_disable">${messages.no}</label>
+					  </fieldset>	
+					</td>
+				</tr>
+				<tr>
+					<td class="propertyRowLabel" valign="middle">
+					  <label>${messages.admin_p8_mask_user_ids}</label>
+					  <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="maskUserIdsEnableHover">${messages.admin_p8_mask_user_ids_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+		              <fieldset>
+        		        <legend style="display: none;" id="${id}_mask_user_ids_legend">${messages.admin_p8_mask_user_ids}</legend>
+			    		<input data-dojo-props="id: '${id}_mask_user_ids_enable', type: 'radio', name: '${id}_mask_user_ids_enable'" data-dojo-attach-point="maskUserIdsEnable" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange" />              
+		                <label for="${id}_mask_user_ids_enable">${messages.yes}</label>
+                		<input data-dojo-props="id: '${id}_mask_user_ids_disable', type: 'radio', name: '${id}_mask_user_ids_enable', 'class': 'radioButton1'" data-dojo-attach-point="maskUserIdsDisable" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange">
+		                <label for="${id}_mask_user_ids_disable">${messages.no}</label>
+					  </fieldset>	
+					</td>
+				</tr>
+				<tr>
+					<td class="propertyRowLabel" valign="middle">
+					  <label>${messages.admin_p8_soft_delete}</label>
+					  <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="softDeleteEnableHover">${messages.admin_p8_soft_delete_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+		              <fieldset>
+        		        <legend style="display: none;" id="${id}_soft_delete_legend">${messages.admin_p8_soft_delete}</legend>
+			    		<input data-dojo-props="id: '${id}_soft_delete_enable', type: 'radio', name: '${id}_soft_delete_enable'" data-dojo-attach-point="softDeleteEnable" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange" />              
+		                <label for="${id}_soft_delete_enable">${messages.yes}</label>
+                		<input data-dojo-props="id: '${id}_soft_delete_disable', type: 'radio', name: '${id}_soft_delete_enable', 'class': 'radioButton1'" data-dojo-attach-point="softDeleteDisable" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange">
+		                <label for="${id}_soft_delete_disable">${messages.no}</label>
+					  </fieldset>	
+					</td>
+				</tr>
+			</tbody>
+		  </table>
+	  </div>
+	  	  	
+    </div>
+  </div>
+</div>

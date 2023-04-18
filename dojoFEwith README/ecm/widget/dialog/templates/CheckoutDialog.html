@@ -1,0 +1,37 @@
+<div class="field">
+	<span> ${_messages.selected_documents} </span>
+	<div data-dojo-attach-point="contentList"
+		data-dojo-type="ecm.widget.listView.ContentList"
+		style="height:100px;widht:100%"
+		data-dojo-props="multiSelect:false"></div>
+</div>
+<br />
+<label for="${id}_fileInput"> ${_messages.download_to_local_directory} </label>
+<br/>
+<input type="text" style="width:70%"  id="${id}_fileInput"
+	name="${id}_fileInput" data-dojo-type="ecm/widget/ValidationTextBox"
+	required="true"
+	data-dojo-attach-event="onChange:validate"
+	data-dojo-attach-point="_fileInput" />
+<input type="button" id="${id}_browseDirectory"
+	data-dojo-type="dijit/form/Button"
+	data-dojo-attach-point="_browseDirectory"
+	data-dojo-attach-event="onClick:onBrowseDirectory"
+	label="${_messages.browse_for_directory}" name="{$id_browseDirectory}" />
+<br />
+<br/>
+<input
+	data-dojo-props="id: '${id}_overWriteFileCB', name: '${id}_overWriteFileCB'"
+	data-dojo-type="ecm/widget/CheckBox"
+	data-dojo-attach-point="overWriteFileCB" />
+<label for="${id}_overWriteFileCB">${_messages.over_write_file}</label>
+<div data-dojo-type="ecm/widget/HoverHelp"
+										data-dojo-attach-point="overWriteFileCBHoverHelp">
+										${_messages.file_tracking_runtime_overwrite_hover_help}</div>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<input
+	data-dojo-props="id: '${id}_openFileCB', name: '${id}_openFileCB'"
+	data-dojo-type="ecm/widget/CheckBox"
+	data-dojo-attach-point="openFileCB" />
+<label for="${id}_openFileCB">${_messages.admin_file_tracking_open_file}</label>
+</div>

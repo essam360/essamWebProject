@@ -1,0 +1,86 @@
+<div class="ecmAdminTab">
+  <div data-dojo-type="idx/layout/BorderContainer" data-dojo-attach-point="borderContainer" data-dojo-props="gutters: false, style: { width: '100%', height: '100%' }" class="ecmTheme">
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'top'">	
+	  <div class="ecmAdminTabButtonBar">
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="saveAndCloseButton" data-dojo-attach-event="onClick: _onSaveAndClose" data-dojo-props="disabled: true">
+			${messages.save_and_close}
+		</button>
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="saveButton" data-dojo-attach-event="onClick: onSave" data-dojo-props="disabled: true">
+			${messages.save}
+		</button>
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="resetButton" data-dojo-attach-event="onClick: _onReset" data-dojo-props='disabled: true'>
+			${messages.reset}
+		</button>
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="closeButton" data-dojo-attach-event="onClick: _onClose">
+			${messages.close}
+		</button>
+  	  </div>
+	  <div class="ecmAdminTabHeading" data-dojo-attach-point="headingText">
+	  </div>
+	  <div class="ecmAdminTabInstructions" data-dojo-attach-point="instructions" id="${id}_intro">
+	  </div>
+    </div>
+	<div data-dojo-type="dijit/layout/ContentPane" class="ecmAdminSubTabContainer" data-dojo-props="region: 'center', style: { padding: '5px' }">
+		<table class="propertyTable" role="presentation">
+			<tr>
+				<td class="propertyRowValue">
+					<span class="required">*</span>
+					<label for="${id}_name-field">${messages.name}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="nameFieldHoverHelp">${messages.admin_reason_code_name_hover}</div>
+				</td>
+				<td class="propertyRowValue">
+				   <input data-dojo-attach-point="nameField" 
+				   			data-dojo-attach-event="onKeyUp: _onFieldChange" 
+				   			data-dojo-type="ecm/widget/ValidationTextBox" 
+				   			data-dojo-props="id: '${id}_name-field', 'aria-labelledby': '${id}_name-field', required: true, trim: true, propercase: false, maxLength: 64" />
+				</td>
+			</tr>
+			<tr>
+				<td class="propertyRowValue">
+					<label for="${id}_description-field">${messages.admin_reason_code_description}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-props="isFocusable: true" data-dojo-attach-point="descriptionFieldHoverHelp">${messages.admin_reason_code_description_hover}</div>
+				</td>
+				<td class="propertyRowValue">
+				   <input data-dojo-attach-point="descriptionField" 
+				   			data-dojo-attach-event="onKeyUp: _onFieldChange" 
+				   			data-dojo-type="ecm/widget/ValidationTextBox" 
+				   			data-dojo-props="id: '${id}_description-field', 'aria-labelledby': '${id}_id-field', required: false, trim: true, propercase: false, maxLength: 64" />
+				</td>
+			</tr>
+			<tr data-dojo-attach-point="applicationsSection">
+				<td class="propertyRowValue">
+					<label for="${id}_applications-field">${messages.admin_reason_code_applications}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-props="isFocusable: true" data-dojo-attach-point="applicationsFieldHoverHelp">${messages.admin_reason_code_applications_hover}</div>
+				</td>
+				<td class="propertyRowValue">
+				   <input data-dojo-attach-point="applicationsField" 
+				   			data-dojo-type="ecm/widget/TextBox" 
+				   			data-dojo-props="id: '${id}_applications-field', 'aria-labelledby': '${id}_id-field', required: false, disabled: true, trim: true, propercase: false, maxLength: 128" />
+				</td>
+			</tr>
+			<tr data-dojo-attach-point="repositoriesSection">
+				<td class="propertyRowValue">
+					<label for="${id}_repositories-field">${messages.admin_reason_code_repositories}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-props="isFocusable: true" data-dojo-attach-point="repositoriesFieldHoverHelp">${messages.admin_reason_code_repositories_hover}</div>
+				</td>
+				<td class="propertyRowValue">
+				   <input data-dojo-attach-point="repositoriesField" 
+				   			data-dojo-type="ecm/widget/TextBox" 
+				   			data-dojo-props="id: '${id}_repositories-field', 'aria-labelledby': '${id}_id-field', required: false, disabled: true, trim: true, propercase: false, maxLength: 128" />
+				</td>
+			</tr>
+			<tr data-dojo-attach-point="idSection">
+				<td class="propertyRowValue">
+					<label for="${id}_id-field">${messages.admin_reason_code_id}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-props="isFocusable: true" data-dojo-attach-point="idFieldHoverHelp">${messages.admin_reason_code_id_hover}</div>
+				</td>
+				<td class="propertyRowValue">
+				   <input data-dojo-attach-point="idField" 
+				   			data-dojo-type="ecm/widget/TextBox" 
+				   			data-dojo-props="id: '${id}_id-field', 'aria-labelledby': '${id}_id-field', required: true, disabled: true, trim: true, propercase: false, maxLength: 100" />
+				</td>
+			</tr>							
+		</table>
+	</div>
+  </div>
+</div>

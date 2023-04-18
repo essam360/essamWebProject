@@ -1,0 +1,123 @@
+<div style="overflow: auto;" class="ecmAdminTab ecmTheme">
+    <div class="ecmTheme">
+        <table role="presentation"  data-dojo-attach-point="_mobileAccessTable">
+            <tr style="height:20px">
+                <td valign="middle">
+                    <span class="ecmLabel">${messages.admin_mobile_access}</span>
+                    <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_mobile_access_hover_help" data-dojo-props="isFocusable: true">${messages.admin_mobile_access_hover_help}</div>
+                </td>
+                <td>
+                    <fieldset>
+                        <legend style="display: none;">${messages.admin_mobile_access}</legend>
+                        <div data-dojo-attach-point="_enableMobileAccess" data-dojo-type="ecm/widget/RadioButton" data-dojo-props="id: '${id}_enable_access', type: 'radio', name: '${id}_accessCondition'" data-dojo-attach-event="onClick:_onEnableAccess"></div>
+                        <label for="${id}_enable_access">${messages.admin_enabled}</label>&nbsp;
+                        <div data-dojo-attach-point="_disableMobileAccess" data-dojo-type="ecm/widget/RadioButton" data-dojo-props="id: '${id}_disable_access', type: 'radio', name: '${id}_accessCondition', 'class': 'radioButton2'" data-dojo-attach-event="onClick:_onDisableAccess"></div>
+                        <label for="${id}_disable_access">${messages.admin_disabled}</label>
+                   </fieldset>              
+                </td>
+            </tr>           
+        </table>
+        <div class="ecmMobileSettingsPane" data-dojo-attach-point="_docMgmtPane">
+            <table role="presentation" style="padding: 0 15px;">
+                <tr>
+                    <td valign="top">
+                        <span class="ecmLabel">${messages.admin_mobile_access_allow_label}</span>&nbsp;
+                    </td>
+                    <td valign="top">
+                        <fieldset>
+                            <legend style="display: none;">${messages.admin_mobile_access_allow_label}</legend>
+                            <div style="height:20px" data-dojo-attach-point="_addPhotos">
+                                <div  data-dojo-props="id: '${id}_enableAddPhotos'" data-dojo-attach-point="_enableAddPhotos" data-dojo-attach-event="onClick: _onFieldChange" data-dojo-type="ecm/widget/CheckBox"></div>
+                                <label for="${id}_enableAddPhotos">${messages.admin_mobile_allow_add_photos}</label>
+                            </div>
+                            <div style="height:20px" data-dojo-attach-point="_addDocs">
+                                <div data-dojo-props="id: '${id}_enableAddDocs'" data-dojo-attach-point="_enableAddDocs" data-dojo-attach-event="onClick: _onFieldChange" data-dojo-type="ecm/widget/CheckBox"></div>
+                                <label for="${id}_enableAddDocs">${messages.admin_mobile_allow_add_docs}</label>
+                                <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_enableAddDocsHoverHelp" data-dojo-props="isFocusable: true">${messages.admin_mobile_allow_add_docs_hover_help}</div>
+                            </div>                        
+                            <div style="height:20px" data-dojo-attach-point="_openDocs">
+                                <div id="${id}_enableOpenDocs" data-dojo-attach-point="_enableOpenDocs" data-dojo-attach-event="onClick: _onFieldChange" data-dojo-type="ecm/widget/CheckBox"></div>
+                                <label for="${id}_enableOpenDocs">${messages.admin_mobile_allow_open_docs}</label>
+                                <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_enableOpenDocsHoverHelp" data-dojo-props="isFocusable: true">${messages.admin_mobile_allow_open_docs_hover_help}</div>
+                            </div>      
+                        </fieldset>              
+                    </td>
+                </tr>           
+            </table>
+        </div>
+        
+        <div data-dojo-type="idx/layout/BorderContainer" data-dojo-attach-point="_mobileFeaturesPane" data-dojo-props="'class': 'ecmAdminContentPane', region: 'center', gutters: false, style: { width: '100%', height: '200px' }">
+            <div data-dojo-type="dijit/layout/ContentPane" class="ecmMobileSettingsPane" data-dojo-props="region: 'top'">
+                <div style="padding: 0 5px 5px 0;">
+                   <label for="${id}_mobileFeaturesGrid">${messages.admin_mobile_features}</label>
+                   <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_mobileFeaturesHoverHelp" data-dojo-props="isFocusable: true">${messages.admin_mobile_features_hover_help}</div>
+                </div>
+                <div style="padding-bottom: 10px;">
+                    <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="newButton" data-dojo-attach-event="onClick: _onNew" >
+                        ${messages.admin_mobile_new_feature_button_label}
+                    </button>
+                    <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="openButton" data-dojo-attach-event="onClick: _onEdit" data-dojo-props="disabled: true">
+                        ${messages.admin_edit_button_label}
+                    </button>
+                    <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="deleteButton" data-dojo-attach-event="onClick: _onDelete" data-dojo-props="disabled: true">
+                        ${messages.admin_delete_button_label}
+                    </button>
+                    <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="moveUpButton" data-dojo-attach-event="onClick: _onMoveUp" data-dojo-props="disabled: true">
+                        ${messages.admin_mobile_move_up_button_label}
+                    </button>
+                    <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="moveDownButton" data-dojo-attach-event="onClick: _onMoveDown" data-dojo-props="disabled: true">
+                        ${messages.admin_mobile_move_down_button_label}
+                    </button>       
+                </div>         
+            </div>
+        </div> 
+       
+       <div data-dojo-type="idx/layout/TitlePane" title="${messages.admin_mobile_branding_title}" data-dojo-props="'class': 'mobileSectionHeader'" data-dojo-attach-point="_mobileBrandingSection">
+           <div data-dojo-type="dijit/Dialog" class="ecmBaseDialog themeColorPicker" data-dojo-attach-point="_colorPickerDialog">
+               <div data-dojo-type="dojox/widget/ColorPicker" data-dojo-attach-point="_colorPicker"></div>
+               <div class="dijitDialogPaneActionBar">
+                   <button data-dojo-type="dijit/form/Button" data-dojo-attach-event="onClick: _onOkColorPicker">
+                       ${messages.ok}
+                   </button>
+                   <button data-dojo-type="dijit/form/Button" data-dojo-attach-event="onClick: _onCloseColorPicker">
+                       ${messages.close}
+                   </button>
+               </div>
+           </div>
+           <table role="presentation" class="propertyTable">
+               <tr data-dojo-attach-point="_mobileMainColorRow">
+                   <td class="propertyRowLabel">
+                       <span class="required">*</span>
+                       <label for="${id}_mobileBrandingMainColor">${messages.admin_mobile_branding_main_color}</label>
+                   </td>
+                   <td class="propertyRowValue" id="${id}_mobileBrandingMainColor" data-dojo-attach-point="_mobileBrandingMainColor">
+
+                   </td>
+               </tr>
+               <tr data-dojo-attach-point="_mobileSecondaryColorRow">
+                   <td class="propertyRowLabel">
+                       <span class="required">*</span>
+                       <label for="${id}_mobileBrandingSecondaryColor">${messages.admin_mobile_branding_secondary_color}</label>
+                   </td>
+                   <td class="propertyRowValue" id="${id}_mobileBrandingSecondaryColor" data-dojo-attach-point="_mobileBrandingSecondaryColor">
+
+                   </td>
+               </tr>
+           </table>
+        </div>
+        
+        <div data-dojo-type="idx/layout/TitlePane" title="${messages.admin_mobile_settings_title}" data-dojo-props="class: 'mobileSectionHeader'" data-dojo-attach-point="_settingsPane">
+            <table role="presentation" class="propertyTable" >
+				<tr>
+				    <td class="propertyRowLabel">
+				        <label for="${id}_mobileEmailAddress">${messages.admin_mobile_email_address}</label>
+				        <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_mobileEmailAddressHoverHelp" data-dojo-props="isFocusable: 'true'">${messages.admin_mobile_email_address_hover_help}</div>
+				    </td>
+				    <td class="propertyRowValue">
+				        <div data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-attach-point="_mobileEmailAddress" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-props="id: '${id}_mobileEmailAddress', maxLength:240, required:false, propercase: false"></div>     
+				    </td>
+				</tr>                       
+            </table>
+        </div>
+    </div>
+</div>

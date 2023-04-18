@@ -1,0 +1,19 @@
+ <div class="ecmFolderSelector">
+ 	<div data-dojo-type="ecm.widget.FolderTree"
+		data-dojo-attach-point="_folderTree"
+		data-dojo-attach-event="onItemSelected: onFolderSelect, onItemDblClick: _onTreeDblClick, onProcessingStarted: onPagingStart, onProcessingComplete: onPagingComplete, onRendered: onFolderTreeRendered"
+		showFoldersOnly="true"
+		enableCtxMenu="false"
+		enableDnd="false"
+		class="folderTree">
+	</div>
+	<div class="includeSubfolders" 
+			data-dojo-attach-point="_includeSubfoldersNode" 
+			id="${id}_includeSubfoldersNode">
+			<input data-dojo-type="dijit.form.CheckBox" 
+				data-dojo-attach-point="_includeSubfoldersCheckBox" 
+				id="${id}_includeSubfolders" 
+				name=${id}_includeSubfolders" value="" type="checkbox"/>
+		<label for="${id}_includeSubfolders" >${_messages.include_subfolders}</label>		
+	</div>
+</div>

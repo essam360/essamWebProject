@@ -1,0 +1,68 @@
+<div class="ecmLaunchPatternPropertiesPane">
+    <table role="presentation">
+        <tr>
+            <td>
+                <span class="required">*</span>
+                <label for="${id}_reviewersBox">${_messages.process_reviewers}</label>&nbsp;            
+                <div>
+                    <div width="50px" id="${id}_reviewersBox" data-dojo-attach-point="_reviewersSelectionBox"></div>
+                </div>                
+            </td>            
+            <td>
+                <span class="required">*</span>
+                <label for="${id}_processNameTextBox">${_messages.process_workflow_name}</label>&nbsp;   
+                <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_processNameFieldHoverHelp" message="${_messages.process_workflow_name_hover_help}"></div>
+                <div>
+                    <div class="ecmProcessNameField" id="${id}_processNameTextBox" data-dojo-attach-point="_processNameTextBox"></div>
+                </div>                                     
+            </td>    
+            <td>        
+                <label>${_messages.process_on_reject}</label>
+                <div>
+                    <input id="${id}_returnToOriginatorRadioButton" name="onRejectRadioButton" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-point="_returnToOriginatorRadioButton">
+                    <label for="${id}_returnToOriginatorRadioButton">${_messages.process_return_to_originator}</label>
+                </div> 
+                <div>
+                    <input id="${id}_returnToPreviousReviewerRadioButton" name="onRejectRadioButton" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-point="_returnToPreviousReviewerRadioButton">                        
+                    <label for="${id}_returnToPreviousReviewCheckbox">${_messages.process_return_to_previous_reviewer}</label>
+                </div>                                      
+            </td>              
+        </tr>
+        <tr>    
+            <td>
+                <label for="${id}_approvalRequiredTextBox">${_messages.process_approvals_required}</label>
+                <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_approvalRequiredFieldHoverHelp" message="${_messages.process_approvals_required_hover_help}"></div>
+                <div>
+                    <div class="ecmApprovalRequiredField" id="${id}_approvalRequiredTextBox" data-dojo-attach-point="_approvalRequiredTextbox"></div>        
+                </div>            
+            </td>          
+            <td>
+                <label for="${id}_instructions">${_messages.process_instuctions}</label>            
+                <div> 
+                    <div id="${id}_instructions" data-dojo-attach-point="_instructionsTextBox"></div>
+                </div>         
+            </td> 
+            <td rowspan="2">
+                <div>&nbsp;</div> 
+                <label>${_messages.process_additional_settings}</label>    
+                <div>
+                    <div id="${id}_allowReassignCheckbox" name="${id}_allowReassignCheckbox" data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-point="_allowReassignCheckbox"></div>
+                    <label for="${id}_allowReassignCheckbox">${_messages.process_allow_reassign}</label>
+                </div> 
+                <div>
+                    <div id="${id}_completeNotificationCheckbox" name="${id}_completeNotificationCheckbox" data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-point="_completeNotificationCheckbox"></div>
+                    <label for="${id}_completeNotificationCheckbox">${_messages.process_complete_notification}</label>
+                </div>
+            </td>                                                        
+        </tr>
+        <tr>
+            <td>&nbsp;</td>         
+            <td>
+                <label for="${id}_deadLineTextBox">${_messages.process_pattern_deadline}</label>
+                <div>
+                    <div data-dojo-attach-point="_deadLinePicker" aria-label="${_messages.properties_type_date_tooltip}"></div>
+                </div> 
+            </td>                                   
+        </tr>        
+    </table>                            
+</div>

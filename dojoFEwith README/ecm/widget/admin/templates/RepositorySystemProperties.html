@@ -1,0 +1,16 @@
+<div class="adminRepository ecmRepositorySystemProperties" data-dojo-type="dijit/layout/BorderContainer" gutters="false">
+	<div class="ecmAdminTabInstructions" id="${id}_intro" data-dojo-attach-point="_instructions">${messages.admin_repository_system_instructions}</div>
+	<div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'center', style: { 'padding': '15px 0' }" data-dojo-attach-point="repositorySystemPropertiesContainer">
+		<div style="margin-bottom: 15px;">
+        	<div>
+        		<label for="${id}_objectType-field">${messages.admin_system_properties_for}</label>
+	      	</div>  
+	      	<select data-dojo-type="dijit/form/Select" data-dojo-attach-point="_objectTypeSelect" data-dojo-attach-event="onChange: _onObjectTypeChange" data-dojo-props="id: '${id}_objectType-field'">
+	         	<option value="document" selected="selected">${messages.object_type_document}</option>
+	         	<option value="folder">${messages.object_type_folder}</option>
+	      	</select>
+        </div>
+	 	<div data-dojo-type="idx/widget/SloshBucket" data-dojo-attach-point="_systemProperties" data-dojo-props="'class': 'sloshBucket', style: { height: '300px', width: '90%', 'margin-top': '15px' }">
+		</div>
+    </div>
+</div>

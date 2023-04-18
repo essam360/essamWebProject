@@ -1,0 +1,105 @@
+<div class="calendarTaskScheduler ecmCommonPropertiesPane">
+	<fieldset style="padding: 0px; margin: 0px">
+	<legend style="display: none">${messages.taskSchedulerPane_scheduleInformation}</legend>
+	
+	<div data-dojo-attach-point="runOnceSection" style="margin-top:8px;">
+		<div value="true" type="radio" name="${id}_scheduleGroup" data-dojo-attach-point="runOnceRadioButton" id="${id}_runOnceRadioButton" 
+			 data-dojo-type="ecm.widget.RadioButton" data-dojo-props="checked:true"></div>
+		<label data-dojo-attach-point="runOnceRadioButtonLabel" for="${id}_runOnceRadioButton">${messages.taskSchedulerPane_runOnce}</label>&nbsp;
+		<table border="0" cellpadding="4px" cellspacing="0" class="runSection propertyTable" role="presentation">
+		<tbody>
+			<tr>
+				<td class="propertyRowLabel">
+					<span class="ecmLabeledInputFieldRequired">*</span>
+					<label>${messages.taskSchedulerPane_startTime}:</label>
+				</td>
+				<td class="propertyRowValue">
+					<span data-dojo-attach-point="startTimeDateTimeBox" data-dojo-type="idx/form/DateTimeTextBox" id="${id}_startTimeDateTimeBox" data-dojo-props="intermediateChanges:true, showPickerIcon:true, instantValidate:true, disabled:true" aria-label="${messages.taskSchedulerPane_startTime}"></span>
+					<span data-dojo-attach-point="startImmediatelyCheckbox" data-dojo-type="dijit/form/CheckBox" data-dojo-props="checked:true"
+						name="${id}_startImmediatelyCheckBox" id="${id}_startImmediatelyCheckBox" data-dojo-attach-event="onChange:onChange"></span>
+					<label for="${id}_startImmediatelyCheckBox">${messages.taskSchedulerPane_startImmediately}</label>
+				</td>
+			</tr>
+		</tbody>
+		</table>
+	</div>
+	
+	<div data-dojo-attach-point="runRepeatedSection">
+		<div value="true" type="radio" name="${id}_scheduleGroup" data-dojo-attach-point="repeatRadioButton" id="${id}_repeatRadioButton" 
+				data-dojo-type="ecm.widget.RadioButton"></div>
+		<label data-dojo-attach-point="repeatRadioButtonLabel" for="${id}_repeatRadioButton">${messages.taskSchedulerPane_runAtSchedule}</label>&nbsp;
+		<table border="0" cellpadding="4px" cellspacing="0" class="runSection propertyTable" role="presentation">
+		<tbody>
+			<tr>
+				<td class="propertyRowLabel">
+					<span class="ecmLabeledInputFieldRequired">*</span>
+					<label for="${id}_repeatSelector">${messages.taskSchedulerPane_repeats}:</label>
+				</td>
+				<td class="propertyRowValue">
+					<div class="calendarScheduleRepeatSelector" data-dojo-type="dijit/form/Select" data-dojo-attach-point="repeatSelector" id="${id}_repeatSelector" data-dojo-props="disabled:true">
+					<option value="hourly">${messages.taskSchedulerPane_hourly}</option>
+					<option value="daily" selected="selected">${messages.taskSchedulerPane_daily}</option>
+   					<option value="weekly" >${messages.taskSchedulerPane_weekly}</option>
+   					<option value="monthly">${messages.taskSchedulerPane_monthly}</option>
+   					<option value="yearly">${messages.taskSchedulerPane_yearly}</option>
+					</div>
+				</td>
+			</tr>
+			
+			<tr data-dojo-attach-point="intervalRow" style="display:none;">
+				<td class="propertyRowLabel">
+					<span class="ecmLabeledInputFieldRequired">*</span>
+					<label for="${id}_intervalSelector">${messages.taskSchedulerPane_interval}:</label>
+				</td>
+				<td class="propertyRowValue">
+					<div class="calendarScheduleRepeatSelector" data-dojo-type="dijit/form/Select" data-dojo-attach-point="intervalSelector" id="${id}_intervalSelector" data-dojo-props="disabled:true">
+						<option value="0.5">0.5</option>
+						<option value="1" selected="selected">1</option>
+					</div>
+				</td>
+			</tr>
+			
+			<tr data-dojo-attach-point="repeatEveryRow" style="display:none;">
+				<td class="propertyRowLabel">
+					<span class="ecmLabeledInputFieldRequired">*</span>
+					<label>${messages.taskSchedulerPane_repeatsEvery}:</label>
+				</td>
+				<td class="propertyRowValue calendarSchedulerRepeatRow">
+					<div style="padding-left: 2px;">
+						<button data-dojo-attach-point="sundayButton" data-dojo-type="dijit/form/ToggleButton" data-dojo-attach-event="onClick:_toggleCalendarButton" class="calendarToggleButton">${messages.taskSchedulerPane_sunday}</button>
+						<button data-dojo-attach-point="mondayButton" data-dojo-type="dijit/form/ToggleButton"  data-dojo-attach-event="onClick:_toggleCalendarButton" class="calendarToggleButton">${messages.taskSchedulerPane_monday}</button>
+						<button data-dojo-attach-point="tuesdayButton" data-dojo-type="dijit/form/ToggleButton"  data-dojo-attach-event="onClick:_toggleCalendarButton" class="calendarToggleButton">${messages.taskSchedulerPane_tuesday}</button>
+						<button data-dojo-attach-point="wednesdayButton" data-dojo-type="dijit/form/ToggleButton"  data-dojo-attach-event="onClick:_toggleCalendarButton" class="calendarToggleButton">${messages.taskSchedulerPane_wednesday}</button>
+						<button data-dojo-attach-point="thursdayButton" data-dojo-type="dijit/form/ToggleButton"  data-dojo-attach-event="onClick:_toggleCalendarButton" class="calendarToggleButton">${messages.taskSchedulerPane_thursday}</button>
+						<button data-dojo-attach-point="fridayButton" data-dojo-type="dijit/form/ToggleButton"  data-dojo-attach-event="onClick:_toggleCalendarButton" class="calendarToggleButton">${messages.taskSchedulerPane_friday}</button>
+						<button data-dojo-attach-point="saturdayButton" data-dojo-type="dijit/form/ToggleButton"  data-dojo-attach-event="onClick:_toggleCalendarButton" class="calendarToggleButton">${messages.taskSchedulerPane_saturday}</button>
+					</div>
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="propertyRowLabel">
+					<span class="ecmLabeledInputFieldRequired">*</span>
+					<label>${messages.taskSchedulerPane_starting}:</label>
+				</td>
+				<td class="propertyRowValue">
+					<span data-dojo-attach-point="repeatStartingDateBox" data-dojo-type="idx/form/DateTimeTextBox" id="${id}_repeatStartingDateBox" data-dojo-props="intermediateChanges:true, showPickerIcon:true, disabled:true, instantValidate:true" aria-label="${messages.taskSchedulerPane_starting}"></span>
+					<label data-dojo-attach-point="toLabel" style="display:none;">&nbsp; ${messages.to} &nbsp;</label>
+					<div style="display:none" data-dojo-attach-point="toEndingTime" data-dojo-type="idx/form/DateTimeTextBox" id="${id}_toEndingDateTextBox" data-dojo-props="disabled:true, intermediateChanges:true, showPickerIcon:true, instantValidate:true" aria-label="${messages.to}" data-dojo-attach-event="onChange:onChange"></div>
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="propertyRowLabel" style="vertical-align:top;">
+					<label data-dojo-attach-point="endingLabel" for="${id}_endDateTextBox">${messages.taskSchedulerPane_ending}:</label>
+				</td>
+				<td class="propertyRowValue">
+					<div data-dojo-attach-point="endDateBox" data-dojo-type="idx/form/DateTextBox" id="${id}_endDateTextBox" data-dojo-props="disabled:true,showPickerIcon:true" aria-label="${messages.taskSchedulerPane_ending}" data-dojo-attach-event="onChange:onChange"></div>
+				</td>
+			</tr>
+			</div>
+		</tbody>
+		</table>
+	</div>
+</fieldset>
+</div>

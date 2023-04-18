@@ -1,0 +1,52 @@
+<div class="ecmWorkspaceToolbar" data-dojo-type="dijit.layout.ContentPane" region="top">
+	<div class="buttonArea">
+		
+		<div data-dojo-attach-point="removeButton"
+			data-dojo-attach-event="onClick : onRemove" data-dojo-type="dijit.form.Button"
+			disabled>
+			${messages.workspacebuilder_selection_remove}
+		</div>
+		<div data-dojo-attach-point="makeDefaultButton"
+			data-dojo-attach-event="onClick : onMakeDefault" data-dojo-type="dijit.form.Button"
+			disabled>
+			${messages.workspacebuilder_makeDefault_list}
+		</div>				
+		<div data-dojo-attach-point="editButton"
+			data-dojo-attach-event="onClick : onEdit" data-dojo-type="dijit.form.Button"
+			disabled>
+			${messages.edit}
+		</div>		
+		<div data-dojo-attach-point="moveOrderUpButton" style="display: none;"
+			data-dojo-attach-event="onClick : onMoveOrderUp" data-dojo-type="dijit.form.Button"
+			disabled>
+			${messages.workspacebuilder_selection_moveup}
+		</div>				
+		<div data-dojo-attach-point="moveOrderDownButton" style="display: none;"
+			data-dojo-attach-event="onClick : onMoveOrderDown" data-dojo-type="dijit.form.Button"
+			disabled>
+			${messages.workspacebuilder_selection_movedown}
+		</div>				
+							
+		<div class="trailingArea">
+
+			<div data-dojo-attach-point="makeAvailable"
+				data-dojo-attach-event="onClick : onMakeAvailable"
+				data-dojo-type="dijit.form.Button"
+				disabled>
+				${messages.workspacebuilder_selection_make_role_available}
+			</div>
+
+			<div data-dojo-attach-point="addNew"
+				data-dojo-attach-event="onClick : onAddNewItem"
+				data-dojo-type="dijit.form.Button">
+				${addButtonLabel}
+			</div>
+			<div data-dojo-attach-point="createNew"
+				data-dojo-attach-event="onClick : onCreateNewItem"
+				data-dojo-type="dijit.form.Button">
+				${createButtonLabel}
+			</div>
+		</div>
+		
+	</div>
+</div>

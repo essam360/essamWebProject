@@ -1,0 +1,13 @@
+<div class="ecmBoxTextSearchOptions">
+	<fieldset>
+		<legend style="display: none;">${messages.box_text_search_options_search_within}</legend>
+		<input id="${id}_everything" data-dojo-type="idx/form/CheckBox"
+			data-dojo-attach-point="_everythingCheckBox"
+			data-dojo-props="label: '${messages.box_text_search_options_search_within_everything}', checked: true, disabled: true"
+			data-dojo-attach-event="onClick: _onEverythingCheckBoxClick" />
+		<div id="${id}_contentTypes" data-dojo-type="idx/form/CheckBoxList"
+			data-dojo-attach-point="_contentTypesSelect"
+			data-dojo-props="label: '${messages.box_text_search_options_limit_to}', labelAlignment: 'vertical'"
+			data-dojo-attach-event="onChange: _onContentTypesSelectChange"></div>
+	</fieldset>
+</div>

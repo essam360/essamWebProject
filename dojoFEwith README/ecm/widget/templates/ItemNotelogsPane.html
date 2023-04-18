@@ -1,0 +1,30 @@
+<div class="ecmItemNotelogsPane" data-dojo-attach-point="containerNode">
+	<div data-dojo-type="dijit.layout.ContentPane" region="center" class="notelogArea">
+		<div class="dijitHidden ecmEditNotelogsPaneWithoutAddPane" data-dojo-type="dijit.layout.ContentPane" data-dojo-attach-point="_editNotelogPane">
+			<div class= "ecmNotelogsEditPane">
+		   		<div class = "ecmEditNotelogsTextArea" id="${id}_noteLogRawText" data-dojo-type="dijit.form.SimpleTextarea" data-dojo-attach-point="_noteLogRawText""></div>
+		   	</div>
+		</div> 
+		<div class="ecmNotelogsContentlistWithAddPane disableGridxAlternatingRows" data-dojo-type="dijit.layout.ContentPane" data-dojo-attach-point="_notelogContentListArea"  region="center">
+			<div data-dojo-type="ecm.widget.listView.ContentList" data-dojo-attach-point="_notelogs"></div>
+		</div>	
+		<div data-dojo-type="dijit.layout.ContentPane" data-dojo-attach-point="_addNotelogsPane" region="bottom" style="overflow:visible;position:absolute;bottom:5px;">
+			<div class= "ecmNotelogsAddPane" data-dojo-attach-point="_addNotelogsBox">
+				<div id="${id}_notelogAddingTextarea" data-dojo-type="idx.form.Textarea" placeHolder= "${messages.notelog_add_placeholder}" hint="${messages.notelog_hint}" data-dojo-attach-point="_notelogAddingTextarea" disabled="true" style="width:100%;" intermediateChanges="true" ></div>
+			</div>
+		</div>
+	</div>
+	<div data-dojo-type="dijit.layout.ContentPane" data-dojo-attach-point="_cmNotelogTopButtonsArea" style="width: 100%;" region="bottom">
+			<div class="notelogButtons" data-dojo-type="dijit.layout.ContentPane" data-dojo-attach-point="buttonBar" region="leading">
+			<button class="dijitHidden" id="${id}_updateNotelogButton" data-dojo-type="dijit.form.Button" data-dojo-attach-point="_updateRawNotelogsButton" type="button" disabled="true" data-dojo-attach-event="onClick:_onClickUpdateRawNotelogsButton">${messages.notelog_modify}</button>
+			<button class="dijitHidden" id="${id}_notelogEditButton" data-dojo-type="dijit.form.Button" data-dojo-attach-point="_notelogEditButton" data-dojo-attach-event="onClick:editNotelog" type="button" disabled="true">${messages.notelog_edit}</button>
+			<button id="${id}_cancelUpdateNotelogButton" data-dojo-type="dijit.form.Button" data-dojo-attach-point="_cancelUpdateRawNotelogsButton" type="button" disabled="true" data-dojo-attach-event="onClick:_cancelUpdateRawNotelogs">${messages.viewer_editproperties_reset}</button>
+			<button id="${id}_downloadNotelogButton" style="vertical-align: middle;" data-dojo-type="dijit.form.Button" data-dojo-attach-point="_downloadNotelogButton" type="button" disabled="true" data-dojo-attach-event="onClick:_onClickDownload">${messages.notelogs_download}</button>
+			</div>
+			<div class="notelogCheckbox" data-dojo-type="dijit.layout.ContentPane" data-dojo-attach-point="checkboxBar" region="trailing">
+			<input id="${id}_toggleCreateNewVersion" class="dijitHidden"  data-dojo-type="dijit.form.CheckBox"  data-dojo-attach-point="_toggleCreateNewVersion" type="checkBox" data-dojo-props="checked:true"></input>
+			<label for=${id}_toggleCreateNewVersion" class="dijitHidden"  data-dojo-attach-point="_labelToggleCreateNewVersion">${messages.notelog_create_newVersion}</label>
+			</div>
+	</div>
+
+</div>

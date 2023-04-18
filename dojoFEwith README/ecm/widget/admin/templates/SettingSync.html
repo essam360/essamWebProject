@@ -1,0 +1,89 @@
+<div class="ecmAdminTab ecmSync">
+  <div data-dojo-type="idx/layout/BorderContainer" data-dojo-attach-point="borderContainer" data-dojo-props="gutters: false, style: { width: '100%', height: '100%'}">
+	<div data-dojo-type="dijit/layout/ContentPane"  data-dojo-props="region: 'center'">
+	  <div style="padding: 7px 0px 7px 0px;" id="${id}_intro" data-dojo-attach-point="_instructions">${messages.admin_p8_instructions}</div>
+	  <table class="propertyTable" role="presentation">
+		<tbody class="propertyTable" width=100%>
+            <tr>
+                    <td class="propertyRowLabel" valign="top">
+                        <span>${messages.admin_syncserver_enable}</span>
+                        <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="syncServerHoverHelp">${messages.admin_syncserver_enable_hover}</div>
+                    </td>
+                    <td class="propertyRowValue">
+                      <fieldset>
+                      <legend style="display: none;">${messages.admin_syncserver_enable}</legend>
+                        <div>
+                          <input data-dojo-attach-point="syncServerEnable" data-dojo-type="ecm/widget/RadioButton" 
+                                 data-dojo-props="id: '${id}_enableSyncServer-field', type: 'radio', name: '${id}_syncServer', value: 'enable'"
+                                 data-dojo-attach-event="onClick:_onEnableSyncServer" />
+                          <label for="${id}_enableSyncServer-field">${messages.enable}</label>
+                          <input data-dojo-attach-point="syncServerDisable" data-dojo-type="ecm/widget/RadioButton" 
+                                 data-dojo-props="id: '${id}_disableSyncServer-field', type: 'radio', name: '${id}_syncServer', value: 'disable', 'class': 'radioButton1'"
+                                 data-dojo-attach-event="onClick:_onDisableSyncServer" />
+                          <label for="${id}_disableSyncServer-field">${messages.disable}</label>
+                        </div>
+                      </fieldset>
+                    </td>
+            </tr>
+			<tr>
+					<td class="propertyRowLabel">
+						<label for="${id}_syncServerURL-field">${messages.admin_syncserver_url}</label>&nbsp;
+						<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="syncServerURLHoverHelp">${messages.admin_syncserver_url_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+					   <input data-dojo-attach-point="syncServerURLField" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="id: '${id}_syncServerURL-field', required: false, trim: true, maxLength: 64"  />
+					</td>
+			</tr>
+            <tr>
+					<td class="propertyRowLabel">
+						<label for="${id}_http_config">${messages.admin_syncserver_consistency_checker}</label>&nbsp;
+					    <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-props="isFocusable: true" data-dojo-attach-point="generateConfigHover">${messages.admin_syncserver_consistency_checker_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+						<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="runConsistencyCheckerButton" data-dojo-attach-event="onClick: _onClickRunChecker">
+							${messages.admin_syncserver_consistency_checker_button}
+						</button>
+						<table role="presentation">
+							<tr data-dojo-attach-point="stateRow">
+							  <td tabIndex=0>${messages.admin_syncserver_consistency_checker_state}</td>
+							  <td tabIndex=0 data-dojo-attach-point="stateTD"></td>
+							</tr>
+							<tr data-dojo-attach-point="startTimeRow">
+							  <td tabIndex=0>${messages.admin_syncserver_consistency_checker_started}</td>
+							  <td tabIndex=0 data-dojo-attach-point="startTimeTD"></td>
+							</tr>
+							<tr data-dojo-attach-point="stopTimeRow">
+							  <td tabIndex=0>${messages.admin_syncserver_consistency_checker_ended}</td>
+							  <td tabIndex=0 data-dojo-attach-point="stopTimeTD"></td>
+							</tr>
+							<tr data-dojo-attach-point="changedItemsRow">
+							  <td tabIndex=0>${messages.admin_syncserver_consistency_checker_change_updates}</td>
+							  <td tabIndex=0 data-dojo-attach-point="changedItemsTD"></td>
+							</tr>
+							<tr data-dojo-attach-point="processedSuccessRow">
+							  <td tabIndex=0>${messages.admin_syncserver_consistency_checker_items_processed_success}</td>
+							  <td tabIndex=0 data-dojo-attach-point="processedSuccessTD"></td>
+							</tr>
+							<tr data-dojo-attach-point="newlyDiscoveredRow">
+							  <td tabIndex=0>${messages.admin_syncserver_consistency_checker_items_discovered}</td>
+							  <td tabIndex=0 data-dojo-attach-point="newlyDiscoveredTD"></td>
+							</tr>
+							<tr data-dojo-attach-point="totalRow">
+							  <td tabIndex=0>${messages.admin_syncserver_consistency_checker_items_processed}</td>
+							  <td tabIndex=0 data-dojo-attach-point="totalTD"></td>
+							</tr>
+							<tr data-dojo-attach-point="submitterRow">
+							  <td tabIndex=0>${messages.admin_syncserver_consistency_checker_user}</td>
+							  <td tabIndex=0 data-dojo-attach-point="submitterTD"></td>
+							</tr>
+							<tr data-dojo-attach-point="scheduledRow">
+							  <td tabIndex=0>${messages.admin_syncserver_consistency_checker_scheduled}</td>
+							  <td tabIndex=0 data-dojo-attach-point="scheduledTD"></td>
+							</tr>
+						</table>
+					</td>
+			</tr>
+		</tbody>
+	  </table>
+  </div>	
+</div>

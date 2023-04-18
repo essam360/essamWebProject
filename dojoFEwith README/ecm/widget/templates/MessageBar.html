@@ -1,0 +1,8 @@
+<div class="ecmMessageBar">
+	<label for="${id}_messageSelector" style="display: none;">${messages.status_bar}</label>
+	<select id="${id}_messageSelector" data-dojo-type="dijit.form.Select" data-dojo-attach-point="messageList" maxHeight="${maxMsgAreaHeight}"
+		dropDownPosition="above,below" 
+		disabled style="width: 100%;">
+	</select>
+	<div data-dojo-attach-point="alertNode" role="alert" class="dijitOffScreen"></div>
+</div>

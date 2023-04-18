@@ -1,0 +1,217 @@
+<div class="ecmDesktopAppearance">   	
+    <div class="ecmAdminTabInstructions" data-dojo-attach-point="instructions" id="${id}_intro">${messages.admin_desktop_appearance_instruction}</div>
+      <table class="propertyTable" style="margin-bottom: 15px;" role="presentation">
+          <tr data-dojo-attach-point="appNameRow">
+              <td class="propertyRowLabel" valign="middle">
+                  <label for="${id}_application_name_field">${messages.admin_desktop_application_name}</label>&nbsp;
+                  <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_application_name_field_hover">${messages.admin_desktop_application_name_hover}</div>
+              </td>
+              <td class="propertyRowValue">
+                  <input data-dojo-props="id: '${id}_application_name_field', required: false, style: { width: '180px' }" data-dojo-attach-point="_application_name" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" />
+              </td>
+          </tr>
+          <tr data-dojo-attach-point="themeRow">
+              <td class="propertyRowLabel" valign="top">
+                  <label for="${id}_theme_field">${messages.admin_desktop_theme}</label>&nbsp;
+                  <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_themesHover">${messages.admin_desktop_theme_hover}</div>
+              </td>
+              <td class="propertyRowValue">
+                  <div data-dojo-attach-point="_themesField"
+                      data-dojo-attach-event="onChange: onThemeChange" 
+                      data-dojo-type="ecm/widget/FilteringSelect" 
+                      data-dojo-props="id: '${id}_theme_field', labelType: 'text', label: 'label', searchAttr: 'label', maxHeight: 200"></div>
+              </td>
+          </tr>         
+          <tr data-dojo-attach-point="helpRow">
+              <td class="propertyRowLabel" valign="top">
+                  <label>${messages.admin_desktop_help_url}</label>&nbsp;
+                  <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_helpUrlHover">${messages.admin_desktop_help_url_hover}</div>
+              </td>
+              <td class="propertyRowValue">
+                  <fieldset>
+                      <legend style="display:none;">${messages.admin_desktop_help_url}</legend>
+                      <input data-dojo-props="type: 'radio', name: '${id}_helpUrl', id: '${id}_help_url_none'" data-dojo-attach-point="_helpUrlNone" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:onHelpUrlNone, onChange: _onFieldChange" >
+                      <label for="${id}_help_url_none">${messages.default_label}</label>
+                      <br>
+                      <input data-dojo-props="type: 'radio', name: '${id}_helpUrl', id: '${id}_help_url_enabled'" data-dojo-attach-point="_helpUrlEnabled" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:onHelpUrlEnabled, onChange: _onFieldChange" >
+                      <label for="${id}_help_url_enabled">${messages.url_label}</label>
+                      <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_helpUrlUrlHover" data-dojo-props="style: { 'margin-top': '-3px' }">${messages.admin_desktop_help_url_url_hover}</div>
+                      <div style="margin: 0 20px;">
+                          <label for="${id}_help_url_url" style="display: none;">${messages.url_label}</label>
+                          <input id="${id}_help_url_url" data-dojo-props="required: true, trim: true, propercase: false" data-dojo-attach-point="_helpUrlUrl" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" />
+                      </div>  
+                      <br>
+                      <input data-dojo-props="type: 'radio', name: '${id}_helpUrl', id: '${id}_help_kc_enabled'" data-dojo-attach-point="_helpKCEnabled" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:onHelpKCEnabled, onChange: _onFieldChange" >
+                      <label for="${id}_help_kc_enabled">${messages.admin_help_kc}</label>
+                      <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_helpKCHelpHover" data-dojo-props="style: { 'margin-top': '-3px' }">${messages.admin_help_kc_hover}</div>
+                      <div style="margin: 0 20px;">
+                        <div>
+                          <span class="required">*</span>
+                          <label for="${id}_help_tax">${messages.admin_help_taxonomy}</label>
+	                      <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_helpKCTaxHover">${messages.admin_help_taxonomy_hover}</div>
+                          <input id="${id}_help_tax" data-dojo-props="required: true, trim: true, propercase: false" data-dojo-attach-point="_helpKCTax" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" />
+                        </div>
+                        <div style="padding-top: 7px">
+                          <span class="required">*</span>
+                          <label for="${id}_help_context">${messages.admin_help_context}</label>
+	                      <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_helpKCContextHover">${messages.admin_help_context_hover}</div>
+                          <input id="${id}_help_context" data-dojo-props="required: true, trim: true, propercase: false" data-dojo-attach-point="_helpKCContext" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" />
+                        </div>
+                        <div style="padding-top: 7px">
+                          <span class="required">*</span>
+                          <label for="${id}_help_welcome">${messages.admin_help_welcome}</label>
+	                      <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_helpKCWelcomeHover">${messages.admin_help_welcome_hover}</div>
+                          <input id="${id}_help_welcome" data-dojo-props="required: true, trim: true, propercase: false" data-dojo-attach-point="_helpKCWelcome" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" />
+                        </div>
+                      </div>  
+                  </fieldset>                    
+              </td>
+          </tr>              
+          <tr data-dojo-attach-point="loginPageRow">
+              <td class="propertyRowLabel" valign="top"> 
+                  <label>${messages.admin_desktop_login_page_content}</label>&nbsp;
+                  <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_loginPageContentHover">${messages.admin_desktop_login_page_content_hover}</div>
+              </td>
+              <td class="propertyRowValue">
+                  <fieldset>
+                      <legend style="display:none;">${messages.admin_desktop_login_page_content}</legend>
+                      <input data-dojo-props="type: 'radio', name: '${id}_loginPageContent', id: '${id}_login_page_content_none'" data-dojo-attach-point="_loginPageContentNone" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:onLoginPageContentNone, onChange: _onFieldChange" >
+                      <label for="${id}_login_page_content_none">${messages.none}</label>
+			    <br>
+                      <input data-dojo-props="type: 'radio', name: '${id}_loginPageContent', id: '${id}_login_page_content_enabled'" data-dojo-attach-point="_loginPageContentEnabled" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:onLoginPageContentEnabled, onChange: _onFieldChange" >
+                      <label for="${id}_login_page_content_enabled">${messages.url_label}</label>
+                      <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_loginPageContentUrlHover" data-dojo-props="style: { 'margin-top': '-3px' }">${messages.admin_desktop_login_page_content_url_hover}</div>
+                      <div style="margin: 0 20px;">
+                          <label for="${id}_login_page_content_url" style="display: none;">${messages.url_label}</label>
+                          <input data-dojo-props="required: true, trim: true, propercase: false, id: '${id}_login_page_content_url'" data-dojo-attach-point="_loginPageContentUrl" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" />
+                      </div>  
+                  </fieldset>                    
+              </td>
+          </tr>	 
+          <tr data-dojo-attach-point="passwordRulesRow">
+              <td class="propertyRowLabel" valign="top"> 
+                  <label>${messages.admin_desktop_password_rules}</label>&nbsp;
+                  <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_passwordRulesHover">${messages.admin_desktop_password_rules_hover}</div>
+              </td>
+              <td class="propertyRowValue">
+                  <fieldset>
+                      <legend style="display:none;">${messages.admin_desktop_password_rules}</legend>
+                      <input data-dojo-props="type: 'radio', name: '${id}_passwordRules', id: '${id}_password_rules_none'" data-dojo-attach-point="_passwordRulesNone" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:onPasswordRulesNone, onChange: _onFieldChange" >
+                      <label for="${id}_password_rules_none">${messages.none}</label>
+			    <br>
+                      <input data-dojo-props="type: 'radio', name: '${id}_passwordRules', id: '${id}_password_rules_enabled'" data-dojo-attach-point="_passwordRulesEnabled" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:onPasswordRulesEnabled, onChange: _onFieldChange" >
+                      <label for="${id}_password_rules_enabled">${messages.url_label}</label>
+                      <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_passwordRulesUrlHover" data-dojo-props="style: { 'margin-top': '-3px' }">${messages.admin_desktop_password_rules_url_hover}</div>
+                      <div style="margin: 0 20px;">
+                          <label for="${id}_password_rules_url" style="display: none;">${messages.url_label}</label>
+                          <input data-dojo-props="required: true, trim: true, propercase: false, id: '${id}_password_rules_url'" data-dojo-attach-point="_passwordRulesUrl" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" />
+                      </div> 
+                  </fieldset>                    
+              </td>
+          </tr>       
+      </table>
+      
+      <div data-dojo-type="idx/layout/TitlePane" data-dojo-attach-point="deprecatedFeaturesTitlePane" data-dojo-props='"aria-describedby": "${id}_deprecated_features_instructions", style: { width: "100%", "margin-top": "10px", "margin-left": "0px" }'>
+		  <div class="ecmAdminTabInstructions" id="${id}_deprecated_features_instructions">${messages.admin_desktop_deprecated_appearance_instructions}</div>  
+	      <table class="propertyTable" role="presentation">
+	      	  <tr>
+	              <td class="propertyRowLabel" valign="top">
+	                  <label>${messages.admin_desktop_login_logo}</label>&nbsp;
+	                  <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_loginPageLogoHover">${messages.admin_desktop_login_logo_hover}</div>
+	              </td>
+	              <td class="propertyRowValue">
+	                  <fieldset>
+	                      <legend class="dijitHidden">${messages.admin_desktop_login_logo}</legend>
+	                      <input data-dojo-props="type: 'radio', name: '${id}_loginPageLogo', id: '${id}_login_page_logo_none'" data-dojo-attach-point="_loginPageLogoNone" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:onLoginPageLogoNone, onChange: _onFieldChange" >
+	 	                    <label for="${id}_login_page_logo_none">${messages.ibm_label}</label>
+	                      <br>
+	                      <input data-dojo-props="type: 'radio', name: '${id}_loginPageLogo', id: '${id}_login_page_logo_enabled'" data-dojo-attach-point="_loginPageLogoEnabled" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:onLoginPageLogoEnabled, onChange: _onFieldChange" >
+	                      <label for="${id}_login_page_logo_enabled">${messages.url_label}</label>
+	                      <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_loginPageLogoUrlHover" data-dojo-props="style: { 'margin-top': '-3px' }">${messages.admin_desktop_login_logo_url_hover}</div>
+	                      <div style="margin: 0 20px;">
+	                          <label for="${id}_login_page_logo_url" style="display: none;">${messages.url_label}</label>
+	                          <input data-dojo-props="id: '${id}_login_page_logo_url', required: true, trim: true, propercase: false" data-dojo-attach-point="_loginPageLogoUrl" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" />
+	                      </div>  
+	                  </fieldset>                    
+	              </td>
+	          </tr> 
+	          <tr>
+	              <td class="propertyRowLabel" valign="top">
+	                  <label>${messages.admin_desktop_banner_logo}</label>&nbsp;
+	                  <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_banner_logo_file_field_hover">${messages.admin_desktop_banner_logo_hover}</div>
+	              </td>
+	              <td class="propertyRowValue"> 
+	                  <fieldset>
+	                      <legend style="display:none;">${messages.admin_desktop_banner_logo}</legend>
+					<input data-dojo-props="type: 'radio', name: '${id}_bannerLogo', id: '${id}_banner_logo_none'" data-dojo-attach-point="_bannerLogoNone" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:onBannerLogoNone, onChange: _onFieldChange" >
+					<label for="${id}_banner_logo_none">${messages.ibm_label}</label>
+	                      <br>
+					<input data-dojo-props="type: 'radio', name: '${id}_bannerLogo', id: '${id}_banner_logo_enabled'" data-dojo-attach-point="_bannerLogoEnabled" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:onBannerLogoEnabled, onChange: _onFieldChange" >
+					<label for="${id}_banner_logo_enabled">${messages.url_label}</label>
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_bannerLogoUrlHover" data-dojo-props="style: { 'margin-top': '-3px' }">${messages.admin_desktop_banner_logo_url_hover}</div>
+					<div style="margin: 0 20px;">
+					<label for="${id}_banner_logo_url" style="display: none;">${messages.url_label}</label>
+					   <input data-dojo-props="id: '${id}_banner_logo_url', required: true, trim: true, propercase: false" data-dojo-attach-point="_bannerLogoUrl" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" />
+					</div>  
+	                  </fieldset>                    
+	              </td>
+	          </tr>
+	          <tr>
+	              <td class="propertyRowLabel" valign="top"> 
+	                  <label for="${id}_banner_background_color_field">${messages.admin_desktop_banner_background_color}</label>&nbsp;
+	                  <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_banner_background_color_field_hover">${messages.admin_desktop_banner_background_color_hover}</div>
+	              </td>
+	              <td class="propertyRowValue">
+                     <fieldset>
+                     <legend style="display:none;">${messages.admin_desktop_banner_background_color}</legend>
+                        <input data-dojo-props="type: 'radio', name: '${id}_bannerBackgroundColor', id: '${id}_banner_background_color_default'" data-dojo-attach-point="_bannerBackgroundColorDefault" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:onBannerBackgroundColorDefault, onChange: _onFieldChange" >
+                        <label for="${id}_banner_background_color_default">${messages.admin_desktop_layout_default}</label>
+			   			<br>
+                        <input data-dojo-props="type: 'radio', name: '${id}_bannerBackgroundColor', id: '${id}_banner_background_color_custom'" data-dojo-attach-point="_bannerBackgroundColorCustom" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:onBannerBackgroundColorCustom, onChange: _onFieldChange" >
+                        <label for="${id}_banner_background_color_custom">${messages.admin_desktop_layout_custom}</label>
+                        <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_bannerBackgroundColorCustomHover" data-dojo-props="style: { 'margin-top': '-3px' }">${messages.admin_desktop_banner_background_color_custom_hover}</div>
+                        <div style="margin: 0 20px;">
+                           <input data-dojo-props="id: '${id}_banner_background_color_field', required: true, trim: true, propercase: false" data-dojo-attach-point="_bannerBackgroundColor" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" />
+                        </div>  
+                     </fieldset>                    
+	              </td>
+	          </tr>
+	          <tr>
+	              <td class="propertyRowLabel" valign="top"> 
+	                  <label for="${id}_banner_application_name_color_field">${messages.admin_desktop_banner_application_name_color}</label>&nbsp;
+	                  <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_banner_application_name_color_hover">${messages.admin_desktop_banner_application_name_color_hover}</div>
+	              </td>
+	              <td class="propertyRowValue">
+                     <fieldset>
+                     <legend style="display:none;">${messages.admin_desktop_banner_application_name_color}</legend>
+                        <input data-dojo-props="type: 'radio', name: '${id}_bannerApplicationNameColor', id: '${id}_banner_application_name_color_default'" data-dojo-attach-point="_bannerApplicationNameColorDefault" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:onBannerApplicationNameColorDefault, onChange: _onFieldChange" >
+                        <label for="${id}_banner_application_name_color_default">${messages.admin_desktop_layout_default}</label>
+			   			<br>
+                        <input data-dojo-props="type: 'radio', name: '${id}_bannerApplicationNameColor', id: '${id}_banner_application_name_color_custom'" data-dojo-attach-point="_bannerApplicationNameColorCustom" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:onBannerApplicationNameColorCustom, onChange: _onFieldChange" >
+                        <label for="${id}_banner_application_name_color_custom">${messages.admin_desktop_layout_custom}</label>
+                        <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_bannerApplicationNameColorCustomHover" data-dojo-props="style: { 'margin-top': '-3px' }">${messages.admin_desktop_banner_application_name_color_custom_hover}</div>
+                        <div style="margin: 0 20px;">
+                           <input data-dojo-props="id: '${id}_banner_application_name_color_field', required: true, trim: true, propercase: false" data-dojo-attach-point="_bannerApplicationNameColor" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" />
+                        </div>  
+                     </fieldset>                    
+	              </td>
+	          </tr>      
+	          <tr>
+	              <td class="propertyRowLabel" valign="top"> 
+	                  <label>${messages.admin_desktop_banner_menu_color}</label>&nbsp;
+	                  <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_banner_menu_color_hover">${messages.admin_desktop_banner_menu_color_hover}</div>
+	              </td>
+	              <td class="propertyRowValue">
+                     <fieldset>
+                     <legend style="display:none;">${messages.admin_desktop_banner_menu_color}</legend>
+                        <input data-dojo-props="type: 'radio', name: '${id}_bannerMenuColor', id: '${id}_banner_menu_color_light'" data-dojo-attach-point="_bannerMenuColorLight"  data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:onBannerMenuColorLight" >
+                        <label for="${id}_banner_menu_color_light">${messages.light_label}</label>
+			   			<br>
+                        <input data-dojo-props="type: 'radio', name: '${id}_bannerMenuColor', id: '${id}_banner_menu_color_dark'" data-dojo-attach-point="_bannerMenuColorDark" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:onBannerMenuColorDark" >
+                        <label for="${id}_banner_menu_color_dark">${messages.dark_label}</label>
+                     </fieldset> 
+	              </td>
+	          </tr>  
+	      </table>
+	 </div>
+</div>

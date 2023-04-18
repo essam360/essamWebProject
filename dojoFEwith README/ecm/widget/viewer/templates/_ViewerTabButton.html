@@ -1,0 +1,10 @@
+<div role="presentation" data-dojo-attach-point="titleNode" data-dojo-attach-event='onclick:onClick'>
+    <img src="${_blankGif}" alt="" class="dijitIcon dijitTabButtonIcon" data-dojo-attach-point="iconNode" />
+	<span class="cleanTab" data-dojo-attach-point="mergeSplitMarker">&nbsp;</span>
+	<span data-dojo-attach-point="containerNode,focusNode" class="tabLabel" id="${id}"></span>
+	<span data-dojo-type="dijit/form/TextBox" data-dojo-attach-point="_tabLabelEditor" style="display:none;" class="tabLabelEditor"></span>
+	<span class="cleanTab" data-dojo-attach-point="lockedMarker">&nbsp;</span>
+	<span class="cleanTab" data-dojo-attach-point="dirtyMarker">*</span>
+	<span class="dijitInline dijitTabCloseButton dijitTabCloseIcon" data-dojo-attach-point="closeNode" role="presentation">
+		<span data-dojo-attach-point="closeText" class="dijitTabCloseText">[x]</span></span>
+</div>

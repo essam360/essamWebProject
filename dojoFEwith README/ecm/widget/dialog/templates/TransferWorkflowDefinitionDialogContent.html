@@ -1,0 +1,38 @@
+<div data-dojo-attach-point="_transferWorkflowContainer">                  
+    <div data-dojo-attach-point="systemInfo" class="ecmWorkflowNameInformation">
+        <div class="ecmProcessSystemLabel">${messages.transfer_workflow_dialog_in_use}</div>
+        <div data-dojo-attach-point="transferedWorkflowName" class="ecmProcessSystemFieldEnd"></div>
+    </div>  
+    <table class="workflowTable" role="presentation">
+    <tbody data-dojo-attach-point="workflowData">
+        <tr>
+           <td class="propertyRowLabel" width="5%">
+                <fieldset>
+                    <legend style="display: none;">${messages.workflow_pref_workflow}</legend>
+                    <input id="${id}_p8-useWorkflowName-field" data-dojo-attach-point="useWorkflowName" data-dojo-attach-event="onChange: _onUseWorkflowChange" type="radio" data-dojo-type="ecm.widget.RadioButton" name="useWorkflow" value="enable">
+                </fieldset>
+            </td>
+            <td>
+                <label for="${id}_p8-useWorkflowName-field">${messages.transfer_workflow_dialog_use}</label>
+                <div data-dojo-type="ecm.widget.HoverHelp" data-dojo-attach-point="rcUseWorkflowHoverHelp" message="${messages.transfer_workflow_dialog_use_hover}"></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="propertyRowLabel" width="5%">
+                <fieldset>
+                    <legend style="display: none;">${messages.workflow_pref_workflow}</legend>
+                    <input id="${id}_p8-useAnotherWorkflowName-field" data-dojo-attach-point="useAnotherWorkflowName" data-dojo-attach-event="onChange: _onUseWorkflowChange" type="radio" data-dojo-type="ecm.widget.RadioButton" name="useWorkflow" value="disable" class="radioButton1">
+                </fieldset>
+            </td>
+            <td style="height:76px;">
+                <label for="${id}_p8-useAnotherWorkflowName-field">${messages.transfer_workflow_dialog_use_another}</label>
+                <div data-dojo-type="ecm.widget.HoverHelp" data-dojo-attach-point="rcAnotherWorkflowHoverHelp" message="${messages.transfer_workflow_dialog_another_hover}"></div>
+                <br/>
+                <div id=${id}_newWorkflowName-field data-dojo-attach-point="newWorkflowName" data-dojo-attach-event="onKeyUp: _onWorkflowNameChange" data-dojo-type="dijit.form.TextBox" style="width: 300px;"></div>
+                <br/>
+                <div id=${id}_transferedWorkflowName-field data-dojo-attach-point="transferedWorkflows" data-dojo-attach-event="onChange: _onTransferedWorkflowChange" data-dojo-type="ecm.widget.FilteringSelect" style="width: 300px;" labelType="text" label="label" searchAttr="label" identifier="value" required=false maxHeight=200></div>
+            </td>
+        </tr>    
+    </tbody>
+    </table> 
+</div>

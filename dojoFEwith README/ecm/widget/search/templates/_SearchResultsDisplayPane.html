@@ -1,0 +1,25 @@
+<div>
+    <label style="display: none;" for="${id}_filter">${_messages.multicolumn_list_filter_text}</label>
+   	<div data-dojo-type="ecm.widget.FilterTextBox" data-dojo-attach-point="_filterBox" class="filterBox" id="${id}_filter" style="float:none;"></div>
+    <div data-dojo-type="ecm.widget.SloshBucket" data-dojo-attach-point="_sloshBucket" class="sloshBucket"></div>
+    <div data-dojo-attach-point="_sortBy">
+  		<label for="${id}_sortByProp">${_messages.search_results_sortby_label}</label>
+  		<span data-dojo-type="dijit.form.Select" id="${id}_sortByProp" maxHeight="250" data-dojo-attach-point="_sortByProperty"></span>
+	</div>
+	<div data-dojo-attach-point="_sortOrder" class="orderBy">
+		<fieldset>
+  		<legend>${_messages.search_results_order_label}</legend>
+	  	<div class="dijitInline">
+	  		<input id="${id}_radioAsc" data-dojo-attach-point="_orderByAscending" type="radio" data-dojo-type="dijit.form.RadioButton" name="${id}_sortBy" value="asc"/>
+	  		<label for="${id}_radioAsc">${_messages.search_results_accending_label}</label>
+  		</div>
+  		<div class="dijitInline">
+			<input id="${id}_radioDesc" data-dojo-attach-point="_orderByDescending" type="radio" data-dojo-type="dijit.form.RadioButton" name="${id}_sortBy" value="desc" />
+			<label for="${id}_radioDesc">${_messages.search_results_descending_label}</label>
+		</div>
+		</fieldset>
+	</div>
+	<div data-dojo-attach-point="summaryEnabledArea" class="summaryEnabledArea">
+		<input id="${id}_summaryEnabled" data-dojo-attach-point="_summaryEnabled" type="checkbox" data-dojo-type="idx.form.CheckBox" name="${id}_summaryEnabled"/>
+	</div>
+</div>

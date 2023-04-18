@@ -1,0 +1,75 @@
+<div data-dojo-attach-point="_contentNode">
+	<table class="fieldTable dijitHidden" role="presentation" data-dojo-attach-point="fromTable">
+		<tr>
+			<td class="labelCell" >
+				<label for="${id}_from_input">${messages.email_from}</label>
+			</td>
+			<td class="inputCell" data-dojo-attach-point="fromCell">
+				<div id="${id}_from_input" class="fromInput" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-attach-point="fromInput" data-dojo-attach-event="onKeyUp: updateSendButtonState" data-dojo-props='trim: true, required: true, invalidMessage: "${messages.email_address_invalid}"'></div>
+			</td>
+		</tr>
+	</table>
+	<table class="fieldTable" role="presentation">
+		<tr>
+			<td class="labelCell" >
+				<label for="${id}_to_input">${messages.email_to}</label>
+			</td>
+			<td class="inputCell" data-dojo-attach-point="toCell">
+			</td>
+			<td class="ccLinksCell">
+				<a href="javascript:;" data-dojo-attach-event="onClick: showCC" data-dojo-attach-point="ccLink">${messages.email_cc_link}</a>
+				<a href="javascript:;" data-dojo-attach-event="onClick: showBCC" data-dojo-attach-point="bccLink">${messages.email_bcc_link}</a>
+			</td>
+		</tr>
+	</table>
+	<table class="fieldTable dijitHidden" role="presentation" data-dojo-attach-point="ccTable">
+		<tr>
+			<td class="labelCell" >
+				<label for="${id}_cc_input">${messages.email_cc}</label>
+			</td>
+			<td class="inputCell" data-dojo-attach-point="ccCell">
+			</td>
+		</tr>
+	</table>
+	<table class="fieldTable dijitHidden" role="presentation" data-dojo-attach-point="bccTable">
+		<tr>
+			<td class="labelCell" >
+				<label for="${id}_bcc_input">${messages.email_bcc}</label>
+			</td>
+			<td class="inputCell" data-dojo-attach-point="bccCell">
+			</td>
+		</tr>
+	</table>
+	<table class="fieldTable" role="presentation">
+		<tr>
+			<td class="labelCell" >
+				<label for="${id}_subject_input">${messages.email_subject}</label>
+			</td>
+			<td class="inputCell">
+				<div id="${id}_subject_input" class="subjectInput" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-attach-point="subjectInput" data-dojo-props="trim: true"></div>
+			</td>
+		</tr>
+	</table>
+	<table class="fieldTable" role="presentation">
+		<tr>
+			<td class="messageCell">
+				<label for="${id}_message_input" style="display: none;">${messages.email_message}</label>
+				<div id="${id}_message_input" data-dojo-type="dijit/form/SimpleTextarea" data-dojo-attach-point="messageInput" data-dojo-props='required: false, intermediateChanges: true, placeholder: "${messages.email_message_placeholder}"'></div>
+			</td>
+		</tr>
+	</table>
+	<table class="attachmentsTable" role="presentation">
+		<tr data-dojo-attach-point="attachmentsLabelRow">
+			<td class="labelCell">
+				<label id="${id}_attachmentsLabel" data-dojo-attach-point="attachmentsLabel">${messages.email_links}</label>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="attachmentList" tabindex="0" role="region" aria-labelledby="${id}_attachmentsLabel">
+					<div data-dojo-type="ecm/widget/CompositeButtonListPane" data-dojo-attach-point="attachmentListPane"></div>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>

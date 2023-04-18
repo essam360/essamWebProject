@@ -1,0 +1,21 @@
+<div class="field">    
+	<label for="${id}_role">
+		<span class="required">* </span>
+		${messages.workspacebuilder_roles_edit_dialog_role_name}
+	</label>
+	<br>
+	<input data-dojo-attach-point="roleName" type="text" value="" id="${id}_role"
+		data-dojo-type="dijit.form.ValidationTextBox" 
+		required="true" trim="true" propercase="false" />
+</div>
+<div class="field">
+	<label for="${id}_roleDescription">
+		${messages.workspacebuilder_roles_edit_dialog_role_description}
+   	</label>
+   	<br>
+	<input data-dojo-attach-point="roleDescription" rows="4" cols="50"
+		id="${id}_roleDescription"
+   		data-dojo-type="dijit.form.SimpleTextarea" 
+   		propercase="false"
+   		style="font:inherit;" />
+</div>

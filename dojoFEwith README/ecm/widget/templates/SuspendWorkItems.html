@@ -1,0 +1,74 @@
+<div class="ecmSuspendWorkItems">
+	<div class="ecmSuspendWorkItemsOptionsLabel">
+		<span>${messages.suspend_workitems_options_label}</span>
+	</div>
+	<table cellspacing=10 class="ecmSuspendWorkItemsInputArea" data-dojo-attach-point="_suspendWorkItemsInputArea">
+		<tr class="ecmSuspendWorkItemsInputField">
+			<td colspan=4>
+				<input id="${id}_suspendUntilResume"
+					type="radio",
+					checked="checked"
+					value="Until Resumption"
+					name="radioSuspend"
+					data-dojo-attach-point="_suspendUntilResume"
+					data-dojo-attach-event="onclick: onSuspendOptionChanged">
+				</input>	
+				<label for="${id}_suspendUntilResume">${messages.suspend_until_resume_label}</label>
+			</td>
+		</tr>
+		<tr class="ecmSuspendWorkItemsInputField">
+			<td>
+				<input id="${id}_suspendForDuration"
+					type="radio"
+					value="For"
+					name="radioSuspend"
+					data-dojo-attach-point="_suspendForDuration"
+					data-dojo-attach-event="onclick: onSuspendOptionChanged">
+				</input>	
+				<label for="${id}_suspendForDuration">${messages.suspend_for_duration_label}</label>
+			</td>
+			<td>
+				<div id="${id}_suspendForDurationValue"
+					style="width:105px"
+					data-dojo-type="dijit.form.RangeBoundTextBox"
+					data-dojo-attach-point="_suspendForDurationValue"
+					data-dojo-attach-event="onKeyUp: onDurationValueChanged, onChange: onDurationValueChanged">
+				</div>
+			</td>
+			<td>
+				<select id="${id}_suspendForDurationUnits"
+				 	name="suspendForUnits"
+				 	data-dojo-attach-point="_suspendForDurationUnits"
+					data-dojo-type=dijit.form.FilteringSelect
+					readOnly=false
+					style="width:105px">
+					<option value="HOURS">${messages.suspend_for_duration_hours}</option>
+					<option value="DAYS">${messages.suspend_for_duration_days}</option>
+					<option value="WEEKS">${messages.suspend_for_duration_weeks}</option>
+					<option value="MONTHS">${messages.suspend_for_duration_months}</option>
+					<option value="YEARS">${messages.suspend_for_duration_years}</option>
+				</select>
+			</td>
+		</tr>
+		<tr class="ecmSuspendWorkItemsInputField">
+			<td>
+				<input id="${id}_suspendUntilDate"
+					type="radio"
+					value="Until"
+					name="radioSuspend"
+					data-dojo-attach-point="_suspendUntilDate"
+					data-dojo-attach-event="onclick: onSuspendOptionChanged">
+				</input>	
+				<label for="${id}_suspendUntilDate">${messages.suspend_until_date_label}</label>
+			</td>
+			<td colspan=2>
+				<div id="${id}_suspendUntilDateValue"
+					data-dojo-type="ecm.widget.DatePicker"
+					showPickerIcon=true
+					data-dojo-attach-point="_suspendUntilDateValue"
+					data-dojo-attach-event="onKeyUp: onDateValueChanged, onChange: onDateValueChanged">
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>

@@ -1,0 +1,346 @@
+<div class="ecmAddContentItemGeneralPane">
+	<div data-dojo-type="dijit.layout.ContentPane" data-dojo-attach-point="_generalContentPane">
+		<table class="generalTable" role="presentation">
+			<tbody data-dojo-attach-point="_contentTable">
+			
+			<tr data-dojo-attach-point="_entryTemplateRow" style="display: none;" class="entryTemplateRow">
+				<td class="propertyRowLabel">
+					<span class="required" data-dojo-attach-point="_entryTemplateSelectorLabelRequired">*</span>
+					<label for="${id}_entryTemplateSelector">
+						${_messages.add_document_entry_template_label}
+					</label>
+				</td>
+				<td class="propertyRowValue" data-dojo-attach-point="_entryTemplateSelectorCell">
+					<div id="${id}_entryTemplateSelector"
+						name="${id}_entryTemplateSelector"
+						class="entryTemplateSelectorControl"
+						data-dojo-type="dijit.form.FilteringSelect"
+						data-dojo-attach-point="_entryTemplateSelector"
+						data-dojo-attach-event="onChange:onEntryTemplateSelectorChange,onBlur:onEntryTemplateSelectorBlur"
+						placeholder="${_messages.add_document_select_entry_template}"
+						labelType="text"
+						label="label"
+						searchAttr="label"
+						identifier="value">
+					</div>
+					<label for="${id}_entryTemplateNameTextBox" style="display: none;">
+						${_messages.add_document_entry_template_label}
+					</label>
+					<div id="${id}_entryTemplateNameTextBox"
+						name="${id}_entryTemplateNameTextBox"
+						class="entryTemplateNameTextBox"
+						data-dojo-type="dijit.form.TextBox"
+						data-dojo-attach-point="_entryTemplateNameTextBox"
+						value readonly aria-readonly="true"
+						style="display: none;">
+					</div>
+				</td>
+			</tr>
+
+			<tr data-dojo-attach-point="_documentOnlyArea" class="documentOnlyArea">
+				<td class="propertyRowLabel">
+					<span class="required" data-dojo-attach-point="_targetLocationRequired">*</span>
+					<label id="${id}_targetLocation_label" for="${id}_targetLocation" data-dojo-attach-point="_targetLocationLabel">
+						${_messages.add_document_location_label}
+					</label>
+					<label id="${id}_targetLocation_label2" for="${id}_targetLocation2" data-dojo-attach-point="_targetLocationLabel2">
+						${_messages.add_document_location_label}
+					</label>
+				</td>
+				<td class="propertyRowValue folderSelectorRow">
+					<div data-dojo-type="ecm.widget._FolderSelectorDropDown"
+						dropdownid="${id}_targetLocation"
+						arialabelledby="${id}_targetLocation_label"
+						isRequired="true"
+						class="folderSelectorControl"
+						data-dojo-attach-event="onFolderSelected: onFolderSelect"
+						data-dojo-attach-point="_folderSelectorDropDown">
+					</div>
+					<div data-dojo-type="ecm.widget.search.SearchInDropDown"
+						dropdownid="${id}_targetLocation2"
+						arialabelledby="${id}_targetLocation_label2"
+						isRequired="true"
+						displayForSearch="true"
+						displayFilteredRepositories="true"
+						title="${_messages.add_document_location_label}"
+						class="multiRepoFolderSelectorControl"
+						data-dojo-attach-event="onFolderSelected: onFolderSelect"
+						data-dojo-attach-point="_multiRepoFolderSelectorDropDown">
+					</div>
+				</td>
+			</tr>
+			
+			<tr data-dojo-attach-point="_allowUnfiledRow" style="display: none;">
+				<td class="propertyRowLabel">
+					&nbsp;
+				</td>
+				<td class="propertyRowValue propertyCheckBoxRowValue">
+					<div id=${id}_unfiled
+						name=${id}_unfiled
+						data-dojo-type="ecm.widget.CheckBox"
+						data-dojo-attach-point="_unfiled"
+						data-dojo-attach-event="onClick: onSaveUnfiledChange">
+					</div>
+					<label for="${id}_unfiled" data-dojo-attach-point="_unfiledLabel" class="labelWithHelp">${_messages.add_document_save_document_as_unfiled_label}
+					</label>
+					<div id="${id}_addUnfiledHoverHelp" data-dojo-attach-point="_addUnfiledHoverHelp" data-dojo-type="ecm.widget.HoverHelp"></div>
+				</td>
+			</tr>
+			<tr data-dojo-attach-point="_savedContentArea" class="savedContentArea">
+				<td class="propertyRowLabel">
+				&nbsp;
+					
+				</td>
+				<td class="propertyRowValue">
+					<div style="display: inline-block">
+					</div>
+					<div id="${id}_savedContentFiles"
+						name="${id}_savedContentFiles"
+						data-dojo-type="ecm.widget.CheckBox"
+						data-dojo-attach-point="_savedContentCheckBox"
+						data-dojo-attach-event="onClick: onSavedContentCheckboxChange"
+						>
+					</div>
+					<label for="${id}_savedContentFiles" data-dojo-attach-point="_savedContentLabel"  class="labelWithHelp" >
+						${_messages.add_document_saved_content_label}
+					</label>
+				</td>
+			</tr>
+			<tr data-dojo-attach-point="_contentSourceTypeDiv" class="contentSourceTypeDiv">
+				<td class="propertyRowLabel">
+					<label for="${id}_contentSourceType">
+						${_messages.add_document_type_label}
+					</label>
+				</td>
+				<td class="propertyRowValue">
+					<select id="${id}_contentSourceType"
+						name="${id}_contentSourceType"
+						data-dojo-type="dijit.form.Select"
+						data-dojo-attach-point="_contentSourceType"
+						data-dojo-attach-event="onChange: onContentSourceTypeChange"
+						class="sourceTypeChoice">
+					</select>
+					<div class="ecmDeleteLocalFileCheckBox"
+						id=${id}_deleteLocalFile
+						name=${id}_deleteLocalFile
+						data-dojo-type="ecm.widget.CheckBox"
+						data-dojo-attach-point="_deleteLocalFile"
+						style="display: none;">
+					</div>
+					<label for="${id}_deleteLocalFile" data-dojo-attach-point="_deleteLocalFileLabel" style="display: none;">
+						${_messages.add_document_delete_file_label}
+					</label>
+					<div class="inlineMessage inlineMessageInfo" data-dojo-attach-point="_deleteLocalFileDisabledLabel" style="display: none;">
+						<div class="messageIcon"></div>
+						<div class="messageText" role="alert">${_messages.add_document_delete_file_disabled_label}</div>
+					</div>
+				</td>
+			</tr>
+
+			<tr data-dojo-attach-point="_appGroupNameDiv" class="appGroupNameDiv">
+				<td class="propertyRowLabel">
+					<span class="required">*</span>
+					<label for="${id}_appGroupNameSelector">${_messages.add_document_appgroup_name_label}</label>
+				</td>
+				<td class="propertyRowValue">
+					<select id="${id}_appGroupNameSelector"
+						name="${id}_appGroupNameSelector"
+						data-dojo-type="dijit.form.FilteringSelect"
+						data-dojo-attach-point="_appGroupNameSelector"
+						data-dojo-attach-event="onChange: onAppGroupNameSelectorChange"
+						style="width: auto"
+						labelType="text"
+						label="label"
+						searchAttr="label"
+						identifier="value">
+					<option></option>
+							<option></option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr data-dojo-attach-point="_appNameDiv" class="appNameDiv">
+				<td class="propertyRowLabel">
+					<span class="required">*</span>
+					<label for="${id}_appNameSelector">
+						${_messages.add_document_app_name_label}
+					</label>
+				</td>
+				<td class="propertyRowValue">
+					<select id="${id}_appNameSelector"
+						name="${id}_appNameSelector"
+						data-dojo-type="dijit.form.FilteringSelect"
+						data-dojo-attach-point="_appNameSelector"
+						data-dojo-attach-event="onChange: onAppNameSelectorChange"
+						style="width: auto"
+						labelType="text"
+						label="label"
+						searchAttr="label"
+						identifier="value">
+					<option></option>
+					</select>
+				</td>
+			</tr>
+			<tr data-dojo-attach-point="_fileInputArea" class="fileInputArea">
+				<td class="propertyRowLabel" data-dojo-attach-point="_fileInputLabel">
+					<span class="required">*</span>
+					<label for="${id}_fileInput" data-dojo-attach-point="_fileInputLabelNonFT">
+						${_messages.add_document_file_name_label}
+					</label>
+					<label for="${id}_fileInput_FT"  data-dojo-attach-point="_fileInputLabelFT" style="display:none">
+						${_messages.add_document_file_name_label}
+					</label>
+				</td>
+				<td class="propertyRowValue" data-dojo-attach-point="_fileInput_FT_cell" style="display:none">
+				<input type="text"
+							multiple="multiple"
+							required="false"
+							readonly="true"
+							id="${id}_fileInput_FT"
+							name="uploadFile_FT"
+							class="fileInputFT"
+							data-dojo-type="dijit.form.ValidationTextBox"
+							data-dojo-attach-point="_fileInput_FT_textbox"
+							data-dojo-attach-event="onchange: onFileInputChange"/>
+				<div id="${id}_fileInput_FT_Browse"
+				            data-dojo-type="dijit.form.Button"
+				            data-dojo-attach-point="_fileInput_FT_button"
+				            data-dojo-props="label:'${_messages.browse_for_directory}'"
+				            data-dojo-attach-event="onClick:_onBrowseForFile">
+				</div>
+				</td>
+				<td class="propertyRowValue" data-dojo-attach-point="_fileInput_cell">
+					<form data-dojo-attach-point="_fileInputForm"
+						name="fileUploadForm"
+						enctype="multipart/form-data"
+						accept-charset="UTF-8"
+						method="post"
+						action="dummyUploadUrl"
+						target="${id}_fileInputIFrame">
+						<input type="file"
+							size="49"
+							multiple="multiple"
+							require="true"
+							id="${id}_fileInput"
+							name="uploadFile"
+							class="fileInput"
+							data-dojo-attach-point="_fileInput"
+							data-dojo-attach-event="onchange: onFileInputChange"/>
+						<input type="hidden" name="criterias" data-dojo-attach-point="_propertiesInput"/>
+						<input type="hidden" name="childComponentValues" data-dojo-attach-point="_childComponentValuesInput"/>
+						<input type="hidden" name="templateMetadataValues" data-dojo-attach-point="_templateMetadataValuesInput"/>
+						<input type="hidden" name="acl" data-dojo-attach-point="_permissionsInput"/>
+						<iframe name="${id}_fileInputIFrame"
+							id="${id}_fileInputIFrame"
+							style="display: none">
+						</iframe>
+					</form>
+				</td>
+				<td class="propertyRowValue">
+					<div>
+					</div>
+				</td>
+			</tr>
+
+			<tr data-dojo-attach-point="_externalFileNamesDiv" class="externalFileNamesDiv">
+				<td class="propertyRowLabel">
+					<label for="${id}_externalFileNames">
+						${_messages.add_document_file_name_label}
+					</label>
+				</td>
+				<td class="propertyRowValue">
+					<div data-dojo-type="ecm.widget.DropDownInput"
+						disabled="true"
+						id="${id}_externalFileNames"
+						class="externalFileNames"
+						data-dojo-attach-point="_externalFileNames">
+					</div>
+				</td>
+			</tr>
+
+			<tr data-dojo-attach-point="_externalURLDiv" style="display: none;">
+				<td class="propertyRowLabel">
+					<span class="required">*</span>
+					<label for="${id}_externalURL">
+						${_messages.add_document_url_label}
+					</label>
+				</td>
+				<td class="propertyRowValue">
+					<div data-dojo-type="dijit.form.ValidationTextBox"
+						class="externalURL"
+						required="true"
+						placeholder="${_messages.external_document_placeholder}"
+						id="${id}_externalURL"
+						data-dojo-attach-point="_externalURL"
+						data-dojo-attach-event="onChange: onExternalURLChange">
+					</div>
+				</td>
+			</tr>
+			
+
+			<tr data-dojo-attach-point="_majorVersionStartWorkflowDiv" class="majorVersionStartWorkflowDiv">
+				<td class="propertyRowLabel">
+					&nbsp;
+				</td>
+				<td class="propertyRowValue propertyCheckBoxRowValue">
+					<div style="display: inline-block" data-dojo-attach-point="_createNewVersionDiv">
+						<fieldset data-dojo-attach-point="_createNewVersionFieldset" style="display: none;">
+						  	<legend data-dojo-attach-point="_createNewVersionLegend" style="display: none">${_messages.add_document_create_new_version_label}</legend>
+							<input id="${id}_createNewVersion"
+								data-dojo-type="ecm.widget.RadioButton"
+								data-dojo-attach-point="_createNewVersionButton"
+								type="radio"
+								name="newVersion"
+								value="enable"
+								style="display: none;">
+							<label for="${id}_createNewVersion" data-dojo-attach-point="_createNewVersionLabel" style="display: none;">
+								${_messages.add_document_create_new_version_label}
+							</label>
+							<input id="${id}_replaceExistingVersion"
+								data-dojo-type="ecm.widget.RadioButton"
+								data-dojo-attach-point="_replaceExistingVersionButton"
+								type="radio"
+								name="newVersion"
+								value="disable"
+								style="display: none;">
+							<label for="${id}_replaceExistingVersion" data-dojo-attach-point="_replaceExistingVersionLabel" style="display: none;">
+								${_messages.add_document_replace_existing_version_label}
+							</label>
+						</fieldset>
+					</div>
+					<div id="${id}_majorVersion"
+						name="${id}_majorVersion"
+						data-dojo-type="ecm.widget.CheckBox"
+						data-dojo-attach-point="_majorVersion"
+						data-dojo-attach-event="onClick: onMajorCheckboxChange"
+						style="display: none;">
+					</div>
+					<label for="${id}_majorVersion" data-dojo-attach-point="_majorVersionLabel" class="labelWithHelp" style="display: none;">
+						${_messages.add_document_major_version_label}
+					</label>
+					<div id="${id}_majorVersionHoverHelp" data-dojo-attach-point="_majorVersionHoverHelp" data-dojo-type="ecm.widget.HoverHelp" hrefLabel="${_messages.learn_more}" style="display: none;"></div>
+					<div id="${id}_autoClassify"
+						name="${id}_autoClassify"
+						data-dojo-type="ecm.widget.CheckBox"
+						data-dojo-attach-point="_autoClassify"
+						style="display: none;">
+					</div>
+					<label for="${id}_autoClassify" data-dojo-attach-point="_autoClassifyLabel" style="display: none;">
+						${_messages.add_document_auto_classify_label}
+					</label>
+					<div id="${id}_startOnWorkflow"
+						name="${id}__startOnWorkflow"
+						data-dojo-type="ecm.widget.CheckBox"
+						data-dojo-attach-point="_startOnWorkflow"
+						data-dojo-attach-event="onClick: onStartOnWorkflowCheckboxChange"
+						style="display: none;">
+					</div>
+					<label for="${id}_startOnWorkflow" data-dojo-attach-point="_startOnWorkflowLabel" style="display: none;">
+						${_messages.add_document_start_workflow_label}
+					</label>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

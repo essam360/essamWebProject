@@ -1,0 +1,16 @@
+<div data-dojo-type="dijit.layout.BorderContainer" data-dojo-props="gutters:true, liveSplitters:false" class="ecmManageProcessRolesContent">
+    <div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region:'top', splitter:false" data-dojo-attach-point="_appSpacePane" style="padding-bottom: 10px;">
+        <div class="ecmManageProcessRolesDialogLabel">${messages.process_application_space}:</div>
+        <div data-dojo-attach-point="_applicationSpaceName" class="ecmManageProcessRolesDialogFieldEnd"></div>
+    </div>
+    <div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="splitter:true, region:'leading'" class="ecmProcessRolesPane" data-dojo-attach-point="_rolesPane">
+    </div>
+    <div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="splitter:true, region:'center'" class="ecmRoleMembersPane" data-dojo-attach-point="_membersPane">
+        <div data-dojo-type="dijit.layout.BorderContainer" data-dojo-props="design:'headline', gutters:true, liveSplitters:false" >
+            <div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="splitter:false, region:'top'" data-dojo-attach-point="_addButtonNode" style="height: 32px;">
+                <div id="${id}_addButton" data-dojo-type="ecm.widget.Button" data-dojo-attach-point="_addButton" data-dojo-attach-event="onClick: onAddMembers">${messages.manageroles_dialog_add_button_label}</div> <div id="${id}_removeButton" data-dojo-type="ecm.widget.Button" data-dojo-attach-point="_removeButton" data-dojo-attach-event="onClick: onRemoveMembers" disabled>${messages.manageroles_dialog_remove_button_label}</div>
+	        </div>
+            <div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="splitter:false, region:'center'" data-dojo-attach-point="_membersContent"></div>
+        </div>
+    </div>
+</div>

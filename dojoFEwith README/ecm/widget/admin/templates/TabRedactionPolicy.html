@@ -1,0 +1,134 @@
+<div class="ecmAdminTab">
+  <div data-dojo-type="idx/layout/BorderContainer" data-dojo-attach-point="borderContainer" data-dojo-props="gutters: false, style: { width: '100%', height: '100%' }" class="ecmTheme">
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'top'">	
+   	  <div class="ecmAdminTabHeading ecmPolicyRepositoryHeading" data-dojo-attach-point="headingText"></div>
+   	  <div data-dojo-attach-point="repositoryText"></div>
+	  <div class="ecmAdminTabButtonBar">
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="saveAndCloseButton" data-dojo-attach-event="onClick: _onSaveAndClose" data-dojo-props="disabled: true">
+			${messages.save_and_close}
+		</button>
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="saveButton" data-dojo-attach-event="onClick: onSave" data-dojo-props="disabled: true">
+			${messages.save}
+		</button>
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="resetButton" data-dojo-attach-event="onClick: _onReset" data-dojo-props='disabled: true'>
+			${messages.reset}
+		</button>
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="closeButton" data-dojo-attach-event="onClick: _onClose">
+			${messages.close}
+		</button>
+  	  </div>
+	  <div class="ecmAdminTabInstructions" data-dojo-attach-point="instructions" id="${id}_intro">
+	  </div>
+    </div>
+	<div data-dojo-type="dijit/layout/ContentPane" class="ecmAdminSubTabContainer" data-dojo-props="region: 'center', style: { padding: '5px' }, tabindex: '-1'">
+		<table class="propertyTable" role="presentation">
+			<tr>
+				<td class="propertyRowValue">
+					<span class="required">*</span>
+					<label for="${id}_name-field">${messages.name}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="nameFieldHoverHelp">${messages.admin_reason_code_name_hover}</div>
+				</td>
+				<td class="propertyRowValue">
+				   <input data-dojo-attach-point="nameField" 
+				   			data-dojo-attach-event="onKeyUp: _onFieldChange" 
+				   			data-dojo-type="ecm/widget/ValidationTextBox" 
+				   			data-dojo-props="id: '${id}_name-field', 'aria-labelledby': '${id}_name-field', required: true, trim: true, propercase: false, maxLength: 64" />
+				</td>
+			</tr>
+			<tr>
+				<td class="propertyRowValue">
+					<label for="${id}_description-field">${messages.admin_reason_code_description}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="descriptionFieldHoverHelp">${messages.admin_repository_redaction_policy_hover}</div>
+				</td>
+				<td class="propertyRowValue">
+				   <input data-dojo-attach-point="descriptionField" 
+				   			data-dojo-attach-event="onKeyUp: _onFieldChange" 
+				   			data-dojo-type="ecm/widget/ValidationTextBox" 
+				   			data-dojo-props="id: '${id}_description-field', 'aria-labelledby': '${id}_id-field', required: false, trim: true, propercase: false, maxLength: 64" />
+				</td>
+			</tr>
+			<tr style="border-bottom: none;">
+				<td class="propertyRowValue">
+					<label for="${id}_application-field">${messages.admin_repository_redeaction_reasons}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="reasonFieldHoverHelp">${messages.admin_repository_redaction_reasons_hover}</div>
+				</td>
+				<td> 
+					 <div class="filterDiv" data-dojo-attach-point="_filterReasonsDiv">
+				       <label for="${id}_filterReaons" class="dijitHidden">${messages.process_filter_label}</label>
+				       <div style="float: none;" data-dojo-attach-point="_filterReasons" data-dojo-type="ecm/widget/FilterTextBox" data-dojo-props='"class": "filter", id: "${id}_reasonsFilter"'></div>
+				    </div>  			
+				</td>
+			</tr>
+			<tr style="border-bottom: none;">
+				<td class="propertyRowValue"/>
+				<td class="propertyRowValue">
+				    <div data-dojo-type="idx/widget/SloshBucket" style="height: 150px" data-dojo-props="'class': ' ecmPolicySloshBucket sloshBucket', canReorderSelectedGridData: false" data-dojo-attach-point="reasonSloshBucket">
+				    </div>					
+				</td>
+			</tr>
+			<tr class="ecmPolicyNewButtonRow">
+				<td></td>
+				<td class="ecmPolicyNewButtonCell">
+					<button data-dojo-type="dijit/form/Button" style="float: right; margin-right: 55px" class="dijitInline" data-dojo-props="id: '${id}_newReasonButton'"  data-dojo-attach-event="onClick: _onAddRedactionReason">
+		           		${messages.admin_repository_readaction_new_reason}
+		  	    	</button>
+		  	    </td>
+			</tr>
+			<tr style="border-bottom: none;">
+				<td class="propertyRowValue">
+					<label for="${id}_application-field">${messages.admin_repository_readaction_editor_permmission}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="editorFieldHoverHelp">${messages.admin_repository_redaction_editors_hover}</div>
+				</td>
+				<td> 
+					 <div class="filterDiv" data-dojo-attach-point="_filterEditorsDiv">
+				       <label for="${id}_filterEditors" class="dijitHidden">${messages.process_filter_label}</label>
+				       <div style="float: none;" data-dojo-attach-point="_filterEditors" data-dojo-type="ecm/widget/FilterTextBox" data-dojo-props='"class": "filter", id: "${id}_editorFilter"'></div>
+				    </div>  			
+				</td>
+			</tr>
+			<tr style="border-bottom: none;">
+				<td class="propertyRowValue"/>
+				<td class="propertyRowValue">
+				    <div data-dojo-type="idx/widget/SloshBucket" data-dojo-props="'class': 'sloshBucket ecmPolicySloshBucket', canReorderSelectedGridData: false" data-dojo-attach-point="editorSloshBucket">
+				    </div>					
+				</td>
+			</tr>
+			<tr class="ecmPolicyNewButtonRow">
+				<td></td>
+				<td class="ecmPolicyNewButtonCell">
+					<button data-dojo-type="dijit/form/Button" style="float: right; margin-right: 55px" class="dijitInline" data-dojo-props="id: '${id}_newEditorButton'"  data-dojo-attach-event="onClick: _onAddEditor">
+		           		${messages.admin_repository_readaction_new_editor_role}
+		  	    	</button>
+		  	    </td>
+			</tr>
+			<tr style="border-bottom: none;">
+				<td class="propertyRowValue">
+					<label >${messages.admin_repository_readaction_viewer_permmission}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="viewerFieldHoverHelp">${messages.admin_repository_redaction_viewers_hover}</div>
+				</td>
+				<td> 
+					 <div class="filterDiv" data-dojo-attach-point="_filterViewersDiv">
+				       <label for="${id}_filterViewers" class="dijitHidden">${messages.process_filter_label}</label>
+				       <div style="float: none;" data-dojo-attach-point="_filterViewers" data-dojo-type="ecm/widget/FilterTextBox" data-dojo-props='"class": "filter", id: "${id}_viewerFilter"'></div>
+				    </div>  			
+				</td>
+			</tr>
+			<tr style="border-bottom: none;">
+				<td class="propertyRowValue"/>
+				<td class="propertyRowValue">
+				    <div data-dojo-type="idx/widget/SloshBucket" data-dojo-props="'class': 'sloshBucket ecmPolicySloshBucket', canReorderSelectedGridData: false" data-dojo-attach-point="viewerSloshBucket">
+				    </div>					
+				</td>
+			</tr>
+			<tr class="ecmPolicyNewButtonRow" style="border-bottom: none;">
+				<td></td>
+				<td class="ecmPolicyNewButtonCell">
+					<button data-dojo-type="dijit/form/Button" style="float: right; margin-right: 55px" class="dijitInline" data-dojo-props="id: '${id}_newViewerButton'"  data-dojo-attach-event="onClick: _onAddViewer">
+		           		${messages.admin_repository_readaction_new_viewer_role}
+		  	    	</button>
+		  	    </td>
+			</tr>
+		</table>
+	</div>
+  </div>
+</div>

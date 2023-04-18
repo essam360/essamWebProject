@@ -1,0 +1,566 @@
+<div class="ecmAdminTab ecmRBARole">
+  <div data-dojo-type="idx/layout/BorderContainer" data-dojo-attach-point="borderContainer" data-dojo-props="gutters: false, style: { width: '100%', height: '100%' }" class="ecmTheme">
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'top'">	
+	  <div class="ecmAdminTabButtonBar">
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="saveAndCloseButton" data-dojo-attach-event="onClick: _onSaveAndClose" data-dojo-props="disabled: true">
+			${messages.save_and_close}
+		</button>
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="saveButton" data-dojo-attach-event="onClick: onSave" data-dojo-props="disabled: true">
+			${messages.save}
+		</button>
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="resetButton" data-dojo-attach-event="onClick: _onReset" data-dojo-props='disabled: true'>
+			${messages.reset}
+		</button>
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="closeButton" data-dojo-attach-event="onClick: _onClose">
+			${messages.close}
+		</button>
+  	  </div>
+	  <div class="ecmAdminTabHeading" data-dojo-attach-point="headingText">
+	  </div>
+	  <div class="ecmAdminTabInstructions" data-dojo-attach-point="instructions" id="${id}_intro">
+	  </div>
+    </div>
+	<div data-dojo-type="dijit/layout/ContentPane" class="ecmAdminSubTabContainer" data-dojo-props="region: 'center', style: { padding: '5px' }">
+		<table class="propertyTable" role="presentation">
+			<tr>
+				<td class="propertyRowValue">
+					<span class="required">*</span>
+					<label for="${id}_name-field">${messages.name}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="nameFieldHoverHelp">${messages.admin_rba_name_hover}</div>
+				</td>
+				<td class="propertyRowValue">
+				   <input data-dojo-attach-point="nameField" 
+				   			data-dojo-attach-event="onKeyUp: _onFieldChange" 
+				   			data-dojo-type="ecm/widget/ValidationTextBox" 
+				   			data-dojo-props="id: '${id}_name-field', 'aria-labelledby': '${id}_name-field', required: true, trim: true, propercase: false, maxLength: 64" />
+				</td>
+			</tr>
+			<tr style="border-bottom: 1px solid #e0e0e0;">
+				<td class="propertyRowValue">
+					<label for="${id}_description-field">${messages.description}:</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-props="isFocusable: true" data-dojo-attach-point="descriptionFieldHoverHelp">${messages.admin_rba_description_hover}</div>
+				</td>
+				<td class="propertyRowValue">
+				   <input data-dojo-attach-point="descriptionField" 
+				   			data-dojo-attach-event="onKeyUp: _onFieldChange" 
+				   			data-dojo-type="ecm/widget/ValidationTextBox" 
+				   			data-dojo-props="id: '${id}_description-field', 'aria-labelledby': '${id}_id-field', required: false, trim: true, propercase: false, maxLength: 64" />
+				</td>
+			</tr>
+			<tr>
+		</tr>
+	</table>
+	<table style="min-width:1200px;">
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-general', name: '${id}_id-general'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="generalCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-general"><b>${messages.admin_rba_general_priv}</b></label>
+			</td>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-appearance', name: '${id}_id-appearance'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="appearanceCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-appearance"><b>${messages.admin_rba_appearance_priv}</b></label>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-desktopAuthentication', name: '${id}_id-desktopAuthentication', 'class': 'ecmAdminRoleIndent1'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="desktopAuthenticationCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-desktopAuthentication">${messages.admin_rba_auth_priv}</label>
+			</td>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-appName', name: '${id}_id-appName', 'class': 'ecmAdminRoleIndent1'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="appNameCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-appName">${messages.admin_rba_app_name_priv}</label>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-addUsersGroups', name: '${id}_id-addUsersGroups', 'class': 'ecmAdminRoleIndent2'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="addUsersGroupsCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-addUsersGroups">${messages.admin_add_users_groups_priv}</label>
+			</td>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-theme', name: '${id}_id-theme', 'class': 'ecmAdminRoleIndent1'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="themeCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-theme">${messages.admin_rba_theme_priv}</label>
+			</td>
+
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-desktopConfiguration', name: '${id}_id-desktopConfiguration', 'class': 'ecmAdminRoleIndent1'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="desktopConfigurationCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-desktopConfiguration">${messages.admin_rba_desktop_config_priv}</label>
+			</td>
+			<td>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<div
+					data-dojo-props="id: '${id}_id-viewerMap', name: '${id}_id-viewerMap', 'class': 'ecmAdminRoleIndent2'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="viewerMapCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-viewerMap">${messages.admin_rba_viewer_map_priv}</label>
+			</td>
+			<td>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-mergeAndSplit', name: '${id}_id-mergeAndSplit', 'class': 'ecmAdminRoleIndent2'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="mergeAndSplitCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-mergeAndSplit">${messages.admin_rba_merge_split_priv}</label>
+			</td>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-menus', name: '${id}_id-menus'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="menusCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-menus"><b>${messages.admin_rba_menus_priv}</b></label>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-syncServices', name: '${id}_id-syncServices', 'class': 'ecmAdminRoleIndent2'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="syncServicesCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-syncServices">${messages.admin_rba_sync_svc_priv}</label>
+			</td>
+			<td>
+			<div
+					data-dojo-props="id: '${id}_id-toolbars', name: '${id}_id-toolbars', 'class': 'ecmAdminRoleIndent1'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="toolbarsCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-toolbars">${messages.admin_rba_toolbars_priv}</label>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-editServices', name: '${id}_id-editServices', 'class': 'ecmAdminRoleIndent2'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="editServicesCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-editServices">${messages.admin_rba_edit_svc_priv}</label>
+			</td>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-contextMenus', name: '${id}_id-contextMenus', 'class': 'ecmAdminRoleIndent1'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="contextMenusCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-contextMenus">${messages.admin_rba_ctx_menus_priv}</label>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-additionalSettings', name: '${id}_id-additionalSettings', 'class': 'ecmAdminRoleIndent2'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="additionalSettings"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-additionalSettings">${messages.admin_rba_addl_settings_priv}</label>
+			</td>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-officeCommands', name: '${id}_id-officeCommands', 'class': 'ecmAdminRoleIndent1'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="officeCommandsCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-officeCommands">${messages.admin_rba_office_ribbon_priv}</label>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-addDocumentDialog', name: '${id}_id-addDocumentDialog', 'class': 'ecmAdminRoleIndent2'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="addDocumentDialog"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-addDocumentDialog">${messages.admin_rba_add_doc_dlg_priv}</label>
+			</td>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-officeMenus', name: '${id}_id-officeMenus', 'class': 'ecmAdminRoleIndent1'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="officeMenusCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-officeMenus">${messages.admin_rba_office_menues_priv}</label>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-defaultRedaction', name: '${id}_id-defaultRedaction', 'class': 'ecmAdminRoleIndent2'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="defaultRedaction"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-defaultRedaction">${messages.admin_rba_def_redaction_priv}</label>
+			</td>
+			<td>
+
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-timeStamp', name: '${id}_id-timeStamp', 'class': 'ecmAdminRoleIndent2'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="timeStamp"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-timeStamp">${messages.admin_rba_time_stamp_priv}</label>
+			</td>
+			<td>
+
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-officeConfig', name: '${id}_id-officeConfig', 'class': 'ecmAdminRoleIndent1'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="officeConfig"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-officeConfig">${messages.admin_rba_office_config_priv}</label>
+			</td>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-mobile', name: '${id}_id-mobile'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="mobileCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-mobile"><b>${messages.admin_rba_mobile_priv}</b></label>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-tabLabel', name: '${id}_id-tabLabel', 'class': 'ecmAdminRoleIndent2'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="tabLabelConfig"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-tabLabel">${messages.admin_rba_tab_label_priv}</label>
+			</td>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-documentMgmt', name: '${id}_id-documentMgmt', 'class': 'ecmAdminRoleIndent1'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="documentMgmtCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-documentMgmt">${messages.admin_rba_doc_mgmt_priv}</label>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-generalConfig', name: '${id}_id-generalConfig', 'class': 'ecmAdminRoleIndent2'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="generalConfigCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-generalConfig">${messages.admin_rba_general_config_priv}</label>
+			</td>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-addPhotos', name: '${id}_id-addPhotos', 'class': 'ecmAdminRoleIndent2'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="addPhotosCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-addPhotos">${messages.admin_rba_add_photos_priv}</label>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-addOption', name: '${id}_id-addOption', 'class': 'ecmAdminRoleIndent2'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="addOptionCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-addOption">${messages.admin_rba_add_options_priv}</label>
+			</td>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-addDocuments', name: '${id}_id-addDocuments', 'class': 'ecmAdminRoleIndent2'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="addDocumentsCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-addDocuments">${messages.admin_rba_add_docs_folders_priv}</label>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-outlook', name: '${id}_id-outlook', 'class': 'ecmAdminRoleIndent2'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="outlookCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-outlook">${messages.admin_rba_outlook_int_priv}</label>
+			</td>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-openDocuments', name: '${id}_id-openDocuments', 'class': 'ecmAdminRoleIndent2'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="openDocumentsCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-openDocuments">${messages.admin_rba_open_docs_priv}</label>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-layout', name: '${id}_id-layout'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="layoutCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-layout"><b>${messages.admin_rba_layout_priv}</b></label>
+			</td>
+			<td>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-desktopFeatures', name: '${id}_desktopFeatures', 'class': 'ecmAdminRoleIndent1'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="desktopFeaturesCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-desktopFeatures">${messages.admin_rba_desktop_feat_priv}</label>
+			</td>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-branding', name: '${id}_id-branding', 'class': 'ecmAdminRoleIndent1'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="brandingCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-branding">${messages.admin_rba_branding_priv}</label>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-displayedFeatures', name: '${id}_displayedFeatures', 'class': 'ecmAdminRoleIndent2'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="displayedFeaturseCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-displayedFeatures">${messages.admin_rba_displayed_feat_priv}</label>
+			</td>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-mainColor', name: '${id}_id-mainColor', 'class': 'ecmAdminRoleIndent2'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="mainColorCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-mainColor">${messages.admin_rba_main_color_priv}</label>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-homeFeature', name: '${id}_homeFeature', 'class': 'ecmAdminRoleIndent3'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="homeCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-homeFeature">${messages.admin_rba_home_priv}</label>
+			</td>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-secColor', name: '${id}_id-secColor', 'class': 'ecmAdminRoleIndent2'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="secColorCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-secColor">${messages.admin_rba_sec_color_priv}</label>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-browseFeature', name: '${id}_browseFeature', 'class': 'ecmAdminRoleIndent3'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="browseCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-browseFeature">${messages.admin_rba_browse_priv}</label>
+			</td>
+			<td>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-searchFeature', name: '${id}_searchFeature', 'class': 'ecmAdminRoleIndent3'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="searchCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-searchFeature">${messages.admin_rba_search_priv}</label>
+			</td>
+			<td>
+
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-teamspacesFeature', name: '${id}_teamspacesFeature', 'class': 'ecmAdminRoleIndent3'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="teamspacesCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-teamspacesFeature">${messages.admin_rba_teamspaces_priv}</label>
+			</td>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-rbr', name: '${id}_rbr'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="rbrCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-rbr"><b>${messages.admin_rba_rbr_priv}</b></label>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-etmgr', name: '${id}_etmgr', 'class': 'ecmAdminRoleIndent3'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="etmgrCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-etmgr">${messages.admin_rba_et_mgr_priv}</label>
+			</td>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-policiesRolesMgmt', name: '${id}_policiesRolesMgmt', 'class': 'ecmAdminRoleIndent1'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="policiesRolesMgmtCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-policiesRolesMgmt">${messages.admin_rba_policies_roles_priv}</label>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-work', name: '${id}_work', 'class': 'ecmAdminRoleIndent3'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="workCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-work">${messages.admin_rba_work_priv}</label>
+			</td>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-reasonCodes', name: '${id}_reasonCodes', 'class': 'ecmAdminRoleIndent1'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="reasonCodesCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-reasonCodes">${messages.admin_rba_reasons_priv}</label>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-asyncTasks', name: '${id}_asyncTasks', 'class': 'ecmAdminRoleIndent3'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="asyncTasksCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-asyncTasks">${messages.admin_rba_tasks_priv}</label>
+			</td>
+			<td>
+
+			</td>
+		</tr>
+		<!--  
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-urlFeatures', name: '${id}_urlFeatures', 'class': 'ecmAdminRoleIndent3'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="urlFeaturesCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-urlFeatures">${messages.admin_url_features_priv}</label>
+			</td>
+			<td>
+	
+			</td>
+		</tr>
+		-->
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-pluginFeatures', name: '${id}_pluginFeatures', 'class': 'ecmAdminRoleIndent3'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="pluginFeaturesCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-pluginFeatures">${messages.admin_plugin_features_priv}</label>
+			</td>
+			<td>
+	
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-addlComponents', name: '${id}_addlComponents', 'class': 'ecmAdminRoleIndent2'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="addlComponentsCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-addlComponents">${messages.admin_addl_components_priv}</label>
+			</td>
+			<td>
+
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-globalToolbar', name: '${id}_globalToolbar', 'class': 'ecmAdminRoleIndent3'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="globalToolbarCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-globalToolbar">${messages.admin_global_toolbar_priv}</label>
+			</td>
+			<td>
+
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div
+					data-dojo-props="id: '${id}_id-statusBar', name: '${id}_statusBar', 'class': 'ecmAdminRoleIndent3'"
+					data-dojo-type="idx/form/TriStateCheckBox"
+					data-dojo-attach-point="statusBarCheckbox"
+					data-dojo-attach-event="onChange: _onFieldChange"></div>
+				<label for="${id}_id-statusBar">${messages.admin_status_bar_priv}</label>
+			</td>
+			<td>
+			</td>
+		</tr>
+	</table>
+  </div>
+</div>

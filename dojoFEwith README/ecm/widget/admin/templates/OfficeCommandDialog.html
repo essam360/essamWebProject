@@ -1,0 +1,50 @@
+<div>  
+    <table role="presentation">
+        <tr>
+            <td>                    
+                <label for="${id}_commandId-field">${messages.admin_ms_custom_command_id_label}</label>&nbsp;
+            </td>
+            <td>
+               <input class="ecmOfficeCommandTextBox" data-dojo-attach-point="commandIdField" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="disabled: true, trim: true, id: '${id}_commandId-field', maxLength: 64" />
+            </td>        
+        </tr>   
+        <tr>
+            <td>
+                <span class="required">*</span>
+                <label for="${id}_label-field">${messages.admin_ms_custom_command_label_label}</label>&nbsp;
+                <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="customCommandLabelFieldHoverHelp">${messages.admin_ms_custom_command_label_hover_help}</div>
+            </td>
+            <td>
+               <input class="ecmOfficeCommandTextBox" data-dojo-attach-point="labelField" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="required: true, trim: true, propercase: false, id: '${id}_label-field', maxLength: 64" />
+            </td>        
+        </tr>  
+        <tr>
+            <td>
+                <label for="${id}_description-field">${messages.admin_ms_custom_command_description_label}</label>&nbsp;
+                <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="customCommandDescriptionFieldHoverHelp">${messages.admin_ms_custom_command_description_hover_help}</div>
+            </td>
+            <td>
+               <input class="ecmOfficeCommandTextBox" data-dojo-attach-point="descriptionField" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="trim: true, propercase: false, id: '${id}_description-field'" />
+            </td>        
+        </tr>               
+        <tr>
+            <td>
+            	<span class="required">*</span>
+                <label for="${id}_url-field">${messages.admin_ms_custom_command_url_label}</label>&nbsp;
+                <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="customCommandUrlFieldHoverHelp">${messages.admin_ms_custom_command_url_hover_help}</div>
+            </td>
+            <td>
+               <input class="ecmOfficeCommandTextBox" data-dojo-attach-point="urlField" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-props='id: "${id}_url-field", required: true, trim: true, propercase: false' data-dojo-type="ecm/widget/ValidationTextBox" />
+            </td>
+        </tr>
+        <tr>
+            <td>                
+                <label for="${id}_icon-field">${messages.admin_ms_custom_command_icon_label}</label>&nbsp;
+                <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="customCommandIconFieldHoverHelp">${messages.admin_ms_custom_command_icon_hover_help}</div>
+            </td>
+            <td>
+               <input class="ecmOfficeCommandTextBox" data-dojo-attach-point="iconField" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props='trim: true, propercase: false,  id: "${id}_icon-field"' />
+            </td>
+        </tr>
+    </table>
+</div>

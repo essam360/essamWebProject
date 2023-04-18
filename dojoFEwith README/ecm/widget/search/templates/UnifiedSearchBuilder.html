@@ -1,0 +1,60 @@
+<div class="ecmSearchTab"
+	data-dojo-attach-point="containerNode">
+	<div data-dojo-type="dijit.layout.BorderContainer" data-dojo-attach-point="repositoryScopeContainerNode" data-dojo-props="gutters:false">
+		<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="splitter:false,minSize:41,region:'top'"
+				class="dijitTitlePane ecmUSBRepositoryTitlePane" data-dojo-attach-point="repositorySelectionPane">
+			<div class="ecmUSBRepositoryPane"
+				data-dojo-type="ecm.widget.search.UnifiedSearchRepositoriesList" data-dojo-attach-point="_repositoriesList">
+			</div>
+		</div>
+		<div data-dojo-type="dijit.layout.ContentPane" class="dijitTitlePane ecmUSBRepositoryTitlePane"
+				data-dojo-props="open:true,minSize:41,region:'center'" data-dojo-attach-point="mappingPane" style="padding-top: 10px;">
+			<div data-dojo-type="ecm.widget.search.AttributeMappingsPane" data-dojo-attach-point="_mappingsPane"></div>
+		</div>
+	</div>
+	<div data-dojo-type="dijit.layout.ContentPane" class="ecmSearchTab" data-dojo-attach-point="searchContainerNode">
+	<div data-dojo-type="dijit.layout.BorderContainer" gutters="false" data-dojo-attach-point="mainContainer">
+		<div data-dojo-type="dijit.layout.ContentPane" region="top" splitter="true" class="searchArea dijitTitlePane" data-dojo-attach-point="searchCriteriaPane" minSize="45">
+			<div class="searchTopArea dijitOpen" data-dojo-attach-point="searchCriteriaHeader">
+				<div class="titleHeaderContainer">
+					<table style="width:100%" role="presentation">
+						<tr>
+							<td>
+								<div class="titleHeader dijitinline" style="white-space: nowrap;" data-dojo-attach-event="onclick:_toggleSearchCriteria" tabindex="0" data-dojo-attach-point="searchCriteriaHeaderTitleNode" role="button" aria-pressed="true">
+									<img role="presentation" class="dijitArrowNode,searchArrowNode" alt="" src="dojo/resources/blank.gif"/>
+									<span class="title">${messages.search_criteria_no_colon}</span>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div data-dojo-type="ecm.widget.search.UnifiedSearchDefinition" data-dojo-attach-point="searchDefinition" class="searchToggleArea" displaySearchInCtrl="true"></div>
+		</div>
+		<div data-dojo-type="dijit.layout.ContentPane" region="center" class="dijitTitlePane searchResultsPane" data-dojo-attach-point="searchResultsPane">
+			<div class="dijitClosed searchResultsTopArea" data-dojo-attach-point="searchResultsHeader">
+				<div class="titleHeaderContainer">
+					<table style="width:100%" role="presentation">
+						<tr>
+							<td>
+								<div class="titleHeader dijitinline" style="white-space: nowrap;" data-dojo-attach-event="onclick:_toggleSearchResults" tabindex="0" data-dojo-attach-point="searchResultsHeaderTitleNode" role="button" aria-pressed="false">
+									<img role="presentation" class="dijitArrowNode,searchArrowNode" alt="" src="dojo/resources/blank.gif"/>
+									<span class="title">${messages.search_results}</span>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div data-dojo-type="dijit.layout.BorderContainer" gutters="false" data-dojo-attach-point="searchResultsContainer" class="searchResultsArea dijitHidden">
+				<div data-dojo-type="dijit.layout.ContentPane" region="center">
+					<div data-dojo-attach-point="searchResults" data-dojo-type="ecm.widget.listView.ContentList" selectFirstRowOnSetResult=false clearOnLogout="false" class="dijitHidden"></div>
+					<div data-dojo-type="dijit.layout.ContentPane" data-dojo-attach-point="emptySearchResultsPane">
+						<div class="emptySearchResultsPaneMessage" tabIndex="0">${messages.empty_search_results_pane}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>

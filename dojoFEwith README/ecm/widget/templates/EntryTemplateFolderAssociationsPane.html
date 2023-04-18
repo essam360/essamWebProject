@@ -1,0 +1,66 @@
+<div class="ecmEntryTemplateFolderAssocationPane" data-dojo-attach-point="_ETFolderAssociationPane" data-dojo-type="dijit.layout.BorderContainer" gutters="false">
+	<!--  don't need these in folder properties dialog
+	<div class="ecmEntryTemplateFolderItemInfoArea" data-dojo-type="dijit.layout.BorderContainer" data-dojo-attach-point="_top" data-dojo-props="region:'top'" splitter="false">
+		<div class="dijitInline" data-dojo-attach-point="_itemInfoPrefix"></div>
+		<div class="dijitInline" data-dojo-attach-point="_itemInfoIcon"></div>
+		<div class="dijitInline" data-dojo-attach-point="_itemInfoName"></div>
+	</div>
+	 -->
+	<div class="ecmEntryTemplateFolderContentlistsArea" data-dojo-type="dijit.layout.BorderContainer"  data-dojo-props="region:'center'" gutters="false">
+		<div class = "ecmInheritedEntryTemplateArea" style="display:none" data-dojo-attach-point="inheritArea" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region:'top'" gutters="false">
+			<table style="width:100%"  role="presentation">
+				<tr>
+					<td>
+					<span>${messages.entry_template_inherited_entry_templates_label}</span>
+					</td>
+				</tr>
+				<!-- Radio buttons -->
+				
+				<tr>
+					<td style="padding-left: 30px;">
+					<fieldset  >
+					<input name="${id}_inheritMode" id="${id}_inheritFromParent" class="dijitInline" data-dojo-attach-point="_inheritFromParent" data-dojo-type="dijit.form.RadioButton"/>
+					<label for="${id}_inheritFromParent">${messages.entry_template_inherited_entry_templates}</label>
+					<div class="dijitInline" data-dojo-attach-point="_folderIcon"></div>
+					<div class="dijitInline" data-dojo-attach-point="_folderName" style="white-space:nowrap"></div><br>
+					<input name="${id}_inheritMode" id="${id}_notInheritFromParent" class="dijitInline" data-dojo-attach-point="_notInheritFromParent" data-dojo-type="dijit.form.RadioButton"/>
+					<label for="${id}_notInheritFromParent">${messages.entry_template_inherited_entry_templates_not}</label>
+					</fieldset>
+					</td>
+				</tr>
+				
+			</table>
+		</div>
+		<div class="ecmFolderEntryTemplateArea" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region:'center'" gutters="false">
+			<div class="ecmSelectedFolderEntryTemplateArea" data-dojo-attach-point="selectedList" data-dojo-type="dijit.layout.BorderContainer" data-dojo-props="region:'center'" gutters="false">
+				<div data-dojo-type="dijit.layout.ContentPane" style="margin: 0px; padding: 0px;" splitter="false" toggleSplitterOpen="false" region="top" minSize="10">
+					<label class="gridLabel ecmSelectedLabel" for="${id}_entryTemplatesSelected">${messages.entry_template_selected_entry_templates}</label>
+					<div class="buttonArea">
+					  <div  data-dojo-attach-point="_optionsButton" data-dojo-type="dijit.form.Button" data-dojo-attach-event="onClick: _onClickOptions" data-dojo-props="disabled: true" >${messages.entry_template_optionsButton_title}</div>
+					  <div  data-dojo-attach-point="_removeButton" data-dojo-type="dijit.form.Button" data-dojo-attach-event="onClick: _onClickRemove" data-dojo-props="disabled: true" >${messages.entry_template_removeButton_title}</div>
+					  <div  data-dojo-type="dijit.form.Button" data-dojo-attach-point="makeDefaultButton" data-dojo-props="disabled: true" data-dojo-attach-event="onClick:_onMakeDefault">${messages.workspacebuilder_makeDefault_list}</div>
+					</div>
+				</div>
+				<div region="center" id="${id}_entryTemplatesSelected" class="ecmSelectedList" data-dojo-type="ecm.widget.listView.ContentList" data-dojo-attach-point="_entryTemplatesSelected" multiSelect='false' emptyMessage="${messages.no_entry_templates_were_found}"></div>
+		        <div data-dojo-type="dijit.layout.ContentPane" style="margin: 0px; padding: 0px;" splitter="false" toggleSplitterOpen="false" region="trailing" minSize="10">
+					<table style='height:100%' ><tr><td>
+				    	<div class="iconButton" style="display: block;padding-top: 5px" title="${messages.move_up_selected_tooltip}" showLabel="false" iconClass="moveUpButton" data-dojo-attach-point="_moveUpButton" data-dojo-type="dijit.form.Button" data-dojo-attach-event="onClick: _onClickUp" data-dojo-props="disabled: true">&#8743;</div>
+				    	<div class="iconButton" style="display: block;padding-bottom: 5px" title="${messages.move_down_selected_tooltip}" showLabel="false" iconClass="moveDownButton" data-dojo-attach-point="_moveDownButton" data-dojo-type="dijit.form.Button" data-dojo-attach-event="onClick: _onClickDown" data-dojo-props="disabled: true">&#8744;</div>
+					</td></tr></table>
+				 </div>
+			</div>
+			<div class = "ecmAvailableFolderEntryTemplateArea" data-dojo-attach-point="availableList" data-dojo-type="dijit.layout.BorderContainer" data-dojo-props="region:'bottom'" gutters="false">
+				<div data-dojo-type="dijit.layout.ContentPane" style="margin: 0px; padding: 0px;" splitter="false" toggleSplitterOpen="false" region="top" minSize="10">
+					<div style="padding-top: 10px" class="dijitInline" data-dojo-type="dijit.form.Button" data-dojo-attach-point="addButton" data-dojo-props="disabled: true" data-dojo-attach-event="onClick:_onClickAdd">${messages.entry_template_addButton_title}</div>
+				</div>
+				<div region="center" class="ecmAvailableList" data-dojo-type="ecm.widget.listView.ContentList" data-dojo-attach-point="_entryTemplatesAvailable" multiSelect='true' emptyMessage="${messages.no_entry_templates_were_found}" aria-label="${messages.entry_template_avaliable_entry_templates}"></div>
+	            <div data-dojo-type="dijit.layout.ContentPane" style="margin: 0px; padding: 0px;" splitter="false" toggleSplitterOpen="false" region="trailing" minSize="10">
+					<table style='height:100%' ><tr><td>
+						
+					</td></tr></table>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>

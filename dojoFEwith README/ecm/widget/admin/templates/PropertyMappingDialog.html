@@ -1,0 +1,57 @@
+<div>
+    <table class="propertyTable" role="presentation">
+		<tr>
+		    <td class="propertyRowLabel" valign="middle">
+		        <span class="required">*</span>
+		        <label>${messages.admin_office_config_properties_label}</label>&nbsp;
+		        <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_properties_field_hover_help">${messages.admin_office_config_properties_hover_help}</div>
+		    </td>
+		    <td class="propertyRowValue">
+                <input class="propertyInputField" data-dojo-props="id: '${id}_properties_input_field', required: false" data-dojo-attach-point="_property_input_field" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" /> 
+		    </td>
+		    <td class="propertyRowValue">
+			    <div data-dojo-type="dijit/form/Button" data-dojo-attach-point="addPropertyButton" data-dojo-attach-event="onClick: onClickAddProperty">
+	                ${messages.admin_adminusers_add}
+	            </div>
+            </td>
+		</tr>
+        <tr>
+            <td class="propertyRowLabel" valign="middle">
+                &nbsp;
+            </td>
+            <td class="propertyRowValue">
+                <div class="propertyMultiSelect" data-dojo-props="id: '${id}_properties_field'" data-dojo-attach-point="_properties_field" data-dojo-type="dijit/form/MultiSelect"></div> 
+            </td>
+            <td class="propertyRowValue" valign="top">
+                <div data-dojo-type="dijit/form/Button" data-dojo-attach-point="removePropertyButton" data-dojo-attach-event="onClick: onClickRemoveProperty">
+                    ${messages.admin_adminusers_remove}
+                </div>
+            </td>
+        </tr>		
+		<tr>
+            <td class="propertyRowLabel" valign="middle">
+                <span class="required">*</span>
+                <label>${messages.admin_office_config_type_label}</label>&nbsp;
+            </td>
+            <td class="propertyRowValue">
+                <div data-dojo-props="id: '${id}_type_field', labelType: 'text', label: 'label', searchAttr: 'label', maxHeight: 150" 
+                     data-dojo-type="ecm/widget/FilteringSelect" data-dojo-attach-point="_type_field" data-dojo-attach-event="onChange: _onFieldChange"></div> 
+            </td>
+             <td class="propertyRowValue">
+            </td>
+        </tr>
+        <tr>
+            <td class="propertyRowLabel" valign="middle">
+                <span class="required">*</span>
+                <label>${messages.admin_office_config_mapped_property_label}</label>&nbsp;
+                <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_mapped_property_field_hover_help">${messages.admin_office_config_mapped_property_hover_help}</div>
+            </td>
+            <td class="propertyRowValue">
+                <div data-dojo-type="ecm/widget/FilteringSelect" data-dojo-attach-point="_mapped_property_field" data-dojo-attach-event="onChange: _onFieldChange" 
+                     data-dojo-props=" id:'${id}_mapped_property_field', labelType: 'text', label: 'label', searchAttr: 'label', maxHeight: 150, style: { width: '300px' }"></div>
+            </td>
+             <td class="propertyRowValue">
+            </td>
+        </tr>		
+    </table>
+</div>

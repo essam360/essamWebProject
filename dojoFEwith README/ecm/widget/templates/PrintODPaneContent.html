@@ -1,0 +1,244 @@
+<div data-dojo-attach-point="odPrintMainArea">
+	<div data-dojo-attach-point="printerSelectArea" class="printerSelectArea">
+		<table>
+			<tbody>
+				<tr data-dojo-attach-point="printerTypeSelectionArea">
+					<td class="propLabel">${messages.print_type}</td>
+					<td class="inputArea" colspan="2">
+						<form>
+							<input type="radio" id="${id}_local_type" data-dojo-type="dijit.form.RadioButton" name="printerTypeRadio" value="local" data-dojo-attach-point="localPrintRadioButton" />
+							<label for="${id}_local_type" class="localRadioLabel">${messages.print_printer_local}</label>
+		    				<input type="radio" id="${id}_server_type" data-dojo-type="dijit.form.RadioButton" name="printerTypeRadio" value="server" data-dojo-attach-point="serverPrintRadioButton" />
+		    				<label for="${id}_server_type">${messages.print_printer_server}</label>
+						</form>
+					</td>
+				</tr>
+				<tr data-dojo-attach-point="printerSelectionArea">
+					<td class="propLabel"><label for="${id}_printer_name-field">${messages.print_printer_name}</label></td>
+					<td class="inputArea" colspan="2">
+						<select data-dojo-type="dijit.form.FilteringSelect" 
+							data-dojo-attach-point="printerBox" 
+							data-dojo-props="name:'printer', id: '${id}_printer_name-field', 'aria-labelledby': '${id}_printer_name-field', style:{width:'200px'}, required:true">
+						</select>
+					</td>
+				</tr>
+				
+			</tbody>
+		</table>
+	</div>
+	
+	<div class="propertiesArea" data-dojo-attach-point="propertiesArea">
+		<div  style="display: none" data-dojo-attach-point="serverPrintFields" data-dojo-type="idx.layout.TitlePane">
+			<table class="titlePaneTable">
+				<tbody>
+					<tr>
+						<td class="propLabel"><label for="${id}_user_printclass">${messages.print_property_class}</label></td>
+						<td class="inputArea">
+							<input data-dojo-type="dijit.form.ValidationTextBox"
+								name="user_printclass" 
+								data-dojo-attach-point="user_printclass" 
+								data-dojo-props="name:'user_printclass',style:{width:'50px'},
+									maxLength:'1',regExp:'[A-Z0-9]', id: '${id}_user_printclass', 'aria-labelledby': '${id}_user_printclass'"/>
+						</td>
+						<td class="propLabel"><label for="${id}_user_printpagedef">${messages.print_property_pagedef}</label></td>
+						<td class="inputArea">
+							<input data-dojo-type="dijit.form.ValidationTextBox" 
+								data-dojo-attach-point="user_printpagedef" 
+								data-dojo-props="name:'user_printpagedef',style:{width:'100px'},
+									maxLength:'6', regExp:'[A-Za-z0-9@#\$]*', id: '${id}_user_printpagedef', 'aria-labelledby': '${id}_user_printpagedef'"/>
+						</td>
+					</tr>
+					<tr>
+						<td class="propLabel"><label for="${id}_user_printnode">${messages.print_property_node}</label></td>
+						<td class="inputArea">
+							<input data-dojo-type="dijit.form.ValidationTextBox" 
+								data-dojo-attach-point="user_printnode"
+								data-dojo-props="name:'user_printnode',style:{width:'100px'},
+									maxLength:'8', id: '${id}_user_printnode', 'aria-labelledby': '${id}_user_printnode'"/>
+						</td>
+						<td class="propLabel"><label for="${id}_user_printwriter">${messages.print_property_writer}</label></td>
+						<td class="inputArea">
+							<input data-dojo-type="dijit.form.ValidationTextBox" 
+								data-dojo-attach-point="user_printwriter"
+								data-dojo-props="name:'user_printwriter',style:{width:'100px'},
+									maxLength:'8',regExp:'[A-Za-z0-9@#\$]*', id: '${id}_user_printwriter', 'aria-labelledby': '${id}_user_printwriter'"/>
+						</td>
+					</tr>
+					<tr>
+						<td class="propLabel"><label for="${id}_user_printformdef">${messages.print_property_formdef}</label></td>
+						<td class="inputArea">
+							<input data-dojo-type="dijit.form.ValidationTextBox" 
+								data-dojo-attach-point="user_printformdef"
+								data-dojo-props="name:'user_printformdef',style:{width:'100px'},
+									maxLength:'6',regExp:'[A-Za-z0-9@#\$]*', id: '${id}_user_printformdef', 'aria-labelledby': '${id}_user_printformdef'"/>
+						</td>
+						<td class="propLabel"><label for="${id}_user_printerid">${messages.print_property_printerid}</label></td>
+						<td class="inputArea">
+							<input data-dojo-type="dijit.form.TextBox" 
+								data-dojo-attach-point="user_printerid"
+								data-dojo-props="name:'user_printerid',style:{width:'100px'},
+								maxLength:'8', id: '${id}_user_printerid', 'aria-labelledby': '${id}_user_printerid'"/>
+						</td>
+					</tr>
+					<tr>
+						<td class="propLabel"><label for="${id}_user_printforms">${messages.print_property_forms}</label></td>
+						<td class="inputArea">
+							<input data-dojo-type="dijit.form.ValidationTextBox"
+								data-dojo-attach-point="user_printforms" 
+								data-dojo-props="name:'user_printforms',style:{width:'100px'},
+									maxLength:'8',regExp:'[A-Za-z0-9@#\$]*', id: '${id}_user_printforms', 'aria-labelledby': '${id}_user_printforms'"/>
+						</td>
+						<td class="propLabel"><label for="${id}_user_printrouting">${messages.print_property_routing}</label></td>
+						<td class="inputArea" colspan="3">
+							<input data-dojo-type="dijit.form.TextBox" 
+								data-dojo-attach-point="user_printrouting" 
+								data-dojo-props="name:'user_printrouting',style:{width:'200px'}, maxLength:'24', id: '${id}_user_printrouting', 'aria-labelledby': '${id}_user_printrouting'"/>
+						</td>
+					</tr>
+					<tr>
+						<td class="propLabel"></td>
+						<td class="inputArea" colspan="3">
+							<input id="${id}_user_print_banner" data-dojo-type="dijit.form.CheckBox"
+								data-dojo-attach-point="user_printbanner" 
+								data-dojo-props="name:'user_printbanner',value:'Y', id: '${id}_user_print_banner', 'aria-labelledby': '${id}_user_print_banner'"/>
+							<label for="${id}_user_print_banner" class="cblabel">${messages.print_property_bannerpage}</label>
+							<span class="space">&nbsp;</span>
+							<input data-dojo-type="dijit.form.CheckBox"
+								data-dojo-attach-point="saveServerPrintOptions" 
+								data-dojo-props="name:'saveServerPrintOptions', id: '${id}_cb1', 'aria-labelledby': '${id}_cb1'"/>
+							<label for="${id}_cb1" class="cblabel">${messages.print_saveoptions}</label>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<div style="display: none" data-dojo-attach-point="serverPrintOptions" data-dojo-type="idx.layout.TitlePane">
+			<table class="titlePaneTable">
+				<tbody>
+					<tr>
+						<td class="propLabel"><label for="${id}_user_print_field_to">${messages.print_field_to}</label></td>
+						<td class="inputArea">
+							<textarea data-dojo-type="dijit.form.SimpleTextarea" data-dojo-attach-point="infoTo" 
+								data-dojo-props="name:'infoTo',cols:'28',rows:'6',maxLength:'180',style:{resize:'none'}, id: '${id}_user_print_field_to', 'aria-labelledby': '${id}_user_print_field_to'"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td class="propLabel"><label for="${id}_user_print_field_from">${messages.print_field_from}</label></td>
+						<td class="inputArea">
+							<textarea data-dojo-type="dijit.form.SimpleTextarea" data-dojo-attach-point="infoFrom" 
+								data-dojo-props="name:'infoFrom',cols:'28',rows:'6',maxLength:'180',style:{resize:'none'}, id: '${id}_user_print_field_from', 'aria-labelledby': '${id}_user_print_field_from'"></textarea>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<div style="display: none" data-dojo-attach-point="faxFields" data-dojo-type="idx.layout.TitlePane">
+		  	<div class="faxArea">
+		  		<div class="faxSenderArea">
+				  	<fieldset>
+						<legend>${messages.print_fax_sender}</legend>
+						<table class="titlePaneTable">
+							<tbody>
+								<tr>
+									<td class="propLabel"><label for="${id}_user_print_sender_faxname">${messages.print_property_faxname}</label></td>
+									<td class="inputArea">
+										<input data-dojo-type="dijit.form.TextBox"
+											data-dojo-attach-point="faxSenderName" 
+											data-dojo-props="name:'faxSenderName',style:{width:'150px'}, id: '${id}_user_print_sender_faxname', 'aria-labelledby': '${id}_user_print_sender_faxname'"/>
+									</td>
+								</tr>
+								<tr>
+									<td class="propLabel"><label for="${id}_user_print_sender_faxcompany">${messages.print_property_faxcompany}</label></td>
+									<td class="inputArea">
+										<input data-dojo-type="dijit.form.TextBox"
+											data-dojo-attach-point="faxSenderCompany" 
+											data-dojo-props="name:'faxSenderCompany',style:{width:'150px'}, id: '${id}_user_print_sender_faxcompany', 'aria-labelledby': '${id}_user_print_sender_faxcompany'"/>
+									</td>
+								</tr>
+								<tr>
+									<td class="propLabel"><label for="${id}_user_print_sender_faxsendertelnumber">${messages.print_property_faxsendertelnumber}</label></td>
+									<td class="inputArea">
+										<input data-dojo-type="dijit.form.TextBox"
+											data-dojo-attach-point="faxSenderTelNumber" 
+											data-dojo-props="name:'faxSenderTelNumber',style:{width:'150px'}, id: '${id}_user_print_sender_faxsendertelnumber', 'aria-labelledby': '${id}_user_print_sender_faxsendertelnumber'"/>
+									</td>
+								</tr>
+								<tr>
+									<td class="propLabel"><label for="${id}_user_print_sender_faxnumber">${messages.print_property_faxnumber}</label></td>
+									<td class="inputArea">
+										<input data-dojo-type="dijit.form.TextBox"
+											data-dojo-attach-point="faxSenderNumber" 
+											data-dojo-props="name:'faxSenderNumber',style:{width:'150px'}, id: '${id}_user_print_sender_faxnumber', 'aria-labelledby': '${id}_user_print_sender_faxnumber'"/>
+									</td>
+								</tr>
+								<tr>
+									<td class="propLabel"><label for="${id}_user_print_sender_faxcoverpage">${messages.print_property_faxcoverpage}</label></td>
+									<td class="inputArea">
+										<input data-dojo-type="dijit.form.TextBox"
+											data-dojo-attach-point="faxCoverPage" 
+											data-dojo-props="name:'faxCoverPage',style:{width:'150px'}, id: '${id}_user_print_sender_faxcoverpage', 'aria-labelledby': '${id}_user_print_sender_faxcoverpage'"/>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</fieldset>
+				</div>
+				<div class="faxRecipientArea">
+					<fieldset>
+			     		<legend>${messages.print_fax_recipient}</legend>
+						<table class="titlePaneTable">
+							<tbody>
+								<tr>
+									<td class="propLabel"><label for="${id}_user_print_recipient_faxcompany">${messages.print_property_faxcompany}</label></td>
+									<td class="inputArea">
+										<input data-dojo-type="dijit.form.TextBox"
+											data-dojo-attach-point="faxToCompany" 
+											data-dojo-props="name:'faxToCompany',style:{width:'150px'}, id: '${id}_user_print_recipient_faxcompany', 'aria-labelledby': '${id}_user_print_recipient_faxcompany'"/>
+									</td>
+								</tr>
+								<tr>
+									<td class="propLabel"><label for="${id}_user_print_recipient_faxnum">${messages.print_property_faxnumber}</label></td>
+									<td class="inputArea">
+										<input data-dojo-type="dijit.form.ValidationTextBox"
+											data-dojo-attach-point="faxToNumber" 
+											data-dojo-props="name:'faxToNumber',style:{width:'150px'}, required:true, id: '${id}_user_print_recipient_faxnum', 'aria-labelledby': '${id}_user_print_recipient_faxnum'"/>
+									</td>
+								</tr>
+								<tr>
+									<td class="propLabel"><label for="${id}_user_print_recipient_faxname">${messages.print_property_faxname}</label></td>
+									<td class="inputArea">
+										<input data-dojo-type="dijit.form.TextBox"
+											data-dojo-attach-point="faxToName" 
+											data-dojo-props="name:'faxToName',style:{width:'150px'}, id: '${id}_user_print_recipient_faxname', 'aria-labelledby': '${id}_user_print_recipient_faxname'"/>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</fieldset>
+				</div>
+			</div>
+			<div class="faxArea">
+				<table class="titlePaneTable">
+					<tr>
+						<td class="propLabel"><label for="${id}_user_print_faxsubject">${messages.print_property_faxsubject}</label></td>
+						<td class="inputArea">
+							<input data-dojo-type="dijit.form.TextBox"
+								data-dojo-attach-point="faxSubject" 
+								data-dojo-props="name:'faxSubject',style:{width:'200px'}, id: '${id}_user_print_faxsubject', 'aria-labelledby': '${id}_user_print_faxsubject'"/>
+						</td>
+					</tr>
+					<tr>
+						<td class="propLabel"><label for="${id}_user_print_faxnotes">${messages.print_property_faxnotes}</label></td>
+						<td class="inputArea">
+							<input data-dojo-type="dijit.form.TextBox"
+								data-dojo-attach-point="faxNotes" 
+								data-dojo-props="name:'faxNotes',style:{width:'200px'}, id: '${id}_user_print_faxnotes', 'aria-labelledby': '${id}_user_print_faxnotes'"/>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

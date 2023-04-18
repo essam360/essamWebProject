@@ -1,0 +1,492 @@
+<div class="ecmAdminTab ecmTabTheme">
+  <div data-dojo-type="idx/layout/BorderContainer" data-dojo-attach-point="borderContainer" data-dojo-props="gutters: false, style: { width: '100%', height: '100%' }" class="ecmTheme">
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'top'">	
+	  <div class="ecmAdminTabButtonBar">
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="saveAndCloseButton" data-dojo-attach-event="onClick: _onSaveAndClose" data-dojo-props="disabled: true">
+			${messages.save_and_close}
+		</button>
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="saveButton" data-dojo-attach-event="onClick: onSave" data-dojo-props="disabled: true">
+			${messages.save}
+		</button>
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="resetButton" data-dojo-attach-event="onClick: _onReset" data-dojo-props='disabled: true'>
+			${messages.reset}
+		</button>
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="closeButton" data-dojo-attach-event="onClick: _onClose">
+			${messages.close}
+		</button>
+  	  </div>
+	  <div class="ecmAdminTabHeading" data-dojo-attach-point="headingText">
+	  </div>
+	  <div class="ecmAdminTabInstructions" data-dojo-attach-point="instructions" id="${id}_intro">
+	  </div>
+    </div>
+	<div data-dojo-type="dijit/layout/ContentPane" class="ecmAdminSubTabContainer" data-dojo-props="region: 'center', style: { padding: '5px' }">
+		<div data-dojo-type="dijit/Dialog" class="ecmBaseDialog themeColorPicker" data-dojo-attach-point="_colorPickerDialog">
+		    <div data-dojo-type="dojox/widget/ColorPicker" data-dojo-attach-point="_colorPicker"></div>
+		    <div class="dijitDialogPaneActionBar">
+			    <button data-dojo-type="dijit/form/Button" data-dojo-attach-event="onClick: _onOkColorPicker">
+					${messages.ok}
+				</button>
+				<button data-dojo-type="dijit/form/Button" data-dojo-attach-event="onClick: _onCloseColorPicker">
+					${messages.close}
+				</button>
+			</div>
+		</div>
+		
+		<table class="propertyTable" role="presentation">
+			<tr>
+				<td class="propertyRowValue">
+					<label for="${id}_name-field">${messages.name}</label>&nbsp;
+					<div id="${id}_name_hover" data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="nameFieldHoverHelp">${messages.admin_theme_name_hover}</div>
+				</td>
+				<td class="propertyRowValue">
+				   <input data-dojo-attach-point="nameField" 
+				   			data-dojo-attach-event="onKeyUp: _onNameChange" 
+				   			data-dojo-type="ecm/widget/ValidationTextBox" 
+				   			data-dojo-props="id: '${id}_name-field', hoverHelpId: '${id}_name_hover', required: true, trim: true, propercase: false" />
+				</td>
+			</tr>
+			<tr>
+				<td class="propertyRowValue">
+					<label for="${id}_id-field">${messages.id_label}</label>&nbsp;
+					<div id="${id}_id_hover"data-dojo-type="ecm/widget/HoverHelp" data-dojo-props="isFocusable: true" data-dojo-attach-point="idFieldHoverHelp">${messages.admin_theme_id_hover}</div>
+				</td>
+				<td class="propertyRowValue">
+				   <input data-dojo-attach-point="idField" 
+				   			data-dojo-attach-event="onKeyUp: _onFieldChange" 
+				   			data-dojo-type="ecm/widget/ValidationTextBox" 
+				   			data-dojo-props="id: '${id}_id-field', hoverHelpId: '${id}_id_hover', required: true, trim: true, propercase: false, maxLength: 64" />
+				</td>
+			</tr>
+			<tr>
+				<td class="propertyRowLabel" valign="top">
+					<span class="ecmLabel">${messages.admin_theme_theme_style_label}</span>
+					<div id="${id}_theme_style_hover" data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="themeStyleHoverHelp">${messages.admin_theme_theme_style_hover}</div>
+				</td>
+				<td class="propertyRowValue">
+					<fieldset>
+						<legend style="display: none;">${messages.admin_theme_theme_style_label}</legend>
+						<div>
+							<input data-dojo-attach-point="_defaultThemeStyleRadioButton"
+								data-dojo-type="ecm/widget/RadioButton"
+								data-dojo-props="id: '${id}_default_theme_style_field', hoverHelpId: '${id}_theme_style_hover', type: 'radio', name: '${id}_baseStyle', value: 'default'" />
+							<label for="${id}_default_theme_style_field">${messages.default_label}</label>
+							<input data-dojo-attach-point="_classicThemeStyleRadioButton"
+								data-dojo-type="ecm/widget/RadioButton"
+								data-dojo-props="id: '${id}_classic_theme_style_field', hoverHelpId: '${id}_theme_style_hover', type: 'radio', name: '${id}_baseStyle', value: 'classic', 'class': 'radioButton1'" />
+							<label for="${id}_classic_theme_style_field">${messages.admin_base_ui_style_classic}</label>
+						</div>
+					</fieldset>
+				</td>
+			</tr>
+		</table>
+		<div data-dojo-type="idx/layout/TitlePane"
+				data-dojo-attach-point="colorPaletteTitlePane"
+				data-dojo-props='style: { "margin-top" : "10px", "margin-left": "0px" }, "class": "ecmAdminColorPaletteTitlePane"'> 
+			<div class="ecmAdminTabInstructions">${messages.admin_theme_color_palette_help_text}</div>
+			<table class="propertyTable" role="presentation" data-dojo-attach-point="colorListTable">
+	        </table>
+	        <div data-dojo-type="dijit/form/Button" class="addColorButton" data-dojo-attach-point="addColorButton">
+	         	${messages.admin_theme_color_add_button_label}
+	        </div>
+         </div>
+         
+         <div data-dojo-type="idx/layout/TitlePane"
+				data-dojo-attach-point="globalOptionsTitlePane"
+				data-dojo-props='style: { "margin-top" : "10px", "margin-left": "0px" }, open: false'> 
+            <table class="propertyTable" role="presentation">
+	            <tr data-dojo-attach-point="_globalFontSelectRow">
+		              <td class="propertyRowLabel" valign="top">
+		                  <label for="${id}_global_font">${messages.admin_theme_global_font}</label>&nbsp;
+		                  <div id="${id}_global_font_hover" data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_globalFontHover">${messages.admin_theme_global_font_hover}</div>
+		              </td>
+		              <td class="propertyRowValue">
+		               	<select data-dojo-props="id: '${id}_global_font', hoverHelpId: '${id}_global_font_hover'" 
+		               			data-dojo-attach-point="_globalFontSelect" 
+		               			data-dojo-type="ecm/widget/Select" 
+		               			data-dojo-attach-event="onChange: _onFieldChange">
+		               	</select>                   
+		              </td>
+	          	</tr>
+	          	<tr data-dojo-attach-point="_globalFrameworkColorSelectRow">
+		              <td class="propertyRowLabel" valign="top">
+		                  <label for="${id}_global_framework_color">${messages.admin_theme_global_framework_color_label}</label>&nbsp;
+		                  <div id="${id}_global_framework_color_hover" data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_globalFrameworkColorHover">${messages.admin_theme_global_framework_color_hover}</div>
+		              </td>
+		              <td class="propertyRowValue">
+		                   <select data-dojo-props="id: '${id}_global_framework_color', hoverHelpId: '${id}_global_framework_color_hover'" 
+		               			data-dojo-attach-point="_globalFrameworkColorSelect" 
+		               			data-dojo-type="ecm/widget/Select" 
+		               			data-dojo-attach-event="onChange: _onFieldChange">
+		 	               </select>                   
+		              </td>
+	          	</tr>
+	          	<tr data-dojo-attach-point="_globalFrameworkAccentColorSelectRow">
+					<td class="propertyRowLabel" valign="top">
+						<label for="${id}_global_framework_accent_color">${messages.admin_theme_accent_color_label}</label>&nbsp;
+						<div id="${id}_global_framework_accent_color_hover" data-dojo-type="ecm/widget/HoverHelp">${messages.admin_theme_accent_color_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+						<select data-dojo-props="id: '${id}_global_framework_accent_color', hoverHelpId: '${id}_global_framework_accent_color_hover'"
+								data-dojo-attach-point="_globalFrameworkAccentColorSelect"
+								data-dojo-type="ecm/widget/Select"
+								data-dojo-attach-event="onChange: _onFieldChange">
+						</select>
+					</td>
+				</tr>
+	          	<tr data-dojo-attach-point="_globalSelectedColorSelectRow">
+		              <td class="propertyRowLabel" valign="top">
+		                  <label for="${id}_global_selected_color">${messages.admin_theme_global_selected_color}</label>&nbsp;
+		                  <div id="${id}_global_selected_color_hover" data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_globalSelectedColorHover">${messages.admin_theme_global_selected_color_hover}</div>
+		              </td>
+		              <td class="propertyRowValue">
+		                   <select data-dojo-props="id: '${id}_global_selected_color', hoverHelpId: '${id}_global_selected_color_hover'" 
+		               			data-dojo-attach-point="_globalSelectedColorSelect" 
+		               			data-dojo-type="ecm/widget/Select" 
+		               			data-dojo-attach-event="onChange: _onFieldChange">
+		 	               </select>                   
+		              </td>
+	          	</tr>
+	          	<tr data-dojo-attach-point="_globalToolbarColorSelectRow">
+		              <td class="propertyRowLabel" valign="top">
+		                  <label for="${id}_global_toolbar_color">${messages.admin_theme_color_global_toolbar}</label>&nbsp;
+		                  <div id="${id}_global_toolbar_color_hover" data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_globalToolbarColorHover">${messages.admin_theme_color_global_toolbar_hover}</div>
+		              </td>
+		              <td class="propertyRowValue">
+		                   <select data-dojo-props="id: '${id}_global_toolbar_color', hoverHelpId: '${id}_global_toolbar_color_hover'" 
+		               			data-dojo-attach-point="_globalToolbarColorSelect" 
+		               			data-dojo-type="ecm/widget/Select" 
+		               			data-dojo-attach-event="onChange: _onFieldChange">
+		 	            	</select>                   
+		              </td>
+	          	</tr>
+	          	<tr data-dojo-attach-point="_globalToolbarTextColorSelectRow">
+					<td class="propertyRowLabel" valign="top">
+						<label for="${id}_global_toolbar_text_color">${messages.admin_theme_global_toolbar_text_color_label}</label>&nbsp;
+						<div id="${id}_global_toolbar_text_color_hover" data-dojo-type="ecm/widget/HoverHelp">${messages.admin_theme_global_toolbar_text_color_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+						<select data-dojo-props="id: '${id}_global_toolbar_text_color', hoverHelpId: '${id}_global_toolbar_text_color_hover'"
+								data-dojo-attach-point="_globalToolbarTextColorSelect"
+								data-dojo-type="ecm/widget/Select"
+								data-dojo-attach-event="onChange: _onFieldChange">
+						</select>
+					</td>
+				</tr>
+	          	<tr data-dojo-attach-point="_globalLinkColorSelectRow">
+		              <td class="propertyRowLabel" valign="top">
+		                  <label for="${id}_global_link_color">${messages.admin_theme_global_link_color}</label>&nbsp;
+		                  <div id="${id}_global_link_color_hover" data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_globalLinkColorHover">${messages.admin_theme_global_link_color_hover}</div>
+		              </td>
+		              <td class="propertyRowValue">
+		                   <select data-dojo-props="id: '${id}_global_link_color', hoverHelpId: '${id}_global_link_color_hover'" 
+		               			data-dojo-attach-point="_globalLinkColorSelect" 
+		               			data-dojo-type="ecm/widget/Select" 
+		               			data-dojo-attach-event="onChange: _onFieldChange">
+		 	            	</select>                   
+		              </td>
+	          	</tr>
+	        </table>
+	    </div>
+         
+        <div data-dojo-type="idx/layout/TitlePane"
+				data-dojo-attach-point="loginOptionsTitlePane"
+				data-dojo-props='style: { "margin-top" : "10px", "margin-left": "0px" }, open: false'> 
+            <table class="propertyTable" role="presentation">
+	            <tr data-dojo-attach-point="_loginPageBackgroundColorSelectRow">
+		              <td class="propertyRowLabel" valign="top">
+		                  <label for="${id}_login_page_background">${messages.admin_theme_page_background_label}</label>&nbsp;
+		                  <div id="${id}_login_page_background_hover" data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_loginPageBackgroundHover">${messages.admin_theme_login_page_background_hover}</div>
+		              </td>
+		              <td class="propertyRowValue">
+		                   <select data-dojo-props="id: '${id}_login_page_background', hoverHelpId: '${id}_login_page_background_hover'" 
+		               			data-dojo-attach-point="_loginPageBackgroundColorSelect" 
+		               			data-dojo-type="ecm/widget/Select" 
+		               			data-dojo-attach-event="onChange: _onFieldChange">
+		 	            	</select>                   
+		              </td>
+	          	</tr>
+	          	<tr data-dojo-attach-point="_loginPaneBackgroundColorSelectRow">
+		              <td class="propertyRowLabel" valign="top">
+		                  <label for="${id}_login_pane_background">${messages.admin_theme_login_pane_background_label}</label>&nbsp;
+		                  <div id="${id}_login_pane_background_hover" data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_loginPaneBackgroundHover">${messages.admin_theme_login_pane_background_hover}</div>
+		              </td>
+		              <td class="propertyRowValue">
+		                   <select data-dojo-props="id: '${id}_login_pane_background', hoverHelpId: '${id}_login_pane_background_hover'" 
+		               			data-dojo-attach-point="_loginPaneBackgroundColorSelect" 
+		               			data-dojo-type="ecm/widget/Select" 
+		               			data-dojo-attach-event="onChange: _onFieldChange">
+		 	            	</select>                   
+		              </td>
+	          	</tr>
+	          	<tr data-dojo-attach-point="_loginPaneTextColorSelectRow">
+		              <td class="propertyRowLabel" valign="top">
+		                  <label for="${id}_login_pane_text_color">${messages.admin_theme_text_color}</label>&nbsp;
+		                  <div id="${id}_login_pane_text_color_hover" data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_loginPaneTextColorHover">${messages.admin_theme_login_pane_text_color_hover}</div>
+		              </td>
+		              <td class="propertyRowValue">
+		                   <select data-dojo-props="id: '${id}_login_pane_text_color', hoverHelpId: '${id}_login_pane_text_color_hover'" 
+		               			data-dojo-attach-point="_loginPaneTextColorSelect" 
+		               			data-dojo-type="ecm/widget/Select" 
+		               			data-dojo-attach-event="onChange: _onFieldChange">
+		 	            	</select>                   
+		              </td>
+	          	</tr>
+	            <tr data-dojo-attach-point="_loginPaneLogoSelectRow">
+		              <td class="propertyRowLabel" valign="top">
+		                  <label for="${id}_login_pane_logo_select">${messages.admin_desktop_login_logo}</label>&nbsp;
+		                  <div id="${id}_login_pane_logo_hover" data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_loginPageLogoHover">${messages.admin_desktop_login_logo_hover}</div>
+		              </td>
+		              <td class="propertyRowValue">
+		                  <select data-dojo-props="id: '${id}_login_pane_logo_select', hoverHelpId: '${id}_login_pane_logo_hover'" 
+		               			data-dojo-attach-point="_loginPaneLogoSelect" 
+		               			data-dojo-type="ecm/widget/Select" 
+		               			data-dojo-attach-event="onChange: _onLoginLogoChange">
+		               			<option value="default">${messages.ibm_label} (${messages.default_label})</option>
+		               			<option value="none">${messages.admin_theme_no_logo_label}</option>
+		               			<option value="url">${messages.url_label}</option>
+		 	            	</select>  
+		 	            	<div style="margin: 5px 20px 0px;">
+		                        <label for="${id}_login_page_logo_url">${messages.url_label}</label>
+		                        <div id="${id}_login_page_logo_url_hover" data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_loginPageLogoUrlHover" data-dojo-props="style: { 'margin-top': '-3px' }">${messages.admin_desktop_login_logo_url_hover}</div> 
+		                        <input data-dojo-props="id: '${id}_login_page_logo_url', hoverHelpId: '${id}_login_page_logo_url_hover', required: true, trim: true, propercase: false, disabled: true" data-dojo-attach-point="loginPageLogo" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" />
+		                    </div>                    
+		              </td>
+	          	</tr>
+	          	<tr data-dojo-attach-point="_loginPaneCopyrightSelectRow">
+	              <td class="propertyRowLabel" valign="top">
+	                  <label for="${id}_login_pane_copyright_select">${messages.admin_theme_copyright_text}</label>&nbsp;
+	                  <div id="${id}_login_pane_copyright_hover" data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_copyrightTextHover">${messages.admin_theme_copyright_text_hover}</div>
+	              </td>
+	              <td class="propertyRowValue">
+	              	<select data-dojo-props="id: '${id}_login_pane_copyright_select', hoverHelpId: '${id}_login_pane_copyright_hover'" 
+               			data-dojo-attach-point="_loginPaneCopyrightSelect" 
+               			data-dojo-type="ecm/widget/Select" 
+               			data-dojo-attach-event="onChange: _onFieldChange">
+               			<option value="default">${messages.admin_theme_copyright_selection_IBM} (${messages.default_label})</option>
+               			<option value="none">${messages.admin_theme_copyright_selection_none}</option>
+ 	            	</select>                  
+	              </td>
+	          	</tr>
+	        </table>
+	    </div>
+	    
+        <div data-dojo-type="idx/layout/TitlePane"
+				data-dojo-attach-point="bannerOptionsTitlePane"
+				data-dojo-props='style: { "margin-top" : "10px", "margin-left": "0px" }, open: false'> 
+            <table class="propertyTable" role="presentation">
+            	<tr data-dojo-attach-point="_bannerColorSelectRow">
+		              <td class="propertyRowLabel" valign="top">
+		                  <label for="${id}_banner_color">${messages.admin_theme_background_color_label}</label>&nbsp;
+		                  <div id="${id}_banner_color_hover" data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_bannerColorHover">${messages.admin_theme_banner_color_hover}</div>
+		              </td>
+		              <td class="propertyRowValue">
+		                   <select data-dojo-props="id: '${id}_banner_color', hoverHelpId: '${id}_banner_color_hover'" 
+		               			data-dojo-attach-point="_bannerColorSelect" 
+		               			data-dojo-type="ecm/widget/Select" 
+		               			data-dojo-attach-event="onChange: _onFieldChange">
+		 	            	</select>                   
+		              </td>
+	          	</tr>
+	          	<tr data-dojo-attach-point="_bannerTypeSelectRow">
+	          		<td class="propertyRowLabel" valign="top">
+		              	<label for="${id}_banner_type_field">${messages.admin_theme_banner_type}</label>
+		              	<div id="${id}_banner_type_hover" data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_bannerTypeHover">${messages.admin_theme_banner_type_hover}</div>	
+		            </td>
+	                <td class="propertyRowValue">
+                	  <select data-dojo-props="id: '${id}_banner_type_field', hoverHelpId: '${id}_banner_type_hover'" 
+               			data-dojo-attach-point="_bannerTypeSelect" 
+               			data-dojo-type="ecm/widget/Select" 
+               			data-dojo-attach-event="onChange: _onFieldChange">
+               			<option value="gradient">${messages.admin_theme_gradient} (${messages.default_label})</option>
+               			<option value="solid">${messages.admin_theme_solid}</option>
+ 	            	</select> 
+                  </td>
+	          	</tr>
+	          	<tr data-dojo-attach-point="bannerTextIconsColorSelectRow">
+	                <td class="propertyRowLabel" valign="top"> 
+	                    <label for="${id}_banner_text_icons_color_field">${messages.admin_theme_text_icons_color}</label>&nbsp;
+	                    <div id="${id}_banner_text_icons_color_hover" data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="bannerTextIconsColorHoverHelp">${messages.admin_theme_banner_text_icons_hover}</div>
+	                </td>
+	                <td class="propertyRowValue">
+	                	<select data-dojo-props="id: '${id}_banner_text_icons_color_field', hoverHelpId: '${id}_banner_text_icons_color_hover'"
+	               			data-dojo-attach-point="bannerTextIconsColorSelect" 
+	               			data-dojo-type="ecm/widget/Select" 
+	               			data-dojo-attach-event="onChange: _onFieldChange">
+	 	            	</select>  
+	                </td>
+	            </tr>
+	            <tr data-dojo-attach-point="_bannerTextColorSelectRow">
+					<td class="propertyRowLabel" valign="top">
+						<label for="${id}_banner_text_color_field">${messages.admin_theme_text_color}</label>&nbsp;
+						<div id="${id}_banner_text_color_hover" data-dojo-type="ecm/widget/HoverHelp">${messages.admin_theme_banner_text_color_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+						<select data-dojo-props="id: '${id}_banner_text_color_field', hoverHelpId: '${id}_banner_text_color_hover'" 
+								data-dojo-attach-point="_bannerTextColorSelect"
+								data-dojo-type="ecm/widget/Select"
+								data-dojo-attach-event="onChange: _onFieldChange">
+						</select>
+					</td>
+				</tr>
+	            <tr data-dojo-attach-point="_bannerIconColorSelectRow">
+					<td class="propertyRowLabel" valign="top">
+						<label for="${id}_banner_icon_color_field">${messages.admin_theme_icon_color_label}</label>&nbsp;
+						<div id="${id}_banner_icon_color_hover" data-dojo-type="ecm/widget/HoverHelp">${messages.admin_theme_banner_icon_color_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+						<select data-dojo-props="id: '${id}_banner_icon_color_field', hoverHelpId: '${id}_banner_icon_color_hover'" 
+								data-dojo-attach-point="_bannerIconColorSelect"
+								data-dojo-type="ecm/widget/Select"
+								data-dojo-attach-event="onChange: _onFieldChange">
+						</select>
+					</td>
+				</tr>
+	            <tr data-dojo-attach-point="_bannerLogoSelectRow">
+	                <td class="propertyRowLabel" valign="top"> 
+	                    <label for="${id}_banner_logo_field">${messages.admin_desktop_banner_logo}</label>&nbsp;
+	                    <div id="${id}_banner_logo_hover" data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="bannerLogoHoverHelp">${messages.admin_desktop_banner_logo_hover}</div>
+	                </td>
+	                <td class="propertyRowValue">
+	                	<select data-dojo-props="id: '${id}_banner_logo_field', hoverHelpId: '${id}_banner_logo_hover'" 
+	               			data-dojo-attach-point="_bannerLogoSelect" 
+	               			data-dojo-type="ecm/widget/Select" 
+	               			data-dojo-attach-event="onChange: _onBannerLogoChange">
+	 	            	</select>  
+	 	            	<div style="margin: 5px 20px 0px;">
+	                        <label for="${id}_banner_logo_url">${messages.url_label}</label>
+	                        <div id="${id}_banner_logo_url_hover" data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_bannerLogoUrlHover" data-dojo-props="style: { 'margin-top': '-3px' }">${messages.admin_theme_logo_url_hover}</div> 
+	                        <input data-dojo-props="id: '${id}_banner_logo_url', hoverHelpId: '${id}_banner_logo_url_hover', required: true, trim: true, propercase: false, disabled: true" data-dojo-attach-point="bannerLogoField" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" />
+	                    </div>    
+	                </td>
+	            </tr>
+	            <tr data-dojo-attach-point="_bannerProductNameSelectRow">
+	                <td class="propertyRowLabel" valign="top"> 
+	                    <label for="${id}_banner_product_name_field">${messages.admin_theme_banner_product_name_label}</label>&nbsp;
+	                    <div id="${id}_banner_product_name_hover" data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="bannerProductNameLogoHoverHelp">${messages.admin_theme_banner_product_name_hover}</div>
+	                </td>
+	                <td class="propertyRowValue">
+	                	<select data-dojo-props="id: '${id}_banner_product_name_field', hoverHelpId: '${id}_banner_product_name_hover'" 
+	               			data-dojo-attach-point="_bannerProductNameSelect" 
+	               			data-dojo-type="ecm/widget/Select" 
+	               			data-dojo-attach-event="onChange: _onBannerProductNameChange">
+	               			<option value="default">${messages.admin_theme_banner_product_name_desktop_defined_label} (${messages.default_label})</option>
+	               			<option value="url">${messages.admin_theme_banner_product_name_image}</option>
+	 	            	</select>  
+	 	            	<div style="margin: 5px 20px 0px;">
+						   <label for="${id}_banner_product_namelogo_url">${messages.url_label}</label>
+						   <div id="${id}_banner_product_namelogo_url_hover" data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_bannerProductNameLogoUrlHover" data-dojo-props="style: { 'margin-top': '-3px' }">${messages.admin_theme_logo_url_hover}</div>
+						   <input data-dojo-props="id: '${id}_banner_product_namelogo_url', hoverHelpId: '${id}_banner_product_namelogo_url_hover', required: true, trim: true, propercase: false, disabled: true" data-dojo-attach-point="bannerProductNameLogoField" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" />
+						</div>   
+	                </td>
+	            </tr>
+            </table>
+       </div>
+       
+       <div data-dojo-type="idx/layout/TitlePane"
+				data-dojo-attach-point="navigationOptionsTitlePane"
+				data-dojo-props='style: { "margin-top" : "10px", "margin-left": "0px" }, open: false'> 
+            <table class="propertyTable" role="presentation">
+            	<tr data-dojo-attach-point="_navigationBackgroundColorSelectRow">
+		              <td class="propertyRowLabel" valign="top">
+		                  <label for="${id}_navigation_background">${messages.admin_theme_background_color_label}</label>&nbsp;
+		                  <div id="${id}_navigation_background_hover" data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_navigationBackgroundHover">${messages.admin_theme_navigation_background_hover}</div>
+		              </td>
+		              <td class="propertyRowValue">
+		                   <select data-dojo-props="id: '${id}_navigation_background', hoverHelpId: '${id}_navigation_background_hover'" 
+		               			data-dojo-attach-point="_navigationBackgroundColorSelect" 
+		               			data-dojo-type="ecm/widget/Select" 
+		               			data-dojo-attach-event="onChange: _onFieldChange">
+		 	            	</select>                   
+		              </td>
+	          	</tr>
+	          	<tr data-dojo-attach-point="navigationIconColorSelectRow">
+	                <td class="propertyRowLabel" valign="top"> 
+	                    <label for="${id}_navigation_icon_color_field">${messages.admin_theme_icon_color_label}</label>&nbsp;
+	                    <div id="${id}_navigation_icon_color_hover" data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="navigationIconColorHoverHelp">${messages.admin_theme_navigation_icon_color_hover}</div>
+	                </td>
+	                <td class="propertyRowValue">
+						<select data-dojo-props="id: '${id}_navigation_icon_color_field', hoverHelpId: '${id}_navigation_icon_color_hover'" 
+	               			data-dojo-attach-point="navigationIconColorSelect" 
+	               			data-dojo-type="ecm/widget/Select" 
+	               			data-dojo-attach-event="onChange: _onFieldChange">
+	 	            	</select>   
+	                </td>
+	            </tr>
+	            <tr data-dojo-attach-point="_navigationSelectedIconColorSelectRow">
+		              <td class="propertyRowLabel" valign="top">
+		                  <label for="${id}_navigation_selected_icon_color">${messages.admin_theme_navigation_icon_selected_label}</label>&nbsp;
+		                  <div id="${id}_navigation_selected_icon_color_hover" data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_navigationSelectedIconColorHover">${messages.admin_theme_navigation_icon_selected_hover}</div>
+		              </td>
+		              <td class="propertyRowValue">
+		                   <select data-dojo-props="id: '${id}_navigation_selected_icon_color', hoverHelpId: '${id}_navigation_selected_icon_color_hover'" 
+		               			data-dojo-attach-point="_navigationSelectedIconColorSelect" 
+		               			data-dojo-type="ecm/widget/Select" 
+		               			data-dojo-attach-event="onChange: _onFieldChange">
+		 	            	</select>                   
+		              </td>
+	          	</tr>
+            </table>
+       </div>
+       
+       <div data-dojo-type="idx/layout/TitlePane"
+				data-dojo-attach-point="buttonOptionsTitlePane"
+				data-dojo-props='style: { "margin-top" : "10px", "margin-left": "0px" }, open: false'> 
+            <table class="propertyTable" role="presentation">
+            	<tr data-dojo-attach-point="_buttonStyleSelectRow">
+	                <td class="propertyRowLabel" valign="top"> 
+	                    <label for="${id}_button_style_field" data-dojo-attach-point="_buttonStyleLabel">${messages.admin_theme_style_label}</label>&nbsp;
+	                    <div id="${id}_button_style_hover" data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="buttonStyleHoverHelp">${messages.admin_theme_button_style_hover}</div>
+	                </td>
+	                <td class="propertyRowValue">
+	                	<select data-dojo-props="id: '${id}_button_style_field', hoverHelpId: '${id}_button_style_hover'" 
+		               			data-dojo-attach-point="_buttonStyleSelect" 
+		               			data-dojo-type="ecm/widget/Select" 
+		               			data-dojo-attach-event="onChange: _onButtonStyleChange">
+		 	            </select>    
+	                </td>
+	            </tr>
+            	<tr data-dojo-attach-point="_buttonBackgroundColorSelectRow">
+	                <td class="propertyRowLabel" valign="top"> 
+	                    <label for="${id}_button_background_color_field">${messages.admin_theme_background_color_label}</label>&nbsp;
+	                    <div id="${id}_button_background_color_hover" data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="buttonBackgroundColorHoverHelp">${messages.admin_theme_button_background_color_hover}</div>
+	                </td>
+	                <td class="propertyRowValue">
+	                	<select data-dojo-props="id: '${id}_button_background_color_field', hoverHelpId: '${id}_button_background_color_hover'" 
+		               			data-dojo-attach-point="_buttonBackgroundColorSelect" 
+		               			data-dojo-type="ecm/widget/Select" 
+		               			data-dojo-attach-event="onChange: _onFieldChange">
+		 	            </select>    
+	                </td>
+	            </tr>
+	            <tr data-dojo-attach-point="_buttonTextIconColorSelectRow">
+	                <td class="propertyRowLabel" valign="top"> 
+	                    <label for="${id}_button_text_icon_color_field">${messages.admin_theme_text_icons_color}</label>&nbsp;
+	                    <div id="${id}_button_text_icon_color_hover" data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="buttonTextIconColorHoverHelp">${messages.admin_theme_button_text_icon_color_hover}</div>
+	                </td>
+	                <td class="propertyRowValue">
+	                	<select data-dojo-props="id: '${id}_button_text_icon_color_field', hoverHelpId: '${id}_button_text_icon_color_hover'" 
+	               			data-dojo-attach-point="_buttonTextIconColorSelect" 
+	               			data-dojo-type="ecm/widget/Select" 
+	               			data-dojo-attach-event="onChange: _onFieldChange">
+		 	            </select>   
+	                </td>
+	            </tr>
+				<tr data-dojo-attach-point="_buttonColorSelectRow">
+					<td class="propertyRowLabel" valign="top">
+						<label for="${id}_button_color_field">${messages.admin_theme_button_color_label}</label>&nbsp;
+						<div id="${id}_button_color_hover" data-dojo-type="ecm/widget/HoverHelp">${messages.admin_theme_button_color_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+						<select data-dojo-props="id: '${id}_button_color_field', hoverHelpId: '${id}_button_color_hover'" 
+								data-dojo-attach-point="_buttonColorSelect"
+								data-dojo-type="ecm/widget/Select"
+								data-dojo-attach-event="onChange: _onFieldChange">
+						</select>
+					</td>
+				</tr>
+            </table>
+       </div>
+	</div>
+  </div>
+</div>

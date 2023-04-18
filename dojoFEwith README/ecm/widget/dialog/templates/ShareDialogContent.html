@@ -1,0 +1,110 @@
+<div style="width:100%; height: 100%">
+  <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-attach-point="borderContainer" data-dojo-props="gutters: false, style: { width: '100%', height: '100%' }">
+    <div data-dojo-props="region: 'top'" data-dojo-type="dijit/layout/ContentPane">
+      <table role="presentation" class="itemToShareDiv"><tr>
+        <td data-dojo-attach-point="itemToShareIcon" class="itemToShareIcon"></td>
+        <td data-dojo-attach-point="itemToShareTitle" tabindex=0></td>
+      </tr></table>
+    </div>
+    <div data-dojo-props="region: 'center'" data-dojo-type="dijit/layout/ContentPane">
+      <div style="padding-top: 10px" data-dojo-attach-point="shareLinkDiv">
+		<label for="${id}_shareLink">${messages.share_link}</label>
+		<div id="${id}_shareLink" class="shareLink" data-dojo-attach-point="shareLink" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="readOnly: true"></div>
+      </div>
+      <div style="padding-top: 10px" class="dijitHidden" data-dojo-attach-point="versionShareInfoDiv">
+	     <div class="inlineMessage inlineMessageInfo dijitHidden" style="margin-top: 0" data-dojo-attach-point="versionShareInfoInlineMessage">
+		    <div class="messageIcon"></div>
+		    <div class="messageText" data-dojo-attach-point="versionShareInfoMessageText" role="alert"></div>
+	     </div>
+         <div data-dojo-attach-point="versionShareInfo" tabindex=0 class="dijitInline"></div>
+         <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="versionShareInfoHoverHelp" data-dojo-props="isFocusable: true" class="dijitHidden"></div>
+      </div>   
+      <div data-dojo-attach-point="anotherVersionSharedDiv" class="dijitHidden">
+		 <div class="inlineMessage inlineMessageInfo" data-dojo-attach-point="anotherVersionSharedInlineMessage">
+			<div class="messageIcon"></div>
+			<div class="messageText" data-dojo-attach-point="anotherVersionSharedMessageText" role="alert"></div>
+		 </div>
+		 <fieldset class="dijitInline">
+		 <legend style="display: none;">${messages.share_version_update}</legend>
+			<div data-dojo-attach-point="versionUpdateShareRadio"
+				data-dojo-props="id: '${id}_update_shared_version', type: 'radio', name: '${id}_versionShared'"
+				data-dojo-type="ecm/widget/RadioButton"
+				data-dojo-attach-event="onClick:_onUpdateAlreadySharedVersion"></div>
+			<label for="${id}_update_shared_version" data-dojo-attach-point="versionUpdateShareLabel">${messages.share_version_update}</label>
+            <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="versionUpdateShareHoverHelp" data-dojo-props="isFocusable: true"></div>
+			<br>
+			<div data-dojo-attach-point="versionShareNewVersionRadio"
+				data-dojo-props="id: '${id}_change_to_current', type: 'radio', name: '${id}_versionShared'"
+				data-dojo-type="ecm/widget/RadioButton"
+				data-dojo-attach-event="onClick:_onShareNewVersion"></div>
+			<label for="${id}_change_to_current" data-dojo-attach-point="shareNewVersionLabel">${messages.share_version_change_to_current}</label>
+            <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="shareNewVersionHoverHelp" data-dojo-props="isFocusable: true"></div>
+		 </fieldset>
+      </div>
+      <div style="padding-top: 10px">
+		<span class="required">*</span><label for="${id}_myEmail">${messages.share_myEmail}</label>
+		<div>
+  		  <div id="${id}_myEmail" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-attach-point="myEmail" class="myEmail" data-dojo-props="trim: true"></div>
+		</div>
+      </div>		
+      <div style="padding-top: 10px">
+		<label for="${id}_emailAddress">${messages.share_email_addresses}</label>
+		<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="shareWithEmailInputHoverHelp">${messages.share_email_addresses_hover}</div>
+		<div class="ecmEmailNameListInput">
+	      <div data-dojo-type="ecm/widget/CompositeButtonListPane" data-dojo-attach-point="shareWithEmailList" style="margin-top: 3px;"></div>
+		  <div id="${id}_emailAddress" data-dojo-attach-point="shareWithEmailInput" data-dojo-attach-event="onKeyUp: _onEmailChange" class="emailInput" data-dojo-type="ecm/widget/ValidationTextBox" 
+		       data-dojo-props="required: false, trim: false, propercase: false"></div>
+		</div>
+      </div>
+      <div style="padding-top: 10px">
+		<label for="${id}_comment">${messages.share_comments}</label>
+		<div>
+  		  <div id="${id}_comment" data-dojo-type="dijit/form/SimpleTextarea" data-dojo-attach-point="comment" class="comment"
+			   data-dojo-props="required: false, intermediateChanges: true"></div>
+		</div>
+      </div>
+      <div data-dojo-type="idx/layout/TitlePane" data-dojo-attach-point="advancedTwisty" 
+           style="padding-top: 10px" data-dojo-props="'aria-describedby': '${id}_advanced_instructions'">
+        <div id="${id}_advanced_instructions" data-dojo-attach-point="advancedInstructions">${messages.share_advanced_instructions}</div>
+		<div class="inlineMessage inlineMessageInfo dijitHidden" data-dojo-attach-point="shareOptionsInlineMessage">
+			<div class="messageIcon"></div>
+			<div class="messageText" data-dojo-attach-point="shareOptionsMessageText" role="alert"></div>
+		</div>
+        <div data-dojo-attach-point="allowDownloadRow" style="padding-top: 10px">
+    	  <div data-dojo-type="ecm/widget/CheckBox" id="${id}_id-defaultCheckbox" data-dojo-attach-point="allowDownload"></div>
+		  <label for="${id}_id-defaultCheckbox">${messages.share_allowDownload}</label>
+        </div>
+        <div style="padding-top: 10px">
+		  <label for="${id}_expire">${messages.share_expiration}</label>
+		  <div>
+		    <div data-dojo-type="dijit/form/DropDownButton" id="${id}_expire" data-dojo-attach-point="expireButton" class="expireDropdownButton">
+		      <div data-dojo-type="ecm/widget/DropDownDialog" data-dojo-attach-point="expireDlg"
+		         data-dojo-attach-event="onClickCancel: _onCancelExpireDialog, onClickOK: _onOkExpireDialog">
+		        <fieldset class="expireFieldset">
+		          <legend style="display: none;" data-dojo-attach-point="legend">${messages.share_expire_none}</legend>
+			      <div data-dojo-type="ecm/widget/RadioButton" id="${id}_radio-no-expire-radio" data-dojo-attach-point="neverExpireRadio" data-dojo-props="name: 'expireRadio'"></div>
+			      <label for="${id}_radio-no-expire-radio" data-dojo-attach-point="neverExpireLabel">${messages.share_expire_none}</label>
+			      <div style="padding-top: 5px">
+			       <div data-dojo-type="ecm/widget/RadioButton" id="${id}_radio-expire-radio" data-dojo-attach-point="expireDateRadio" 
+			            data-dojo-props="name: 'expireRadio'" data-dojo-attach-event="onChange: _onChangeExpireDateRadio"></div>
+			       <label for="${id}_radio-expire-radio" data-dojo-attach-point="expireDateLabel">${messages.share_expire}</label>
+			       <div class="datePickerDiv">
+			          <div data-dojo-type="ecm/widget/DatePicker" data-dojo-attach-point="expireDate" data-dojo-attach-event="onChange: _onChangeExpireDate">
+			       </div>
+			      </div>
+		        </fieldset>
+		      </div>
+	        </div>
+	      </div>
+        </div>
+        <div style="padding-top: 10px">
+		  <label for="${id}_password">${messages.share_password}</label>
+		  <div>
+  		    <div id="${id}_password" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-attach-point="password" data-dojo-attach-event="onChange:_onChangePassword" class="password"
+  		       data-dojo-props="type: 'password', trim: false, intermediateChanges: true"></div>
+	  	  </div>
+        </div>
+      </div>
+    </div>  
+  </div>    
+</div>    

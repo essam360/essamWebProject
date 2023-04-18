@@ -1,0 +1,27 @@
+<div class="adminRedaction ecmRepositoryRedactions" data-dojo-type="dijit/layout/BorderContainer" gutters="false" data-dojo-attach-point="_redactionsSubTabBorderContainer">
+	<div data-dojo-type="dijit/layout/ContentPane" class="ecmPolicyRepositoryHeading" data-dojo-props="region: 'center', 'class': 'mainContentPane'" data-dojo-attach-point="mainContentPane">
+		<div data-dojo-attach-point="repositorySelectorArea">
+				<label for="${id}_repositorySelector">${messages.admin_repository}</label>
+				<div data-dojo-type="ecm/widget/FilteringSelect"
+					data-dojo-attach-point="_repositorySelector"
+					data-dojo-props='id: "${id}_repositorySelector", labelType: "text", label: "label", searchAttr: "label", identifier: "value", maxHeight: 150, style: { width: "400px" }'
+					data-dojo-attach-event="onChange: onRepositorySelectorSelect">
+				</div>
+		</div>
+		<div class="ecmAdminTabHeading" data-dojo-attach-point="headingText" style="display: none"></div>
+		<div style="padding: 5px;" id="${id}_intro" data-dojo-attach-point="_instructions">${messages.admin_repository_redactions_instructions}</div>
+		<div class="ecmPolicyConnectButton"; display: none;" data-dojo-attach-point="connectButtonDiv">
+			<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="connectButton" data-dojo-attach-event="onClick: onConnectButtonClick">
+				${_messages.connect_repository}
+			</button>
+		</div>
+		<div data-dojo-type="idx/layout/TitlePane" data-dojo-props='open: true, "aria-describedby": "${id}_redactionPolicies", style: { "margin-top": "5px", "margin-bottom": "5px", "margin-left": "0px" }' data-dojo-attach-point="_redactionPoliciesTitlePane">
+			<div class="adminPaddingLeft" id="${id}_redactionPoliciesInstructions">${messages.admin_repository_redaction_policies_description}</div>
+			<div data-dojo-type="ecm/widget/admin/RedactionPolicies" data-dojo-props='"aria-describedby": "${id}_redactionPolicies", style: { "height": "300px" }' data-dojo-attach-point="_redactionPolicies"></div>
+		</div>
+		<div data-dojo-type="idx/layout/TitlePane" data-dojo-props='open: true, "aria-describedby": "${id}_redactionRoles", style: { "margin-top": "5px", "margin-bottom": "5px", "margin-left": "0px" }' data-dojo-attach-point="_redactionRolesTitlePane">
+			<div class="adminPaddingLeft" id="${id}_redactionRolesInstructions">${messages.admin_repository_redaction_roles_description}</div>
+			<div data-dojo-type="ecm/widget/admin/RedactionRoles" data-dojo-props='"aria-describedby": "${id}_redactionRoles", style: { "height": "300px" }' data-dojo-attach-point="_redactionRoles"></div>
+		</div>
+	</div>
+</div>

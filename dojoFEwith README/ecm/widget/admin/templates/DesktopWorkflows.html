@@ -1,0 +1,11 @@
+<div class="ecmDesktopWorkflows">  
+    <div class="ecmAdminTabInstructions" data-dojo-attach-point="instructions" id="${id}_intro">${messages.admin_desktop_workflows_instruction}</div>
+    <div data-dojo-attach-point="_repositoriesSection" class="repositoriesSection">
+        <div>
+            <label for="${id}_repositories_field">${messages.server}</label>
+            <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="repositoriesFieldHoverHelp">${messages.default_repository_workflow_hover}</div>
+        </div>  
+        <div data-dojo-attach-point="_repositoriesField" data-dojo-attach-event="onChange: _onRepositoryChange" data-dojo-type="ecm/widget/FilteringSelect" data-dojo-props="id: '${id}_repositories_field', required: false, labelType: 'text', label: 'label', searchAttr: 'label', maxHeight: 200, style: { 'width': '300px' }"></div>
+    </div>
+    <div data-dojo-type="idx/widget/SloshBucket" data-dojo-attach-point="_applicationSpaces" data-dojo-props='"class": "sloshBucket"'></div>
+</div>

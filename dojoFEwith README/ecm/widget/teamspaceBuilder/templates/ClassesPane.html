@@ -1,0 +1,103 @@
+<div class="ecmWorkspaceBuilderPane">
+    <h1 data-dojo-attach-point="heading">${title}</h1>
+	<div class="container1 classesPaneContainer" >
+	    <div tabindex=0 class="builderIntroText" id="${id}_introText" >${_introText}</div>
+	     <div data-dojo-attach-point="_infoPane" style="display: none;" class="inlineMessage inlineMessageWarning infoClass invalidItems">
+            <div data-dojo-attach-point="_infoImage" class="messageIcon"></div>
+            <div data-dojo-attach-point="_infoText" style="font-weight: bold" class="messageText"></div>
+            <div data-dojo-attach-point="_items" ></div>
+        </div>  
+	    <div id="${id}_options" style="margin:10px 0px 10px 0px; display: inline-block;">
+	    <fieldset>
+	    <legend style="display: none;">${title}</legend>
+		    <input type="radio" data-dojo-attach-point="useClasses" data-dojo-attach-event="onClick : onClasses" data-dojo-type="ecm.widget.RadioButton" name="type" id="${id}_useClasses"   value="classes" />
+		 	<label for="${id}_useClasses">
+		        ${messages.workspacebuilder_classes_type_classes}
+		    </label>
+			<div data-dojo-attach-point="useClassesHoverHelp" data-dojo-type="ecm.widget.HoverHelp"
+				message="${messages.workspacebuilder_classes_type_classes_tooltip}"></div>
+
+		    <input type="radio" data-dojo-attach-point="useTemplates" data-dojo-attach-event="onClick : onEntryTemplates" data-dojo-type="ecm.widget.RadioButton" name="type" id="${id}_useEntryTempls"   value="entryTemplates" />
+		    <label for="${id}_useEntryTempls">
+		        ${messages.workspacebuilder_classes_type_entryTemplates}
+		    </label>
+			<div data-dojo-attach-point="useTemplatesHoverHelp" data-dojo-type="ecm.widget.HoverHelp"
+				message="${messages.workspacebuilder_classes_type_entryTemplates_tooltip}"></div>
+		</fieldset>
+		</div>
+
+	    <div data-dojo-attach-point="stackContainer"
+				 data-dojo-type="dijit.layout.StackContainer"
+				 region="center"
+				 class="stackContainer">
+				<div data-dojo-attach-point="blankContainer"
+					data-dojo-type="idx.layout.ContentPane" extractcontent="false" tabIndex=-1
+					preventcache="false" region="center" splitter="false" dolayout="false" style="background: #fff;">
+						<div>
+					 	</div>
+				</div>
+				<div data-dojo-attach-point="classesContainer"
+					data-dojo-type="idx.layout.ContentPane" extractcontent="false" tabIndex=-1
+					preventcache="false" region="center" splitter="false" dolayout="false" style="background: #fff;">
+				    <div>
+						<div borderHeight="200px" class="workspaceSelectionList" label="${messages.workspacebuilder_classes_selection}" id="${id}_selectionList" data-dojo-type="ecm.widget.MultiColumnList"
+							 selectionMode="extended" plugins="{dnd: false, indirectSelection: false}"
+							 selectionLabel="${messages.workspacebuilder_item_classes_selected}"
+							 rowSelector="20px">
+						</div>
+				    </div>
+				    <div style="margin: 15px 0px;">
+				    	<button data-dojo-attach-point="addButton" data-dojo-attach-event="onClick : onAddItem"  data-dojo-type="dijit.form.Button" type="button" disabled="true">
+							  ${messages.workspacebuilder_add_list}
+						</button>
+					</div>
+
+					<div class="availClassesArea">
+						<div class="headerArea">
+							<label class="availClassesLabel dijitInline" id="${id}_availClassesLabel" style="font-weight: bold;">${messages.workspacebuilder_item_classes}</label>
+							<div class="classesFilter dijitInline" data-dojo-attach-point="_classFilterContainer"></div>
+						</div>
+						<div class="workspaceTemplateList" data-dojo-attach-point="selectorContentPane" style="width:600px; height: 250px; border: 1px solid #d9d9d9 !important; overflow: auto;" data-dojo-type="idx.layout.ContentPane" region="top" >
+						</div>
+					</div>
+
+				</div>
+				<!--  replace with the new entry template model 
+				<div data-dojo-attach-point="entryTemplatesContainer"
+					style=" padding: 0;"
+					data-dojo-type="idx.layout.ContentPane" extractcontent="false"
+					preventcache="false" region="center" splitter="false" dolayout="false" style="background: #fff;">
+						<div data-dojo-type="ecm.widget.VerticalSloshBucket"
+							style="visibility:hidden;
+							availableListLabel="${_templatesLabel}"
+							showAddButton="${showAddButton}"
+							addButtonLabel="${messages.workspacebuilder_entryTemplate_add}"
+							createButtonLabel="${messages.workspacebuilder_selection_create_new_search}"
+							availableListLabel="${messages.workspacebuilder_available_entryTemplates}"
+							selectedListLabel="${messages.workspacebuilder_selected_entryTemplates}"
+							showCreateButton="false"
+							showMakeDefaultButton="true"
+						 	data-dojo-attach-point="sloshBucket">
+					 	</div>
+				</div>
+				 -->
+				<div data-dojo-attach-point="entryTemplatesContainer"
+					style=" padding: 0;"
+					data-dojo-type="idx.layout.ContentPane" extractcontent="false"
+					preventcache="false" region="center" splitter="false" dolayout="false" style="background: #fff;">
+						<div data-dojo-type="ecm.widget.EntryTemplateFolderAssociationsPane" class='ecmEntryTemplateFolderAssociationsDialog'
+							style="visibility:hidden;
+							availableListLabel="${_templatesLabel}"
+							showAddButton="${showAddButton}"
+							showCreateButton="false"
+							showMakeDefaultButton="true"
+							teamSpace="true"
+						 	data-dojo-attach-point="sloshBucket">
+					 	</div>
+				</div>				
+		</div>
+
+	</div>
+</div>
+
+

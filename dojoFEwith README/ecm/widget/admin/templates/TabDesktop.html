@@ -1,0 +1,1299 @@
+<div class="ecmAdminTab">
+	<div data-dojo-type="idx/layout/BorderContainer"
+		data-dojo-attach-point="borderContainer"
+		data-dojo-props="gutters: false, style: { width: '100%', height: '100%'}">
+		<div data-dojo-type="dijit/layout/ContentPane"
+			data-dojo-props="region: 'top'">
+			<div class="ecmAdminTabButtonBar">
+				<div data-dojo-type="dijit/form/Button"
+					data-dojo-attach-point="saveAndCloseButton"
+					data-dojo-attach-event="onClick: _onSaveAndClose">
+					${_messages.save_and_close}</div>
+				<div data-dojo-type="dijit/form/Button"
+					data-dojo-attach-point="saveButton"
+					data-dojo-attach-event="onClick: onSave">${_messages.save}</div>
+				<div data-dojo-type="dijit/form/Button"
+					data-dojo-attach-point="resetButton"
+					data-dojo-attach-event="onClick: _onReset">
+					${_messages.reset}</div>
+				<div data-dojo-type="dijit/form/Button"
+					data-dojo-attach-point="closeButton"
+					data-dojo-attach-event="onClick: _onClose">
+					${_messages.close}</div>
+			</div>
+			<div class="ecmAdminTabHeading" data-dojo-attach-point="headingText">
+			</div>
+			<div class="ecmAdminTabInstructions"
+				data-dojo-attach-point="instructions" id="${id}_intro"></div>
+		</div>
+		<div data-dojo-type="dijit/layout/TabContainer"
+			data-dojo-attach-point="_tabContainer"
+			data-dojo-props="'class': 'ecmAdminSubTabContainer', region: 'center', controllerWidget: 'ecm.widget.layout.TabController'">
+			<div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="generalContentPane" data-dojo-props='iconClass: "required"'>
+				<table class="propertyTable" role="presentation">
+					<tr>
+						<td class="propertyRowLabel"><span class="required">*</span>
+							<label for="${id}_name-field">${_messages.name}</label>&nbsp;
+							<div data-dojo-type="ecm/widget/HoverHelp"
+								data-dojo-attach-point="nameFieldHoverHelp">${_messages.admin_desktop_name_hover}</div>
+						</td>
+						<td class="propertyRowValue"><input
+							data-dojo-attach-point="nameField"
+							data-dojo-attach-event="onKeyUp: _onNameChange"
+							data-dojo-type="ecm/widget/ValidationTextBox"
+							data-dojo-props="id: '${id}_name-field', maxLength: 64, required: true, trim: true, propercase: false" />
+						</td>
+					</tr>
+					<tr>
+						<td class="propertyRowLabel"><span class="required">*</span>
+							<label for="${id}_id-field">${_messages.id_label}</label>&nbsp;
+							<div data-dojo-type="ecm/widget/HoverHelp"
+								data-dojo-attach-point="idFieldHoverHelp">${_messages.admin_desktop_id_hover}</div>
+						</td>
+						<td class="propertyRowValue"><input
+							data-dojo-attach-point="idField"
+							data-dojo-attach-event="onKeyUp: _onFieldChange"
+							data-dojo-type="ecm/widget/ValidationTextBox"
+							data-dojo-props="id: '${id}_id-field', maxLength: 64, required: true, trim: true, propercase: false" />
+						</td>
+					</tr>
+					<tr>
+						<td class="propertyRowLabel"><label for="${id}_desc-field">${_messages.description_label}</label>&nbsp;
+						</td>
+						<td class="propertyRowValue"><input
+							data-dojo-attach-point="descriptionField"
+							data-dojo-attach-event="onKeyUp: _onFieldChange"
+							data-dojo-type="ecm/widget/ValidationTextBox"
+							data-dojo-props="id: '${id}_desc-field', required: false, trim: true, propercase: false" />
+						</td>
+					</tr>
+					<tr data-dojo-attach-point="mobileMessageRow">
+						<td colspan="2">
+							<div class="inlineMessage inlineMessageInfo" data-dojo-attach-point="mobileMessage">
+								<div class="messageIcon">
+								</div>
+								<div class="messageText" data-dojo-attach-point="mobileMessageText" role="alert" id="${id}_mobileMessageText">
+								</div>
+							</div>
+						</td>
+					</tr>
+				</table>
+				<div data-dojo-type="idx/layout/TitlePane"
+					data-dojo-attach-point="securityTwisty"
+					data-dojo-props='style: { "margin-top" : "10px", "margin-left": "0px" }'>
+					<table class="propertyTable" role="presentation">
+						<tr>
+							<td class="propertyRowValue">
+								<div>
+									<span class="required">*</span> <label
+										for="${id}_authen-type-repos-value">${_messages.admin_repository}</label>
+									<div data-dojo-type="ecm/widget/FilteringSelect"
+										data-dojo-attach-point="authenTypeRepository"
+										data-dojo-attach-event="onChange: _onFieldAuthenTypeReposChange"
+										data-dojo-props='id: "${id}_authen-type-repos-value", labelType: "text", label: "label", searchAttr: "label",  maxHeight: 150'></div>
+								</div>
+							</td>
+						</tr>
+						<tr data-dojo-attach-point="_enableUserGroupAccess">
+							<td class="propertyRowValue">
+								<div>
+									<span class="ecmLabel">${_messages.admin_access_control_access}:</span>&nbsp;
+									<fieldset class="dijitInline" data-dojo-attach-point="_enableUserGroupAccessButtons">
+										<legend style="display: none;">${_messages.admin_access_control_access}</legend>
+										<div data-dojo-attach-point="_enableAccessControl"
+											data-dojo-props="id: '${id}_enable_access', type: 'radio', name: '${id}_accessCondition'"
+											data-dojo-type="ecm/widget/RadioButton"
+											data-dojo-attach-event="onClick:_onEnableAccessControl"></div>
+										<label for="${id}_enable_access">${_messages.admin_enabled}</label>&nbsp;
+										<div data-dojo-attach-point="_disableAccessControl"
+											data-dojo-props="id: '${id}_disable_access', type: 'radio', name: '${id}_accessCondition', 'class': 'radioButton2 desktopAdminAccessRadioButton'"
+											data-dojo-type="ecm/widget/RadioButton"
+											data-dojo-attach-event="onClick:_onDisableAccessControl"></div>
+										<label for="${id}_disable_access">${_messages.admin_disabled}</label>
+									</fieldset>
+								</div>
+							</td>
+						</tr>
+						<tr  data-dojo-attach-point="_setUserGroupAccess">
+							<td class="propertyRowValue">
+								<div class="desktopAccessControl">
+									<div data-dojo-type="dijit/form/Button"
+										data-dojo-attach-point="_accessControlLogonButton"
+										data-dojo-attach-event="onClick:_onClickShowAccessControlData">${_messages.admin_access_control_access_show}</div>
+									<div data-dojo-attach-point="_accessControlContainer"
+										style="display: none;">
+										<div data-dojo-attach-point="_selectAccessControlMembersButtonDiv">
+										<div data-dojo-type="dijit/form/Button"
+											data-dojo-attach-point="_selectAccessControlMembersButton"
+											data-dojo-attach-event="onClick:_onClickShowAddUsersAndGroupsDialog"
+											data-dojo-props="id: '${id}_selectMembersButton'">${_messages.select_user_group_label}</div>
+										</div>
+										<div data-dojo-attach-point="_accessControlData"
+											class="centerPane ecmSecurityPane"></div>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="propertyRowValue" >
+								<div>
+							    <span class="ecmLabel">${_messages.admin_rba}:</span>
+									<fieldset class="dijitInline" data-dojo-attach-point="desktopAdminRoleButtons">
+										<legend style="display: none;">${_messages.admin_rba}:</legend>
+										<div data-dojo-attach-point="_enableRoleBasedAdmin"
+												data-dojo-props="id: '${id}_enable_rba', type: 'radio', name: '${id}_rbaCondition'"
+												data-dojo-type="ecm/widget/RadioButton"
+												data-dojo-attach-event="onClick:_onEnableRoleBasedAdmin"></div>
+		                               	<label for="${id}_enable_rba">${_messages.admin_enabled}</label> 			
+										<div data-dojo-attach-point="_disableRoleBasedAdmin"
+												data-dojo-props="id: '${id}_disable_rba', type: 'radio', name: '${id}_rbaCondition', 'class': 'radioButton2 desktopAdminAccessRadioButton'"
+												data-dojo-type="ecm/widget/RadioButton"
+												data-dojo-attach-event="onClick:_onDisableRoleBasedAdmin"></div>
+										<label for="${id}_disable_access">${_messages.admin_disabled}</label>
+									</fieldset>
+								</div>
+							</td>
+						</tr>
+						<tr data-dojo-attach-point="desktopAdminRoleContainer">
+							<td class="propertyRowValue">
+								<label data-dojo-attach-point="desktopAccessRoleLabel" for="${id}_admin-role-value">${_messages.admin_rolebase_role}</label>
+								<span class="required">*</span>
+										<div data-dojo-type="ecm/widget/FilteringSelect"
+											data-dojo-attach-point="desktopAccessRole"
+											data-dojo-attach-event="onChange: _onDesktopAccessRoleChange"
+											data-dojo-props='id: "${id}_admin-role-value", labelType: "text", label: "label", searchAttr: "label",  maxHeight: 150, required: true'></div>
+								<div class="adminAccessControl">
+								<br>
+									<div data-dojo-type="dijit/form/Button"
+										data-dojo-attach-point="_desktopAdminAccessControlLogonButton"
+										data-dojo-attach-event="onClick:_onClickDesktopAdminShowAC">${_messages.admin_access_control_access_show}</div>
+									<div data-dojo-attach-point="_desktopAdminAccessControlContainer"
+										style="display: none;">
+										<div data-dojo-type="dijit/form/Button"
+											data-dojo-attach-point="_desktopAdminSelectMembersButton"
+											data-dojo-attach-event="onClick:_onClickDesktopShowUsersGroupsDialog"
+											data-dojo-props="id: '${id}_desktopAdminSelectMembersButton'">${_messages.select_user_group_label}</div>
+									</div>
+									<div data-dojo-attach-point="_desktopAccessControlListLabel" style="display: none;">
+										<label for="${id}_membership-field">${_messages.desktop_rba_membership}</label>
+									</div>
+									<div data-dojo-attach-point="_desktopAccessControlList" style="display: none;">
+ 										<div borderHeight="300px" 
+											borderWidth="300px"
+											class="rbaSelectionList"
+											data-dojo-type="ecm/widget/AccessControlList"
+											data-dojo-attach-point="desktopAccessList" 
+											data-dojo-attach-event="onSelection : onSelectSelection">
+										</div>		
+									</div>								
+								</div>		
+							</td>
+						</tr>					
+					</table>
+				</div>							
+				<div data-dojo-type="idx/layout/TitlePane" data-dojo-attach-point="configTitlePane" data-dojo-props='style: { "margin-top" : "10px", "margin-left": "0px" }'>
+					<table class="propertyTable" role="presentation">
+						<tr data-dojo-attach-point="viewerMappingFieldRow">
+							<td class="propertyRowLabel"><span class="required">*</span>
+								<label for="${id}_viewerMapping-field">${_messages.admin_desktop_viewer_defs}</label>&nbsp;
+								<div data-dojo-type="ecm/widget/HoverHelp"
+									data-dojo-attach-point="viewerMappingFieldHoverHelp">${_messages.admin_desktop_viewer_defs_hover}</div>
+							</td>
+							<td class="propertyRowValue">
+								<div data-dojo-attach-point="viewerMappingField"
+									data-dojo-attach-event="onChange: _onFieldChange"
+									data-dojo-type="ecm/widget/FilteringSelect"
+									data-dojo-props="id: '${id}_viewerMapping-field', labelType: 'text', label: 'label', searchAttr: 'label', maxHeight: 200"></div>
+							</td>
+						</tr>
+			            <tr data-dojo-attach-point="mergeSplitRow">
+                            <td class="propertyRowLabel" valign="top">
+                                <span  class="ecmLabel">${_messages.admin_desktop_merge_and_split_enable}</span>
+                                <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="mergeSplitHoverHelp">${_messages.admin_desktop_merge_and_split_enable_hover}</div>
+                            </td>
+                            <td class="propertyRowValue">
+                                <fieldset>
+                                    <legend style="display: none;">${_messages.admin_desktop_merge_and_split_enable}</legend>
+                                    <div>
+                                       <input data-dojo-attach-point="mergeSplitEnableRadioButton" data-dojo-type="ecm/widget/RadioButton" 
+                                            data-dojo-attach-event="onChange: _onMergeSplitEnableChanged" 
+                                            data-dojo-props="id: '${id}_enableMergeSplit-field', type: 'radio', name: '${id}_mergeSplit', value: 'enable'"/>
+                                       <label for="${id}_enableMergeSplit-field">${_messages.enable}</label>                                      
+	                                   <div style="padding-top: 7px; padding-left: 25px;">
+                                          <div data-dojo-type="ecm/widget/CheckBox"
+                                               data-dojo-attach-point="mergeSplitShowCheckInCheckBox"	      
+                                               data-dojo-attach-event="onChange: _onFieldChange"                                          
+                                               data-dojo-props="id: '${id}_mergeSplitShowCheckIn', hoverHelpId: '${id}_mergeSplitShowCheckInHoverHelp'"></div>
+                                          <label for="${id}_allowCollaborativeEditing">${_messages.admin_desktop_merge_and_split_show_checkin}</label>
+                                          <div id="${id}_mergeSplitShowCheckInHoverHelp" data-dojo-type="ecm/widget/HoverHelp">${_messages.admin_desktop_merge_and_split_show_checkin_hover_help}</div>
+	                                   </div>
+	                                   <br/>
+                                       <input data-dojo-attach-point="mergeSplitDisableRadioButton" data-dojo-type="ecm/widget/RadioButton"
+                                            data-dojo-attach-event="onChange: _onMergeSplitEnableChanged" 
+                                            data-dojo-props="id: '${id}_disableMergeSplit-field', type: 'radio', name: '${id}_mergeSplit', value: 'disable'"/>
+                                       <label for="${id}_disableMergeSplit-field">${_messages.disable}</label>
+                                    </div>
+	                                <div class="inlineMessage inlineMessageWarning dijitHidden" data-dojo-attach-point="mergeSplitInlineMessage">
+	                                    <div class="messageIcon"></div>
+	                                    <div class="messageText" data-dojo-attach-point="mergeSplitMessageText" role="alert"></div>
+	                                </div>
+                                </fieldset>
+                            </td>
+                        </tr>
+			            <tr data-dojo-attach-point="syncServerRow">
+	            		        <td class="propertyRowLabel" valign="top">
+	                    		    <span class="ecmLabel">${_messages.admin_syncserver_enable}</span>
+	                        		<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="syncServerHoverHelp">${_messages.admin_syncserver_enable_hover}</div>
+	                    		</td>
+	                    		<td class="propertyRowValue">
+	                      			<fieldset>
+				                      <legend style="display: none;">${_messages.admin_syncserver_enable}</legend>
+	            			            <div>
+	                        			  <input data-dojo-attach-point="syncServerEnable" data-dojo-type="ecm/widget/RadioButton" 
+	                                 			data-dojo-props="id: '${id}_enableSyncServer-field', type: 'radio', name: '${id}_syncServer', value: 'enable'"/>
+	                          			  <label for="${id}_enableSyncServer-field">${_messages.enable}</label>
+				                          <input data-dojo-attach-point="syncServerDisable" data-dojo-type="ecm/widget/RadioButton" 
+	            			                     data-dojo-props="id: '${id}_disableSyncServer-field', type: 'radio', name: '${id}_syncServer', value: 'disable', 'class': 'radioButton1'"/>
+	                          			  <label for="${id}_disableSyncServer-field">${_messages.disable}</label>
+	                        			</div>
+	                      			</fieldset>
+	                    		</td>
+			            </tr>
+			            <tr data-dojo-attach-point="streamlineRow">
+	            		        <td class="propertyRowLabel" valign="top">
+	                    		    <span class="ecmLabel">${_messages.admin_streamlineservice_enable}</span>
+	                        		<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="streamlineServiceHoverHelp">${_messages.admin_streamlineservice_enable_hover}</div>
+	                    		</td>
+	                    		<td class="propertyRowValue">
+	                      			<fieldset>
+				                      <legend style="display: none;">${_messages.admin_streamlineservice_enable}</legend>
+	            			            <div>
+	                        			  <input data-dojo-attach-point="streamlineServiceEnable" data-dojo-type="ecm/widget/RadioButton" 
+	                                 			data-dojo-props="id: '${id}_enableStreamlineService-field', type: 'radio', name: '${id}_streamlineService', value: 'enable'"/>
+	                          			  <label for="${id}_enableStreamlineService-field">${_messages.enable}</label>
+				                          <input data-dojo-attach-point="streamlineServiceDisable" data-dojo-type="ecm/widget/RadioButton" 
+	            			                     data-dojo-props="id: '${id}_disableStreamlineService-field', type: 'radio', name: '${id}_streamlineService', value: 'disable', 'class': 'radioButton1'"/>
+	                          			  <label for="${id}_disableStreamlineService-field">${_messages.disable}</label>
+	                        			</div>
+	                      			</fieldset>
+	                    		</td>
+			            </tr>			            
+			            <tr data-dojo-attach-point="shareRow">
+	            		        <td class="propertyRowLabel" valign="top">
+	                    		    <span class="ecmLabel">${_messages.admin_share}</span>
+	                        		<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="shareHoverHelp">${_messages.admin_share_hover}</div>
+	                    		</td>
+	                    		<td class="propertyRowValue">
+	                      			<fieldset>
+				                      <legend style="display: none;">${_messages.admin_share}</legend>
+	            			            <div>
+	                        			  <input data-dojo-attach-point="shareEnable" data-dojo-type="ecm/widget/RadioButton" 
+	                        			  		data-dojo-attach-event="onChange: _onShareChange, onChange: _onFieldChange"
+	                                 			data-dojo-props="id: '${id}_enableShare-field', type: 'radio', name: '${id}_share', value: 'enable'"/>
+	                          			  <label for="${id}_enableShare-field">${_messages.enable}</label>
+										  <div style="padding-top: 7px; padding-left: 25px;">
+											  <label for="${id}_share-repos-value">${_messages.share_repository}</label>
+											  <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="shareRepositoryHoverHelp">${_messages.share_repository_hover}</div>
+											  <div>
+											  	<div data-dojo-type="ecm/widget/FilteringSelect"
+											    	 data-dojo-attach-point="shareRepository"
+											       	 data-dojo-attach-event="onChange: _onFieldShareReposChange"
+											         data-dojo-props='id: "${id}_share-repos-value", labelType: "text", label: "label", searchAttr: "label",  maxHeight: 150'></div>
+									           <div style="padding-top: 5px">
+												  <div data-dojo-type="ecm/widget/CheckBox"
+													   data-dojo-attach-point="shareMyEmailModifiable"
+													   data-dojo-attach-event="onChange: _onFieldChange"
+													   data-dojo-props="id: '${id}_id-shareMyEmailModifiableCheckbox'"></div>
+												  <label for="${id}_id-shareMyEmailModifiableCheckbox">${_messages.admin_my_email_modifiable}</label>
+												  <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="shareMyEmailModifiableHoverHelp">${_messages.admin_my_email_modifiable_hover}</div>
+									           </div>
+									         </div>
+									      </div>
+	                          			  <br/>
+				                          <input data-dojo-attach-point="shareDisable" data-dojo-type="ecm/widget/RadioButton" 
+	                        			  		 data-dojo-attach-event="onChange: _onShareChange, onChange: _onFieldChange"
+	            			                     data-dojo-props="id: '${id}_disableShare-field', type: 'radio', name: '${id}_share', value: 'disable'"/>
+	                          			  <label for="${id}_disableShare-field">${_messages.disable}</label>
+	                        			</div>
+	                      			</fieldset>
+	                      			<div class="inlineMessage inlineMessageWarning dijitHidden" data-dojo-attach-point="shareRepositoryInlineMessage">
+										<div class="messageIcon"></div>
+										<div class="messageText" data-dojo-attach-point="shareRepositoryMessageText" role="alert">${_messages.admin_share_not_configured_warning}</div>
+									</div>
+	                    		</td>
+			            </tr>
+			            <tr data-dojo-attach-point="officeOnlineRow">
+                            <td class="propertyRowLabel" valign="top">
+                                <span class="ecmLabel">${_messages.admin_office_online_server_enable}</span>
+                                <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="officeOnlineHoverHelp">${_messages.admin_office_online_server_enable_hover}</div>
+                            </td>
+                            <td class="propertyRowValue">
+                                <fieldset>
+                                    <legend style="display: none;">${_messages.admin_office_online_server_enable}</legend>
+                                    <div>
+                                       <input data-dojo-attach-point="officeOnlineEnableRadioButton" data-dojo-type="ecm/widget/RadioButton" 
+                                            data-dojo-attach-event="onClick: _onOfficeOnlineEnableChange, onChange: _onFieldChange" 
+                                            data-dojo-props="id: '${id}_enableOfficeOnline-field', type: 'radio', name: '${id}_officeOnline', value: 'enable'"/>
+                                       <label for="${id}_enableOfficeOnline-field">${_messages.enable}</label>                                      
+	                                   <div style="padding-left: 25px;"> 
+	                                       <div style="padding-top: 5px">
+	                                          <div data-dojo-type="ecm/widget/CheckBox"
+	                                               data-dojo-attach-point="allowCollaborativeEditingCheckBox"	      
+	                                               data-dojo-attach-event="onChange: _onFieldChange"                                          
+	                                               data-dojo-props="id: '${id}_allowCollaborativeEditing', hoverHelpId: '${id}_allowCollaborativeEditingHoverHelp'"></div>
+	                                          <label for="${id}_allowCollaborativeEditing">${_messages.admin_office_online_allow_collaborative_editing}</label>
+	                                          <div id="${id}_allowCollaborativeEditingHoverHelp" data-dojo-type="ecm/widget/HoverHelp">${_messages.admin_office_online_allow_collaborative_editing_hover}</div>
+	                                       </div>                                            
+	                                   </div>
+	                                   <br/>
+                                       <input data-dojo-attach-point="officeOnlineDisableRadioButton" data-dojo-type="ecm/widget/RadioButton"
+                                            data-dojo-attach-event="onClick: _onOfficeOnlineDisableChange,, onChange: _onFieldChange" 
+                                            data-dojo-props="id: '${id}_disableOfficeOnline-field', type: 'radio', name: '${id}_officeOnline', value: 'disable'"/>
+                                       <label for="${id}_disableOfficeOnline-field">${_messages.disable}</label>
+                                    </div>
+                                </fieldset>
+                                <div class="inlineMessage inlineMessageWarning dijitHidden" data-dojo-attach-point="officeOnlineInlineMessage">
+                                    <div class="messageIcon"></div>
+                                    <div class="messageText" data-dojo-attach-point="officeOnlineMessageText" role="alert">${_messages.admin_office_online_repository_not_set_warning}</div>
+                                </div>
+                            </td>
+                        </tr>
+						<tr data-dojo-attach-point="emailSettingsRow">
+							<td class="propertyRowLabel" valign="top">
+								<span class="ecmLabel">${_messages.admin_email_settings}</span>
+								<div id="${id}_emailTypeHoverHelp" data-dojo-type="ecm/widget/HoverHelp">${_messages.admin_email_settings_hover}</div>
+							</td>
+							<td class="propertyRowValue">
+								<fieldset>
+									<legend style="display: none;">${_messages.admin_email_settings}</legend>
+									<div>
+										<input data-dojo-attach-point="emailServiceRadioButton" data-dojo-type="ecm/widget/RadioButton" 
+											data-dojo-attach-event="onChange: _onEmailTypeChange, onChange: _onFieldChange"
+											data-dojo-props="id: '${id}_emailService', type: 'radio', name: '${id}_emailType', value: 'enable', hoverHelpId: '${id}_emailTypeHoverHelp'"/>
+										<label for="${id}_emailService">${_messages.admin_email_use_service}</label>
+										<div style="padding-left: 25px;"> 
+											<div style="padding-top: 5px">
+												<div data-dojo-type="ecm/widget/CheckBox"
+													data-dojo-attach-point="fromEmailModifiableCheckBox"
+													data-dojo-attach-event="onChange: _onFieldChange"
+													data-dojo-props="id: '${id}_fromEmailModifiable', hoverHelpId: '${id}_fromEmailModifiableHoverHelp'"></div>
+												<label for="${id}_fromEmailModifiable">${_messages.admin_email_can_modify_from}</label>
+												<div id="${id}_fromEmailModifiableHoverHelp" data-dojo-type="ecm/widget/HoverHelp">${_messages.admin_email_can_modify_from_hover}</div>
+											</div>
+											<div style="padding-top: 5px">
+												<div data-dojo-type="ecm/widget/CheckBox"
+													data-dojo-attach-point="fromEmailAsSenderCheckBox"
+													data-dojo-attach-event="onChange: _onFieldChange"
+													data-dojo-props="id: '${id}_fromEmailAsSender', hoverHelpId: '${id}_fromEmailAsSenderHoverHelp'"></div>
+												<label for="${id}_fromEmailAsSender">${_messages.admin_email_use_from_as_sender}</label>
+												<div id="${id}_fromEmailAsSenderHoverHelp" data-dojo-type="ecm/widget/HoverHelp">${_messages.admin_email_use_from_as_sender_hover}</div>
+											</div>
+										</div>
+										<br/>
+										<input data-dojo-attach-point="emailAppletRadioButton" data-dojo-type="ecm/widget/RadioButton" 
+											data-dojo-attach-event="onChange: _onEmailTypeChange, onChange: _onFieldChange"
+											data-dojo-props="id: '${id}_emailApplet', type: 'radio', name: '${id}_emailType', value: 'disable', hoverHelpId: '${id}_emailTypeHoverHelp'"/>
+										<label for="${id}_emailApplet">${_messages.admin_email_use_applet}</label>
+									</div>
+								</fieldset>
+							</td>
+						</tr>
+						<tr data-dojo-attach-point="errorMessageInfoRow">
+							<td class="propertyRowLabel" valign="top"><label>${_messages.admin_error}</label>
+								<div data-dojo-type="ecm/widget/HoverHelp"
+									data-dojo-attach-point="errorMessageHoverHelp">${_messages.admin_error_hover}</div>
+							</td>
+							<td class="propertyRowValue">
+								<fieldset>
+									<legend style="display: none;">${_messages.admin_error}</legend>
+									<div>
+										<input data-dojo-attach-point="errorMessageDefault"
+											data-dojo-attach-event="onClick: _onDefaultErrorMsgChange, onChange: _onFieldChange"
+											data-dojo-type="ecm/widget/RadioButton"
+											data-dojo-props="name: '${id}_errorMessageType', value: 'default', id: '${id}_disableCustomError-field', type: 'radio'">
+										<label for="${id}_disableCustomError-field">${_messages.admin_error_default}</label>
+									</div>
+									<div style="padding-top: 5px;">
+										<input data-dojo-attach-point="errorMessageCustom"
+											data-dojo-attach-event="onClick: _onCustomErrorMsgChange, onChange: _onFieldChange"
+											data-dojo-type="ecm/widget/RadioButton"
+											data-dojo-props="name: '${id}_errorMessageType', value: 'custom', id: '${id}_enableCustomError-field', type: 'radio'">
+										<label for="${id}_enableCustomError-field">${_messages.admin_error_custom}</label>
+										<div style="padding-left: 25px;">
+											<label for="${id}_customErrorURL">${_messages.admin_error_URL}</label>&nbsp;
+											<div data-dojo-type="ecm/widget/HoverHelp"
+												data-dojo-attach-point="errorMessageCustomURLHoverHelp">${_messages.admin_error_URL_hover}</div>
+											<div>
+												<input data-dojo-attach-point="errorMessageCustomURL"
+													data-dojo-attach-event="onKeyUp: _onFieldChange"
+													data-dojo-type="ecm/widget/ValidationTextBox"
+													data-dojo-props="id: '${id}_customErrorURL', required: true, trim: true, propercase: false" />
+											</div>
+										</div>
+									</div>
+								</fieldset>
+							</td>
+						</tr>
+						<tr data-dojo-attach-point="addlSettingsRow">
+							<td class="propertyRowLabel" valign="top"><span class="ecmLabel">${_messages.admin_desktop_additional_settings}</span>&nbsp;
+							</td>
+							<td class="propertyRowValue">
+								<div data-dojo-attach-point="defaultDesktopCheckboxDiv">
+									<div data-dojo-type="ecm/widget/CheckBox"
+										data-dojo-attach-point="defaultDesktopCheckbox"
+										data-dojo-attach-event="onClick: _onClickDefaultDesktop"
+										data-dojo-props="id: '${id}_id-defaultCheckbox', name: '${id}_id-defaultCheckbox'"></div>
+									<label for="${id}_id-defaultCheckbox">${_messages.admin_default_desktop}</label>
+									<div data-dojo-type="ecm/widget/HoverHelp"
+										data-dojo-attach-point="defaultDesktopCheckboxHoverHelp">${_messages.admin_desktop_default_hover}</div>
+								</div>
+								<div>
+									<div
+										data-dojo-props="id: '${id}_id-fileIntoFolder', name: '${id}_id-fileIntoFolder'"
+										data-dojo-type="ecm/widget/CheckBox"
+										data-dojo-attach-point="fileIntoFolderCheckbox"
+										data-dojo-attach-event="onChange: _onFieldChange"></div>
+									<label for="${id}_id-fileIntoFolder">${_messages.admin_desktop_file_documents}</label>
+									<div data-dojo-type="ecm/widget/HoverHelp"
+										data-dojo-attach-point="fileIntoFolderHoverHelp">${_messages.admin_desktop_file_documents_hover}</div>
+								</div>
+								<div>
+									<div
+										data-dojo-props="id: '${id}_id-showSecurity', name: '${id}_id-showSecurity'"
+										data-dojo-type="ecm/widget/CheckBox"
+										data-dojo-attach-point="showSecurityCheckbox"
+										data-dojo-attach-event="onChange: _onFieldChange"></div>
+									<label for="${id}_id-showSecurity">${_messages.admin_desktop_show_security_tab}</label>
+									<div data-dojo-type="ecm/widget/HoverHelp"
+										data-dojo-attach-point="showSecurityHoverHelp">${_messages.admin_desktop_show_security_hover}</div>
+								</div>
+								<div>
+									<div
+										data-dojo-props="id: '${id}_id-showRoleSecurity', name: '${id}_id-showRoleSecurity'"
+										data-dojo-type="ecm/widget/CheckBox"
+										data-dojo-attach-point="showRoleSecurityCheckbox"
+										data-dojo-attach-event="onChange: _onFieldChange"></div>
+									<label for="${id}_id-showRoleSecurity">${_messages.admin_desktop_show_class_role_security_selection}</label>
+									<div data-dojo-type="ecm/widget/HoverHelp"
+										data-dojo-attach-point="showRoleSecurityHoverHelp">${_messages.admin_desktop_show_class_role_security_selection_hover}</div>
+								</div>
+								
+								<div>
+									<div
+										data-dojo-props="id: '${id}_id-showSecurityInheritanceUI', name: '${id}_id-showSecurityInheritanceUI'"
+										data-dojo-type="ecm/widget/CheckBox"
+										data-dojo-attach-point="showSecurityInheritanceUICheckbox"
+										data-dojo-attach-event="onChange: _onFieldChange"></div>
+									<label for="${id}_id-showSecurityInheritanceUI">${_messages.admin_desktop_configure_security_inheritance}</label>
+									<div data-dojo-type="ecm/widget/HoverHelp"
+										data-dojo-attach-point="showSecurityInheritanceUIHoverHelp">${_messages.admin_desktop_configure_security_inheritance_hover}</div>
+								</div>
+								<div>
+									<div
+										data-dojo-props="id: '${id}_id-wfEmailNotifications', name: '${id}_id-wfEmailNotifications'"
+										data-dojo-type="ecm/widget/CheckBox"
+										data-dojo-attach-point="wfEmailNotificationsCheckbox"
+										data-dojo-attach-event="onChange: _onFieldChange"></div>
+									<label for="${id}_id-wfEmailNotifications">${_messages.admin_desktop_enable_workflow_email}</label>
+									<div data-dojo-type="ecm/widget/HoverHelp"
+										data-dojo-attach-point="wfEmailNotificationsHoverHelp">${_messages.admin_desktop_enable_workflow_email_hover}</div>
+								</div>
+								<div>
+									<div
+										data-dojo-props="id: '${id}_id-preventCreateNewSearch', name: '${id}_id-preventCreateNewSearch'"
+										data-dojo-type="ecm/widget/CheckBox"
+										data-dojo-attach-point="preventCreateNewSearchCheckbox"
+										data-dojo-attach-event="onChange: _onFieldChange"></div>
+									<label for="${id}_id-preventCreateNewSearch">${_messages.admin_desktop_prevent_create_new_search}</label>
+									<div data-dojo-type="ecm/widget/HoverHelp"
+										data-dojo-attach-point="preventCreateNewSearchHoverHelp">${_messages.admin_desktop_prevent_create_new_search_hover}</div>
+								</div>
+								<div>
+									<div
+										data-dojo-props="id: '${id}_id-preventCreateNewUnifiedSearch', name: '${id}_id-preventCreateNewUnifiedSearch'"
+										data-dojo-type="ecm/widget/CheckBox"
+										data-dojo-attach-point="preventCreateNewUnifiedSearchCheckbox"
+										data-dojo-attach-event="onChange: _onFieldChange"></div>
+									<label for="${id}_id-preventCreateNewUnifiedSearch">${_messages.admin_desktop_prevent_create_new_unified_search}</label>
+									<div data-dojo-type="ecm/widget/HoverHelp"
+										data-dojo-attach-point="preventCreateNewUnifiedSearchHoverHelp">${_messages.admin_desktop_prevent_create_new_unified_search_hover}</div>
+								</div>
+								<div>
+									<div
+										data-dojo-props="id: '${id}_id-hideEntryTemplateNotFoundWarning', name: '${id}_hideEntryTemplateNotFoundWarning'"
+										data-dojo-type="ecm/widget/CheckBox"
+										data-dojo-attach-point="hideEntryTemplateNotFoundWarningCheckbox"
+										data-dojo-attach-event="onChange: _onFieldChange"></div>
+									<label for="${id}_id-hideEntryTemplateNotFoundWarning">${_messages.admin_desktop_hide_entry_template_not_found_warning}</label>
+									<div data-dojo-type="ecm/widget/HoverHelp"
+										data-dojo-attach-point="hideEntryTemplateNotFoundWarningHoverHelp">${_messages.admin_desktop_hide_entry_template_not_found_warning_hover}</div>
+								</div>
+								<div>
+									<div
+										data-dojo-props="id: '${id}_id-showPrimaryDocumentOnly', name: '${id}_id-showPrimaryDocumentOnly'"
+										data-dojo-type="ecm/widget/CheckBox"
+										data-dojo-attach-point="showPrimaryDocumentOnlyCheckbox"
+										data-dojo-attach-event="onChange: _onFieldChange"></div>
+									<label for="${id}_id-showPrimaryDocumentOnly">${_messages.admin_desktop_show_primary_multi_part}</label>
+									<div data-dojo-type="ecm/widget/HoverHelp"
+										data-dojo-attach-point="showPrimaryDocumentOnlyHoverHelp">${_messages.admin_desktop_show_primary_multi_part_hover}</div>
+								</div>
+							</td>
+						</tr>
+						<tr data-dojo-attach-point="documentAddModeRow">
+							<td class="propertyRowLabel">
+								<div>
+									<label for="${id}_document_add_mode-field">${_messages.admin_desktop_document_add_mode}</label>
+								 	<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="documentAddHoverHelp">${_messages.admin_desktop_document_add_mode_hover}</div>
+								</div>   
+							</td>
+							<td class="propertyRowValue">
+								<div
+								     data-dojo-props="id: '${id}_document_add_mode'"
+									 data-dojo-type="ecm/widget/Select"  
+									 data-dojo-attach-point="documentAddMode" 
+									 aria-labelledby="${id}_document_add_mode-field"
+									 data-dojo-attach-event="onChange: _onFieldChange">
+								</div>
+							</td>
+						</tr>
+						<tr data-dojo-attach-point="redactionSaveModeRow">
+							<td class="propertyRowLabel">
+								<div>
+									<label for="${id}_redaction_save_mode-field">${_messages.admin_desktop_redaction_save_mode}</label>
+									<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="redactionSaveModeHoverHelp">${_messages.admin_desktop_redaction_save_mode_hover}</div>
+								</div>   
+							</td>
+							<td class="propertyRowValue">
+								<div
+									data-dojo-props="id: '${id}_redaction_save_mode'"
+									data-dojo-type="ecm/widget/Select"
+									data-dojo-attach-point="redactionSaveMode"
+									aria-labelledby="${id}_redaction_save_mode-field"
+									data-dojo-attach-event="onChange: _onFieldChange">
+								</div>
+							</td>
+						</tr>								
+						<tr data-dojo-attach-point="maxNumberOfDocsToAddRow">
+							<td class="propertyRowLabel"><span class="required">*</span>
+								<label for="${id}_maxNumberOfDocsToAdd-field">${_messages.admin_desktop_max_number_of_docs_to_add}</label>&nbsp;
+								<div data-dojo-type="ecm/widget/HoverHelp"
+									data-dojo-attach-point="maxNumberOfDocsToAddHoverHelp">${_messages.admin_desktop_max_number_of_docs_to_add_hover_help}</div>
+							</td>
+							<td class="propertyRowValue"><input
+								data-dojo-props="id: '${id}_maxNumberOfDocsToAdd-field', required: true"
+								data-dojo-attach-point="maxNumberOfDocsToAdd"
+								data-dojo-attach-event="onChange: _onFieldChange"
+								data-dojo-type="ecm/widget/NumberSpinner" />
+							</td>
+						</tr>
+						<tr data-dojo-attach-point="maxNumberOfDocsToModifyRow">
+							<td class="propertyRowLabel"><span class="required">*</span>
+								<label for="${id}_maxNumberOfDocsToModify-field">${_messages.admin_desktop_max_number_of_docs_to_modify}</label>&nbsp;
+								<div data-dojo-type="ecm/widget/HoverHelp"
+									data-dojo-attach-point="maxNumberOfDocsToModifyHoverHelp">${_messages.admin_desktop_max_number_of_docs_to_modify_hover_help}</div>
+							</td>
+							<td class="propertyRowValue"><input
+								data-dojo-props="id: '${id}_maxNumberOfDocsToModify-field', required: true"
+								data-dojo-attach-point="maxNumberOfDocsToModify"
+								data-dojo-attach-event="onChange: _onFieldChange"
+								data-dojo-type="ecm/widget/NumberSpinner" /></td>
+						</tr>
+						<tr data-dojo-attach-point="maxConversionSizeRow">
+							<td class="propertyRowLabel"><span class="required">*</span>
+								<label for="${id}_maxConversionSize-field">${_messages.admin_desktop_max_conversion_size}</label>&nbsp;
+								<div data-dojo-type="ecm/widget/HoverHelp"
+									data-dojo-attach-point="maxConversionSizeHoverHelp">${_messages.admin_desktop_max_conversion_size_hover_help}</div>
+							</td>
+							<td class="propertyRowValue"><input
+								data-dojo-props="id: '${id}_maxConversionSize-field', required: true"
+								data-dojo-attach-point="maxConversionSize"
+								data-dojo-attach-event="onChange: _onFieldChange"
+								data-dojo-type="ecm/widget/NumberSpinner" /></td>
+						</tr>
+						<!-- Hide desktop timezone setting for ICN 2.0.3
+						<tr data-dojo-attach-point="timezoneSetting">
+							<td class="propertyRowLabel">
+								<label for="${id}_timezone-field">${_messages.admin_desktop_timezone}</label>&nbsp;
+								<div data-dojo-type="ecm/widget/HoverHelp"
+									data-dojo-attach-point="timezoneHoverHelp">${_messages.admin_desktop_timezone_hover_help}</div>
+							</td>
+							<td class="propertyRowValue">
+								<fieldset>
+									<legend style="display: none;">${_messages.admin_desktop_timezone}</legend>
+									<div>
+										<input
+											data-dojo-props="id: '${id}_disableTimeZone', name: '${id}_TimeZoneStatus',active:true"
+											data-dojo-type="ecm/widget/RadioButton"
+											data-dojo-attach-point="timeZoneRadioButtonLocalUser"
+											data-dojo-attach-event="onClick: _onTimeZoneLocalUser, onChange: _onFieldChange" /> <label
+											for="${id}_disableTimeZone">${_messages.admin_desktop_timezone_localuser}</label>
+									</div>
+									<div>
+										<input
+											data-dojo-props="id: '${id}_enableTimeZone', name: '${id}_TimeZoneStatus',active:true"
+											data-dojo-type="ecm/widget/RadioButton"
+											data-dojo-attach-point="timeZoneRadioButtonAllUser"
+											data-dojo-attach-event="onClick: _onTimeZoneAllUser, onChange: _onFieldChange" /> <label
+											for="${id}_enableTimeZone">${_messages.admin_desktop_timezone_alluser}</label>
+									</div>
+									<div data-dojo-attach-point="timeZoneField"
+										data-dojo-attach-event="onChange: _onTimeZoneChange"
+										data-dojo-type="ecm/widget/FilteringSelect"
+										data-dojo-props="id: '${id}_timezone-field', labelType: 'text', label: 'displayName', searchAttr: 'displayName', maxHeight: 200"
+										style="width:350px !important"
+										>
+									</div>							
+								</fieldset>
+							</td>
+						</tr>
+						-->
+						<tr data-dojo-attach-point="timeFiledSetting">
+							<td class="propertyRowLabel">
+								<span class="ecmLabel">${_messages.admin_desktop_timeProperties}</span>&nbsp;
+								<div data-dojo-type="ecm/widget/HoverHelp"
+									data-dojo-attach-point="timePropertiesHoverHelp">${_messages.admin_desktop_time_properties_hover_help}</div>
+							</td>
+							<td class="propertyRowValue">
+								<fieldset>
+									<legend style="display: none;">${_messages.admin_desktop_timeProperties}</legend>
+									<div>
+										<input
+											data-dojo-props="id: '${id}_disableHideTimeProperties', name: '${id}_TimePropertiesStatus',active:true"
+											data-dojo-type="ecm/widget/RadioButton"
+											data-dojo-attach-point="disableTimePropertiesRadio"
+											data-dojo-attach-event="onClick: _onDisableHideTimeProperties, onChange: _onFieldChange" /> <label
+											for="${id}_disableHideTimeProperties">${_messages.admin_desktop_disable_time_stamp}</label>
+									</div>
+									<div style="padding-top: 5px;">
+										<input
+											data-dojo-props="id: '${id}_enableHideTimeProperties', name: '${id}_TimePropertiesStatus',active:true"
+											data-dojo-type="ecm/widget/RadioButton"
+											data-dojo-attach-point="enableHideTimePropertiesRadio"
+											data-dojo-attach-event="onClick: _onEnableHideTimeProperties, onChange: _onFieldChange" /> <label
+											for="${id}_enableHideTimeProperties">${_messages.admin_desktop_enable_time_stamp}</label>
+									</div>		
+								</fieldset>				
+							</td>
+						</tr>
+						<tr data-dojo-attach-point="mobileQRRow">
+	            		        <td class="propertyRowLabel" valign="top">
+	                    		    <span class="ecmLabel">${_messages.admin_mobileqr_enable}</span>
+	                        		<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="mobileQRHoverHelp">${_messages.admin_mobileqr_enable_hover}</div>
+	                    		</td>
+	                    		<td class="propertyRowValue">
+	                      			<fieldset>
+				                      <legend style="display: none;">${_messages.admin_mobileqr_enable}</legend>
+	            			            <div>
+	                        			  <input data-dojo-attach-point="mobileQREnable" data-dojo-type="ecm/widget/RadioButton" 
+	                                 			data-dojo-props="id: '${id}_enableMobileQR-field', type: 'radio', name: '${id}_mobileQR', value: 'enable'"/>
+	                          			  <label for="${id}_enableMobileQR-field">${_messages.enable}</label>
+				                          <input data-dojo-attach-point="mobileQRDisable" data-dojo-type="ecm/widget/RadioButton" 
+	            			                     data-dojo-props="id: '${id}_disableMobileQR-field', type: 'radio', name: '${id}_mobileQR', value: 'disable', 'class': 'radioButton1'"/>
+	                          			  <label for="${id}_disableMobileQR-field">${_messages.disable}</label>
+	                        			</div>
+	                      			</fieldset>
+	                    		</td>
+			            </tr>
+						<tr data-dojo-attach-point="printServiceRow">
+	           		        <td class="propertyRowLabel" valign="top">
+	                   		    <span class="ecmLabel">${_messages.admin_printService_enable}</span>
+	                       		<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="syncServerHoverHelp">${_messages.admin_printService_enable_hover}</div>
+	                   		</td>
+	                   		<td class="propertyRowValue">
+	                   			<fieldset>
+	                      			<legend style="display: none;">${_messages.admin_printService_enable}</legend>
+	         			            <div>
+	                     				<input data-dojo-attach-point="printServiceEnable" data-dojo-type="ecm/widget/RadioButton"
+	                     					data-dojo-attach-event="onChange: _onPrintServiceChange" 
+	                              			data-dojo-props="id: '${id}_printServiceEnable-field', type: 'radio', name: '${id}_printService', value: 'enable'"/>
+	                       			  	<label for="${id}_enablePrintService-field">${_messages.enable}</label>
+	                          			<input data-dojo-attach-point="printServiceDisable" data-dojo-type="ecm/widget/RadioButton" 
+	         			                     data-dojo-props="id: '${id}_disablePrintService-field', type: 'radio', name: '${id}_printService', value: 'disable', 'class': 'radioButton1'"/>
+	                       			  	<label for="${id}_disablePrintService-field">${_messages.disable}</label>
+	                     			</div>
+									<div style="padding-left: 25px;">
+										<div style="padding-top: 5px">
+											<label for="${id}_maxNumberOfDocsToPrint-field">${_messages.admin_print_service_maximum_number_to_print}</label>&nbsp;
+											<div data-dojo-type="ecm/widget/HoverHelp"
+												data-dojo-attach-point="maxNumberOfDocsToPrintHoverHelp">${_messages.admin_print_service_maximum_number_to_print_hover_text}</div>
+											<input
+												data-dojo-props="id: '${id}_maxNumberOfDocsToPrint-field'"
+												data-dojo-attach-point="maxNumberOfDocsToPrint"
+												data-dojo-attach-event="onChange: _onFieldChange"
+												data-dojo-type="ecm/widget/NumberSpinner" />
+										</div>
+									</div>
+								</fieldset>
+	                   		</td>
+			            </tr>
+					</table>
+				</div>
+				<div data-dojo-type="idx/layout/TitlePane"
+					data-dojo-attach-point="pluginsTwisty"
+					data-dojo-props='open: false, style: { "margin-top" : "10px", "margin-left": "0px" }'>
+					<div>
+						<span class="ecmLabel">${_messages.admin_desktop_plugins_title}</span>
+						<fieldset style="margin-top: 5px;">
+							<legend style="display: none;">${_messages.admin_desktop_plugins_title}</legend>
+							<div>
+								<div data-dojo-attach-point="_enableAllPluginsRadio"
+									data-dojo-props="id: '${id}_enable_all_plugins', type: 'radio', name: '${id}_enablePluginsCondition', value: 'enable'"
+									data-dojo-type="ecm/widget/RadioButton"
+									data-dojo-attach-event="onClick: _onEnableAllPlugins"></div>
+								<label for="${id}_enable_all_plugins">${_messages.admin_desktop_plugins_enable_all_plugins}</label>
+							</div>
+							<div style="padding-top: 5px;">
+								<div data-dojo-attach-point="_selectPluginsRadio"
+									data-dojo-props="id: '${id}_select_plugins', type: 'radio', name: '${id}_enablePluginsCondition', value: 'disable','class': 'radioButton2'"
+									data-dojo-type="ecm/widget/RadioButton"
+									data-dojo-attach-event="onClick: _onSelectPlugins"></div>
+								<label for="${id}_select_plugins">${_messages.admin_desktop_plugins_select_plugins}</label>
+							</div>
+						</fieldset>
+					</div>
+					<div style="padding-top: 10px; padding-left: 25px;" data-dojo-attach-point="_pluginsArea">
+						<div data-dojo-attach-point="_pluginsGridArea"></div>
+					</div>
+				</div>
+				<div data-dojo-type="idx/layout/TitlePane"
+					data-dojo-attach-point="fileTrackingConfSection"
+					data-dojo-props='open: false'>
+					<div class="categoryInstructions">
+						${_messages.admin_file_tracking_inline_help}
+						<a href="http://www.ibm.com/support/knowledgecenter/SSEUEX_2.0.3/com.ibm.installingeuc.doc/eucco083.htm" target="_blank" title="${_messages.learn_more}">${_messages.learn_more}</a>
+						<br/>
+						<br/>
+					</div>
+					<table class="propertyTable" role="presentation">
+						<tr>
+							<td class="propertyRowLabel" valign="top"><span class="required">*</span><span class="ecmLabel"
+								data-dojo-attach-point="fileTrackingLabel" >${_messages.admin_file_Tracking_label}</span>
+								<div data-dojo-type="ecm/widget/HoverHelp"
+									data-dojo-attach-point="fileTrackingLabelHoverHelp">${_messages.admin_file_tracking_label_hover_help}</div>
+							</td>
+							<td class="propertyRowValue">
+							<fieldset>
+									<legend style="display: none;">${_messages.admin_file_Tracking_label}</legend>
+								<div>
+									<input
+										data-dojo-props="id: '${id}_enableFileTracking', name: '${id}_FileTrackingStatus',active:true"
+										data-dojo-type="ecm/widget/RadioButton"
+										data-dojo-attach-point="enableFileTrackingRadioButtonYes"
+										data-dojo-attach-event="onClick: _onFileTrackingStateEnable" /> <label
+										for="${id}_enableFileTracking">${_messages.admin_file_Tracking_enable}</label>
+								</div>
+								<div style="padding-top: 5px;">
+									<input
+										data-dojo-props="id: '${id}_disableFileTracking', name: '${id}_FileTrackingStatus',active:true"
+										data-dojo-type="ecm/widget/RadioButton"
+										data-dojo-attach-point="enableFileTrackingRadioButtonNo"
+										data-dojo-attach-event="onClick: _onFileTrackingStateDisable" /> <label
+										for="${id}_disableFileTracking">${_messages.admin_file_Tracking_disable}</label>
+								</div>
+								</fieldset>
+							</td>
+						</tr>
+						<tr data-dojo-attach-point="ftrow2">
+							<td class="propertyRowLabel" valign="top"><span class="required">*</span><span class="ecmLabel"
+								data-dojo-type="ecm/widget/_WidgetBaseHoverHelpMixin" tabindex="0" data-dojo-attach-point="storageLocationLabel">${_messages.admin_file_tracking_doc_directory}</span>
+								<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="storageLocationLabelHoverHelp">${_messages.admin_file_tracking_doc_directory_hover_help}</div>
+							</td>
+							<td class="propertyRowValue">
+								<fieldset>
+									<legend style="display: none;">${_messages.admin_file_tracking_doc_directory}</legend>
+								<div>
+									<input
+										data-dojo-props="id: '${id}_fileTrackingPathTypeRBEV', name: '${id}_fileTrackingPathType'"
+										data-dojo-type="ecm/widget/RadioButton"
+										data-dojo-attach-point="fileTrackingPathTypeEVRadioButton"
+										data-dojo-attach-event="onClick: _onFileTrackingPathTypeChangeEV" />
+									<label for="${id}_fileTrackingPathTypeRBEV">${_messages.admin_file_tracking_ev}</label>
+									<div data-dojo-type="ecm/widget/HoverHelp"
+										data-dojo-attach-point="environmentVariableHoverHelp">
+										${_messages.admin_file_tracking_environment_variable_path_hover_help}</div>
+									<label for="${id}_fileTrackingEVType" style="display:none">${_messages.admin_file_tracking_ev}</label>
+									<div data-dojo-type="ecm/widget/FilteringSelect"
+										data-dojo-attach-point="fileTrackingEVType"
+										data-dojo-attach-event="onChange: _onFileTrackingEVTypeChange"
+										data-dojo-props='id: "${id}_fileTrackingEVType",labelType: "text", label: "name", searchAttr: "name",  maxHeight: 150'></div>
+									<label for="${id}_FileTrackingCustomENV1" style="display:none">${_messages.admin_file_tracking_environment_variable_path_hover_help}</label>
+									<input
+										data-dojo-props="id: '${id}_FileTrackingCustomENV1', name: '${id}_FileTrackingCustomENV1'"
+										data-dojo-type="ecm/widget/ValidationTextBox"
+										data-dojo-attach-point="fileTrackingCustomENV"
+										data-dojo-attach-event="onKeyUp: _onFieldChange" />
+								</div>
+								<div  style="padding-left:25px;padding-top:7px;">
+									<input
+										data-dojo-props="id: '${id}_fileTrackingAQPCB', name: '${id}_FileTrackingAQPCB'"
+										data-dojo-type="ecm/widget/CheckBox"
+										data-dojo-attach-point="fileTrackingAQPForEV"
+										data-dojo-attach-event="onChange: _onEVAppendPathCBChange" />
+									<label for="${id}_fileTrackingAQPCB">${_messages.admin_file_Tracking_append_qualified_path}</label>
+									<div data-dojo-type="ecm/widget/HoverHelp"
+									data-dojo-attach-point="fileTrackingAQPForEVTB_hoverhelp">${_messages.admin_file_Tracking_append_qualified_path_hover_help}</div>
+									<label for="${id}_fileTrackingAQPTB" style="display:none">${_messages.admin_file_Tracking_append_qualified_path}</label>
+									<input
+										data-dojo-props="id: '${id}_fileTrackingAQPTB', name: '${id}_FileTrackingAQPTB'"
+										data-dojo-type="ecm/widget/ValidationTextBox"
+										data-dojo-attach-point="fileTrackingAQPForEVTB"
+										data-dojo-attach-event="onKeyUp: _onFieldChange" />
+									
+								</div>
+								<br/>
+								<!-- Qualified Path -->
+								<div>
+									<input
+										data-dojo-props="id: '${id}_fileTrackingPathTypeRBQP', name: '${id}_fileTrackingPathType'"
+										data-dojo-type="ecm/widget/RadioButton"
+										data-dojo-attach-point="fileTrackingPathTypeQPRadioButton"
+										data-dojo-attach-event="onClick: _onFileTrackingPathTypeChangeQP" />
+									<label for="${id}_fileTrackingPathTypeRBQP">${_messages.admin_file_tracking_exact_path}</label>
+									<div data-dojo-type="ecm/widget/HoverHelp"
+										data-dojo-attach-point="exactPathHoverHelp">
+										${_messages.admin_file_tracking_qualified_path_hover_help}</div>
+									<label for="${id}_FileTrackingQPTB" style="display:none">${_messages.admin_file_tracking_exact_path}</label>
+									<input
+										data-dojo-props="id: '${id}_FileTrackingQPTB', name: '${id}_FileTrackingQPTB',required:true" 
+										data-dojo-type="ecm/widget/ValidationTextBox"
+										data-dojo-attach-point="fileTrackingQP"
+										data-dojo-attach-event="onKeyUp: _onFieldChange" />
+								</div>
+								<div style="padding-left:25px;padding-top:7px;">
+									<input
+										data-dojo-props="id: '${id}_fileTrackingAEVCB', name: '${id}_FileTrackingAEVCB'"
+										data-dojo-type="ecm/widget/CheckBox"
+										data-dojo-attach-point="fileTrackingAEVForQP"
+										data-dojo-attach-event="onChange: _onQPAppendPathCBChange" />
+									<label for="${id}_fileTrackingAEVCB">${_messages.admin_file_Tracking_append_ev}</label>
+									<div data-dojo-type="ecm/widget/HoverHelp"
+									data-dojo-attach-point="fileTrackingAEVForQPTB_hoverhelp">${_messages.admin_file_Tracking_append_ev_hover_help}</div>
+									<label for="${id}_fileTrackingAEVTB" style="display:none">${_messages.admin_file_Tracking_append_ev}</label>
+									<input
+										data-dojo-props="id: '${id}_fileTrackingAEVTB', name: '${id}_FileTrackingAEVTB'"
+										data-dojo-type="ecm/widget/ValidationTextBox"
+										data-dojo-attach-point="fileTrackingAEVForQPTB"
+										data-dojo-attach-event="onKeyUp: _onFieldChange" />
+										
+								</div>
+								</fieldset>
+							</td>
+						</tr>
+						<tr data-dojo-attach-point="ftrow3">
+							<td class="propertyRowLabel" valign="top"><span class="required">*</span><span class="ecmLabel">${_messages.admin_file_tracking_del_local_copy}
+							</span>
+								<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="deleteLocalCopyHoverHelp">${_messages.admin_file_tracking_delete_local_copy_hover_help}</div>
+							</td>
+							<td class="propertyRowValue">
+								<fieldset>
+									<legend style="display: none;">${_messages.admin_file_tracking_del_local_copy}</legend>
+								<div>
+									<input
+										data-dojo-props="id: '${id}_deleteLocalCopy1', name: '${id}_FileTrackingDLC' ,type:'radio'"
+										data-dojo-type="ecm/widget/RadioButton"
+										data-dojo-attach-point="deleteLocalCopyRadioButtonYes"
+										data-dojo-attach-event="onClick: _onFieldChange" /> <label
+										for="${id}_deleteLocalCopy1">${_messages.admin_file_tracking_yes}</label>
+								</div>
+								<div style="padding-top: 5px;">
+									<input
+										data-dojo-props="id: '${id}_deleteLocalCopy2', name: '${id}_FileTrackingDLC',type:'radio'"
+										data-dojo-type="ecm/widget/RadioButton"
+										data-dojo-attach-point="deleteLocalCopyRadioButtonNo"
+										data-dojo-attach-event="onClick: _onFieldChange" /> <label
+										for="${id}_deleteLocalCopy2">${_messages.admin_file_tracking_no}</label>
+								</div> <!-- TODO add editable or readonly -->
+								<div style="padding-top: 5px;">
+									<input
+										data-dojo-props="id: '${id}_deleteLocalCopyOverride', name: '${id}_deleteLocalCopyOverride'"
+										data-dojo-type="ecm/widget/CheckBox"
+										data-dojo-attach-point="deleteLocalCopyOverride"
+										data-dojo-attach-event="onClick: _onFieldChange" />
+										<label for ="${id}_deleteLocalCopyOverride">${_messages.admin_file_tracking_del_local_copy_rt_state_editable}</label>
+								</div>
+								</fieldset>
+							</td>
+						</tr>
+						<tr data-dojo-attach-point="ftrow4">
+							<td class="propertyRowLabel" valign="top"><span class="required">*</span><span class="ecmLabel">${_messages.admin_file_tracking_over_write_file}
+							</span>
+								<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="overWriteFileHoverHelp">${_messages.admin_file_tracking_over_write_file_hover_help}</div>
+							</td>
+							<td class="propertyRowValue">
+							<fieldset>
+									<legend style="display: none;">${_messages.admin_file_tracking_over_write_file}</legend>
+								<div>
+									<input
+										data-dojo-props="id: '${id}_overWriteFileRadioButtonYes', name: '${id}_FileTrackingOF' ,type:'radio'"
+										data-dojo-type="ecm/widget/RadioButton"
+										data-dojo-attach-point="overWriteFileRadioButtonYes"
+										data-dojo-attach-event="onClick: _onFieldChange" /> <label
+										for="${id}_overWriteFileRadioButtonYes">${_messages.admin_file_tracking_yes}</label>
+								</div>
+								<div style="padding-top: 5px;">
+									<input
+										data-dojo-props="id: '${id}_overWriteFileRadioButtonNo', name: '${id}_FileTrackingOF',type:'radio'"
+										data-dojo-type="ecm/widget/RadioButton"
+										data-dojo-attach-point="overWriteFileRadioButtonNo"
+										data-dojo-attach-event="onClick: _onFieldChange" /> <label
+										for="${id}_overWriteFileRadioButtonNo">${_messages.admin_file_tracking_no}</label>
+								</div> <!-- TODO add editable or readonly -->
+								<div style="padding-top: 5px;">
+									<input
+										data-dojo-props="id: '${id}_overWriteFileRadioButtonOverride', name: '${id}_deleteLocalCopyOverride'"
+										data-dojo-type="ecm/widget/CheckBox"
+										data-dojo-attach-point="overWriteFileRadioButtonOverride"
+										data-dojo-attach-event="onClick: _onFieldChange" />
+										<label for ="${id}_overWriteFileRadioButtonOverride">${_messages.admin_file_tracking_over_write_file_state_editable}</label>
+								</div>
+								</fieldset>
+							</td>
+						</tr>
+						<tr data-dojo-attach-point="ftrow5">
+							<td class="propertyRowLabel" valign="top"><span class="required">*</span><span class="ecmLabel">${_messages.admin_file_tracking_open_file}</span>
+								<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="openFileHoverHelp">${_messages.admin_file_tracking_open_file_hover_help}</div>
+							</td>
+							<td class="propertyRowValue">
+							<fieldset>
+									<legend style="display: none;">${_messages.admin_file_tracking_open_file}</legend>
+								<div>
+									<input
+										data-dojo-props="id: '${id}_openFile1', name: '${id}_openFile'"
+										data-dojo-type="ecm/widget/RadioButton"
+										data-dojo-attach-point="openFileRadioButtonYes"
+										data-dojo-attach-event="onClick: _onFieldChange" /> <label
+										for="${id}_openFile1">${_messages.admin_file_tracking_yes}</label>
+								</div>
+								<div style="padding-top: 5px;">
+									<input
+										data-dojo-props="id: '${id}_openFile2', name: '${id}_openFile'"
+										data-dojo-type="ecm/widget/RadioButton"
+										data-dojo-attach-point="openFileRadioButtonNo"
+										data-dojo-attach-event="onClick: _onFieldChange" /> <label
+										for="${id}_openFile2">${_messages.admin_file_tracking_no}</label>
+								</div>
+								</fieldset>
+							</td>
+						</tr>
+
+					</table>
+				</div>
+				<div data-dojo-type="idx/layout/TitlePane"
+					data-dojo-attach-point="msOfficeConfSection"
+					data-dojo-props='open: false, style: { "margin-top": "10px", "margin-left": "0px" }'>
+					<table class="propertyTable" role="presentation">
+						<tr data-dojo-attach-point="officeTabLabelRow">
+							<td class="propertyRowLabel" valign="top">
+								<label for="${id}_ribbonTabLabel-field">${_messages.admin_ms_ribbon_tab_label}</label>&nbsp;
+								<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="ribbonTabLabelFieldHoverHelp">${_messages.admin_ms_ribbon_tab_hover_help}</div>																	
+							</td>
+							<td class="propertyRowValue">
+								<div>
+									<input data-dojo-attach-point="ribbonTabLabelField" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox"
+										data-dojo-props="id: '${id}_ribbonTabLabel-field', required: false, trim: true, maxLength: 64, propercase: false" />	
+								</div>
+							</td>
+						</tr>
+						<tr data-dojo-attach-point="officeGenConfigRow">
+							<td class="propertyRowLabel" valign="top">
+								<span class="ecmLabel">${_messages.admin_ms_general_settings}</span>&nbsp;
+							</td>
+							<td class="propertyRowValue">		
+								<div class="ecmGeneralOfficeMapping">	
+								<fieldset>
+									<legend>${_messages.admin_ms_open_document_options}</legend>		
+									<div>													
+										<div>																	
+											<div
+												data-dojo-props="id: '${id}_closeTaskPaneOnOpen', name: '${id}_closeTaskPaneOnOpen'"
+												data-dojo-type="ecm/widget/CheckBox"
+												data-dojo-attach-point="closeTaskPaneOnOpen"
+												data-dojo-attach-event="onClick: _onFieldChange"></div>
+											<label for="${id}_closeTaskPaneOnOpen">${_messages.admin_ms_close_task_pane_on_open}</label>
+											<div data-dojo-type="ecm/widget/HoverHelp"
+												data-dojo-attach-point="closeTaskPaneOnOpenHoverhelp">${_messages.admin_ms_close_task_pane_on_open_hover_help}</div>
+										</div>
+										<div>
+											<div
+												data-dojo-props="id: '${id}_openDocOnCheckout', name: '${id}_openDocOnCheckout'"
+												data-dojo-type="ecm/widget/CheckBox"
+												data-dojo-attach-point="openDocOnCheckoutCheckbox"
+												data-dojo-attach-event="onClick: _onFieldChange"></div>
+											<label for="${id}_openDocOnCheckout">${_messages.admin_ms_open_doc_when_checkout}</label>
+											<div data-dojo-type="ecm/widget/HoverHelp"
+												data-dojo-attach-point="openDocOnCheckoutHoverHelp">${_messages.admin_ms_open_doc_when_checkout_hover_help}</div>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset>
+									<legend>${_messages.admin_ms_display_options}</legend>
+									<div>
+										<div>
+											<div
+												data-dojo-props="id: '${id}_hideSaveDocument', name: '${id}_hideSaveDocument'"
+												data-dojo-type="ecm/widget/CheckBox"
+												data-dojo-attach-point="hideSaveDocumentCheckbox"
+												data-dojo-attach-event="onClick: _onFieldChange"></div>
+											<label for="${id}_hideSaveDocument">${_messages.admin_ms_hide_save_document}</label>
+											<div data-dojo-type="ecm/widget/HoverHelp"
+												data-dojo-attach-point="hideSaveDocumentCheckboxHoverHelp">${_messages.admin_ms_hide_save_document_hover_help}</div>
+										</div>		
+									    <div>
+											<div
+												data-dojo-props="id: '${id}_showDetailsRecentlyUsed', name: '${id}_showDetailsRecentlyUsed'"
+												data-dojo-type="ecm/widget/CheckBox"
+												data-dojo-attach-point="showDetailsRecentlyUsedCheckbox"
+												data-dojo-attach-event="onClick: _onFieldChange"></div>
+											<label for="${id}_showDetailsRecentlyUsed">${_messages.admin_ms_show_details_recently_used}</label>
+											<div data-dojo-type="ecm/widget/HoverHelp"
+												data-dojo-attach-point="showDetailsRecentlyUsedCheckboxHoverHelp">${_messages.admin_ms_show_details_recently_used_hover_help}</div>
+										</div>		
+									</div>
+								</fieldset>	
+								<fieldset>
+									<legend>${_messages.admin_ms_delete_local_file_options}</legend>	
+									<div>
+										<div style="min-height: 20px">																			
+											<div
+												data-dojo-props="id: '${id}_deleteLocalOnAdd', name: '${id}_deleteLocalOnAdd'"
+												data-dojo-type="ecm/widget/CheckBox"
+												data-dojo-attach-point="deleteLocalOnAddCheckbox"
+												data-dojo-attach-event="onChange: _onDeleteLocalOnAddChange"></div>
+											<label for="${id}_deleteLocalOnAdd">${_messages.admin_ms_delete_local_on_add}</label>		
+											<div data-dojo-type="ecm/widget/HoverHelp"
+												data-dojo-attach-point="deleteLocalOnAddCheckboxHoverHelp">${_messages.admin_ms_delete_local_on_add_hover_help}</div>																		
+										</div>
+										<div style="min-height: 20px">																			
+											<div
+												data-dojo-props="id: '${id}_deleteLocalOnCheckin', name: '${id}_deleteLocalOnCheckin'"
+												data-dojo-type="ecm/widget/CheckBox"
+												data-dojo-attach-point="deleteLocalOnCheckinCheckbox"
+												data-dojo-attach-event="onClick: _onFieldChange"></div>
+											<label for="${id}_deleteLocalOnCheckin">${_messages.admin_ms_delete_local_on_checkin}</label>
+											<div data-dojo-type="ecm/widget/HoverHelp"
+												data-dojo-attach-point="deleteLocalOnCheckinCheckboxHoverHelp">${_messages.admin_ms_delete_local_on_checkin_hover_help}</div>																												
+										</div>
+										<div>
+											<div
+												data-dojo-props="id: '${id}_deleteOpenDocsAfterClose', name: '${id}_deleteOpenDocsAfterClose'"
+												data-dojo-type="ecm/widget/CheckBox"
+												data-dojo-attach-point="deleteOpenDocsAfterCloseCheckbox"
+												data-dojo-attach-event="onClick: _onFieldChange"></div>
+											<label for="${id}_deleteOpenDocsAfterClose">${_messages.admin_delete_open_docs_after_close}</label>
+											<div data-dojo-type="ecm/widget/HoverHelp"
+												data-dojo-attach-point="deleteOpenDocsAfterCloseChecboxHoverHelp">${_messages.admin_admin_delete_open_docs_after_close_hover_help}</div>										
+										</div>
+									</div>		
+								</fieldset>		
+								<fieldset>
+									<legend>${_messages.admin_ms_add_and_checkin_options}</legend>
+									<div>			
+										<div>
+											<div
+												data-dojo-props="id: '${id}_prmptCloseOffice', name: '${id}_prmptCloseOffice'"
+												data-dojo-type="ecm/widget/CheckBox"
+												data-dojo-attach-point="promptCloseOfficeCheckbox"
+												data-dojo-attach-event="onChange: _onFieldChange"></div>
+											<label for="${id}_prmptCloseOffice">${_messages.admin_ms_prompt_close_office}</label>
+											<div data-dojo-type="ecm/widget/HoverHelp"
+												data-dojo-attach-point="promptCloseOfficeHoverHelp">${_messages.admin_ms_prompt_close_office_hover_help}</div>
+										</div>
+										<div>										
+											<div
+												data-dojo-props="id: '${id}_enablePropMappingForAdd', name: '${id}_enablePropMappingForAdd'"
+												data-dojo-type="ecm/widget/CheckBox"
+												data-dojo-attach-point="enablePropMappingForAddCheckbox"
+												data-dojo-attach-event="onClick: _onFieldChange"></div>
+											<label for="${id}_enablePropMappingForAdd">${_messages.admin_ms_enable_prop_mapping_for_add}</label>
+											<div data-dojo-type="ecm/widget/HoverHelp"
+												data-dojo-attach-point="enablePropMappingForAddCheckboxHoverHelp">${_messages.admin_ms_enable_prop_mapping_for_add_hover_help}</div>
+										</div>
+										<div>										
+											<div
+												data-dojo-props="id: '${id}_checkoutDocumentAfterAdd', name: '${id}_checkoutDocumentAfterAdd'"
+												data-dojo-type="ecm/widget/CheckBox"
+												data-dojo-attach-point="checkoutDocumentAfterAddCheckbox"
+												data-dojo-attach-event="onClick: _onFieldChange"></div>
+											<label for="${id}_checkoutDocumentAfterAdd">${_messages.admin_ms_checkout_document_after_add}</label>
+											<div data-dojo-type="ecm/widget/HoverHelp"
+												data-dojo-attach-point="checkoutDocumentAfterAddCheckboxHoverHelp">${_messages.admin_ms_checkout_document_after_add_hover_help}</div>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset>
+									<legend>${_messages.admin_ms_search_options}</legend>
+									<div>
+										<div>
+											<div
+												data-dojo-props="id: '${id}_disableDocumentTypeFiltering', name: '${id}_disableDocumentTypeFiltering'"
+												data-dojo-type="ecm/widget/CheckBox"
+												data-dojo-attach-point="disableDocumentTypeFilteringCheckbox"
+												data-dojo-attach-event="onClick: _onFieldChange"></div>
+											<label for="${id}_disableDocumentTypeFiltering">${_messages.admin_no_default_document_type_filtering}</label>
+											<div data-dojo-type="ecm/widget/HoverHelp"
+												data-dojo-attach-point="disableDocumentTypeFilteringCheckboxHoverHelp">${_messages.admin_no_default_document_type_filtering_hover_help}</div>
+										</div>	
+										<div>
+											<div
+												data-dojo-props="id: '${id}_hideSearchActions', name: '${id}_hideSearchActions'"
+												data-dojo-type="ecm/widget/CheckBox"
+												data-dojo-attach-point="hideSearchActionsCheckbox"
+												data-dojo-attach-event="onClick: _onFieldChange"></div>
+											<label for="${id}_hideSearchActions">${_messages.admin_ms_hide_search_actions}</label>
+											<div data-dojo-type="ecm/widget/HoverHelp"
+												data-dojo-attach-point="hideSearchActionsCheckboxHoverHelp">${_messages.admin_ms_hide_search_actions_hover_help}</div>
+										</div>			
+									</div>
+								</fieldset>	
+								</div>																								
+							</td>							
+						</tr>
+						<tr data-dojo-attach-point="customCommandConfigurationRow">
+	                    	<td class="propertyRowLabel" valign="top">
+	                       		<span class="ecmLabel">${_messages.admin_ms_custom_command_configuration}</span>
+	                        	<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="customCommandConfigurationHoverHelp" data-dojo-props="isFocusable: true">${_messages.admin_ms_custom_command_configuration_hover_help}</div>
+	                    	</td>
+							<td class="propertyRowValue">								
+								<div>
+									<div data-dojo-type="dijit/layout/ContentPane"
+										data-dojo-attach-point="officeCommandsButtonPane">
+										<button data-dojo-type="dijit/form/Button"
+											data-dojo-attach-point="openButton"
+											data-dojo-attach-event="onClick: _onEdit">
+											${_messages.admin_edit_button_label}</button>															
+									</div>									
+									<div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="officeCommandsContentPane"></div>
+								</div>
+								<label for="${id}_officeCommandGroupName-field">${_messages.admin_ms_custom_command_group_name}</label>&nbsp;
+								<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="officeCommandGroupFieldHoverHelp">${_messages.admin_ms_custom_command_group_name_hover_help}</div>								
+								<input data-dojo-attach-point="officeCommandGroupNameField" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox"
+									data-dojo-props="id: '${id}_officeCommandGroupName-field', required: false, trim: true, propercase: false" />								
+							</td>							
+						</tr>
+						<tr data-dojo-attach-point="editGroupAddOptionRow">							
+							<td class="propertyRowLabel">
+								<label for="${id}_editGroupAddButtonOption">${_messages.admin_ms_edit_group_add_command_configuration}</label>&nbsp;
+								<div data-dojo-type="ecm/widget/HoverHelp"
+									data-dojo-attach-point="editGroupAddButtonOptionHoverHelp">${_messages.admin_ms_edit_group_add_command_configuration_hover_help}</div>
+							</td>
+							<td class="propertyRowValue">										
+								<select data-dojo-attach-point="editGroupAddButtonOption"
+									data-dojo-attach-event="onChange: _onFieldChange"
+									data-dojo-type="ecm/widget/FilteringSelect"
+									data-dojo-props="id: '${id}_editGroupAddButtonOption', required: false,  maxHeight: 250">
+									<option value="0">${_messages.admin_ms_show_edit_group_add_button}</option>
+									<option value="1">${_messages.admin_ms_hide_edit_group_add_button}</option>
+									<option value="2">${_messages.admin_ms_hide_add_with_entry_template}</option>	
+									<option value="3">${_messages.admin_ms_add_with_entry_template_only}</option>
+								</select>													
+							</td>
+						</tr>
+						<tr data-dojo-attach-point="officeOutlookConfigRow">
+							<td class="propertyRowLabel" valign="top"><span class="ecmLabel">${_messages.admin_ms_outlook_options}</span>&nbsp;
+							</td>
+							<td class="propertyRowValue">
+								<div>
+									<div id="${id}_promptForPropsOnAdd"
+										name="${id}_promptForPropsOnAdd"
+										data-dojo-type="ecm/widget/CheckBox"
+										data-dojo-attach-point="promptForPropsOnAddCheckbox"
+										data-dojo-attach-event="onClick: _onFieldChange"></div>
+									<label for="${id}_promptForPropsOnAdd">${_messages.admin_ms_prompt_for_props_on_add}</label>
+									<div data-dojo-type="ecm/widget/HoverHelp"
+										data-dojo-attach-point="promptForPropsOnAddCheckboxHoverHelp">${_messages.admin_ms_prompt_for_props_on_add_hover_help}</div>
+								</div>
+								<div style="min-height: 20px" data-dojo-attach-point="deleteEmailOnAddSection">
+									<div
+										data-dojo-props="id: '${id}_deleteEmailOnAdd', name: '${id}_deleteEmailOnAdd'"
+										data-dojo-type="ecm/widget/CheckBox"
+										data-dojo-attach-point="deleteEmailOnAddCheckbox"
+										data-dojo-attach-event="onChange: _onDeleteEmailOnAddChange"></div>
+									<label for="${id}_deleteEmailOnAdd">${_messages.admin_ms_delete_email_on_add}</label>
+								</div>
+								<div>
+									<div
+										data-dojo-props="id: '${id}_indicateManagedEmailOnAdd', name: '${id}_indicateManagedEmailOnAdd'"
+										data-dojo-type="ecm/widget/CheckBox"
+										data-dojo-attach-point="indicateManagedEmailOnAddCheckbox"
+										data-dojo-attach-event="onChange: _onFieldChange"></div>
+									<label for="${id}_indicateManagedEmailOnAdd">${_messages.admin_ms_indicate_managed_email_on_add}</label>
+									<div data-dojo-type="ecm/widget/HoverHelp"
+										data-dojo-attach-point="indicateManagedEmailOnAddCheckboxHoverHelp">${_messages.admin_ms_indicate_managed_email_on_add_hover_help}</div>
+								</div>
+								<div>
+									<div
+										data-dojo-props="id: '${id}_sendEmailAsLinkOnly', name: '${id}_sendEmailAsLinkOnly'"
+										data-dojo-type="ecm/widget/CheckBox"
+										data-dojo-attach-point="sendEmailAsLinkOnlyCheckbox"
+										data-dojo-attach-event="onChange: _onFieldChange"></div>
+									<label for="${id}_sendEmailAsLinkOnly">${_messages.admin_ms_send_email_as_link_only}</label>
+									<div data-dojo-type="ecm/widget/HoverHelp"
+										data-dojo-attach-point="sendEmailAsLinkOnlyCheckboxHoverHelp">${_messages.admin_ms_send_email_as_link_only_hover_help}</div>
+								</div>
+								<div>
+									<div
+										data-dojo-props="id: '${id}_outlookPropertyRemembrance', name: '${id}_outlookPropertyRemembrance'"
+										data-dojo-type="ecm/widget/CheckBox"
+										data-dojo-attach-point="outlookPropertyRemembranceCheckbox"
+										data-dojo-attach-event="onChange: _onFieldChange"></div>
+									<label for="${id}_outlookPropertyRemembrance">${_messages.admin_ms_outlookPropertyRemembrance}</label>
+									<div data-dojo-type="ecm/widget/HoverHelp"
+										data-dojo-attach-point="outlookPropertyRemembranceCheckboxHoverHelp">${_messages.admin_ms_outlookPropertyRemembrance_hover_help}</div>
+								</div>
+							</td>
+						</tr>
+						<tr data-dojo-attach-point="officeBidiConfigRow">
+							<td class="propertyRowLabel" valign="top"><span class="ecmLabel">${_messages.change_locale_for_office}</span>&nbsp;
+							</td>
+							<td class="propertyRowValue">
+								  <div>			  
+									  <input id="${id}_bidi_support_flag-field" data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-point="_bidiSupportFlag" data-dojo-attach-event="onClick: _onBidiSupportFlagChange, onChange: _onFieldChange"></input>	
+									  <label for="${id}_bidi_support_flag-field">${_messages.admin_ms_bidirection_enable_label}</label>
+									  <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_bidiSupportFlagHoverHelp">${_messages.admin_ms_bidirection_enable_hover_help}</div>	
+								  </div>
+								  <div class="ecmBidiPrefsPanel">		
+									<div>
+									  <label for="${id}_base_text_direction-field">${_messages.admin_ms_text_direction_label}</label>
+									  <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_baseTextDirectionHoverHelp">${_messages.admin_ms_text_direction_hover_help}</div>
+									</div>   
+									<div data-dojo-type="ecm/widget/Select" 
+										 data-dojo-props="maxHeight: 200, id: '${id}_base_text_direction-field'" 
+										 data-dojo-attach-point="_baseTextDirection" 
+										 data-dojo-attach-event="onChange: _onBaseTextDirectionChange"></div>
+								  </div>
+							</td>
+						</tr>
+						<tr data-dojo-attach-point="controlThresholdRow">
+							<td class="propertyRowLabel"><span class="required">*</span>
+								<label for="${id}_controlThreshold-field">${_messages.admin_ms_control_threshold_label}</label>&nbsp;
+								<div data-dojo-type="ecm/widget/HoverHelp"
+									data-dojo-attach-point="controlThresholdHoverHelp">${_messages.admin_ms_control_threshold_hover_help}</div>
+							</td>
+							<td class="propertyRowValue"><input
+								data-dojo-props="id: '${id}_controlThreshold-field', required: true"
+								data-dojo-attach-point="controlThreshold"
+								data-dojo-attach-event="onChange: _onFieldChange"
+								data-dojo-type="ecm/widget/NumberSpinner" /></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div data-dojo-type="ecm/widget/admin/DesktopRepositories"
+				data-dojo-attach-point="_desktopRepositories"
+				data-dojo-props='iconClass: "required"'></div>
+			<div data-dojo-type="ecm/widget/admin/DesktopFeatures"
+				data-dojo-attach-point="_desktopFeatures"
+				data-dojo-props='iconClass: "required"'></div>
+			<div data-dojo-type="ecm/widget/admin/DesktopAppearance"
+				data-dojo-attach-point="_desktopAppearance"></div>
+			<div data-dojo-type="ecm/widget/admin/DesktopMenus"
+				data-dojo-attach-point="_desktopMenus"
+				data-dojo-props='iconClass: "required"'></div>
+			<div data-dojo-type="ecm/widget/admin/DesktopWorkflows"
+				data-dojo-attach-point="_desktopWorkflows"></div>
+			<div data-dojo-type="ecm/widget/admin/DesktopMobile"
+				data-dojo-attach-point="_desktopMobile"></div>
+		</div>
+	</div>
+</div>

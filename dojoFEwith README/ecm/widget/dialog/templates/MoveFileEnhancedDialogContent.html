@@ -1,0 +1,39 @@
+<div data-dojo-type="dijit.layout.BorderContainer" gutters="false" style="height: 150px;" class="ecmSearchInDropDownPopUpContent">
+
+	<div id="${id}_navigationArea" data-dojo-attach-point="_navigationArea" data-dojo-type="dijit.layout.ContentPane" class="navigationArea" region="left" >
+	</div>
+	
+	<div id="${id}_listingArea" data-dojo-attach-point="_listingArea" data-dojo-type="dijit.layout.ContentPane" class="listingArea" region="center">
+
+	</div>
+
+
+	<div id="${id}_sourceArea" data-dojo-attach-point="_sourceArea" data-dojo-type="dijit.layout.ContentPane" class="sourceArea" region="bottom">
+		<table role="presentation" data-dojo-attach-point="_sourceField" >
+			<tr style="display: none" data-dojo-attach-point="_folderNameField" >
+				<td nowrap>
+				<div class="dijitInline" data-dojo-attach-point="_sourceLabel">${messages.move_from_folder_label}</div>
+					<select id="${id}_parentFolderSelect"
+							name="${id}_parentFolderSelect"
+							id="${id}_parentFolderSelect"
+							data-dojo-type="dijit.form.Select"
+							data-dojo-attach-point="_parentFolderSelect"
+							data-dojo-attach-event="onChange: _onParentFolderSelectChange"
+							style="max-width: 200px;">
+					</select>
+					<div class="dijitInline" data-dojo-attach-point="_folderNameLabel" id="${id}_folderNameLabel" style="display: none"></div>  	
+				</td>
+			</tr>
+			<tr >
+				<td nowrap>
+					<div  class="dijitInline" style="display: none"  data-dojo-attach-point="copyDeleteOptionSection">
+					<div class="property" data-dojo-attach-point="copyDeletePropSection">
+			 		<div data-dojo-props="id: '${id}_copy-delete-field'" data-dojo-attach-point="copyDeleteProp" data-dojo-attach-event="onClick: _onDeleteFieldChange" data-dojo-type="ecm/widget/CheckBox"></div>
+		    			<label for="${id}_copy-delete-field">${messages.copy_to_folder_delete_label}</label>
+					</div>
+				</div>			
+			</tr>
+		</table>
+	</div>
+
+</div>

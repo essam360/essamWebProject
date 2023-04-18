@@ -1,0 +1,15 @@
+<div data-dojo-type="dijit.layout.ContentPane" class="ecmAboutDialog">	
+  <div data-dojo-type="idx.layout.BorderContainer" class="aboutBorderContainer" data-dojo-attach-point="borderContainer" gutters="false">
+	<div data-dojo-type="dijit.layout.TabContainer" region="center" data-dojo-attach-point="_tabContainer">
+		<div tabindex="0" role="grid"  data-dojo-type="dijit.layout.ContentPane" class="ecmAboutDialogContent" title="${messages.product_name}" style="padding: 20; overflow: auto;">
+			<div class="productTitle" role="gridcell">
+				<div class="productName">${messages.product_name}</div>
+				<div class="productVersion">${!messages.about_product_version_label} <span dir="ltr" data-dojo-attach-point="release"></span></div>
+				<div class="productBuild">${!messages.about_product_build_label} <span dir="ltr" data-dojo-attach-point="build"></span></div>
+			</div>
+			<div class="productLicense" role="gridcell">
+				${!messages.copyright}
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,10 @@
+<div class="field">    
+	<label for="${id}_foldername">
+		<span class="required">* </span>
+		${messages.create_folder_folder_name_label}
+	</label>
+	<br>
+	<input data-dojo-attach-point="folderNameTextBox" type="text" value="" id="${id}_foldername"
+		regExp='([^"*|<>?:\\/])*' data-dojo-type="dijit.form.ValidationTextBox" invalidMessage="${messages.invalid_folder_name_message}"
+		required="true" trim="true" propercase="false" />
+</div>

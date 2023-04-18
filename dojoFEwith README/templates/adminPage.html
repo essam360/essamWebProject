@@ -1,0 +1,536 @@
+<div data-dojo-type="adminPage" style="width: 100%;height: 100%;">
+    <!-- <div data-dojo-type="dijit/layout/BorderContainer" style="width: 100%; height: 100%;">
+        <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'">Top pane</div>
+        <div data-dojo-type="dijit/layout/AccordionContainer" data-dojo-props="region:'leading'">
+            <div data-dojo-type="dijit/layout/AccordionPane" title="pane #1">accordion pane #1</div>
+            <div data-dojo-type="dijit/layout/AccordionPane" title="pane #2">accordion pane #2</div>
+            <div data-dojo-type="dijit/layout/AccordionPane" title="pane #3">accordion pane #3</div>
+        </div>
+        <div data-dojo-type="dijit/layout/TabContainer" data-dojo-props="region:'center'">
+            <div data-dojo-type="dijit/layout/ContentPane" title="tab #1">tab pane #1</div>
+            <div data-dojo-type="dijit/layout/ContentPane" title="tab #2">tab pane #2</div>
+            <div data-dojo-type="dijit/layout/ContentPane" title="tab #3">tab pane #3</div>
+        </div>
+        <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'trailing'">Trailing pane</div>
+        <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'bottom'">Bottom pane</div>
+    </div> -->
+
+
+
+
+
+    
+
+
+
+	<div data-dojo-type="dijit/layout/BorderContainer"
+    data-dojo-props="design:'sidebar', gutters:true, liveSplitters:true"
+    class="border_HR_Container">
+    <!--   <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:true, region:'leading'" style="width: 100px;">Hi, I'm leading pane</div> -->
+    <div data-dojo-type="dijit/layout/ContentPane"
+        data-dojo-attach-point="HR_Container"
+        data-dojo-props="splitter:true, region:'center'">
+        <!--
+         Hi, I'm center pane<
+          -->
+    </div>
+
+
+    <div data-dojo-type="dijit/layout/AccordionContainer"
+        data-dojo-attach-point="AccordionContainer_Parent"
+        data-dojo-props="region : 'leading', style : 'width:200px', splitter : true">
+
+        <div data-dojo-type="dijit/layout/ContentPane"
+            iconClass="EmpDepAccordion" data-dojo-props="column:1"
+            title="${_MoamalatT_ICN.Records_Management}" selected="true">
+
+
+            <table>
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                            label="${_MoamalatT_ICN.ManageEmployees}"
+                            bla="onClick:Open_ManageEmployees"
+                            class="settings" data-dojo-attach-point="ManageEmployees"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                            label="${_MoamalatT_ICN.DeptsAdministration}"
+                            bla="onClick:open_manageDepts"
+                            class="settings" data-dojo-attach-point="manageDepts"></div>
+                    </td>
+                </tr>
+
+
+
+            </table>
+
+
+
+
+        </div>
+
+
+
+
+
+        <div data-dojo-type="dijit/layout/ContentPane"
+            iconClass="QueueAccordion" data-dojo-props="column:1"
+            title="${_MoamalatT_ICN.PublicInbasket}" selected="true">
+
+
+            <table>
+
+
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                            label="${_MoamalatT_ICN.ManagePublicInbasket}"
+                            bla="onClick:open_ManagePublicInbasket"
+                            class="settings" data-dojo-attach-point="ManagePublicIn"></div>
+                    </td>
+                </tr>
+                <!--  // no need for pubic inbasket members
+                <tr>
+                        <td>
+                        <div data-dojo-type="dijit/form/Button"
+                         label="${_MoamalatT_ICN.ManagePublicInbasketMembers}"
+                            bla="onClick:open_ManagePublicInbasketMembers"
+                            class="settings"
+                            data-dojo-attach-point="ManagePublicInbasket" ></div>
+                    </td>
+                </tr>
+                 -->
+            </table>
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+    <!--	<div data-dojo-type="dijit/layout/ContentPane" style="display:none;"
+            iconClass="CommetteesAccordion" data-dojo-props="column:1"
+            title="${_MoamalatT_ICN.Committees_Management}"
+            data-dojo-attach-point="Committees_Management">
+
+
+            <table>
+
+
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                            label="${_MoamalatT_ICN.CommitteesAdministration}"
+                            bla="onClick:open_committeesAdmin"
+                            data-dojo-attach-point="committeesAdmin" class="settings"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                            label="${_MoamalatT_ICN.CommitteesMembers_Administration}"
+                            bla="onClick:open_committeesMembers_Admin"
+                            data-dojo-attach-point="committeesAdmin" class="settings"></div>
+                    </td>
+                </tr>
+
+            </table>
+
+
+
+
+        </div>  -->
+        
+        <div data-dojo-type="dijit/layout/ContentPane"
+            iconClass="CommetteesAccordion" data-dojo-props="column:1"
+            title="${_MoamalatT_ICN.Site_Management}"
+            data-dojo-attach-point="Site_Management">
+
+
+            <table>
+
+
+            <!--	<tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button" 
+                            label="${_MoamalatT_ICN.VariablesAdministration}"
+                            bla="onClick:open_variablesAdmin"
+                            data-dojo-attach-point="variablesAdmin" class="settings"></div>
+                    </td>
+                </tr> -->
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                            label="${_MoamalatT_ICN.CorrespondenceTypeAdmin}"
+                            bla="onClick:open_CorrespondenceTypesAdmin"
+                            data-dojo-attach-point="CorrespondenceTypesAdmin" class="settings"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                            label="${_MoamalatT_ICN.CorrespondenceCategoryAdmin}"
+                            bla="onClick:open_CorrespondenceCategoryAdmin"
+                            data-dojo-attach-point="CorrespondenceCategoryAdmin" class="settings"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                            label="${_MoamalatT_ICN.CorrespondenceConfedentialityAdmin}"
+                            bla="onClick:open_CorrespondenceConfedentialityAdmin"
+                            data-dojo-attach-point="CorrespondenceConfedentialityAdmin" class="settings"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                            label="${_MoamalatT_ICN.CorrespondenceRecieveWayAdmin}"
+                            bla="onClick:open_CorrespondenceRecieveWayAdmin"
+                            data-dojo-attach-point="CorrespondenceRecieveWayAdmin" class="settings"></div>
+                    </td>
+                </tr> 
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                            label="${_MoamalatT_ICN.PrintAttachmentFooterAdmin}"
+                            bla="onClick:open_PrintAttachmentFooterAdmin"
+                            data-dojo-attach-point="PrintAttachmentFooterAdmin" class="settings"></div>
+                    </td>
+                </tr> 
+
+            </table>
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- 
+            
+
+        <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="column:1" iconClass="GroupAccordion"
+         title="${_MoamalatT_ICN.Group_Management}">
+        
+        
+            <table>
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                         label="${_MoamalatT_ICN.ManageGroups}"
+                            bla="onClick:Open_ManageGroups"
+                            data-dojo-attach-point="ManageGroups" class="settings"></div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                         label="${_MoamalatT_ICN.ManageGroupMembers}"
+                            bla="onClick:open_ManageGroupsMembers"
+                            data-dojo-attach-point="manageGroupsMembers" class="settings"></div>
+                    </td>
+                </tr>
+                
+                
+                                    
+            </table>
+        
+        
+        
+        
+        </div>
+        
+        -->
+
+        <div data-dojo-type="dijit/layout/ContentPane"
+            data-dojo-props="column:1" iconClass="MngDataAccordion"
+            data-dojo-attach-point="Othertables"
+            title="${_MoamalatT_ICN.Othertables}">
+            <table>
+
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                            label="${_MoamalatT_ICN.ManageDestination}"
+                            bla="onClick:open_ManageDestination"
+                            data-dojo-attach-point="manageDestination" class="settings"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                            label="${_MoamalatT_ICN.ManageSubjects}"
+                            bla="onClick:Open_ManageSubjects"
+                            data-dojo-attach-point="ManageSubjects" class="settings"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                            label="${_MoamalatT_ICN.ManageInstructions}"
+                            bla="onClick:open_ManageInstructions"
+                            data-dojo-attach-point="ManageInstructions" class="settings"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                            label="${_MoamalatT_ICN.ManagePhysicalAttachments}"
+                            bla="onClick:open_ManagePhysicalAttachments"
+                            data-dojo-attach-point="ManagePhysicalAttachments"
+                            class="settings"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                            label="${_MoamalatT_ICN.ManageInboxSettingColorsHTML}"
+                            bla="onClick:open_ManageInboxSettingColors"
+                            data-dojo-attach-point="ManageInboxSettingColors"
+                            class="settings"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                            label="${_MoamalatT_ICN.ManageBarcode}"
+                            bla="onClick:open_ManageBarcode"
+                            data-dojo-attach-point="ManageBarcode" class="settings"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                            label="${_MoamalatT_ICN.ManageReportBanners}"
+                            bla="onClick:open_ManageReportBanners"
+                            data-dojo-attach-point="ManageReportBanners" class="settings"></div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                            label="${_MoamalatT_ICN.delegation_management}"
+                            bla="onClick:open_ManageDelegation"
+                            data-dojo-attach-point="ManageDelegation" class="settings">
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                            label="${_MoamalatT_ICN.reassign_management}"
+                            bla="onClick:open_ManageReassign"
+                            data-dojo-attach-point="ManageReassign" class="settings">
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                            label="${_MoamalatT_ICN.permissionsOwner}"
+                            bla="onClick:open_permissionsOwner"
+                            data-dojo-attach-point="permissionsOwner" class="settings">
+                        </div>
+                    </td>
+                </tr>
+
+                <!--      till implment the actual lable and messages 
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                         label="${_MoamalatT_ICN.ManageApplicationLables}"
+                            bla="onClick:open_ManageApplicationLables"
+                            
+                            data-dojo-attach-point="ManageApplicationLables" class="settings"></div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                         label="${_MoamalatT_ICN.ManageMessages}"
+                            bla="onClick:open_ManageMessages"
+                            
+                            data-dojo-attach-point="ManageMessages" class="settings"></div>
+                    </td>
+                </tr>
+                 -->
+
+
+
+
+
+            </table>
+        </div>
+
+
+
+
+
+        <!--   
+        <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="column:1" title="${_MoamalatT_ICN.Records_Management}">
+        
+        
+            <table>
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                         label="${_MoamalatT_ICN.ManageEmployees}"
+                            bla="onClick:Open_ManageEmployees"
+                            
+                            data-dojo-attach-point="ManageEmployees" ></div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                         label="${_MoamalatT_ICN.DeptsAdministration}"
+                            bla="onClick:open_manageDepts"
+                            
+                            data-dojo-attach-point="manageDepts" ></div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                         label="${_MoamalatT_ICN.CommitteesAdministration}"
+                            bla="onClick:open_committeesAdmin"
+                            
+                            data-dojo-attach-point="committeesAdmin" ></div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                         label="${_MoamalatT_ICN.CommitteesMembers_Administration}"
+                            bla="onClick:open_committeesMembers_Admin"
+                            
+                            data-dojo-attach-point="committeesAdmin" ></div>
+                    </td>
+                </tr>
+                
+            </table>
+        
+        </div> 
+        
+        -->
+
+
+        <div data-dojo-type="dijit/layout/ContentPane"
+            iconClass="EmpDepAccordion" data-dojo-props="column:1"
+            title="${_MoamalatT_ICN.webeditorsettings}" selected="true">
+
+
+            <table>
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                            label="${_MoamalatT_ICN.manageWebEditorHF}"
+                            bla="onClick:Open_ManageWebEditorHF"
+                            class="settings" data-dojo-attach-point="ManageWebEditorHF"></div>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                            label="${_MoamalatT_ICN.manageWebEditorTemplates}"
+                            bla="onClick:Open_ManageWebEditorTemplate"
+                            class="settings"
+                            data-dojo-attach-point="manageWebEditorTemplates"></div>
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <div data-dojo-type="dijit/layout/ContentPane"
+            iconClass="EmpDepAccordion" data-dojo-props="column:1"
+            title="${_MoamalatT_ICN.auditTrail}" selected="true">
+
+
+            <table>
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                            label="${_MoamalatT_ICN.auditTrailReport}"
+                            bla="onClick:Open_AuditTrail"
+                            class="settings" data-dojo-attach-point="AuditTrail"></div>
+                    </td>
+                </tr>
+
+
+            </table>
+
+        </div>
+
+        <div data-dojo-type="dijit/layout/ContentPane"
+            iconClass="MngDataAccordion" data-dojo-props="column:1"
+            title="${_MoamalatT_ICN.operationsOnAttachements}" selected="true">
+
+
+            <table>
+                <tr>
+                    <td>
+                        <div data-dojo-type="dijit/form/Button"
+                            label="${_MoamalatT_ICN.manageAttachements}"
+                            bla="onClick:Open_ManageAttachements"
+                            class="settings" data-dojo-attach-point="manageAttachements"></div>
+                    </td>
+                </tr>
+
+
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+</div>

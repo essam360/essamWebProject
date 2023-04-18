@@ -1,0 +1,16 @@
+<div class="field">
+	<span data-dojo-attach-point="_contextInfo">${_messages.checkin_context_info}</span>
+ </div>
+ <br>
+ <div class="field">
+	<label for="${id}_fileInput">
+		${_messages.checkin_file_name_label}
+	</label>
+	<input type=file
+		size=50
+		require=true 
+		id="${id}_fileInput"
+		name="${id}_fileInput]"
+		data-dojo-attach-point="_fileInput"
+		data-dojo-attach-event="onchange: _enableCheckIn">
+ </div>

@@ -1,0 +1,65 @@
+<div class="ecmWorkOption">
+	<fieldset>
+		<legend style="display: none;">${_messages.search_action_filter}</legend> 
+		<input data-dojo-type="dijit/form/RadioButton" data-dojo-attach-point="_offRadioButton" data-dojo-attach-event="onChange: _handleOffRadioButtonChange" id="${id}_off" name="${id}_switch"> 
+		<label for="${id}_off">${_messages.search_disable}</label>
+		<input data-dojo-type="dijit/form/RadioButton" data-dojo-attach-point="_onRadioButton" id="${id}_on" name="${id}_switch">
+		<label for="${id}_on">${_messages.search_enable}</label>
+	</fieldset>
+	<div data-dojo-attach-point="_workContainerNode" class="optionWrapper">
+		<table cellspacing="0" role="presentation">
+			<tr>
+				<td>
+					<label for="${id}_status">${_messages.search_work_filter_status}</label>
+				</td>
+				<td>
+					<select data-dojo-type="dijit/form/Select" data-dojo-attach-point="_statusSelect" id="${id}_status">
+						<option value=" ">${_messages.search_work_filter_status_all}</option>
+						<option value="active">${_messages.search_work_filter_status_active}</option>
+						<option value="suspended">${_messages.search_work_filter_status_suspended}</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="${id}_process">${_messages.workflow_field_label}</label>
+				</td>
+				<td>
+					<div data-dojo-type="dojo/store/Memory" data-dojo-id="processStore"></div>
+					<input data-dojo-type="dijit/form/FilteringSelect"
+						data-dojo-attach-point="_processSelect"
+						data-dojo-props="store: processStore, searchAttr: 'name', required: false"
+						data-dojo-attach-event="onChange:  _handleProcessSelectChange, validate: onChange"
+						id="${id}_process"
+						name="${id}_process" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="${id}_step">${_messages.search_work_filter_step}</label>
+				</td>
+				<td>
+					<input data-dojo-type="dijit/form/FilteringSelect"
+						data-dojo-attach-point="_stepSelect"
+						data-dojo-props="searchAttr: 'name', required: false, disabled: true"
+						data-dojo-attach-event="validate: onChange"
+						id="${id}_step"
+						name="${id}_step" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="${id}_owner">${_messages.search_work_filter_owner}</label>
+				</td>
+				<td>
+					<div data-dojo-type="dojo/store/Memory" data-dojo-id="ownerStore"></div>
+					<input data-dojo-type="dijit/form/ComboBox"
+						data-dojo-attach-point="_ownerComboBox"
+						data-dojo-props="store: ownerStore, searchAttr: 'name', disabled: true"
+						id="${id}_owner"
+						name="${id}_owner" />
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

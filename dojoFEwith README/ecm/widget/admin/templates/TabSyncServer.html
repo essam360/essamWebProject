@@ -1,0 +1,196 @@
+<div class="ecmAdminTab ecmSyncServer">
+  <div data-dojo-type="idx/layout/BorderContainer" data-dojo-attach-point="borderContainer" data-dojo-props="gutters: false, style: { width: '100%', height: '100%' }">
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'top', 'class': 'ecmAdminTabButtonBar'">   
+      <div class="categoryInstructions" id="${id}_intro" data-dojo-attach-point="instructions">${messages.admin_sync_server_instructions}</div>
+        <div class="adminToolbar">
+	        <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="saveAndCloseButton" data-dojo-attach-event="onClick: _onSaveAndClose">
+	            ${messages.save_and_close}
+	        </button>
+	        <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="saveButton" data-dojo-attach-event="onClick: onSave">
+	            ${messages.save}
+	        </button>
+	        <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="resetButton" title="${messages.reset_hover}" data-dojo-attach-event="onClick: _onReset">
+	            ${messages.reset}
+	        </button>
+	        <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="closeButton" data-dojo-attach-event="onClick: _onClose">
+	            ${messages.close}
+	        </button>
+	       </div>
+    </div>
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="generalContentPane" data-dojo-props='region: "center"'>
+        <table class="propertyTable" role="presentation">
+			<tbody class="propertyTable" width=100%>
+            <tr>
+                    <td class="propertyRowLabel" valign="top">
+                        <label for="${id}_sync_url-field">${messages.admin_syncserver_publicSyncUrl}</label>
+                        <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="publicSyncUrlHoverHelp">${messages.admin_syncserver_publicSyncUrl_hover}</div>
+                    </td>
+                    <td class="propertyRowValue">
+	            	      <div data-dojo-attach-point="publicSyncUrl" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-attach-event="onKeyUp: onChange"
+	                           data-dojo-props="id: '${id}_sync_url-field', trim: true, propercase: false, required: false, maxLength: 240, style: { 'min-width': '300px' }"></div>
+                    </td>
+            </tr>
+            <tr>
+                    <td class="propertyRowLabel" valign="top">
+                        <label for="${id}_managed-field" tabindex=0>${messages.admin_syncserver_managed}</label>
+                        <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-props="isFocusable: true" data-dojo-attach-point="managedHoverHelp">${messages.admin_syncserver_managed_hover}</div>
+                    </td>
+                    <td class="propertyRowValue">
+                      <div>
+                  		 <div data-dojo-type="ecm/widget/CheckBox"
+							  data-dojo-attach-point="subfolderLevelsCheckbox"
+							  data-dojo-attach-event="onClick: _onClickSubfolderLevels"
+							  data-dojo-props="id: '${id}_id-subfolderLevelsCheckbox', name: '${id}_id-subfolderLevelsCheckbox'"></div>
+						 <label for="${id}_id-subfolderLevelsCheckbox">${messages.admin_syncserver_managed_subfolder}</label>
+                         <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="subfolderLevelsCheckboxHoverHelp">${messages.admin_syncserver_managed_subfolder_hover}</div>
+                         <div style="padding-top: 4px">
+							<select data-dojo-attach-point="subfolderLevelsSelect"
+									data-dojo-attach-event="onChange: _onChangeSubfolderLevelsSelect"
+									data-dojo-type="ecm/widget/FilteringSelect"
+									data-dojo-props="required: false,  maxHeight: 250">
+									<option value="none">${messages.admin_syncserver_managed_subfolder_none}</option>
+									<option value="all">${messages.admin_syncserver_managed_subfolder_all}</option>	
+									<option value="interval">${messages.admin_syncserver_managed_subfolder_no_more}</option>	
+							</select>
+							<div data-dojo-props="constraints: {min: 2, max: 100, places: 0}, splitter: false, id: '${id}_subfolderLevelNumber-field', style: { margin: '0px 8px' }"
+								 data-dojo-attach-point="subfolderLevelNumber"
+								 data-dojo-attach-event="onChange: onChange, onKeyUp: onChange"
+								 data-dojo-type="ecm/widget/NumberSpinner"></div>
+						    <label for="${id}_subfolderLevelNumber-field">${messages.admin_syncserver_managed_subfolder_levels}</label>
+                         </div>
+					  </div>
+					  <div style="padding-top: 19px">
+                  		 <div data-dojo-type="ecm/widget/CheckBox"
+							  data-dojo-attach-point="scheduleCheckbox"
+							  data-dojo-attach-event="onClick: _onClickSchedule"
+							  data-dojo-props="id: '${id}_id-scheduleCheckbox', name: '${id}_id-scheduleCheckbox'"></div>
+						 <label for="${id}_id-scheduleCheckbox">${messages.admin_syncserver_managed_schedule}</label>
+                         <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="scheduleCheckboxHoverHelp">${messages.admin_syncserver_managed_schedule_hover}</div>
+                         <div style="padding-top: 4px">
+							<select data-dojo-attach-point="scheduleSelect"
+									data-dojo-attach-event="onChange: _onChangeScheduleSelect"
+									data-dojo-type="ecm/widget/FilteringSelect"
+									data-dojo-props="required: false,  maxHeight: 250">
+									<option value="manual">${messages.admin_syncserver_managed_schedule_manual}</option>
+									<option value="continuous">${messages.admin_syncserver_managed_schedule_continuous}</option>	
+									<option value="every">${messages.admin_syncserver_managed_schedule_every}</option>	
+							</select>
+							<div data-dojo-props="constraints: {min: 1, max: 1440, places: 0}, splitter: false, id: '${id}_scheduleEveryNumber-field', style: { margin: '0px 8px' }"
+								 data-dojo-attach-point="scheduleEveryNumber"
+								 data-dojo-attach-event="onChange: onChange, onKeyUp: onChange"
+								 data-dojo-type="ecm/widget/NumberSpinner"></div>
+							<select data-dojo-attach-point="scheduleEveryMinutesOrHours"
+									data-dojo-attach-event="onChange: _onScheduleEveryMinutesOrHoursChange"
+									data-dojo-type="ecm/widget/FilteringSelect"
+									data-dojo-props="id: '${id}_editGroupAddButtonOption', required: false,  maxHeight: 250, 'class': 'minutesHoursSelect'">
+									<option value="minutes">${messages.admin_syncserver_managed_schedule_minutes}</option>
+									<option value="hours">${messages.admin_syncserver_managed_schedule_hours}</option>	
+							</select>													
+						 </div>														
+					  </div>
+                    </td>
+            </tr>
+            <tr data-dojo-attach-point="consistencyCheckerRow">
+					<td class="propertyRowLabel">
+						<label for="${id}_consistency_checker_button" tabindex=0>${messages.admin_syncserver_consistency_checker}</label>&nbsp;
+					    <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-props="isFocusable: true" data-dojo-attach-point="generateConfigHover">${messages.admin_syncserver_consistency_checker_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+						<button data-dojo-type="dijit/form/Button" data-dojo-props="id: '${id}_consistency_checker_button'" data-dojo-attach-point="runConsistencyCheckerButton" data-dojo-attach-event="onClick: _onClickRunConsistencyChecker">
+							${messages.admin_syncserver_consistency_checker_button}
+						</button>
+						<table class="syncPropertyTable" role="presentation">
+							<tr data-dojo-attach-point="stateRow">
+							  <td class="ecmLabel" tabIndex=0>${messages.admin_syncserver_consistency_checker_state}</td>
+							  <td class="ecmValue" tabIndex=0 data-dojo-attach-point="stateTD"></td>
+							</tr>
+							<tr data-dojo-attach-point="startTimeRow">
+							  <td class="ecmLabel" tabIndex=0>${messages.admin_syncserver_consistency_checker_started}</td>
+							  <td class="ecmValue" tabIndex=0 data-dojo-attach-point="startTimeTD"></td>
+							</tr>
+							<tr data-dojo-attach-point="stopTimeRow">
+							  <td class="ecmLabel" tabIndex=0>${messages.admin_syncserver_consistency_checker_ended}</td>
+							  <td class="ecmValue" tabIndex=0 data-dojo-attach-point="stopTimeTD"></td>
+							</tr>
+							<tr data-dojo-attach-point="changedItemsRow">
+							  <td class="ecmLabel" tabIndex=0>${messages.admin_syncserver_consistency_checker_change_updates}</td>
+							  <td class="ecmValue" tabIndex=0 data-dojo-attach-point="changedItemsTD"></td>
+							</tr>
+							<tr data-dojo-attach-point="processedSuccessRow">
+							  <td class="ecmLabel" tabIndex=0>${messages.admin_syncserver_consistency_checker_items_processed_success}</td>
+							  <td class="ecmValue" tabIndex=0 data-dojo-attach-point="processedSuccessTD"></td>
+							</tr>
+							<tr data-dojo-attach-point="newlyDiscoveredRow">
+							  <td class="ecmLabel" tabIndex=0>${messages.admin_syncserver_consistency_checker_items_discovered}</td>
+							  <td class="ecmValue" tabIndex=0 data-dojo-attach-point="newlyDiscoveredTD"></td>
+							</tr>
+							<tr data-dojo-attach-point="totalRow">
+							  <td class="ecmLabel" tabIndex=0>${messages.admin_syncserver_consistency_checker_items_processed}</td>
+							  <td class="ecmValue" tabIndex=0 data-dojo-attach-point="totalTD"></td>
+							</tr>
+							<tr data-dojo-attach-point="submitterRow">
+							  <td class="ecmLabel" tabIndex=0>${messages.admin_syncserver_consistency_checker_user}</td>
+							  <td class="ecmValue" tabIndex=0 data-dojo-attach-point="submitterTD"></td>
+							</tr>
+							<tr data-dojo-attach-point="scheduledRow">
+							  <td class="ecmLabel" tabIndex=0>${messages.admin_syncserver_consistency_checker_scheduled}</td>
+							  <td class="ecmValue" tabIndex=0 data-dojo-attach-point="scheduledTD"></td>
+							</tr>
+						</table>
+					</td>
+			</tr>
+			
+			<tr data-dojo-attach-point="dbCleanupRow">
+					<td class="propertyRowLabel">
+						<label for="${id}_dbcleanup_button" tabindex=0>${messages.admin_syncserver_dbcleanup}</label>&nbsp;
+					    <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-props="isFocusable: true" data-dojo-attach-point="generateConfigHover">${messages.admin_syncserver_dbcleanup_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+						<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="runDBCleanUpButton" data-dojo-props="id: '${id}_dbcleanup_button'" data-dojo-attach-event="onClick: _onClickRunDBCleanUpButton">
+							${messages.admin_syncserver_dbcleanup_button}
+						</button>
+						<table class="syncPropertyTable" role="presentation">
+							<tr data-dojo-attach-point="dbCleanUp_stateRow">
+							  <td class="ecmLabel" tabIndex=0>${messages.admin_syncserver_dbcleanup_state}</td>
+							  <td class="ecmValue" tabIndex=0 data-dojo-attach-point="dbCleanUp_stateTD"></td>
+							</tr>
+							<tr data-dojo-attach-point="dbCleanUp_startTimeRow">
+							  <td class="ecmLabel" tabIndex=0>${messages.admin_syncserver_dbcleanup_started}</td>
+							  <td class="ecmValue" tabIndex=0 data-dojo-attach-point="dbCleanUp_startTimeTD"></td>
+							</tr>
+							<tr data-dojo-attach-point="dbCleanUp_stopTimeRow">
+							  <td class="ecmLabel" tabIndex=0>${messages.admin_syncserver_dbcleanup_ended}</td>
+							  <td class="ecmValue" tabIndex=0 data-dojo-attach-point="dbCleanUp_stopTimeTD"></td>
+							</tr>
+							<tr data-dojo-attach-point="dbCleanUp_repositoryDeletedCountRow">
+							  <td class="ecmLabel" tabIndex=0>${messages.admin_syncserver_dbcleanup_repositorydeleted_count}</td>
+							  <td class="ecmValue" tabIndex=0 data-dojo-attach-point="dbCleanUp_repositoryDeletedCountTD"></td>
+							</tr>
+							<tr data-dojo-attach-point="dbCleanUp_syncItemDeletedCountRow">
+							  <td class="ecmLabel" tabIndex=0>${messages.admin_syncserver_dbcleanup_syncItemdeleted_count}</td>
+							  <td class="ecmValue" tabIndex=0 data-dojo-attach-point="dbCleanUp_syncItemDeletedCountTD"></td>
+							</tr>
+							<tr data-dojo-attach-point="dbCleanUp_deviceDeletedCountRow">
+							  <td class="ecmLabel" tabIndex=0>${messages.admin_syncserver_dbcleanup_devicedeleted_count}</td>
+							  <td class="ecmValue" tabIndex=0 data-dojo-attach-point="dbCleanUp_deviceDeletedCountTD"></td>
+							</tr>
+							<tr data-dojo-attach-point="dbCleanUp_deviceExpiredCountRow">
+							  <td class="ecmLabel" tabIndex=0>${messages.admin_syncserver_dbcleanup_deviceexpired_count}</td>
+							  <td class="ecmValue" tabIndex=0 data-dojo-attach-point="dbCleanUp_deviceExpiredCountTD"></td>
+							</tr>
+							<tr data-dojo-attach-point="dbCleanUp_submitterRow">
+							  <td class="ecmLabel" tabIndex=0>${messages.admin_syncserver_consistency_checker_user}</td>
+							  <td class="ecmValue" tabIndex=0 data-dojo-attach-point="dbCleanUp_submitterTD"></td>
+							</tr>
+							<tr data-dojo-attach-point="dbCleanUp_scheduledRow">
+							  <td class="ecmLabel" tabIndex=0>${messages.admin_syncserver_consistency_checker_scheduled}</td>
+							  <td class="ecmValue" tabIndex=0 data-dojo-attach-point="dbCleanUp_scheduledTD"></td>
+							</tr>
+						</table>
+					</td>
+			</tr>
+			</tbody>
+	  	</table>
+    </div>
+  </div>
+</div>

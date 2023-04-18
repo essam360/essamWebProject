@@ -1,0 +1,33 @@
+<div data-dojo-attach-point="containerNode" class="icnViewer">
+    <div data-dojo-type="dijit.layout.BorderContainer" design="headline" gutters="false" style="width: 100%; height: 100%" data-dojo-attach-point="mainBorderContainer">
+        <div data-dojo-type="dijit.layout.ContentPane" splitter="false" region="top" style="margin: 0px; padding: 0px; width: 100%; overflow: hidden;" class="viewerToolbarContainer">
+            <div data-dojo-attach-point="viewerToolbarText" class="viewerToolbarText" tabindex="-1"></div>
+            <div data-dojo-type="dijit.Toolbar" data-dojo-attach-point="commonToolbar"></div>
+        </div>
+        <div data-dojo-type="dijit.layout.ContentPane" splitter="false" region="center" style="margin: 0px; padding: 0px; overflow: hidden;">
+            <div data-dojo-type="dijit.layout.BorderContainer" 
+            		style="margin: 0px; padding: 0px; width: 100%; height: 100%" design="sidebar" 
+            		overflow="auto" 
+              		data-dojo-attach-point="itemsContainer">
+	            <div data-dojo-type="dijit.layout.BorderContainer" style="width: 100%; height: 100%" region="center" design="sidebar" liveSplitters="true" data-dojo-attach-point="splitContainer">
+	                <div data-dojo-type="dijit.layout.ContentPane"  style="margin: 0px; padding: 0px;" region="center" minSize="10" data-dojo-attach-point="mainPane">
+	                    <div class="ECMContentViewerTab" data-dojo-type="ecm.widget.viewer.ContentViewerTabContainer" style="width: 100%; height: 100%;" useMenu="true" useSlider="true" data-dojo-attach-point="mainTabContainer" data-dojo-props="nested:true, wrappingTabController: this.wrappingTabController">
+	                    </div>
+	                </div>                 
+	                <div data-dojo-type="dijit.layout.ContentPane" style="margin: 0px; padding: 0px;" splitter="true" toggleSplitterOpen="false" region="bottom" data-dojo-attach-point="bottomPane">
+	                </div>
+	                <div data-dojo-type="dijit.layout.ContentPane" style="margin: 0px; padding: 0px;" splitter="true" toggleSplitterOpen="false" region="trailing" minSize="10" data-dojo-attach-point="sidePane">
+	                </div>
+	            </div>
+				<div data-dojo-type="ecm.widget.viewer.ContentViewerEditPaneTab" region="trailing"
+						style="width: 0%; height: 100%;" 
+						data-dojo-attach-point="viewerEditContainer">
+				</div> 
+				<div region="trailing"	style="width: 0%; height: 100%;"
+						data-dojo-type="ecm.widget.viewer.ContentViewerCommentPaneTab" 
+						data-dojo-attach-point="viewerCommentContainer">
+				</div>
+			</div>
+        </div>
+    </div>
+</div>

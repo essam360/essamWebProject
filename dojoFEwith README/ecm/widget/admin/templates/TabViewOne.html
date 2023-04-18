@@ -1,0 +1,310 @@
+<div class="ecmAdminTab">
+  <div data-dojo-type="idx/layout/BorderContainer" data-dojo-attach-point="borderContainer" data-dojo-props="gutters: false, style: { width: '100%', height: '100%' }">
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'top', 'class': 'ecmAdminTabButtonBar'">   
+      <div class="categoryInstructions" id="${id}_intro" data-dojo-attach-point="instructions">${messages.admin_daeja_instructions}</div>
+      <div class="adminToolbar">
+	        <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="saveAndCloseButton" data-dojo-attach-event="onClick: _onSaveAndClose">
+	            ${messages.save_and_close}
+	        </button>
+	        <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="saveButton" data-dojo-attach-event="onClick: onSave">
+	            ${messages.save}
+	        </button>
+	        <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="resetButton" data-dojo-attach-event="onClick: _onReset">
+	            ${messages.reset}
+	        </button>
+	        <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="closeButton" data-dojo-attach-event="onClick: _onClose">
+	            ${messages.close}
+	        </button>
+	  </div>
+    </div>
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="generalContentPane" data-dojo-props='region: "center"'>
+    <div data-dojo-type="dijit/layout/TabContainer" data-dojo-attach-point="_tabContainer" data-dojo-props="'class': 'ecmAdminSubTabContainer', region: 'center', controllerWidget: 'ecm.widget.layout.TabController'">
+        <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="viewOneProfessionalTab">
+			<table class="propertyTable" role="presentation">
+				<tbody class="propertyTable" width=100%>
+					<tr>
+						<td class="propertyRowLabel" valign="middle">
+   						    <label for="${id}_stream_pdf_documents_enable">${messages.admin_daeja_viewonepro_stream_pdf_documents}</label>
+							<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="daejaStreamPDFHoverHelp">${messages.admin_daeja_viewonepro_stream_pdf_hover_help}</div>         	
+						</td>
+						<td class="propertyRowValue">
+						  <fieldset>
+							<legend style="display: none;" id="${id}_stream_pdf_documents_legend">${messages.admin_daeja_viewonepro_stream_pdf_documents}</legend>
+							<input data-dojo-props="id: '${id}_stream_pdf_documents_enable', 'aria-labelledby': '${id}_stream_pdf_documents_enable', type: 'radio', name: '${id}_stream_pdf_documents_enable'" data-dojo-attach-point="daejaStreamPDFEnable" 
+								   data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange" />              
+							<label for="${id}_stream_pdf_documents_enable">${messages.enable}</label>
+							<input data-dojo-props="id: '${id}_stream_pdf_documents_disable', type: 'radio', name: '${id}_stream_pdf_documents_enable', 'class': 'radioButton1'" 
+								   data-dojo-attach-point="daejaStreamPDFDisable" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange">
+							<label for="${id}_stream_pdf_documents_disable">${messages.disable}</label>
+						  </fieldset>	
+						</td>
+					</tr>
+					<tr>
+						<td class="propertyRowLabel" valign="middle">
+						    <label for="${id}_stream_tiff_documents_enable">${messages.admin_daeja_viewonepro_stream_tiff_documents}</label>
+							<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="daejaStreamTIFFHoverHelp">${messages.admin_daeja_viewonepro_stream_tiff_hover_help}</div>         	
+						</td>
+						<td class="propertyRowValue">
+						  <fieldset>
+							<legend style="display: none;" id="${id}_stream_tiff_documents_legend">${messages.admin_daeja_viewonepro_stream_tiff_documents}</legend>
+							<input data-dojo-props="id: '${id}_stream_tiff_documents_enable', 'aria-labelledby': '${id}_stream_tiff_documents_enable', type: 'radio', name: '${id}_stream_tiff_documents_enable'" 
+								   data-dojo-attach-point="daejaStreamTIFFEnable" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange" />              
+							<label for="${id}_stream_tiff_documents_enable">${messages.enable}</label>
+							<input data-dojo-props="id: '${id}_stream_tiff_documents_disable', type: 'radio', name: '${id}_stream_tiff_documents_enable', 'class': 'radioButton1'"
+								   data-dojo-attach-point="daejaStreamTIFFDisable" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange">
+							<label for="${id}_stream_tiff_documents_disable">${messages.disable}</label>
+						  </fieldset>	
+						</td>
+					</tr>
+					<tr>
+						<td class="propertyRowLabel" valign="middle">
+						    <label for="${id}_route_docs_enable">${messages.admin_daeja_viewonepro_route_docs}</label>
+							<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="proRouteDocsHoverHelp">${messages.admin_daeja_viewonepro_route_docs_hover_help}</div>         	
+						</td>
+						<td class="propertyRowValue">
+						  <fieldset>
+							<legend style="display: none;" id="${id}_route_docs_legend">${messages.admin_daeja_viewonepro_route_docs}</legend>
+							<input data-dojo-props="id: '${id}_route_docs_enable', 'aria-labelledby': '${id}_route_docs_enable', type: 'radio', name: '${id}_route_docs_enable'" 
+								   data-dojo-attach-point="proRouteDocsEnable" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange" />              
+							<label for="${id}_route_docs_enable">${messages.enable}</label>
+							<input data-dojo-props="id: '${id}_route_docs_disable', type: 'radio', name: '${id}_route_docs_enable', 'class': 'radioButton1'"
+								   data-dojo-attach-point="proRouteDocsDisable" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange">
+							<label for="${id}_route_docs_disable">${messages.disable}</label>
+						  </fieldset>	
+						</td>
+					</tr>
+					<tr>
+						<td class="propertyRowLabel" valign="middle">
+							<label for="${id}_proScaleField">${messages.admin_daeja_viewonepro_scale}</label>
+						</td>
+						<td class="propertyRowValue">
+							<div data-dojo-attach-point="proScale" data-dojo-type="ecm/widget/Select" data-dojo-attach-event="onChange: _onFieldChange"
+								data-dojo-props="id: '${id}_proScaleField', 'aria-labelledby': '${id}_proScaleField', labelType: 'text', label: 'label', searchAttr: 'label'">
+								<span value="best">${messages.admin_daeja_viewonepro_scale_best}</span>
+								<span value="ftow">${messages.admin_daeja_viewonepro_scale_ftow}</span>
+								<span value="ftoh">${messages.admin_daeja_viewonepro_scale_ftoh}</span>
+							</div> 
+						</td>
+					</tr>
+					<tr>
+						<td class="propertyRowLabel" valign="middle">
+							<span class="ecmLabel">${messages.admin_daeja_viewonepro_show_features}</span>
+						</td>
+						<td class="propertyRowValue">
+						  <fieldset>
+						  	  <legend class="dijitHidden">${messages.admin_daeja_viewonepro_show_features}</legend>
+							  <table border="0" cellpadding="0px" cellspacing="0px" role="presentation">
+								  <tr>
+									  <td style="padding: 0px 0px">
+										  <div data-dojo-props="id: '${id}_file_buttons_enable', name: '${id}_file_buttons_enable','aria-labelledby': '${id}_file_buttons_enable'" data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-point="proFileButtonsEnable" data-dojo-attach-event="onChange: _onFieldChange"></div>
+										  <label for="${id}_file_buttons_enable">${messages.admin_daeja_viewonepro_show_file_buttons}</label>	
+									  </td>
+									  <td style="padding: 0px 0px">&nbsp;&nbsp;</td>
+									  <td style="padding: 0px 0px">
+										  <div data-dojo-props="id: '${id}_file_menus_enable', name: '${id}_file_menus_enable','aria-labelledby': '${id}_file_menus_enable'" data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-point="proFileMenusEnable" data-dojo-attach-event="onChange: _onFieldChange"></div>
+										   <label for="${id}_file_menus_enable">${messages.admin_daeja_viewonepro_show_file_menus}</label>	
+									  </td>
+								  </tr>
+								  <tr>
+									  <td style="padding: 0px 0px">
+										  <div data-dojo-props="id: '${id}_print_buttons_enable', name: '${id}_print_buttons_enable', 'aria-labelledby': '${id}_print_buttons_enable'" data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-point="proPrintButtonsEnable" data-dojo-attach-event="onChange: _onFieldChange"></div>
+										  <label for="${id}_print_buttons_enable">${messages.admin_daeja_viewonepro_show_print_buttons}</label>   
+									  </td style="padding: 0px 0px">
+									  <td style="padding: 0px 0px">&nbsp;&nbsp;</td>
+									  <td style="padding: 0px 0px">
+										  <div data-dojo-props="id: '${id}_print_menus_enable', name: '${id}_print_menus_enable', 'aria-labelledby': '${id}_print_menus_enable'" data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-point="proPrintMenusEnable" data-dojo-attach-event="onChange: _onFieldChange"></div>
+										  <label for="${id}_print_menus_enable">${messages.admin_daeja_viewonepro_show_print_menus}</label>   
+									  </td>
+								  </tr>
+								  <tr>
+									  <td style="padding: 0px 0px">
+										  <div data-dojo-props="id: '${id}_invert_buttons_enable', name: '${id}_invert_buttons_enable', 'aria-labelledby': '${id}_invert_buttons_enable'" data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-point="proInvertButtonsEnable" data-dojo-attach-event="onChange: _onFieldChange"></div>
+										  <label for="${id}_invert_buttons_enable">${messages.admin_daeja_viewonepro_show_invert_buttons}</label>   
+									  </td>
+									  <td style="padding: 0px 0px" colspan="2">
+									  </td>
+								  </tr>
+							  </table>
+						  </fieldset>
+						</td>
+					</tr>
+					<tr>
+						<td class="propertyRowLabel" valign="middle">
+							<span class="ecmLabel">${messages.admin_daeja_viewonepro_enable_hotkeys}</span>
+						</td>
+						<td class="propertyRowValue">
+						  <fieldset>
+						  	<legend class="dijitHidden">${messages.admin_daeja_viewonepro_enable_hotkeys}</legend>
+							<div data-dojo-props="id: '${id}_file_keys_enable', 'aria-labelledby': '${id}_file_keys_enable', name: '${id}_file_keys_enable'" data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-point="proFileKeysEnable" data-dojo-attach-event="onChange: _onFieldChange"></div>
+							<label for="${id}_file_keys_enable">${messages.admin_daeja_viewonepro_enable_file_keys}</label>&nbsp;<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="proFileKeysHover">${messages.admin_daeja_viewonepro_file_keys_hover_help}</div>	
+							<br/>
+							<div data-dojo-props="id: '${id}_print_keys_enable', 'aria-labelledby': '${id}_print_keys_enable', name: '${id}_print_keys_enable'" data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-point="proPrintKeysEnable" data-dojo-attach-event="onChange: _onFieldChange"></div>
+							<label for="${id}_print_keys_enable">${messages.admin_daeja_viewonepro_enable_print_keys}</label>&nbsp;<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="proPrintKeysHover">${messages.admin_daeja_viewonepro_print_keys_hover_help}</div>   
+							<br/>
+						  </fieldset>
+						</td>
+					</tr>
+					<tr>
+						<td class="propertyRowLabel" valign="top"><span class="ecmLabel">${messages.admin_daeja_viewonepro_annotation_tooltip}</span>&nbsp;
+						</td>						
+						<td class="propertyRowValue">
+							<div style="padding: 7px 0;">			  
+								<input id="${id}_pro_default_custom_tooltip-field" data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-point="proDefaultCustomTooltipFlag" data-dojo-attach-event="onClick: _onProDefaultCustomTooltipFlagChange, onChange: _onFieldChange"></input>
+								<label for="${id}_pro_default_custom_tooltip-field">${messages.admin_daeja_viewonepro_annotation_tooltip_pre_defined}</label>
+								<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="defaultCustomTooltipHoverHelp">${messages.admin_daeja_viewonepro_annotation_tooltip_pre_defined_hover_help}</div>	
+							</div>
+							<div class="propertyRowValue">		
+								<input data-dojo-attach-point="proCustomTooltip" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" 
+							   		data-dojo-props="id: '${id}_custom_tooltip', 'aria-labelledby': '${id}_custom_tooltip', trim: true, propercase: false, required: false, style: { 'min-width': '350px' }" />							
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="propertyRowLabel" valign="middle">
+							<label for="${id}_help_url">${messages.admin_daeja_viewonepro_help_url}</label>
+							<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="proHelpUrlHoverHelp">${messages.admin_daeja_viewonepro_help_url_hover_help}</div>         	
+						</td>
+						<td class="propertyRowValue">
+							<input data-dojo-attach-point="proHelpUrl" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" 
+							   data-dojo-props="id: '${id}_help_url', 'aria-labelledby': '${id}_help_url', trim: true, propercase: false, required: false, style: { 'min-width': '350px' }" />
+						</td>
+					</tr>			    
+					<tr>
+						<td class="propertyRowLabel" valign="middle">
+							<label for="${id}_image_stamp_resource_context">${messages.admin_daeja_viewonepro_image_stamp_resource_context}</label>
+							<!-- div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="proImageStampResourceContextHoverHelp">${messages.admin_daeja_viewonepro_image_stamp_resource_context_hover_help}</div -->         	
+						</td>
+						<td class="propertyRowValue">
+							<input data-dojo-attach-point="proImageStampResourceContext" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" 
+							   data-dojo-props="id: '${id}_image_stamp_resource_context', 'aria-labelledby': '${id}_image_stamp_resource_context', trim: true, propercase: false, required: false, style: { 'min-width': '350px' }" />
+						</td>
+					</tr>			    
+					<tr>
+						<td class="propertyRowLabel">
+							<label for="${id}_pro_custom_settings" tabindex=0>${messages.admin_daeja_custom_settings}</label>			
+							<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="proCustomSettingsHoverHelp" data-dojo-props="isFocusable: true">${messages.admin_daeja_custom_settings_hover_help}</div>         	
+						</td>
+						<td class="propertyRowValue">
+							<div data-dojo-type="ecm/widget/admin/CustomSettings" data-dojo-attach-point="proCustomSettings" data-dojo-attach-event="onMarkDirty: _onFieldChange" style="width: 100%; height: 300px"
+								data-dojo-props="id: '${id}_pro_custom_settings'"></div>
+							<br/>
+						</td>
+					</tr>		
+				</tbody>
+			</table>
+        </div>
+        <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="viewOneVirtualTab">
+            <table class="propertyTable" role="presentation">
+                <tbody class="propertyTable" width=100%>
+                    <tr>
+						<td class="propertyRowLabel" valign="top"><span class="ecmLabel">${messages.admin_daeja_virtual_annotation_tooltip}</span>&nbsp;
+						</td>						
+						<td class="propertyRowValue">
+							<div style="padding: 7px 0;">			  
+								<input id="${id}_virtual_default_custom_tooltip-field" data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-point="virtualDefaultCustomTooltipFlag" data-dojo-attach-event="onClick: _onVirtualDefaultCustomTooltipFlagChange, onChange: _onFieldChange"></input>
+								<label for="$_virtual_default_custom_tooltip-field">${messages.admin_daeja_virtual_annotation_tooltip_pre_defined}</label>
+								<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="defaultCustomTooltipHoverHelp">${messages.admin_daeja_virtual_annotation_tooltip_pre_defined_hover_help}</div>	
+							</div>
+							<div class="propertyRowValue">		
+                            	<input data-dojo-attach-point="virtualCustomTooltip" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" 
+                               		data-dojo-props="id: '${id}_virtual_custom_tooltip', 'aria-labelledby': '${id}_virtual_custom_tooltip', trim: true, propercase: false, required: false, style: { 'min-width': '350px' }" />
+							</div>
+						</td>
+                    </tr>		    
+					<tr>
+						<td class="propertyRowLabel" valign="middle">
+							<label for="${id}_image_stamp_resource_context2">${messages.admin_daeja_virtual_image_stamp_resource_context}</label>
+							<!-- div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="virtualImageStampResourceContextHoverHelp">${messages.admin_daeja_virtual_image_stamp_resource_context_hover_help}</div -->         	
+						</td>
+						<td class="propertyRowValue">
+							<input data-dojo-attach-point="virtualImageStampResourceContext" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" 
+							   data-dojo-props="id: '${id}_image_stamp_resource_context2', 'aria-labelledby': '${id}_image_stamp_resource_context', trim: true, propercase: false, required: false, style: { 'min-width': '350px' }" />
+						</td>
+					</tr>			    
+                    <tr>
+                        <td class="propertyRowLabel">
+                            <label for="${id}_virtual_custom_settings" tabindex=0>${messages.admin_daeja_custom_settings}</label>          
+							<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="virtualCustomSettingsHoverHelp" data-dojo-props="isFocusable: true">${messages.admin_daeja_custom_settings_hover_help}</div>         	
+                        </td>
+                        <td class="propertyRowValue">
+                            <div data-dojo-type="ecm/widget/admin/CustomSettings" data-dojo-attach-point="virtualCustomSettings" data-dojo-attach-event="onMarkDirty: _onFieldChange" style="width: 100%; height: 300px"
+                            	data-dojo-props="id: '${id}_virtual_custom_settings'"></div>
+                            <br/>
+                        </td>
+                    </tr>       
+                </tbody>
+            </table>
+        </div>
+        <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="viewOneStreaming">
+			<table class="propertyTable" role="presentation">
+				<tbody class="propertyTable" width=100%>
+					<tr>
+						<td class="propertyRowLabel" valign="middle">
+							<span class="required">*</span>
+							<label for="${id}_streamer_cache_root">${messages.admin_daeja_streamer_cache_root}</label>
+							<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="streamerCacheRootHoverHelp">${messages.admin_daeja_streamer_cache_root_hover_help}</div>         	
+						</td>
+						<td class="propertyRowValue">
+							<input data-dojo-attach-point="streamerCacheRoot" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" 
+							   data-dojo-props="id: '${id}_streamer_cache_root', 'aria-labelledby': '${id}_streamer_cache_root', trim: true, propercase: false, required: true, style: { 'min-width': '350px' }" />
+						</td>
+					</tr>
+					<tr>
+						<td class="propertyRowLabel" valign="middle">
+							<label for="${id}_daeja_license_path">${messages.admin_daeja_virtual_license_path}</label>
+							<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="daejaLicensePathHelp" data-dojo-props="isFocusable: true">${messages.admin_daeja_virtual_license_path_hover_help}</div>         	
+                        </td>
+						<td class="propertyRowValue">
+							<div>
+			   					<input data-dojo-attach-point="defaultLicensePath" data-dojo-attach-event="onClick:_onUseDefaultLicensePath, onChange: _onFieldChange" 
+					   					data-dojo-props="id: '${id}_default-license-path-field', type: 'radio', name: '${id}_licensePath', value: 'enable', 'class': 'radioButton1'"
+					   					data-dojo-type="ecm/widget/RadioButton" />
+			   					<label for="${id}_default-license-path-field" style="margin-top:+5px">${messages.admin_default_license_path}</label>
+		   					</div>
+		   					<div>
+			   					<input data-dojo-attach-point="licensePathSpecified" data-dojo-attach-event="onClick:_onlicensePathSpecified, onChange: _onFieldChange" data-dojo-type="ecm/widget/RadioButton" 
+					   		  		 data-dojo-props="id: '${id}_license-path-specified-field', type: 'radio', name: '${id}_licensePath', value: 'disable', 'class': 'radioButton1'" />
+			   					<label for="${id}_license-path-specified-field" style="margin-top:+5px">${messages.admin_license_path_specified}</label>
+			   				</div>
+				   			<div>
+					   			<label for="${id}_license-path-specified-list-field" style="display: none">${messages.admin_license_path_specified}</label>
+			  					<input data-dojo-attach-point="licensePathSpecifiedList" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" 
+			  					       data-dojo-props="id: '${id}_license-path-specified-list-field', trim: true, propercase: false, required: true, 'class': 'logValidationBox', style: { 'min-width': '300px' }" />
+		  					</div>
+						</td>
+					</tr>	
+					<tr>
+						<td class="propertyRowLabel">
+							<label for="${id}_streamer_custom_settings" tabindex=0>${messages.admin_daeja_streamer_settings}</label>		
+							<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="streamerCustomSettingsHoverHelp" data-dojo-props="isFocusable: true">${messages.admin_daeja_streamer_settings_hover_help}</div>         	
+						</td>
+						<td class="propertyRowValue">
+							<div data-dojo-type="ecm/widget/admin/CustomSettings" data-dojo-attach-point="streamerCustomSettings" data-dojo-attach-event="onMarkDirty: _onFieldChange" style="width: 100%; height: 400px"
+								data-dojo-props="id: '${id}_streamer_custom_settings'"></div>
+							<br/>
+						</td>
+					</tr>		
+				</tbody>
+			</table>
+        </div>
+        <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="viewOneRedaction">
+			<table class="propertyTable" role="presentation">
+				<tbody class="propertyTable" width=100%>
+					<tr>
+						<td class="propertyRowLabel">
+							<label for="${id}_redaction_custom_settings" tabindex=0>${messages.admin_daeja_redaction_settings}</label>
+							<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="redactionCustomSettingsHoverHelp" data-dojo-props="isFocusable: true">${messages.admin_daeja_redaction_settings_hover_help}</div>         
+						</td>
+						<td class="propertyRowValue">
+							<div data-dojo-type="ecm/widget/admin/CustomSettings" data-dojo-attach-point="redactionCustomSettings" data-dojo-attach-event="onMarkDirty: _onFieldChange" 
+								style="width: 100%; height: 400px" data-dojo-props="id: '${id}_redaction_custom_settings'"></div>
+							<br/>
+						</td>
+					</tr>       
+				</tbody>
+			</table>
+       </div>
+    </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="ecmWorkItemPropertiesPane" data-dojo-attach-point="containerNode">
+    <div data-dojo-type="idx.layout.BorderContainer" 
+         gutters="false" 
+         design="sidebar" 
+         data-dojo-attach-point="_borderContainerAttachments">
+        <div data-dojo-type="idx.layout.ContentPane" 
+             data-dojo-attach-point="_attachmentTreeArea"
+             region="leading"
+             splitter="true"
+             class="ecmWorkItemAttachmentsTree">
+            <div data-dojo-attach-point="_attachmentTree" data-dojo-type="ecm.widget.FolderTree" showRoot="false" selectRootInitially="false" dndController="dijit.tree._dndSelector" enableCtxMenu="true" contextMenuType="AttachmentFolderContextMenu" region="leading"></div>
+        </div>
+        <div data-dojo-attach-point="_attachmentContents" class="ecmWorkItemAttachmentsList" data-dojo-type="ecm.widget.listView.ContentList" region="center"></div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<label for="${id}_holdsSelector" data-dojo-attach-point="selectorLabelNode" style="width: 100%">
+	${messages.availableHolds}
+</label>
+<select data-dojo-type="dijit.form.MultiSelect"
+	name="${id}_holdsSelector"
+	id="${id}_holdsSelector"
+	multiple="true"
+	style="width: 100%; height: 94%; display: block"
+	data-dojo-attach-event="_onChange: _onSelectionChange"
+	data-dojo-attach-point="holdSelector">
+</select>

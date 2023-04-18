@@ -1,0 +1,36 @@
+<div class="ecmAnnotationTextarea">
+	<label for="${id}_content">${messages.addAnnotationDlg_labelContents}</label><br/>
+	<div id="${id}_content" data-dojo-type="dijit.form.SimpleTextarea" data-dojo-attach-point="newAnnotationTextarea"
+			required="true" data-dojo-attach-event="onChange: _validate" intermediateChanges="true"
+		style="width: 90%; min-height: 80px; height: 90%; max-height: 90%; overflow: auto;"></div>
+</div>
+<div class="ecmAnnotationAcc">
+	<div>
+		<span>${messages.addAnnotationDlg_labelAccess}</span><br/>
+		<input id="${id}_accPublic" data-dojo-type="dijit.form.RadioButton" name="accTypeForAnnotation" checked="checked"
+				data-dojo-attach-point="publicRadioButton" data-dojo-attach-event="onChange: _validate"></input>
+		<label for="${id}_accPublic">${messages.addAnnotationDlg_labelPublic}</label><br/>
+	</div>
+	<div>
+		<input id="${id}_accPrivate" data-dojo-type="dijit.form.RadioButton" name="accTypeForAnnotation"
+				data-dojo-attach-point="privateRadioButton" data-dojo-attach-event="onChange: _validate"></input>
+		<label for="${id}_accPrivate">${messages.addAnnotationDlg_labelPrivate}</label><br/>
+	</div>
+	<div>
+		<input id="${id}_accPrivateGroup" data-dojo-type="dijit.form.RadioButton" name="accTypeForAnnotation"
+				data-dojo-attach-point="privateGroupRadioButton" data-dojo-attach-event="onChange: _toggleSelectorDisplay, _validate"></input>
+		<label for="${id}_accPrivateGroup">${messages.addAnnotationDlg_labelPrivateGroup}</label>
+	</div>
+	<div class="ecmAnnotationGroupSelector">
+		<label for="${id}_groupSelector">${messages.addAnnotationDlg_labelGroup}</label>
+		<select id="${id}_groupSelector" data-dojo-type="dijit.form.Select" data-dojo-attach-point="groupNameSelector" disabled="disabled">
+			<option value="test1">Test 1</option>
+			<option value="test2">Test 2</option>
+			<option value="test3">Test 3</option>
+		</select>
+	</div>
+</div>
+<div class="ecmAnnotationCopiable">
+	<input id="${id}_copiable" data-dojo-type="dijit.form.CheckBox" data-dojo-attach-point="copiableCheckBox"></input>
+	<label for="${id}_copiable">${messages.addAnnotationDlg_labelCopiable}</label>
+</div>

@@ -1,0 +1,24 @@
+<div class="ecmCenterPane teamspacesPane">
+	<div data-dojo-attach-point="borderContainer" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="'class': 'contentPane', gutters: false">
+		<div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'center', 'class': 'bottomPane', style: { 'padding': '0' }">
+			<div data-dojo-attach-point="dockContainer" data-dojo-type="idx/layout/DockContainer" 
+			     data-dojo-props="topicId: '${id}_DockContainer', gutters: false, region: 'center', design: 'sidebar'">
+				<div data-dojo-type="idx/layout/VerticalEqualDockPane"
+					 data-dojo-props="'class': 'dockableContentPane', region: 'leading', splitter: true, snap: true, open: true"
+					 data-dojo-attach-point="leadingPane">
+				</div>
+				<div data-dojo-attach-point="centerPaneStackContainer" 
+					 data-dojo-type="dijit/layout/StackContainer" 
+					 data-dojo-props="region: 'center', 'class': 'centerPane'">
+					<div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="folderContentArea" data-dojo-props="style: { 'padding': '0' }">
+						<div data-dojo-attach-point="folderContents" data-dojo-type="ecm/widget/listView/ContentList" emptyMessage="${messages.folder_is_empty}"></div>
+					</div>
+					<div data-dojo-type="ecm/widget/search/SearchTabContainer"
+						 data-dojo-props="splitter: false"
+						 data-dojo-attach-point="searchTabContainer">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

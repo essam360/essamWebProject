@@ -1,0 +1,11 @@
+<div class="dijit dijitReset dijitInline ecmFilmstripEntryContainer" role="presentation">
+	<div class="dijitReset ecmFilmstripEntry" 
+			data-dojo-attach-point="titleNode,focusNode" 
+			data-dojo-attach-event="onclick:_onClick"
+			aria-labelledby="${id}_label">
+		<div class="dijitReset filmstripThumbnail" data-dojo-attach-point="thumbnailNode"></div>
+		<div class="dijitReset filmstripLabel" data-dojo-attach-point="containerNode" id="${id}_label"></div>
+	</div>
+	<input ${!nameAttrSetting} type="${type}" value="${value}" class="dijitOffScreen"
+		tabIndex="-1" role="presentation" data-dojo-attach-point="valueNode"/>
+</div>

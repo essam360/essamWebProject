@@ -1,0 +1,64 @@
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.ecmBaseDialog {
+    width: 99vw;
+    height: 99vh;
+}
+
+#featuresMenu img{
+    cursor: pointer;
+}
+
+.ecmBaseDialog.dijitDialog .ecmDialogPaneActionBar{
+    background-color: rgb(102, 44, 209);
+}
+
+.ecmBaseDialog.dijitDialog .maximizeButton {
+    display: none;
+}
+
+#globalMenu{
+background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 16%, rgba(163,163,163,1) 100%);
+display: flex;
+flex-direction: column;
+overflow-y: hidden;
+}
+
+#globalMenu #globalMenu-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+#globalMenu-info .logo-time,.name-profile{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width:max-content;
+    gap: 30px;
+}
+
+.dojoxGridCell {
+    background-color: #ffffff;
+}
+.dojoxGrid .dojoxGridCell {
+    border: none;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.dojoxGridRow{
+    border:none !important;
+}
+.dojoxGridRowOdd {
+    background-color: #110b97 !important;
+}
+

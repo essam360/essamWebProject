@@ -1,0 +1,15 @@
+<div class="ecmWorkspaceBuilderPane">	 	    
+    <h1>${messages.workspacebuilder_document_folders_pane}</h1>	
+	<div class="container1" >	
+		<div class="builderIntroText" tabindex=0 id="${id}_introText" >${_foldersIntroText}</div>
+		 <div data-dojo-attach-point="_infoPane" style="display: none;" class="inlineMessage inlineMessageWarning infoClass invalidItems">
+            <div data-dojo-attach-point="_infoImage" class="messageIcon"></div>
+            <div data-dojo-attach-point="_infoText" style="font-weight: bold" class="messageText"></div>
+            <div data-dojo-attach-point="_items" ></div>
+        </div>  		
+		<div id="${id}_borderContainer" data-dojo-type="idx.layout.BorderContainer" data-dojo-attach-point="_borderContainer"
+			 style="height: 400px; width: 650px;" gutters=false>
+			 <div data-dojo-type="ecm.widget.listView.ContentList" region="center" data-dojo-attach-point="_contentList" multiSelect=false emptyMessage="${messages.folder_is_empty}"></div>
+		</div>
+	</div>
+</div>

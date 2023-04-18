@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="dojo/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="dojo/dojox/grid/resources/Grid.css"> 
+    <link rel="stylesheet" href="dojo/dojox/grid/resources/nihiloGrid.css"> 
+    <title>dojo mini</title>
+    
+</head>
+
+<body class="claro" dir="rtl">
+    <div class="APP" id="APP"></div>
+
+
+    <script>
+       
+
+        var dojoConfig = {
+            async: true,
+            locale:'ar',
+            parseOnLoad: true,
+            packages: [{
+                name: "app",
+                location: location.pathname.replace(/\/[^/]*$/, '') + '/app'
+            },{
+               name: "ecm",
+               location: location.pathname.replace(/\/[^/]*$/, '') + '/ecm'
+           },{
+               name: "idx",
+               location: location.pathname.replace(/\/[^/]*$/, '') + '/dojo/dojox'
+           }
+        ]
+        };
+
+    </script>
+    <script src="dojo/dojo/dojo.js"></script>
+    <script src="DOJOFE.js"></script> 
+    <script src="globalFun.js"></script>
+</body>
+
+</html>

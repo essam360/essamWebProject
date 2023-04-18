@@ -1,0 +1,110 @@
+<div class="entryTemplateDocumentSettingsPane entryTemplatePane">
+  <div class="container border" data-dojo-attach-point="container">
+    <div class="leftDiv">
+      <table class="propertyTable" role="presentation" data-dojo-attach-point="leftTable">
+	    <tr>
+	      <td class="propertyRowLabel">
+			<span class="required">*</span>
+			<label for="${id}_name-field">${messages.name}</label>&nbsp;
+			<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="nameFieldHoverHelp">${messages.entry_template_name_hover}</div>
+		  </td>
+		  <td class="propertyRowValue">
+		    <input data-dojo-attach-point="nameField" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="id: '${id}_name-field', 'class': 'propertyStringValue', maxLength: 64, required: true, trim: true, propercase: false" />
+		  </td>
+	    </tr>
+	    <tr>
+	      <td class="propertyRowLabel">
+			<label for="${id}_description-field">${messages.description_label}</label>&nbsp;
+			<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="descriptionFieldHoverHelp">${messages.entry_template_description_hover}</div>
+		  </td>
+		  <td class="propertyRowValue">
+		    <input data-dojo-attach-point="descriptionField" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationSimpleTextarea" data-dojo-props="id: '${id}_description-field', 'class': 'propertyStringValue', trim: true, propercase: false, rows: 3" />
+		  </td>
+	    </tr>
+	    <tr>
+	      <td class="propertyRowLabel">
+			<div class="ecmLabel">${messages.type_label}</div>&nbsp;
+		  </td>
+		  <td class="propertyRowValue">
+		    <div class="ecmValue" data-dojo-attach-point="typeField"></div>
+		  </td>
+	    </tr>
+      </table>
+    </div>
+    <div class="rightDiv">
+      <table class="propertyTable" role="presentation" data-dojo-attach-point="rightTable">
+	    <tr data-dojo-attach-point="saveInData">
+	      <td class="propertyRowLabel">
+			<span class="required">*</span>
+			<label id="${id}_savein_label" for="${id}_savein-field">${messages.add_document_location_label}</label>&nbsp;
+			<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-props="isFocusable: true" data-dojo-attach-point="saveInDropDownHoverHelp">${messages.entry_tempalte_save_in_hover}</div>
+		  </td>
+		  <td class="propertyRowValue">
+			<div data-dojo-type="ecm/widget/search/SearchInDropDown" data-dojo-attach-event="onFolderSelected: _onFolderSelected" data-dojo-attach-point="saveInDropDown"
+				 data-dojo-props='isRequired: true, "class": "folderSelectorControl", dropdownid: "${id}_savein-field", arialabelledby: "${id}_savein_label", displayRepositoryDropDownList: false'>
+			</div>
+			<br><br>
+			<div data-dojo-attach-point="inheritSecurityDiv">
+				<div data-dojo-props="id: '${id}_inherit-security-field'" data-dojo-attach-point="inheritSecurity" data-dojo-attach-event="onClick: _onFieldChange" data-dojo-type="ecm/widget/CheckBox"></div>
+		    	<label for="${id}_inherit-security-field">${messages.entry_template_security_inherit}</label>
+		    	<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="inheritSecurityHoverHelp">${messages.entry_template_inherit_hover}</div>
+		    </div>
+		  </td>
+	    </tr>
+	    <tr data-dojo-attach-point="securityAccessData">
+	      <td class="propertyRowLabel">
+			  <label id="${id}_securityAccess-label" for="${id}_securityAccess-field">${messages.share_with_label}</label>&nbsp;
+		  </td>
+		  <td class="propertyRowValue">
+		      <div data-dojo-type="ecm/widget/SecurityAccessPane" data-dojo-attach-point="securityAccessPane" 
+		           data-dojo-props="labelId: '${id}_securityAccess-label', dropdownid: '${id}_securityAccess-field'"></div>
+		  </td>
+	    </tr>
+      </table>
+    </div>
+  </div>
+  <div class="applyToDiv">
+      <table class="appliedToTable" role="presentation">
+      <tr>
+        <td style="vertical-align: top">
+	      <div>  
+	        <div class="ecmLabel">${messages.entry_template_applied}</div>
+	      </div>
+          <div data-dojo-attach-point="applyToAddDocDiv" class="indented">
+	        <div data-dojo-props="id: '${id}_applied-add-document-field', disabled: true, checked: true" data-dojo-type="ecm/widget/CheckBox"></div>
+	        <label for="${id}_applied-add-document-field" class="labelReadOnly">${messages.entry_template_applied_add}</label>
+	      </div>
+          <div data-dojo-attach-point="applyToAddFolderDiv" class="indented">
+	        <div data-dojo-props="id: '${id}_applied-add-folder-field', disabled: true, checked: true" data-dojo-type="ecm/widget/CheckBox"></div>
+	        <label for="${id}_applied-add-folder-field" class="labelReadOnly">${messages.entry_template_applied_add_folder}</label>
+	      </div>
+          <div data-dojo-attach-point="applyToCheckinDiv" style="padding-top: 5px;" class="indented">
+	        <div data-dojo-props="id: '${id}_applied-checkin-field'" data-dojo-attach-point="applyToCheckin" data-dojo-attach-event="onClick: _onFieldChange" data-dojo-type="ecm/widget/CheckBox"></div>
+	        <label for="${id}_applied-checkin-field" data-dojo-attach-point="applyToCheckinLabel">${messages.entry_template_applied_checkin}</label>
+	      </div>
+	    </td>
+        <td style="vertical-align: top">
+	      <div data-dojo-attach-point="applyToPropertiesGroupDiv">  
+	        <div class="ecmLabel" data-dojo-attach-point="applyToPropertiesGroupLabel">${messages.entry_template_applied_properties_group}</div>
+	      </div>
+	      <div data-dojo-attach-point="applyToViewerDiv" class="indented">  
+	        <div data-dojo-props="id: '${id}_applied-viewer-field'" data-dojo-attach-point="applyToViewer" data-dojo-attach-event="onClick: _onFieldChange" data-dojo-type="ecm/widget/CheckBox"></div>
+	        <label for="${id}_applied-viewer-field" data-dojo-attach-point="applyToViewerLabel">${messages.entry_template_applied_viewer}</label>
+	      </div>
+	      <div data-dojo-attach-point="applyToPropetiesDiv" class="indented">  
+	        <div data-dojo-props="id: '${id}_applied-properties-field'" data-dojo-attach-point="applyToProperties" data-dojo-attach-event="onClick: _onFieldChange" data-dojo-type="ecm/widget/CheckBox"></div>
+	        <label for="${id}_applied-properties-field" data-dojo-attach-point="applyToPropertiesLabel">${messages.entry_template_applied_properties}</label>
+	      </div>
+	      <div data-dojo-attach-point="applyToDocInfoDiv" class="indented">  
+	        <div data-dojo-props="id: '${id}_applied-docinfo-field'" data-dojo-attach-point="applyToDocInfo" data-dojo-attach-event="onClick: _onFieldChange" data-dojo-type="ecm/widget/CheckBox"></div>
+	        <label for="${id}_applied-docinfo-field" data-dojo-attach-point="applyToDocInfoLabel">${messages.entry_template_applied_docinfo}</label>
+	      </div>
+	    </td>  
+	 </tr>
+	 </table>      
+	 <div class="dijitHidden inlineMessage inlineMessageInfo appliedToInlineMessage" data-dojo-attach-point="applyToInlineMessageDiv">
+	    <div class="messageIcon"></div>
+	    <div class="messageText" role="status" data-dojo-attach-point="applyToInlineMessageText"></div>
+	 </div>
+  </div>
+</div>

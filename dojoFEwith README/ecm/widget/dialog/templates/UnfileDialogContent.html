@@ -1,0 +1,10 @@
+<div class="infoArea">
+	<div class="removeFromLabel">${messages.unfile_dialog_remove_from_folder_label}</div>
+	<div class="selectLinks">
+		<span id="${id}_selectAll" class="dijitInline selectLink" data-dojo-attach-event="onClick:_clickSelectAll" data-dojo-type="dijit.form.Button"  baseClass="buttonLinks">${messages.unfile_dialog_select_all}</span>
+		<span id="${id}_deselectAll" class="dijitInline selectLink" data-dojo-attach-event="onClick:_clickDeselectAll" data-dojo-type="dijit.form.Button"  baseClass="buttonLinks">${messages.unfile_dialog_deselect_all}</span>
+	</div>
+</div>
+<div data-dojo-attach-point="_folderGridContainer" class="folderGridContainer">							
+	<div class="folderGrid" data-dojo-attach-point="_folderGrid"></div>
+</div>

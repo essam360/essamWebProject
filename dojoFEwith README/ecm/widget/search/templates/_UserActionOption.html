@@ -1,0 +1,52 @@
+<div class="ecmUserActionOption">
+    <fieldset>
+        <legend style="display: none;">${_messages.search_action_filter}</legend> 
+        <input data-dojo-type="dijit.form.RadioButton" data-dojo-attach-point="_offRadioButton" data-dojo-attach-event="onChange: _handleOffRadioButtonChange" id="${id}_off" name="${id}_switch"> 
+        <label for="${id}_off">${_messages.search_disable}</label>
+        <input data-dojo-type="dijit.form.RadioButton" data-dojo-attach-point="_onRadioButton" id="${id}_on" name="${id}_switch"><label for="${id}_on">${_messages.search_enable}</label>
+    </fieldset>
+
+    <div data-dojo-attach-point="_userActionContainerNode" class="optionWrapper">
+        <div class="addedBy">
+	        <div data-dojo-type="ecm.widget.Select" data-dojo-attach-point="_actionSelect" id="${id}_action" aria-labelledby="${id}_action"></div>
+	
+	        <div class="juncture">
+	            ${_messages.search_by}
+	        </div>
+	
+	        <div data-dojo-attach-point="_userSelectNode"></div>
+        </div>
+        
+       	<div class="addedOn">
+	        <select data-dojo-type="ecm.widget.Select" data-dojo-attach-point="_dateOperatorSelect" data-dojo-attach-event="onChange: _handleDateOperatorChange" id="${id}_dateOperator" aria-labelledby="${id}_dateOperator" class="dateOperator">
+	            <option value="EQUAL">
+	                ${_messages.search_date_operator_on}
+	            </option>
+	
+	            <option value="NOTEQUAL">
+	                ${_messages.search_date_operator_not_on}
+	            </option>
+	
+	            <option value="LESS">
+	                ${_messages.search_date_operator_before}
+	            </option>
+	
+	            <option value="GREATER">
+	                ${_messages.search_date_operator_after}
+	            </option>
+	
+	            <option value="BETWEEN">
+	                ${_messages.operator_BETWEEN}
+	            </option>
+	        </select>
+	
+	        <div data-dojo-type="ecm.widget.DatePicker" data-dojo-attach-point="_startDatePicker" data-dojo-props='id: "${id}_startDate", selector: "date", showFormatPattern: true, constraints: {datePattern: "${_dateFormat}"}, invalidMessage: "${_invalidDateMessage}"' data-dojo-attach-event="onChange: _validateDateRange, validate: onChange" aria-label="${_messages.properties_type_date_tooltip}"></div>
+	
+	        <span data-dojo-attach-point="_andNode" style="display: none;">
+	            ${_messages.property_and}
+	        </span>
+
+	        <div data-dojo-type="ecm.widget.DatePicker" data-dojo-attach-point="_endDatePicker" data-dojo-props='id: "${id}_endDate", style: "display: none;", selector: "date", showFormatPattern: true, constraints: {datePattern: "${_dateFormat}"}, invalidMessage: "${_invalidDateMessage}"' data-dojo-attach-event="onChange: _validateDateRange, validate: onChange" aria-label="${_messages.properties_type_date_tooltip}"></div>
+    	</div>
+	</div>
+</div>

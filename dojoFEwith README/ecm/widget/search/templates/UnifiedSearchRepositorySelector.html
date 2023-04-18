@@ -1,0 +1,105 @@
+<div class="ecmUnifiedSearchRFCSelector">
+	<table class="scopeTable" cellspacing="0" role="presentation">
+		<tr>
+			<td class="sectionContent">
+				<label for="${id}_repositorySelector" id="${id}_repositorySelectorLabel">${messages.server}</label>
+			</td>
+			<td class="sectionContent">
+				<div class="folderSelector" data-dojo-type="ecm.widget.RepositorySelector"
+					id="${id}_repositorySelector"
+					data-dojo-attach-point="repositorySelect"
+					data-dojo-props="repositoryTypes:'p8,cm,od,cmis,box'"
+					data-dojo-attach-event="onSelect:_setUpRepositoryConnections">
+				</div>
+			</td>
+		</tr>
+		<tr data-dojo-attach-point="folderSelectorRow">
+			<td class="sectionContent">
+				<label for="${id}_folderLocation" id="${id}_folderLocationLabel">${messages.search_in}</label>
+			</td>
+			<td class="sectionContent">
+				<div data-dojo-type="ecm.widget.search.SearchInDropDown" 
+					class="dijitInline "
+					dropDownClass="ecmUSFolderSelectorDropDown"
+					id="${id}_folderLocation"
+					arialabelledby="${id}_folderLocationLabel"
+					showIncludeSubFolders="true"
+					selectRootInitially="true"
+					displayForSearch="false"
+					showRepositoryTeamspace="true"
+					displaySelectRepositoriesNode="true"
+					displaySelectTeamspacesNode="false"
+					displayRepositoryDropDownList="false"
+					data-dojo-attach-point="folderSelector">
+				</div>
+			</td>
+		</tr>
+		<tr data-dojo-attach-point="searchClassSelectorRow">
+			<td>
+				<label for="${id}_searchSelector" id="${id}_searchSelectorLabel">${messages.search_class}</label>
+			</td>
+			<td>
+				<div data-dojo-type="ecm.widget.search.SearchClassSelector"
+					dropdownid="${id}_searchClassSelector",
+					defaultToFirstItem="true"
+					arialabelledby="${id}_searchSelectorLabel"
+					data-dojo-props="allowMultipleClasses:true,selectorStyle:'dropdown',filterType:'search'"
+					data-dojo-attach-point="searchClassSelector"
+					id="${id}_objectClass">
+				</div>
+			</td>
+		</tr>
+		<tr data-dojo-attach-point="templateSelectorRow" class="dijitHidden">
+			<td class="sectionContent">
+				<label for="${id}_templateSelector" id="${id}_templateSelectorLabel" data-dojo-attach-point="templateSelectorLabelNode">${messages.search}</label>
+			</td>
+			<td class="sectionContent">
+				<div data-dojo-type="ecm.widget.search.SearchSelector" 
+					selectorStyle="dropdown"
+					filterType="search"
+					defaultLabel="${messages.select_search}"
+					label="${messages.select_search}"
+					aria-labelledby="${id}_templateSelectorLabel"
+					class="searchInFolderSelectorContent "
+					showIncludeSubclasses="true"
+					data-dojo-props="showOpenedSearches:false,toolbarContainsNewSearchButton:false"
+					data-dojo-attach-point="templateSelector"
+					id="${id}_templateSelector">
+				</div>
+			</td>
+		</tr>
+		<tr data-dojo-attach-point="metadataTemplateSelectRow">
+			<td>
+				<label for="${id}_metadataTemplateSelect">${messages.box_search_metadata}</label>
+			</td>
+			<td>
+				<select id="${id}_metadataTemplateSelect" class="dijitHidden" data-dojo-type="dijit/form/Select" data-dojo-attach-point="metadataTemplateSelect" data-dojo-attach-event="onChange: _onMetadataTemplateSelectChange"></select>
+				<div class="noMetadataTemplatesMessage dijitHidden" data-dojo-attach-point="noMetadataTemplatesMessageNode">${messages.box_search_no_templates}</div>
+			</td>
+		</tr>
+	</table>
+	<table class="scopeTable" cellspacing="0" role="presentation">
+		<tr data-dojo-attach-point="moreOptionsRow">
+			<td class="otherSectionContent">
+				<div>
+					<span class="optionsLink"
+						data-dojo-type="ecm.widget.search.SearchMoreOptions"
+						data-dojo-attach-point="_moreOptions" 
+						id="${id}_moreOptions"
+						data-dojo-props="propertyTextOptionHidden:'true',fileTypeOptionHidden:'true',userActionOptionHidden:'true',workOptionHidden:'true',contentSizeOptionHidden:'true'">
+					</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<table class="scopeTable" cellspacing="0" role="presentation">
+		<tr data-dojo-attach-point="enableTextSearchRow">
+			<td class="otherSectionContent">
+				<div>
+					<input id="${id}_enableTextSearch" data-dojo-type="ecm.widget.CheckBox" data-dojo-attach-point="enableTextSearchCheckBox" />
+					<label for="${id}_enableTextSearch" data-dojo-attach-point="enableTextSearchLabel">${messages.unified_search_enable_text_search}</label>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>

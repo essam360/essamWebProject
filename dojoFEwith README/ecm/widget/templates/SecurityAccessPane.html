@@ -1,0 +1,9 @@
+<div class="ecmSecurityAccessPane">
+	<div>
+		<input data-dojo-type="dijit/form/Select" data-dojo-attach-point="_accessTypeSelect" data-dojo-attach-event="onChange: _onAccessTypeChange" data-dojo-props="id: '${dropdownid}'"/>
+		<div data-dojo-type="dijit/form/Button" data-dojo-attach-point="_selectMembersButton" data-dojo-attach-event="onClick:_onSelectMembers" data-dojo-props="id: '${id}_selectMembersButton', disabled: true">${messages.select_members_label}</div>
+	</div>
+	<div>
+		<div data-dojo-attach-point="_membersNode" class="members dijitHidden"></div>
+	</div>
+</div>

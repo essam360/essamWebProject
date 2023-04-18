@@ -1,0 +1,19 @@
+<div class="ecmMultiValueInputPane">
+  <div class="newDiv">
+     <label data-dojo-attach-point="_inputLabel">${messages.new_label}</label>
+    <div class="dijitInline" data-dojo-attach-point="_hoverHelpContainer"></div>
+    <span data-dojo-attach-point="_inputContainer"></span>
+    <div id="ADD_${id}" data-dojo-type="dijit.form.Button" data-dojo-attach-point="_addButton" class="dijitInline newButton" data-dojo-attach-event="onClick: _onClickAdd">${messages.add_document_add_label}</div>
+  </div>  
+  <div class="gridButtonContainer">
+    <div class="valuesGridContainer dijitInline" data-dojo-attach-point="_valuesGridContainer">
+    </div>
+    <div class="moveUpDownButtonContainer dijitInline" data-dojo-attach-point="_moveUpDownButtonContainer">
+      <div class="iconButton" title="${messages.move_up_selected_tooltip}" id="UP_${id}" data-dojo-type="dijit.form.Button" showLabel="false" iconClass="moveUpButton" data-dojo-attach-point="_upButton" data-dojo-attach-event="onClick: _onClickUp">&#8743;</div>
+      <div class="iconButton" title="${messages.move_down_selected_tooltip}" id="DOWN_${id}" data-dojo-type="dijit.form.Button" showLabel="false" iconClass="moveDownButton" data-dojo-attach-point="_downButton" data-dojo-attach-event="onClick: _onClickDown">&#8744;</div>
+    </div>
+  </div>
+  <div class="removeButtonContainer">
+    <div id="REMOVE_${id}" data-dojo-type="dijit.form.Button" data-dojo-attach-point="_removeButton" data-dojo-attach-event="onClick: _onClickRemove">${messages.remove_label}</div>
+  </div>
+</div>

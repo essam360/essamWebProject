@@ -1,0 +1,41 @@
+<div class="entryTemplateSecurityPane entryTemplatePane">
+    <div class="property">
+	    <fieldset>
+	    <legend class="ecmLabel dijitHidden">${messages.entry_template_security_show}</legend>
+	    	<input data-dojo-props="type: 'radio', name: '${id}_securityShow', id: '${id}_security_show'" data-dojo-attach-point="securityShow" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange" >
+	    	<label for="${id}_security_show" data-dojo-attach-point="securityShowLabel">${messages.entry_template_security_show}</label>
+	    	<div data-dojo-type="ecm/widget/HoverHelp" class="radioLabel" data-dojo-attach-point="securityShowHoverHelp">${messages.entry_template_security_show_hover}</div>
+	    	<input data-dojo-props="type: 'radio', name: '${id}_securityShow', id: '${id}_security_hide'" data-dojo-attach-point="securityHide" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange" >
+	    	<label for="${id}_security_hide" data-dojo-attach-point="securityHideLabel">${messages.entry_template_security_hide}</label>
+	    	<div data-dojo-type="ecm/widget/HoverHelp" class="radioLabel" data-dojo-attach-point="securityHideHoverHelp">${messages.entry_template_security_hide_hover}</div>
+	    </fieldset>                    
+    </div>
+    <div class="dijitHidden inlineMessage inlineMessageInfo" data-dojo-attach-point="classSecurityInlineMessageDiv">
+        <div class="messageIcon"></div>
+        <div class="messageText" role="status" data-dojo-attach-point="classSecurityInlineMessageText"></div>
+    </div>
+    <div class="property border">
+	    <div data-dojo-props="id: '${id}_select-user-groups-field'" data-dojo-attach-point="overrideClassSecurity" data-dojo-attach-event="onClick: _onChangeOverrideClassSecurity" data-dojo-type="ecm/widget/CheckBox"></div>
+	    <label data-dojo-attach-point="overrideClassSecurityLabel" for="${id}_select-user-groups-field">${messages.entry_template_security_change}</label>
+	    <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="overrideClassSecurityHoverHelp">${messages.entry_template_security_change_hover}</div>
+    </div>
+    <div>
+	    <div data-dojo-attach-point="_securityPane" data-dojo-type="ecm/widget/SecurityPane" data-dojo-props="showCreatorOwnerAccount: true"></div>
+    </div>
+    <div class="property" data-dojo-attach-point="_inheritSecurityDiv">
+	    <div data-dojo-props="id: '${id}_inherit-security-field'" data-dojo-attach-point="inheritSecurity" data-dojo-attach-event="onClick: _onFieldChange" data-dojo-type="ecm/widget/CheckBox"></div>
+	    <label for="${id}_inherit-security-field">${messages.entry_template_security_inherit}</label>
+	    <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="inheritSecurityHoverHelp">${messages.entry_template_security_inherit_item_security_hover}</div>
+    </div>
+    <div class="property" data-dojo-attach-point="_securityPolicyDiv">
+		<label for="${id}_security-policy-field" id="${id}_security-policy-label">${messages.entry_template_security_policy}</label>&nbsp;
+		<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-props="isFocusable: true" data-dojo-attach-point="_securityPolicySelectorHoverHelp">${messages.entry_template_security_policy_hover}</div>
+	    <div data-dojo-props="'class': 'dijitInline', 'labelId': '${id}_security-policy-label', dropdownid: '${id}_security-policy-field'"
+	         data-dojo-attach-point="_securityPolicySelector" data-dojo-type="ecm/widget/SecurityPolicySelector"></div>
+	    <div data-dojo-props="'class': 'dijitInline'" data-dojo-type="dijit/form/Button" data-dojo-attach-event="onClick: _onClearSecurityPolicy">${messages.clear}</div>
+    </div>
+    <div class="property dijitHidden inlineMessage" data-dojo-attach-point="securityPolicyInlineMessageDiv">
+      <div class="messageIcon"></div>
+      <div class="messageText" role="status" data-dojo-attach-point="securityPolicyInlineMessageText"></div>
+    </div>
+</div>

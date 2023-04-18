@@ -1,0 +1,68 @@
+<div class="ecmLoginPane">
+	<div class="loginBorder" data-dojo-attach-point="loginBorder">
+		<table role="presentation">
+			<tr>
+				<td data-dojo-attach-point="loginInformation" class="loginInformation">
+					<div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="loginInformation"></div>
+				</td>
+				<td data-dojo-attach-point="loginForm" class="loginForm">
+					<div data-dojo-attach-point="welcomeTitle" class="title"></div>
+		
+					<div class="inlineMessage" data-dojo-attach-point="inlineMessage" style="display: none">
+						<div class="messageIcon"></div>
+						<div class="messageText" data-dojo-attach-point="messageText" role="alert" id="${id}_messageText"></div></div>
+			
+			        <div data-dojo-attach-point="userPwDiv">
+						<div data-dojo-attach-point="serverField" class="field">
+							<label for="${id}_server"> ${messages.server} </label> 
+							<select data-dojo-type="dijit/form/Select" maxHeight="300" data-dojo-attach-point="server" name="${id}_server" id="${id}_server">
+							</select>
+						</div>
+				
+						<div class="field">
+							<label for="${id}_username"> ${messages.username} </label>
+							<input data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="username" name="${id}_username" id="${id}_username"
+								type="text" value="" data-dojo-props="trim: true, required: true, intermediateChanges: true" 
+								missingMessage="${missingUsernameMessage}" data-dojo-attach-event="onChange:_enableLogin" />
+						</div>
+				
+						<div class="field">
+							<label for="${id}_password"> ${messages.password} </label>
+							<input data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="password" name="${id}_password" id="${id}_password"
+							type="password" value="" data-dojo-props="trim: false, required: true, intermediateChanges: true"
+							missingMessage="${missingPasswordMessage}" data-dojo-attach-event="onChange:_enableLogin" />
+						</div>
+			        </div>
+			        <div data-dojo-attach-point="oAuthDiv" style="display: none">
+                        <a data-dojo-type="idx/form/Link" data-dojo-attach-point="_oauthRouteLink" data-dojo-attach-event="onClick: _onOAuthFocus">${messages.login_oauth_click_here}</a>
+			        </div>
+					
+					<button id="${id}_LoginButton" data-dojo-type="dijit.form.Button" class="solid" data-dojo-attach-point="loginButton" data-dojo-attach-event="onClick: _login">
+						${messages.login}
+					</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	<div class="copyright" data-dojo-attach-point="copyrightText">${messages.copyright}</div>
+	
+	<div class="mobileQRBorder" data-dojo-attach-point="mobileQRBorder">
+		<div class="appleQRBorder" data-dojo-attach-point="appleQRBorder">
+			<div class="appleQR" data-dojo-attach-point="appleQR">
+				<img data-dojo-attach-point="appleQRImg">
+			</div>
+			<div class="appleStoreBadge" data-dojo-attach-point="appleStoreBadge">
+				<img data-dojo-attach-point="appleStoreBadgeImg">
+			</div>
+		</div>
+		<div class="androidQRBorder" data-dojo-attach-point="androidQRBorder">
+			<div class="androidQR" data-dojo-attach-point="androidQR">
+				<img data-dojo-attach-point="androidQRImg">
+			</div>
+			<div class="googlePlayBadge" data-dojo-attach-point="googlePlayBadge">
+				<img data-dojo-attach-point="googlePlayBadgeImg">
+			</div>
+		</div>
+	</div>
+</div>

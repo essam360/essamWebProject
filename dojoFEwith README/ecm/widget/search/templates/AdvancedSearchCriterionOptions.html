@@ -1,0 +1,33 @@
+<div class="advancedOptionsPane" data-dojo-type="dijit/layout/ContentPane">
+	<div data-dojo-type="dijit/layout/ContentPane">
+   		<table style="width:100%"  role="presentation">
+   		<tr>
+   			<td class="advancedOptionsPaneTd">
+   				<label for="${id}_editableSelector" >${messages.advanced_search_options_property_editable} </label>
+   			</td>
+			<td colspan=3  class="advancedOptionsPaneTd">   				
+   				<input data-dojo-type="ecm.widget.Select" data-dojo-attach-point="_editableSelector" id="${id}_editableSelector"/>	
+   			</td>
+   		</tr>
+   		<tr>	
+   			<td  class="advancedOptionsPaneTd">
+				<label>${messages.advanced_search_options_operators}</label>
+			</td>
+   			<td  colspan=3  class="advancedOptionsPaneTd">
+					<input class="advancedOptionsBottomAlign" name="${id}_useAll" id="${id}_useAllOperators" data-dojo-attach-point="_useAll" data-dojo-type="dijit.form.RadioButton"/>
+					<label for="${id}_useAllOperators">${messages.advanced_search_options_use_all}</label>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td  colspan=3  class="advancedOptionsPaneTd">
+					<input class="advancedOptionsBottomAlign" name="${id}_useAll" id="${id}_useSelectedOperators"data-dojo-attach-point="_useSelected" data-dojo-type="dijit.form.RadioButton"/>
+					<label for="${id}_useSelectedOperators">${messages.advanced_search_options_use_selected}</label>
+   			</td>
+   		</tr>
+   		<tr>	
+   			<td></td><td width=20px></td><td data-dojo-attach-point="_operatorsPane1"  class="advancedOptionsPaneTd"></td><td class="advancedOptionsPaneTd, advancedOptionsTopAlign" data-dojo-attach-point="_operatorsPane2"></td>
+   		</tr>
+   		</table>
+	</div>
+</div>

@@ -1,0 +1,31 @@
+<div class="dijitDialog" role="dialog" aria-labelledby="${id}_title" style="height: 200px; overflow: auto">
+	<div data-dojo-attach-point="titleBar" class="dijitDialogTitleBar">
+	<span data-dojo-attach-point="titleNode" class="dijitDialogTitle" id="${id}_title">Folder Properties</span>
+	<span data-dojo-attach-point="closeButtonNode" class="dijitDialogCloseIcon" data-dojo-attach-event="ondijitclick: onCancel" title="${buttonCancel}" role="button" tabIndex="-1">
+		<span data-dojo-attach-point="closeText" class="closeText" title="${buttonCancel}">x</span>
+	</span>
+	</div>
+	<div data-dojo-attach-point="containerNode" class="dijitDialogPaneContent">
+	    <div class="field">
+			<label for="${id}_fileInput">
+				Folder Name:
+			</label>
+			 <input data-dojo-attach-point="name" class="input" type="text" value="" data-dojo-type="dijit.form.ValidationTextBox" trim="true" propercase="false" />
+	    </div>
+	    <br>
+	    <div class="dg_DialogButtonbar" style="padding-left: 46%">
+			<button id="${id}_OkButton"
+				data-dojo-type="dijit.form.Button"
+				data-dojo-attach-point="_OkButton"
+				data-dojo-attach-event="onClick: _onClickOk">
+				Ok
+		    </button>
+			<button id="${id}_CancelButton"
+				data-dojo-type="dijit.form.Button"
+				data-dojo-attach-point="_cancelButton"
+				data-dojo-attach-event="onClick: _onClickCancel">
+				${_messages.checkin_cancel_label}
+		    </button>
+	    </div>
+	</div>
+</div>

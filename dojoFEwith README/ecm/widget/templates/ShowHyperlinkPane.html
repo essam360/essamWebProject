@@ -1,0 +1,27 @@
+<div>
+	<div class="ecmShowHyperlinkItemInfo">
+		<div class="dijitInline" data-dojo-attach-point="_itemInfoIcon"></div>
+		<div class="dijitInline ecmValue itemName" data-dojo-attach-point="_itemInfoName"></div>
+	</div>
+	<br>
+	<div class="ecmShowHyperlinkShowOptions" data-dojo-attach-point="_showHyperlinkShowOptions">
+		<span class="ecmLabel">${messages.show_text_label}</span>
+		<div id="${id}_releasedVersionButton" data-dojo-attach-point="_releasedVersionButton" 
+		     data-dojo-attach-event="onClick:_onReleasedVersionClick" data-dojo-type="dijit/form/Button">${messages.released_button_label}</div>
+		<div id="${id}_currentVersionButton" data-dojo-attach-point="_currentVersionButton" 
+		     data-dojo-attach-event="onClick:_onCurrentVersionClick" data-dojo-type="dijit/form/Button">${messages.current_button_label}</div>
+		<div id="${id}_selectVersionButton" data-dojo-attach-point="_selectVersionButton" data-dojo-type="ecm/widget/DropDownButton">
+		    <span>${messages.select_button_label}</span>
+			<div data-dojo-attach-point="_selectVersionDialog" data-dojo-type="ecm/widget/DropDownDialog" style="height:370px; width:755px">
+				<div class="ecmShowHyperlinkSelectVersionPane">
+   					<div data-dojo-attach-point="_selectVersionPane" data-dojo-props="multiSelect: false, 'class': 'searchResultsArea', style: { 'height': '300px' }"
+   					     data-dojo-type="ecm/widget/listView/ContentList"></div>
+				</div>
+    		</div>
+		</div>
+	</div>
+	<div class="ecmShowHyperlinkTextArea">
+		<label for="${id}_textarea" style="display: none;">${messages.show_hyperlink_title}</label>
+		<div id="${id}_textarea" data-dojo-attach-point="_hyperlinkTextArea" data-dojo-type="dijit/form/Textarea" data-dojo-props="readOnly: true"></div>
+	</div>		
+</div>

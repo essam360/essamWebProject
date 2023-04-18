@@ -1,0 +1,83 @@
+<div class="ecmBasicSearchBuilder">
+	<div class="searchSection" data-dojo-attach-point="searchSection" tabindex="-1">
+		<div class="searchScopeFields">
+			<table cellspacing="0" role="presentation" style="width:100%;"><tr><td class="sectionContent">
+				<label id="${id}_label_folderLocation" for="${id}_folderLocation" data-dojo-attach-point="_folderLabelNode">${messages.search_in}</label>
+			</td><td class="sectionContent" data-dojo-attach-point="searchOptionContainer">
+				<div data-dojo-type="ecm.widget._FolderSelectorDropDown" 
+					dropdownid="${id}_folderLocation"
+					arialabelledby="${id}_label_folderLocation"
+					showIncludeSubFolders="true"
+					showRepositoryTeamspace="true"
+					data-dojo-attach-point="folderSelectorDropDown"
+					data-dojo-attach-event="onFolderSelected: _onFolderSelect">
+				</div>
+				<div data-dojo-type="ecm.widget.search.SearchInDropDown" 
+					class="dijitInline"
+					dropdownid="${id}_folderLocation"
+					arialabelledby="${id}_label_folderLocation"
+					showIncludeSubFolders="true"
+					showRepositoryTeamspace="true"
+					dropDownClass="ecmSearchInDropDownPopUpContent ecmBasicSearchInDropDownPopUpContent"
+					data-dojo-attach-point="searchInDropDown"
+					data-dojo-attach-event="onFolderSelected: _onFolderSelect">
+				</div>
+				<span data-dojo-attach-point="_moreOptionsNode"></span>
+			</td></tr>
+			<tr class="sectionContent" data-dojo-attach-point="contentClassSelectorArea"><td class="sectionContent">
+				<label for="${id}_searchSelector" id="${id}_label_searchSelector">${_class_label}:</label>
+			</td><td class="sectionContent">
+				<div data-dojo-type="ecm.widget.search.SearchClassSelector" 
+					 dropdownid="${id}_searchSelector"
+					 arialabelledby="${id}_label_searchSelector"
+				     selectorStyle="dropdown" filterType="search" data-dojo-attach-point="contentClassSelector" id="${id}_objectClass"></div>
+			</td></tr>
+			<tr class="sectionContent" data-dojo-attach-point="metadataTemplateOptionArea"><td class="sectionContent">
+				<label for="${id}_metadataTemplateSelect" style="vertical-align: middle;">${messages.box_search_metadata}</label>
+			</td><td class="sectionContent">
+				<select id="${id}_metadataTemplateSelect" class="dijitHidden" data-dojo-type="dijit/form/Select" data-dojo-attach-point="metadataTemplateSelect" data-dojo-attach-event="onChange: _onMetadataTemplateSelectChange"></select>
+				<div class="noMetadataTemplatesMessage dijitHidden" data-dojo-attach-point="noMetadataTemplatesMessageNode">${messages.box_search_no_templates}</div>
+			</td></tr>
+			</table>
+		</div>
+		<div class="textSearch dijitHidden" data-dojo-attach-point="_textSearchNode">
+			<div class="criteriaContent">
+				<div>
+					<label for="${id}_textSearch">${messages.text_search_label}</label>
+					<div id="${id}_textSearchHoverHelp" data-dojo-attach-point="_textSearchHoverHelp" data-dojo-type="ecm.widget.HoverHelp" hrefLabel="${messages.learn_more}" href="euche012.htm"></div>
+				</div>
+				<div class="textSearchCriteria" data-dojo-attach-point="textSearchContainer">
+					<input class="textSearchText" id="${id}_textSearch" data-dojo-attach-point="_textSearchText" data-dojo-type="ecm/widget/ValidationTextBox" placeHolder="${messages.text_search_place_holder}" />
+					<span class="optionsLink dijitHidden" id="${id}_textSearchOptions" data-dojo-attach-point="_textSearchOptions" data-dojo-type="ecm.widget.search.TextSearchOptions"></span>
+					<span class="hideTextCriteriaInline dijitHidden" data-dojo-attach-point="_hideTextCriteriaNode"><label for="${id}_textSearchHide">${messages.text_search_option_authoring}</label>
+					<input id="${id}_textSearchHide" data-dojo-attach-point="_hideTextCriteria" data-dojo-type="ecm.widget.Select" name="${id}_textSearchHide" />
+						<div id="${id}_textSearchHideHoverHelp" data-dojo-type="ecm.widget.HoverHelp" message="${messages.text_search_option_authoring_hover_help}"></div>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="criteriaContent" data-dojo-attach-point="CriteriaContentPart">
+			<div class="sectionContent dijitHidden" data-dojo-attach-point="matchAllCriteriaMessageNode"><label>${messages.match_all_criteria}:</label></div>
+			<div class="sectionContent" data-dojo-attach-point="attributeDefinitionForm"></div>
+			<div class="sectionContent dijitHidden" data-dojo-attach-point="metadataTemplateCriteriaNode"></div>
+			<div class="sectionContent propertyOptions" data-dojo-attach-point="propertyOptionsArea">
+				<div data-dojo-attach-point="addPropertyButton" data-dojo-type="dijit.form.Button" disabled="true" label="${messages.add_property}" class="dijitHidden" data-dojo-attach-event="onClick:_addProperty"></div>
+				<div data-dojo-attach-point="showAllLink" data-dojo-type="dijit.form.Button" disabled="true" label="${messages.show_all_properties}" class="dijitHidden" data-dojo-attach-event="onClick:_showAllProperties"></div>
+				<span id="${id}_propertyOptions" data-dojo-attach-point="_propertyOptions" data-dojo-type="ecm.widget.search.SearchPropertyOptions" class="dijitHidden"></span>
+			</div>
+		</div>
+	</div>
+	<div class="buttonArea" data-dojo-attach-point="buttonArea">
+		<div id="${id}_searchButton" data-dojo-attach-point="searchButton" data-dojo-attach-event="onClick:_search" class="solid" disabled="true" data-dojo-type="dijit.form.Button" label="${messages.search}"></div>
+		<div id="${id}_resetButton" data-dojo-attach-point="resetButton" data-dojo-type="dijit.form.Button" data-dojo-attach-event="onClick:_reset" label="${messages.reset}"></div>
+		<div id="${id}_saveButton" data-dojo-attach-point="saveButton" disabled="true" data-dojo-type="dijit.form.Button" label="${messages.save_template}" title="${messages.save_template_title}" data-dojo-attach-event="onClick:_onSave"></div>
+		<div id="${id}_saveAsButton" data-dojo-attach-point="saveAsButton" disabled="true" data-dojo-type="dijit.form.Button" label="${messages.saveAs}" data-dojo-attach-event="onClick:_onSaveAs"></div>
+		<div id="${id}_cancelButton" data-dojo-attach-point="cancelButton" data-dojo-type="dijit.form.Button" label="${messages.cancel}" data-dojo-attach-event="onClick:onCancel"></div>
+		<div id="${id}_resultsDisplayOptions" data-dojo-attach-point="resultsDisplayOptions" data-dojo-type="ecm.widget.search.SearchResultsDisplayOptions"></div>
+		<div id="${id}_resultsDisplayButton" data-dojo-attach-point="resultsDisplayButton" data-dojo-type="dijit.form.Button" label="${messages.search_results_dropdown_button}" title="${messages.search_results_columns_description}" data-dojo-attach-event="onClick:_showResultsDisplayOptions"></div>
+		<span class="ecmKeepSearchCriteriaExpandedCheckBox">
+			<input id="${id}_searchCriteriaCB" name="${id}_searchCriteriaCB" data-dojo-attach-point="keepSearchCriteriaExpanded" data-dojo-type="dijit.form.CheckBox" value="" type="checkbox"/>
+			<label for="${id}_searchCriteriaCB" >${messages.keep_search_criteria_expanded}</label>
+		</span>
+	</div>
+</div>

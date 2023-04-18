@@ -1,0 +1,323 @@
+<div class="ecmAdminTab">
+  <div data-dojo-type="idx/layout/BorderContainer" data-dojo-attach-point="borderContainer" data-dojo-props="gutters: false, style: { width: '100%', height: '100%' }">
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'top'">	
+	  <div class="ecmAdminTabButtonBar">
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="saveAndCloseButton" data-dojo-attach-event="onClick: _onSaveAndClose">
+			${_messages.save_and_close}
+		</button>
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="saveButton" data-dojo-attach-event="onClick: onSave">
+			${_messages.save}
+		</button>
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="resetButton" data-dojo-attach-event="onClick: _onReset">
+			${_messages.reset}
+		</button>
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="closeButton" data-dojo-attach-event="onClick: _onClose">
+			${_messages.close}
+		</button>
+  	  </div>
+	  <div class="ecmAdminTabHeading" data-dojo-attach-point="headingText">
+	  </div>
+	</div>
+    <div data-dojo-type="dijit/layout/TabContainer" data-dojo-props="controllerWidget: 'ecm.widget.admin.RepositoryTabController', 'class': 'ecmAdminSubTabContainer', region: 'center'" data-dojo-attach-point="_tabContainer">
+        <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="_general" data-dojo-props='iconClass: "required", selected: true'>
+        	<div class="ecmAdminTabInstructions" id="${id}_intro" data-dojo-attach-point="_instructions">${_messages.admin_repository_general_instructions}</div>
+			<div class="inlineMessage" data-dojo-attach-point="inlineMessage" style="display: none">
+				<div class="messageIcon">
+				</div>
+				<div class="messageText" data-dojo-attach-point="messageText" role="alert" id="${id}_messageText">
+				</div>
+			</div>
+			<table class="propertyTable" role="presentation">
+				<tr>
+					<td class="propertyRowLabel">
+						<span class="required">*</span>
+						<label for="${id}_name-field">${_messages.display_name}</label>&nbsp;
+						<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="nameFieldHoverHelp">${_messages.admin_repository_name_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+					   <input data-dojo-attach-point="nameField" data-dojo-attach-event="onKeyUp: _onNameChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="id: '${id}_name-field', required: true, trim: true, propercase: false" />
+					</td>
+				</tr>
+				<tr>
+					<td class="propertyRowLabel">
+						<span class="required">*</span>
+						<label for="${id}_id-field">${_messages.id_label}</label>&nbsp;
+						<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="idFieldHoverHelp">${_messages.admin_repository_id_hover}</div>
+					</td>
+					<td class="propertyRowValue">
+					   <input data-dojo-attach-point="idField" data-dojo-attach-event="onKeyUp: _onFieldChange" 
+					          data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="required: true, trim: true, propercase: false, maxLength: 64, id: '${id}_id-field'" />
+					</td>
+				</tr> 
+				<tbody data-dojo-attach-point="odData">
+					<tr>
+						<td class="propertyRowLabel">
+							<span class="required">*</span>
+							<label for="${id}_odserver-field">${_messages.server_label}</label>&nbsp;
+							<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="odserverFieldHoverHelp">${_messages.admin_server_od_name_hover}</div>
+						</td>
+						<td class="propertyRowValue">
+						   <input data-dojo-attach-point="odserverField" data-dojo-attach-event="onKeyUp: _onFieldChange" 
+						          data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="required: true, trim: true, propercase: false, maxLength: 240, id: '${id}_odserver-field'" />
+						</td>
+					</tr>
+					<tr>
+						<td class="propertyRowLabel">
+							<span class="required">*</span>
+							<label for="${id}_port-field">${_messages.port_label}</label>&nbsp;
+							<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="portFieldHoverHelp">${_messages.admin_port_hover}</div>
+						</td>
+						<td class="propertyRowValue">
+					   	<div data-dojo-attach-point="portField" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/RangeBoundTextBox" data-dojo-props="required: true, id: '${id}_port-field'"></div>
+						</td>
+					</tr>
+					<tr>
+						<td class="propertyRowLabel">
+							<span class="required">*</span>
+							<span>${_messages.admin_repcfg_ssl}</span>&nbsp;
+							<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="rcODUseSSLFieldHoverHelp">${_messages.admin_repcfg_od_ssl_hover}</div>
+						</td>
+						<td class="propertyRowValue">
+							<fieldset>
+		           			<legend style="display: none;">${_messages.admin_repcfg_ssl}</legend>
+			   					<input data-dojo-attach-point="enableODSSL" data-dojo-attach-event="onChange: _onFieldChange"  
+						   		       data-dojo-props="id: '${id}_enableODSSL-field', type: 'radio', value: 'enable', name: '${id}_useODSSL'"
+			   					       data-dojo-type="ecm/widget/RadioButton" />
+			   					<label for="${id}_enableODSSL-field">${_messages.admin_repcfg_enable_ssl}</label>
+			   					<input data-dojo-attach-point="disableODSSL" data-dojo-attach-event="onChange: _onFieldChange"
+			   		       			   data-dojo-props="id: '${id}_disableODSSL-field', type: 'radio', value: 'disable', name: '${id}_useODSSL', 'class': 'radioButton1'"
+			   					       data-dojo-type="ecm/widget/RadioButton" />
+			   					<label for="${id}_disableODSSL-field">${_messages.admin_repcfg_disable_ssl}</label>
+			   				</fieldset>
+						</td>
+					</tr>
+					<tr>
+						<td class="propertyRowLabel">
+							<span class="required" data-dojo-attach-point="odKeyringDatabaseRequired">*</span>
+							<label for="${id}_keyring-database-file-field">${_messages.admin_repcfg_keyringdb_file}</label>&nbsp;
+							<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="rcodKeyringDatabaseFileHoverHelp">${_messages.admin_repcfg_od_ssl_keyringdb_file_hover}</div>
+						</td>
+						<td class="propertyRowValue">
+			   				<input data-dojo-attach-point="keyringDatabaseFile" data-dojo-attach-event="onKeyUp: _onFieldChange" 
+			   				       data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="trim: true, propercase: false, maxLength: 240, style: { 'min-width': '300px' }, id: '${id}_keyring-database-file-field'" />
+						</td>
+					</tr>		
+					<tr>
+						<td class="propertyRowLabel">
+							<span class="required" data-dojo-attach-point="odKeyringStashRequired">*</span>
+							<label for="${id}_keyring-stash-file-field">${_messages.admin_repcfg_keyringstash_file}</label>&nbsp;
+							<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="rcodKeyringStashFileHoverHelp">${_messages.admin_repcfg_od_ssl_keyringstash_file_hover}</div>
+						</td>
+						<td class="propertyRowValue">
+			   				<input data-dojo-attach-point="keyringStashFile" data-dojo-attach-event="onKeyUp: _onFieldChange" 
+			   				       data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="trim: true, propercase: false, maxLength: 240, style: { 'min-width': '300px' }, id: '${id}_keyring-stash-file-field'" />
+						</td>
+					</tr>		
+				</tbody>
+				<tbody data-dojo-attach-point="p8Data">
+					<tr>
+						<td class="propertyRowLabel">
+							<span class="required">*</span>
+							<label for="${id}_protocol-field">${_messages.protocol}</label>&nbsp;
+							<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="p8protocolHoverHelp">${_messages.admin_server_p8_protocol_hover}</div>							
+						</td>
+						<td class="propertyRowValue">
+			   				<select data-dojo-props="id: '${id}_protocol-field'" data-dojo-type="dijit/form/Select" data-dojo-attach-point="protocol" data-dojo-attach-event="onChange: _onFieldChange">
+			   					<option value="FileNetP8WSI">${_messages.protocol_wsi}</option>
+			   					<option value="Navigator">${_messages.protocol_ejb}</option>
+							</select>
+						</td>
+					</tr>		
+					<tr>
+						<td class="propertyRowLabel">
+							<span class="required">*</span>
+							<label for="${id}_p8server-field">${_messages.server_url_label}</label>&nbsp;
+							<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="p8serverFieldHoverHelp">${_messages.admin_server_p8_name_hover}</div>
+						</td>
+						<td class="propertyRowValue">
+						   <input data-dojo-attach-point="p8serverField" data-dojo-attach-event="onKeyUp: _onFieldChange" 
+						          data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="trim: true, propercase: false, required: true, id: '${id}_p8server-field'" />
+						</td>
+					</tr>
+					<tr>
+						<td class="propertyRowLabel">
+							<span class="required">*</span>
+							<label for="${id}_objectStore-field">${_messages.object_store}</label>&nbsp;
+							<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="objectStoreFieldHoverHelp">${_messages.admin_object_store_hover}</div>
+						</td>
+						<td class="propertyRowValue">
+			   				<input data-dojo-attach-point="objectStore" data-dojo-attach-event="onKeyUp: _onFieldChange" 
+			   				       data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="trim: true, propercase: false, required: true, id: '${id}_objectStore-field'" />
+						</td>
+					</tr>		
+					<tr>
+						<td class="propertyRowLabel">
+							<span class="required">*</span>
+							<label for="${id}_objectStoreDisplayName-field">${_messages.object_store_display_name}</label>&nbsp;
+							<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="objectStoreDisplayNameFieldHoverHelp">${_messages.admin_object_store_display_name_hover}</div>
+						</td>
+						<td class="propertyRowValue">
+			   				<input data-dojo-attach-point="objectStoreDisplayName" data-dojo-attach-event="onKeyUp: _onFieldChange" 
+			   				       data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="trim: true, propercase: false, required: true, id: '${id}_objectStoreDisplayName-field'" />
+						</td>
+					</tr>
+				</tbody>
+				<tbody data-dojo-attach-point="cmData">
+					<tr>
+						<td class="propertyRowLabel">
+							<span class="required">*</span>
+							<label for="${id}_cmserver-field">${_messages.server_label}</label>&nbsp;
+							<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="cmserverFieldHoverHelp">${_messages.admin_server_cm_name_hover}</div>
+						</td>
+						<td class="propertyRowValue">
+						   <div data-dojo-attach-point="cmserverField" data-dojo-attach-event="onChange: _onFieldChange" 
+						        data-dojo-type="ecm/widget/FilteringSelect" data-dojo-props="id: '${id}_cmserver-field', labelType: 'text', label: 'label', searchAttr: 'label', required: false, maxHeight: 200"></div>
+						</td>
+					</tr>
+				</tbody>
+				<tbody data-dojo-attach-point="cmisData">	
+					<tr>
+						<td class="propertyRowLabel">
+							<span class="required">*</span>
+							<label for="${id}_cmisUrlField-field">${_messages.cmis_url}</label>&nbsp;
+							<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="cmisUrlField">${_messages.admin_url_cmis_hover}</div>
+						</td>
+						<td class="propertyRowValue">
+			   				<input data-dojo-attach-point="cmisUrlField" data-dojo-attach-event="onKeyUp: _onFieldChange" 
+			   				       data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="trim: true, propercase: false, required: true, id: '${id}_cmisUrlField-field'" />
+						</td>
+					</tr>
+					<tr>
+						<td class="propertyRowLabel">
+							<span class="required">*</span>
+							<label for="${id}_cmisRepositoryID-field">${_messages.cmis_repository_ID}</label>&nbsp;
+							<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="cmisRepositoryIDHoverHelp">${_messages.admin_repository_cmis_hover}</div>
+						</td>
+						<td class="propertyRowValue">
+						   <input data-dojo-attach-point="cmisRepositoryID" data-dojo-attach-event="onKeyUp: _onFieldChange" 
+						          data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="trim: true, propercase: false, required: true, id: '${id}_cmisRepositoryID-field'" />
+						</td>
+					</tr>
+				</tbody>
+				<tbody data-dojo-attach-point="boxData">
+					<tr>
+						<td class="propertyRowLabel">
+							<span class="required">*</span>
+							<span>${_messages.admin_box_use_oauth}</span>&nbsp;
+							<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="enableBoxOAuthHoverHelp">${_messages.admin_box_use_oauth_hover}</div>
+						</td>
+						<td class="propertyRowValue">
+							<fieldset>
+		           			<legend style="display: none;">${_messages.admin_repcfg_ssl}</legend>
+		           				<div style="padding-top: 5px;">
+			   						<input data-dojo-attach-point="enableBoxOAuth" data-dojo-attach-event="onChange: _onFieldChange"  
+						   		       	data-dojo-props="id: '${id}_enableBoxOAuth-field', type: 'radio', value: 'enable', name: '${id}_useBoxOAuth'"
+			   					       	data-dojo-type="ecm/widget/RadioButton" />
+			   					  	<label for="${id}_enableBoxOAuth-field">${_messages.standard_authentication}</label>     	
+			   					 </div>
+				   				<div style="padding-top: 5px;">
+				   					<input data-dojo-attach-point="enableBoxServerAuth" data-dojo-attach-event="onChange: _onFieldChange"
+				   		       			   data-dojo-props="id: '${id}_enableBoxServerAuth-field', type: 'radio', value: 'disable', name: '${id}_useBoxOAuth'"
+				   					       data-dojo-type="ecm/widget/RadioButton" />
+				   					<label for="${id}_enableBoxServerAuth-field">${_messages.server_autentication}</label>
+				   				</div>
+				   				<div style="padding-top: 5px;">
+				   					<input data-dojo-attach-point="disableBoxOAuth" data-dojo-attach-event="onChange: _onFieldChange"
+				   		       			   data-dojo-props="id: '${id}_disableBoxOAuth-field', type: 'radio', value: 'disable', name: '${id}_useBoxOAuth'"
+				   					       data-dojo-type="ecm/widget/RadioButton" />
+				   					<label for="${id}_disableBoxOAuth-field">${_messages.developer_authentication}</label>
+				   				</div>
+			   				</fieldset>
+						</td>
+					</tr>
+                    <tr data-dojo-attach-point="boxOAuthClientIdRow">
+				        <td class="propertyRowLabel">
+				            <span class="required">*</span>
+				            <label for="${id}_boxOAuthClientId-field">${_messages.admin_box_oauth_client_id}</label>
+				        </td>
+				        <td class="propertyRowValue">
+				            <input data-dojo-attach-point="boxOAuthClientId" data-dojo-attach-event="onKeyUp: _onFieldChange"
+				                   data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="trim: true, propercase: false, required: true, id: '${id}_boxOAuthClientId-field'" />
+				        </td>
+                    </tr>
+                    <tr data-dojo-attach-point="boxOAuthClientSecretRow">
+				        <td class="propertyRowLabel">
+				            <span class="required">*</span>
+				            <label for="${id}_boxOAuthClientSecret-field">${_messages.admin_box_oauth_client_secret}</label>
+				        </td>
+				        <td class="propertyRowValue">
+				            <input data-dojo-attach-point="boxOAuthClientSecret" data-dojo-attach-event="onKeyUp: _onFieldChange"
+				                   data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="trim: true, propercase: false, required: true, id: '${id}_boxOAuthClientSecret-field'" />
+				        </td>
+                    </tr>
+        
+                    <tr data-dojo-attach-point="boxEnterpriseIdRow">
+				        <td class="propertyRowLabel">
+				            <span class="required">*</span>
+				            <label for="${id}_boxEnterpriseId-field">${_messages.enterprise_id}</label>
+				        </td>
+				        <td class="propertyRowValue">
+				            <input data-dojo-attach-point="boxEnterpriseId" data-dojo-attach-event="onKeyUp: _onFieldChange"
+				                   data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="trim: true, propercase: false, required: true, id: '${id}_boxEnterpriseId-field'" />
+				        </td>
+                    </tr>
+                    <tr data-dojo-attach-point="boxPublicKeyIdRow">
+				        <td class="propertyRowLabel">
+				            <span class="required">*</span>
+				            <label for="${id}_boxEnterpriseId-field">${_messages.public_key_id}</label>
+				        </td>
+				        <td class="propertyRowValue">
+				            <input data-dojo-attach-point="boxPublicKeyId" data-dojo-attach-event="onKeyUp: _onFieldChange"
+				                   data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="trim: true, propercase: false, required: true, id: '${id}_boxPublicKeyId-field'" />
+				        </td>
+                    </tr>
+                    <tr data-dojo-attach-point="boxPrivateKeyRow">
+				        <td class="propertyRowLabel">
+				            <span class="required">*</span>
+				            <label for="${id}_boxPrivateKeyPath-field">${_messages.private_key_path}</label>
+				        </td>
+			        	<td class="propertyRowValue">
+				            <input data-dojo-attach-point="boxPrivateKeyPath" data-dojo-attach-event="onKeyUp: _onFieldChange"
+				                   data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="trim: true, propercase: false, required: true, id: '${id}_boxPrivateKeyPath-field'" />
+				        </td>
+                    </tr>
+                    <tr data-dojo-attach-point="boxServerUserEmailRow">
+				        <td class="propertyRowLabel">
+				            <label for="${id}_boxServerUserEmail-field">${_messages.server_user_email}</label>
+				        </td>
+			        	<td class="propertyRowValue">
+				            <input data-dojo-attach-point="boxServerEmail" data-dojo-type="ecm/widget/TextBox" data-dojo-props="readOnly: true, id: '${id}_boxServerUserEmail-field'" />
+				        </td>
+                    </tr>
+                    <tr data-dojo-attach-point="boxOAuthSubDomainRow">
+				        <td class="propertyRowLabel">
+				            <label for="${id}_boxOAuthSubdomain-field">${_messages.admin_box_oauth_subdomain}</label>
+				        </td>
+				        <td class="propertyRowValue">
+				            <input data-dojo-attach-point="boxOAuthSubdomain" data-dojo-attach-event="onKeyUp: _onFieldChange"
+				                   data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="trim: true, propercase: false, required: false, id: '${id}_boxOAuthSubdomain-field'" />
+				        </td>
+                    </tr>
+			</table>
+			<div data-dojo-attach-point="enableCORSDiv" style="display: none">
+				<div data-dojo-props="id: '${id}_boxEnableCORS'" data-dojo-attach-point="boxEnableCORS" data-dojo-attach-event="onClick: _onFieldChange" data-dojo-type="ecm/widget/CheckBox"></div>
+			    <label for="${id}_boxEnableCORS">${_messages.admin_enable_cors}</label>
+			</div>
+			<div data-dojo-attach-point="pluginData" class="pluginRepositoryConfigPane">
+			</div>
+			<div style="padding-top: 7px;" data-dojo-attach-point="connectButtonDiv">
+				<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="connectButton" data-dojo-attach-event="onClick: _onConnectToRepository">
+					${_messages.connect_repository}
+				</button>
+			</div>
+		
+        </div>
+        <div data-dojo-type="ecm/widget/admin/RepositoryConfigurationParameters" data-dojo-attach-point="_configurationParameters" data-dojo-props='iconClass: "required"'></div>
+        <div data-dojo-type="ecm/widget/admin/RepositorySystemProperties" data-dojo-attach-point="_systemProperties"></div>
+        <div data-dojo-type="ecm/widget/admin/RepositoryFolders" data-dojo-attach-point="_repositoryFolders"></div>
+        <div data-dojo-type="ecm/widget/admin/RepositorySearch" data-dojo-attach-point="_repositorySearch"></div> 
+        <div data-dojo-type="ecm/widget/admin/RepositoryOfficeConf" data-dojo-attach-point="_repositoryOfficeConf"></div> 
+        <div data-dojo-type="ecm/widget/admin/RepositoryConnections" data-dojo-attach-point="_repositoryConnections"></div> 
+    </div>
+  </div>  
+</div>

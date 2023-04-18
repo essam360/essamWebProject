@@ -1,0 +1,11 @@
+<div class="ecmDesktopRepositories">
+    <div class="ecmAdminTabInstructions" data-dojo-attach-point="instructions" id="${id}_intro">
+      ${messages.admin_desktop_repositories_instructions}
+    </div>
+    <div class="filterDiv">
+       <label for="${id}_filter" class="dijitHidden">${messages.process_filter_label}</label>
+       <div data-dojo-attach-point="_filter" data-dojo-type="ecm/widget/FilterTextBox" data-dojo-props='"class": "filter", id: "${id}_filter"'></div>
+    </div>
+    <div data-dojo-type="idx/widget/SloshBucket" data-dojo-props="canReoderFixedValues: true, 'class': 'sloshBucket'" data-dojo-attach-point="sloshBucket">
+    </div>
+</div>

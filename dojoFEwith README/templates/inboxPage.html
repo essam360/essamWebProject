@@ -1,0 +1,77 @@
+<div data-dojo-type="adminPage" class="adminPage" style="width: 100%;height: 100%;">
+    <div class="filltering" style="height: 20%;">
+        <div class="filterbut">
+            <div class="img">
+                <img src="assets\images\mail-circle.svg" alt="" srcset="" width="50">
+            </div>
+            <div class="info">
+                <span class="Hinfo">المعاملات الداخليه 20</span>
+                <span>مقروءة 10</span>
+                <span>غير مقروءة 10</span>
+            </div>
+        </div>
+
+        <div class="filterbut">
+            <div class="img">
+                <img src="assets\images\mail-circle.svg" alt="" srcset="" width="50">
+            </div>
+            <div class="info">
+                <span class="Hinfo">المعاملات الداخليه 20</span>
+                <span>مقروءة 10</span>
+                <span>غير مقروءة 10</span>
+            </div>
+        </div>
+
+        <div class="filterbut">
+            <div class="img">
+                <img src="assets\images\mail-circle.svg" alt="" srcset="" width="50" >
+            </div>
+            <div class="info">
+                <span class="Hinfo">المعاملات الداخليه 20</span>
+                <span>مقروءة 10</span>
+                <span>غير مقروءة 10</span>
+            </div>
+        </div>
+
+    </div>
+    <div data-dojo-attach-point="inboxGrid" class="inboxGrid" style="height: 80%;">
+        <div data-dojo-type="dojox/grid/EnhancedGrid" data-dojo-id="inboxDataGrid" id="inboxDataGrid"
+            data-dojo-attach-point="inboxDataGrid" style="width: 100%; height: 100%;">
+
+
+        </div>
+    </div>
+    
+    <style>
+        .filltering {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.filterbut {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    border: 1px solid black;
+    padding: 10px;
+    width: max-content;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.filterbut .info {
+    display: flex;
+    flex-direction: column;
+}
+
+.info .Hinfo {
+    font-size: 1.2rem;
+}
+    </style>
+</div>

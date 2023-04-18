@@ -1,0 +1,28 @@
+<div class="ecmAdminTab ecmIconStatusDialog">	
+    <label for="${id}-icon-label">${messages.admin_icon_mapping_icon_label}</label>
+    <fieldset>
+	<legend style="display: none;" id="${id}-icon-label">${messages.admin_icon_mapping_icon_label}</legend>
+	<table class="propertyTable" role="presentation">
+		<tr>
+			<td class="propertyRowLabel">
+				<input data-dojo-attach-point="radioClassName" data-dojo-props="id: '${id}_radioClassName', type: 'radio', value: 'radioClassName', checked: true" data-dojo-type="dijit/form/RadioButton" data-dojo-attach-event="onClick:_onUseClassName" >
+				<label for="${id}_radioClassName">${messages.admin_icon_mapping_class_name}</label>
+				<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="classNameFieldHoverHelp">${messages.admin_icon_mapping_class_name_hover}</div>
+			</td>
+			<td class="propertyRowValue">
+			   <div data-dojo-attach-point="classNameField" data-dojo-props='id: "${id}_className-field", maxHeight: 200' data-dojo-attach-event="onChange: _onClassNameChange,onKeyUp: _onClassNameChange" data-dojo-type="ecm/widget/Select"></div>
+			</td>
+		</tr>
+		<tr>
+			<td class="propertyRowLabel">
+				<input data-dojo-attach-point="radioFileName" data-dojo-props="id: '${id}_radioFileName', type: 'radio', value: 'radioFileName'" data-dojo-type="dijit/form/RadioButton" data-dojo-attach-event="onClick:_onUseFileName" >
+				<label for="${id}_radioFileName">${messages.admin_icon_mapping_file_name}</label>
+				<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="fileNameFieldHoverHelp">${messages.admin_icon_mapping_file_name_hover}</div>
+			</td>
+			<td class="propertyRowValue">
+			   <input data-dojo-attach-point="fileNameField" data-dojo-props='id: "${id}_fileName-field", trim: true, propercase: false' data-dojo-attach-event="onKeyPress: _onFileNameChange,onKeyUp: _onFileNameChange" data-dojo-type="ecm/widget/ValidationTextBox" />
+			</td>
+		</tr>
+	</table>
+	</fieldset>
+</div>

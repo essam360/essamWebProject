@@ -1,0 +1,45 @@
+<div class="ecmBanner" role="banner">
+	<div data-dojo-attach-point="bannerContainer" class="bannerContainer darkTheme">
+		<div data-dojo-attach-point="containerNode" class="container">
+			<div data-dojo-attach-point="applicationName" class="productName"></div>
+            <img data-dojo-attach-point="applicationLogoImg" class="productLogo" style="display: none;">			
+		</div>
+		<div class="applicationMenu" data-dojo-attach-point="applicationMenu"  style="visibility: hidden"></div>
+		<div data-dojo-attach-point="searchBarArea" class="searchBarArea"></div>
+		<div data-dojo-attach-point="trailerNode" class="trailer" style="visibility: hidden">
+			<div data-dojo-attach-point="userSessionActionsButton" 
+					data-dojo-type="dijit.form.DropDownButton"
+					title="${messages.user_session}"
+					alt="${messages.user_session}"
+					iconClass="person"
+					class="userDropDownButton">
+				<div data-dojo-type="dijit.Menu" data-dojo-attach-point="userSessionActionsMenu" class="bannerMenu" style="display: none;">
+				</div>
+			</div>
+			<div data-dojo-attach-point="toolsActionsButton" 
+					data-dojo-type="dijit.form.DropDownButton"
+					label="${messages.tools}"
+					showLabel=false
+					title="${messages.tools}"
+					alt="${messages.tools}"
+					iconClass="actions"
+					class="toolsDropDownButton">
+				<div data-dojo-type="dijit.Menu" data-dojo-attach-point="toolsActionMenu" class="bannerMenu" style="display: none;">
+				</div>
+			</div>
+			<div data-dojo-attach-point="helpButton" 
+					data-dojo-type="dijit.form.Button"
+					showLabel=false
+					label="${messages.help}"
+					title="${messages.help}"
+					alt="${messages.help}"
+					iconClass="help">
+			</div>
+		</div>
+		<div class="logo" data-dojo-attach-point="logo">
+			<div class="logoImage" data-dojo-attach-point="logoImage">
+				<img data-dojo-attach-point="bannerLogoImg" style="display: none;">
+			</div>
+		</div>
+	</div>
+</div>

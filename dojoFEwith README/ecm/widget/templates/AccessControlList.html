@@ -1,0 +1,19 @@
+<div class="ecmAccessControlList" data-dojo-attach-point="containerNode">
+  
+  <div class="ecmBorderBaseClass" data-dojo-type="idx.layout.BorderContainer"
+       style="height: ${borderHeight}; width: ${borderWidth};" data-dojo-attach-point="borderContainer" gutters="false">
+
+  		<div data-dojo-attach-point="centerPane" data-dojo-props="region: 'center'"   data-dojo-type="idx.layout.ContentPane" extractcontent="false" preventcache="false" preload="false" refreshonshow="false" splitter="false"   dolayout="false">
+  			<div data-dojo-attach-point="gridPane" ></div>
+  		</div>
+		<div data-dojo-attach-point="bottomPane" data-dojo-props="region: 'bottom'"  style="display: none" style="white-space: nowrap; margin-right: 10px;" region="bottom" data-dojo-type="idx.layout.ContentPane" extractcontent="false" preventcache="false" preload="false" refreshonshow="false" splitter="false"   dolayout="false">
+            <span style="float: right; margin-right: 5px" class="dijitInline">
+             	<label for="${id}_access-field">${messages.admin_repository_redaction_role_access_type}</label>&nbsp;
+				<select data-dojo-type="ecm/widget/Select" data-dojo-attach-point="access" data-dojo-attach-event="onChange: _onAccessChange" data-dojo-props="id: '${id}_access-field', disabled: true"></select>
+				<button data-dojo-type="dijit/form/Button" class="dijitInline ecmAclRemoveMemberButton" data-dojo-props="id: '${id}_cmAclRemoveMemberButton', disabled: true" data-dojo-attach-point="_cmAclRemoveMemberButton" data-dojo-attach-event="onClick: _onClickRemove">
+           			${messages.desktop_user_group_remove}
+ 	        	</button>				
+			</span>
+		</div>
+	</div> 
+</div>

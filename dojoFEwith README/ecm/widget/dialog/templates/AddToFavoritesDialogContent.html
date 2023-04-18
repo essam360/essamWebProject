@@ -1,0 +1,15 @@
+<div class="ecmAliasLabel">
+	<span class="required" data-dojo-attach-point="required_label">&#42;</span>
+	<label for="${id}_alias" data-dojo-attach-point="alias_label"></label>
+</div>
+<input data-dojo-type="dijit/form/ValidationTextBox" 
+	   data-dojo-attach-point="alias" name="${id}_alias" id="${id}_alias" missingMessage="${messages.missing_alias_message}"
+       type="text" value="" trim="true" required="true"/>
+<p data-dojo-attach-point="syncArea" style="display:none">
+	<input id="${id}_enable_sync" 
+			data-dojo-type="dijit/form/CheckBox"
+		    data-dojo-attach-point="enableSync" 
+			data-dojo-props="name: '${id}_enable_sync',checked: false"/>
+	<label for="${id}_enable_sync">${messages.sync_enable_label}</label>
+	<span data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="enableSyncHoverHelp">${messages.sync_enable_label_hover}</span>
+</p>

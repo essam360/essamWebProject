@@ -1,0 +1,32 @@
+<div class="ecmSelectObject">
+	<div data-dojo-type="idx/layout/TitlePane" collapsible="true" title="${messages.search_criteria_no_colon}" data-dojo-attach-point="searchDefTitle">
+		<fieldset class="newExistingSearchRadios">
+			<legend>${messages.select_object_fieldset_legend}</legend>
+			<input type="radio" data-dojo-type="dijit/form/RadioButton" data-dojo-attach-point="newSearchSelection" id="${id}_radioNew" 
+			       data-dojo-attach-event="onClick:_onNewSearchClick" name="searchSelection" checked/>
+			&nbsp;<label for="${id}_radioNew">${messages.select_object_create_new_search}</label>
+			<br/>
+   			<input type="radio" data-dojo-type="dijit/form/RadioButton" data-dojo-attach-point="existingSearchSelection" id="${id}_radioExisting"
+   			       data-dojo-attach-event="onClick:_onExistingSearchClick" name="searchSelection"/>
+   			&nbsp;<label for="${id}_radioExisting">${messages.select_object_search_template}</label>
+   			<div class="searchSelectorArea" data-dojo-attach-point="searchSelectorArea">
+   			</div>
+		</fieldset>
+		<div class="searchCriteria" data-dojo-type="ecm/widget/search/SearchForm" data-dojo-attach-point="searchForm" style="display:none"></div>
+		<div class="searchCriteria ecmSearchTab" data-dojo-type="ecm/widget/search/BasicSearchDefinition" data-dojo-attach-point="searchCriteria" displaySearchInCtrl="false" defaultObjectType="${_defaultObjectType}"></div>
+	</div>
+	<div data-dojo-type="idx/layout/TitlePane" collapsible="true" title="${messages.search_results}" data-dojo-attach-point="searchResultsTitle" open="false">
+	    <div data-dojo-attach-point="searchResults" class="searchResultsArea" emptyMessage="${messages.no_results_were_found}" data-dojo-type="ecm/widget/listView/ContentList"></div>
+		<div data-dojo-attach-point="selVersionArea">
+			<div class="versionButton">
+				<div id="${id}_staticVersionButton" data-dojo-attach-point="staticVersionButton" data-dojo-attach-event="onClick:_onPickVersionClick" disabled="true" data-dojo-type="dijit/form/Button" label="${messages.show_versions_label}"></div>
+			</div>
+			<div data-dojo-attach-point="selVersionCurrentReleased" class="versionTypes">
+				<input id="${id}_useReleasedRadio" data-dojo-attach-point="useReleasedRadio" data-dojo-type="dijit/form/RadioButton" name="currentOrReleased" data-dojo-attach-event="onClick:_onUseCurrentChange" checked="checked"/>
+				<label for="${id}_useReleasedRadio" data-dojo-attach-point="useReleasedLabel">${messages.use_released_version_label}</label>
+				<input id="${id}_useCurrentRadio" data-dojo-attach-point="useCurrentRadio" data-dojo-type="dijit/form/RadioButton" name="currentOrReleased" data-dojo-attach-event="onClick:_onUseCurrentChange" />
+				<label for="${id}_useCurrentRadio" data-dojo-attach-point="useCurrentLabel">${messages.use_current_version_label}</label>
+			</div>
+		</div>		
+	</div>
+</div>

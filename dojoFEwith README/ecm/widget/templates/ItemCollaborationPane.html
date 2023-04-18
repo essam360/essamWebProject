@@ -1,0 +1,108 @@
+<div class="ecmItemCollaborationPane" style="width: 100%; height: 100%;">	
+	<div style="width: 100%; height: 100%;" class="ecmCollaborationPane" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="gutters:true, liveSplitters:false" data-dojo-attach-point="_mainContent">
+	    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:false, region:'top'">
+	
+			<div data-dojo-attach-point="_infoPane" class="inlineMessage inlineMessageWarning infoClass" style="display: none;">
+	            <div class="messageIcon"></div>
+	            <div class="messageText" role="alert" data-dojo-attach-point="_infoText" ></div>
+	        </div>
+	        <div style="clear: both;" data-dojo-attach-point="_addSection" class="dijitHidden">
+				<div class="inviteTextBox" data-dojo-type="ecm/widget/ComboBox"
+					data-dojo-props="searchAttr:'name',hasDownArrow:false, trim: true, labelAttr: 'label', labelType: 'html'"
+					data-dojo-attach-point="_inviteTextBox"
+					data-dojo-attach-event="onKeyUp: _onNameTextChange">
+				</div>
+				<label class="invitePermissionLabel" for="${id}_permissionDropDown"
+					data-dojo-attach-point="_permissionLabel">${messages.box_permission_permission}</label>
+				<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_permissionHoverHelp">
+					<table class="permissionHoverHelpTable" role="presentation">
+						<thead>
+							<tr>
+								<th class="permissionColumn">${messages.box_permission_permissions}</th>
+								<th>${messages.box_permission_upload}</th>
+								<th>${messages.box_permission_download}</th>
+								<th>${messages.box_permission_preview}</th>
+								<th>${messages.box_permission_view}</th>
+								<th>${messages.box_permission_send_links}</th>
+								<th>${messages.box_permission_create_subfolders}</th>
+								<th>${messages.box_permission_create_tasks}</th>
+								<th>${messages.box_permission_add_comments}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="permissionColumn">${messages.box_permission_viewer_uploader}</td>
+								<td>&bull;</td>
+								<td>&bull;</td>
+								<td>&bull;</td>
+								<td>&bull;</td>
+								<td>&bull;</td>
+								<td>&bull;</td>
+								<td>&bull;</td>
+								<td>&bull;</td>
+							</tr>
+							<tr>
+								<td class="permissionColumn">${messages.box_permission_previewer_uploader}</td>
+								<td>&bull;</td>
+								<td></td>
+								<td>&bull;</td>
+								<td>&bull;</td>
+								<td></td>
+								<td>&bull;</td>
+								<td></td>
+								<td>&bull;</td>
+							</tr>
+							<tr>
+								<td class="permissionColumn">${messages.box_permission_viewer}</td>
+								<td></td>
+								<td>&bull;</td>
+								<td>&bull;</td>
+								<td>&bull;</td>
+								<td>&bull;</td>
+								<td></td>
+								<td>&bull;</td>
+								<td>&bull;</td>
+							</tr>
+							<tr>
+								<td class="permissionColumn">${messages.box_permission_previewer}</td>
+								<td></td>
+								<td></td>
+								<td>&bull;</td>
+								<td>&bull;</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>&bull;</td>
+							</tr>
+							<tr>
+								<td class="permissionColumn">${messages.box_permission_uploader}</td>
+								<td></td>
+								<td></td>
+								<td>&bull;</td>
+								<td>&bull;</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>&bull;</td>
+							</tr>
+						</tbody>
+					</table>
+					<br/>
+				</div>
+				<!--<select class="invitePermissionDropdown" id="${id}_permissionDropDown"
+					data-dojo-type="icm/dialog/boxcollaborationdialog/EditorPermission"
+					data-dojo-attach-point="_permissionDropDown">
+				</select>-->				
+				<div style="display: inline-flex">
+					<span class= "selectPermissionLink" id="${id}_permissionLink" data-dojo-type="ecm/widget/EditorPermissionLink" data-dojo-attach-point="_permissionLink"></span>
+				</div>
+				<div class="addMemberButton" data-dojo-attach-point="_addMemberButton" data-dojo-type="ecm/widget/Button" title="{resourceBundle.addButtonTitle}"
+					data-dojo-props='showLable:false'
+					data-dojo-attach-event="onClick: _onInviteCollaborator" disabled="disabled">${messages.box_permission_add}
+				</div>
+			</div>
+
+			<div style="margin-right: 1px; margin-top: 20px" data-dojo-attach-point="_filter" data-dojo-props='id: "${id}_filter", "class": "filter"' data-dojo-type="ecm/widget/FilterTextBox"></div>
+	 	</div>
+	    <div style="top:80px" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:false, region:'center'" data-dojo-attach-point="_membersContent"></div>
+	</div></div>

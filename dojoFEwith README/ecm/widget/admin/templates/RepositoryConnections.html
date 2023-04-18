@@ -1,0 +1,164 @@
+<div class="adminRepository ecmRepositoryConnections" data-dojo-type="dijit/layout/BorderContainer" gutters="false" data-dojo-attach-point="_repositoryOfficeConfBorderContainer">
+	<div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'center', 'class': 'mainContentPane'">
+		<div class="ecmAdminTabInstructions" id="${id}_intro" data-dojo-attach-point="_instructions">${messages.admin_collaboration_services_instructions}</div>
+		<div data-dojo-type="idx/layout/TitlePane" data-dojo-props='"aria-describedby": "${id}_communityInstructions", style: { "margin-top": "5px", "margin-bottom": "5px", "margin-left": "0px" }' data-dojo-attach-point="_communityTitlePane">
+		    <div class="categoryInstructions" id="${id}_communityInstructions">${messages.admin_collaboration_community_instruction}</div>
+			<table class="propertyTable" role="presentation">
+					<tbody class="propertyTable">
+						<tr>
+							<td class="propertyRowLabel" valign="middle">
+								<label>${messages.admin_collaboration_community_teamspaces}</label>
+					 			<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="teamspacesEnableHover">${messages.admin_collaboration_community_teamspaces_hover}</div>
+							</td>
+							<td class="propertyRowValue">
+		        		      <fieldset>
+        		        		<legend style="display: none;" id="${id}_community_teamspaces_legend">${messages.admin_collaboration_community_teamspaces}</legend>
+						    		<input data-dojo-props="id: '${id}_comm_teamspaces_enable', type: 'radio', name: '${id}_coll_teamspaces_enable'" data-dojo-attach-point="teamspacesEnable" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick: _enableCommunityLib, onChange: _onFieldChange" />              
+		    		        	    <label for="${id}_comm_teamspaces_enable">${messages.yes}</label>
+			                		<input data-dojo-props="id: '${id}_comm_teamspaces_disable', type: 'radio', name: '${id}_coll_teamspaces_enable', 'class': 'radioButton1'" data-dojo-attach-point="teamspacesDisable" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick: _disableCommunityLib, onChange: _onFieldChange">
+		    			            <label for="${id}_comm_teamspaces_disable">${messages.no}</label>
+							  </fieldset>	
+							</td>
+						</tr>	
+						<tr data-dojo-attach-point="inlineMessageRow" class="dijitHidden">
+							<td class="propertyRowLabel" valign="middle" colspan=2>
+							    <div class="property inlineMessage inlineMessageWarning" data-dojo-attach-point="inlineMessageDiv">
+							        <div class="messageIcon"></div>
+      								<div class="messageText" role="status" data-dojo-attach-point="inlineMessageText"></div>
+    							</div>
+							</td>
+						</tr>	
+						<tr>
+							<td class="propertyRowLabel" valign="middle">
+								<label for="${id}_connections_url-field">${messages.admin_collaboration_connections_url}</label>
+					 			<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="connectionsUrlHover">${messages.admin_collaboration_connections_url_hover}</div>
+							</td>
+							<td class="propertyRowValue">
+							   <input data-dojo-attach-point="connectionsUrl" data-dojo-attach-event="onKeyUp: _onFieldChange" 
+							          data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="id: '${id}_connections_url-field', trim: true, required: false, propercase: false, maxLength: 240, style: { 'min-width': '300px' }" />
+							</td>
+						</tr>	
+						<tr>
+							<td class="propertyRowLabel" valign="middle">
+								<label for="${id}_connections_url_https-field">${messages.admin_collaboration_connections_url_https}</label>
+					 			<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="connectionsUrlHttpsHover">${messages.admin_collaboration_connections_url_https_hover}</div>
+							</td>
+							<td class="propertyRowValue">
+							   <input data-dojo-attach-point="connectionsUrlHttps" data-dojo-attach-event="onKeyUp: _onFieldChange" 
+					    		      data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="id: '${id}_connections_url_https-field', trim: true, required: false, propercase: false, maxLength: 240, style: { 'min-width': '300px' }" />
+							</td>
+						</tr>	
+						<tr>
+							<td class="propertyRowLabel" valign="middle">
+								<label>${messages.admin_collaboration_connections_seedlist}</label>
+					 			<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="seedlistEnableHover">${messages.admin_collaboration_connections_seedlist_hover}</div>
+							</td>
+							<td class="propertyRowValue">
+		              		<fieldset>
+        				        <legend style="display: none;" id="${id}_seedlist_legend">${messages.admin_collaboration_connections_seedlist}</legend>
+					    		<input data-dojo-props="id: '${id}_seedlist_enable', type: 'radio', name: '${id}_seedlist_enable'" data-dojo-attach-point="seedlistEnable" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange" />              
+				                <label for="${id}_seedlist_enable">${messages.yes}</label>
+                				<input data-dojo-props="id: '${id}_seedlist_disable', type: 'radio', name: '${id}_seedlist_enable', 'class': 'radioButton1'" data-dojo-attach-point="seedlistDisable" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange">
+				                <label for="${id}_seedlist_disable">${messages.no}</label>
+							  </fieldset>	
+							</td>
+						</tr>	
+						<tr>
+							<td class="propertyRowLabel" valign="middle">
+							   <label>${messages.admin_collaboration_connections_anonymous}</label>
+					 		   <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="anonymousEnableHover">${messages.admin_collaboration_connections_anonymous_hover}</div>
+					 		</td>   
+							<td class="propertyRowValue" valign="middle">
+		        		       <fieldset>
+		        		         <legend style="display: none;" id="${id}_anonymous_legend">${messages.admin_collaboration_connections_anonymous}</legend>
+					    	 	 <input data-dojo-props="id: '${id}_anonymous_enable', type: 'radio', name: '${id}_anonymous_enable'" data-dojo-attach-point="anonymousEnable" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick: _onEnableAnonymous, onChange: _onFieldChange" />              
+		        		         <label for="${id}_anonymous_enable">${messages.yes}</label>
+        		        		 <input data-dojo-props="id: '${id}_anonymous_disable', type: 'radio', name: '${id}_anonymous_enable', 'class': 'radioButton1'" data-dojo-attach-point="anonymousDisable" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick: _onDisableAnonymous, onChange: _onFieldChange">
+		        		         <label for="${id}_anonymous_disable">${messages.no}</label>
+					  		   </fieldset>
+					  		   <div class="anonymousUsers" data-dojo-attach-point="anonymousUsersDiv" style="width: 100%; max-height: 300px; overflow: auto;">	
+					    		 <button data-dojo-type="dijit/form/Button" data-dojo-props="id: '${id}_connections_admins-button'" data-dojo-attach-point="anonymousButton" data-dojo-attach-event="onClick: _onSelectAnonymousUser">
+		            				${messages.select_user_label}
+		  	            		 </button>
+				  	             <div data-dojo-attach-point="_anonymousUsersPane" data-dojo-type="ecm/widget/UserGroupPane" data-dojo-props="'class': 'dijitInline', style: { 'width': 'auto' }"></div>
+		  	            	   </div>	 
+							</td>
+						</tr>	
+						<tr>
+							<td class="propertyRowLabel" valign="middle" colspan=2>
+								<label>${messages.admin_collaboration_connections_security}</label>
+					 		    <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-props="isFocusable: true" data-dojo-attach-point="selectAdninsButtonHover">${messages.admin_collaboration_connections_security_hover}</div>
+					    		<button data-dojo-type="dijit/form/Button" data-dojo-props="id: '${id}_connections_admins-field'" data-dojo-attach-point="selectAdninsButton" data-dojo-attach-event="onClick: _onSelectAdmin">
+				            		${messages.select_users_groups_label}
+				  	            </button>
+				  	            <div data-dojo-attach-point="_adminDataPane" data-dojo-type="ecm/widget/UserGroupPrivilegePane"></div>
+							</td>
+						</tr>	
+					</tbody>
+			</table>
+		</div>
+		<div data-dojo-type="idx/layout/TitlePane" data-dojo-props='"aria-describedby": "${id}_activityStreamInstructions", style: { "margin-top": "5px", "margin-bottom": "5px", "margin-left": "0px" }' data-dojo-attach-point="_activityStreamTitlePane">
+		    <div class="categoryInstructions" id="${id}_activityStreamInstructions">${messages.admin_collaboration_activity_stream_instruction}</div>
+			<table class="propertyTable" role="presentation">
+					<tbody class="propertyTable">
+						<tr>
+							<td class="propertyRowLabel" valign="middle">
+								<label>${messages.admin_collaboration_activity_stream_label}</label>
+					 		    <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="activityStreamEnableHover">${messages.admin_collaboration_activity_stream_label_hover}</div>
+							</td>
+							<td class="propertyRowValue">
+		              		  <fieldset>
+        		        		<legend style="display: none;" id="${id}_activity_stream_enable_legend">${messages.admin_collaboration_activity_stream_label}</legend>
+			    				<input data-dojo-props="id: '${id}_activity_stream_enable', type: 'radio', name: '${id}_coll_activity_stream_enable'" data-dojo-attach-point="activityStreamEnable" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick: _onEnableActivityStream, onChange: _onFieldChange" />              
+		                		<label for="${id}_activity_stream_enable">${messages.yes}</label>
+                				<input data-dojo-props="id: '${id}_activity_stream_disable', type: 'radio', name: '${id}_coll_activity_stream_enable', 'class': 'radioButton1'" data-dojo-attach-point="activityStreamDisable" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick: _onDisableActivityStream, onChange: _onFieldChange">
+		                		<label for="${id}_activity_stream_disable">${messages.no}</label>
+					  		  </fieldset>	
+							</td>
+						</tr>
+						<tr>
+							<td class="propertyRowLabel" valign="middle">
+								<label for="${id}_activity_stream_specify_value">${messages.admin_collaboration_connections_url}</label>
+					 		    <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="activityStreamUrlHover">${messages.admin_collaboration_connections_url_hover}</div>
+							</td>
+							<td class="propertyRowValue">
+							    <input data-dojo-attach-point="activityStreamConnectionsUrl" data-dojo-attach-event="onKeyUp: _onFieldChange" 
+	 						           data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="id: '${id}_activity_stream_specify_value', trim: true, required: false, propercase: false, maxLength: 240, style: { 'min-width': '300px' }" />
+							</td>
+						</tr>	
+						<tr>
+							<td class="propertyRowValue" valign="middle" colspan=2>
+								<label for="${id}_activity_stream_ids">${messages.admin_collaboration_activity_stream_ignored_ids}</label>
+					 		    <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-props="isFocusable: true" data-dojo-attach-point="activityStreamEnableHover">${messages.admin_collaboration_activity_stream_ignored_ids_hover}</div>
+							    <button data-dojo-type="dijit/form/Button" data-dojo-props="id: '${id}_activity_stream_ids'" data-dojo-attach-point="activityStreamIgnoreIdsButton" data-dojo-attach-event="onClick: _onSelectActivityStreamIgnoreIds">
+				            		${messages.select_users_groups_label}
+		  	    		        </button>
+				  	            <div data-dojo-attach-point="_activityStreamIgnoreUsersPane" data-dojo-type="ecm/widget/UserGroupPane"></div>
+							</td>
+						</tr>
+						<tr>
+							<td class="propertyRowLabel" valign="middle">
+								<span class="required">*</span>
+								<label for="${id}_connections_userid-field">${messages.admin_collaboration_activity_stream_userid}</label>
+					 		    <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="connectionsUserIdHover">${messages.admin_collaboration_activity_stream_userid_hover}</div>
+							</td>
+							<td class="propertyRowValue">
+							   <input data-dojo-attach-point="connectionsUserId" data-dojo-attach-event="onKeyUp: _onFieldChange" 
+							          data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="id: '${id}_connections_userid-field', trim: true, required: false, propercase: false, maxLength: 240, style: { 'min-width': '300px' }" />
+							</td>
+						</tr>	
+						<tr>
+							<td class="propertyRowLabel" valign="middle">
+								<span class="required">*</span>
+								<label for="${id}_connections_password-field">${messages.admin_collaboration_activity_stream_password}</label>
+							</td>
+							<td class="propertyRowValue">
+							   <input data-dojo-attach-point="connectionsPassword" data-dojo-attach-event="onKeyUp: _onFieldChange" 
+							          data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="id: '${id}_connections_password-field', trim: true, required: false, propercase: false, maxLength: 240, style: { 'min-width': '300px' }" />
+							</td>
+						</tr>	
+					</tbody>
+			</table>
+		</div>					
+    </div>   
+</div>

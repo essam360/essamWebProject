@@ -1,0 +1,40 @@
+<div>	
+	<table role="presentation">
+		<tr data-dojo-attach-point="_coverPageRow">
+			<td>
+		        <fieldset>
+		        	<div  data-dojo-props="id: '${id}_coverPage'" data-dojo-attach-point="_coverPage" data-dojo-attach-event="onClick: _onFieldChange" data-dojo-type="ecm/widget/CheckBox"></div>
+				    <label data-dojo-attach-point="_coverPageLabel" for="${id}_coverPage">${messages.daeja_print_cover_page}</label>
+		        </fieldset>
+	        </td>
+		</tr>
+		<!-- hide these options for 3.0.2
+		<tr>
+			<td>
+		        <fieldset>
+				    <div  data-dojo-props="id: '${id}_hideAnnotations'" data-dojo-attach-point="_hideAnnotations" data-dojo-attach-event="onClick: _onFieldChange" data-dojo-type="ecm/widget/CheckBox"></div>
+				    <label for="${id}_hideAnnotations">Hide Annotations</label>
+		        </fieldset>
+	        </td>
+		</tr>
+		<tr>
+			<td>
+		        <fieldset>
+				    <div  data-dojo-props="id: '${id}_annotationSummary'" data-dojo-attach-point="_annotationSummary" data-dojo-attach-event="onClick: _onFieldChange" data-dojo-type="ecm/widget/CheckBox"></div>
+				    <label for="${id}_annotationSummary">Annotation Summary Page</label>
+		        </fieldset>
+	        </td>
+		</tr>
+		-->
+	</table>
+	
+	<div class="ecmPrintDialogDaejaSelectedDocumentsArea" data-dojo-type="idx/layout/TitlePane" title="${messages.daeja_print_selected_documents_title}" data-dojo-attach-point="_selectedDocumentsTwisty">
+		<div class="dijitInline documentsGridContainer" data-dojo-attach-point="_SelectedDocumentsGridContainer"></div>
+		<div class="moveUpDownButtons ecmSloshBucket" data-dojo-attach-point="_moveUpDownButtonContainer">
+        	<div title="${messages.move_up_selected_tooltip}" showLabel="false" iconClass="moveUpButton" data-dojo-attach-point="_upButton" data-dojo-type="dijit.form.Button" data-dojo-attach-event="onClick: _onClickUp">&#8743;</div>
+        	<div title="${messages.move_down_selected_tooltip}" showLabel="false" iconClass="moveDownButton" data-dojo-attach-point="_downButton" data-dojo-type="dijit.form.Button" data-dojo-attach-event="onClick: _onClickDown">&#8744;</div>
+	    </div>
+	</div>
+	
+	
+</div>

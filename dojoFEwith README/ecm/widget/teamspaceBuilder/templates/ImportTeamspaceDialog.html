@@ -1,0 +1,34 @@
+ <div data-dojo-type="dijit.layout.BorderContainer" gutters=false data-dojo-attach-point="borderContainer">
+    <div data-do-type="dijit/layout/ContentPane" data-dojo-props="region:'center'" style="height:100%; width:100%; overflow: auto;">
+       <table class="propertyTable" role="presentation">
+             <tr data-dojo-attach-point="_fileInputArea">
+                 <td class="propertyRowLabel" data-dojo-attach-point="_fileInputLabel">
+                     <span class="required">*</span>
+                     <label for="${id}_fileInput">${messages.teamspace_choose_file_to_import_label}</label>
+                 </td>
+                 <td class="propertyRowValue">
+                      <form data-dojo-attach-point="_fileInputForm"
+                          name="fileUploadForm"
+                          enctype="multipart/form-data"
+                          accept-charset="UTF-8"
+                          method="post"
+                          action="dummyUploadUrl"
+                          target="${id}_fileInputIFrame">
+                          <input type="file"
+                              size="49"
+                              require="true"
+                              id="${id}_fileInput"
+                              name="uploadFile"
+                              class="fileInput"
+                              data-dojo-attach-point="_fileInput"
+                              data-dojo-attach-event="onchange: onFileInputChange"/>
+                          <iframe name="${id}_fileInputIFrame"
+                              id="${id}_fileInputIFrame"
+                              style="display: none">
+                          </iframe>
+                      </form>
+                 </td>
+             </tr>
+         </table>
+    </div>
+</div>     

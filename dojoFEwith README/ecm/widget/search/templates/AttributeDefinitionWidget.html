@@ -1,0 +1,26 @@
+<div class="attributeDefintionWidget" data-dojo-attach-point="focusNode">
+	<div data-dojo-attach-point="advancedSettingIconArea" class="dijitInline advancedSettingsIconControls">
+		<span class="dijitInline advancedSettingIcon" data-dojo-attach-point="advancedSettingIconNode" role="button" aria-label="" title="" tabindex="0" >
+			<span data-dojo-attach-point="advancedSettingsText" class="iconText">[A]</span>
+		</span>
+	</div>
+	<div class="dijitInline attributeNameS" data-dojo-attach-point="allAttributeNameS"></div
+	><div class="dijitInline attributeContainer" data-dojo-attach-point="attributeContainer">
+		<div class="dijitInline operatorSelectContainer" data-dojo-attach-point="operatorSelectContainer"></div>
+		<div class="dijitInline valueFieldContainer" data-dojo-attach-point="valueFieldContainer"></div>
+	</div>
+	<div data-dojo-attach-point="controlButtons" class="controlButtonsHidden dijitInline attributeControls">
+		<span class="dijitInline moveUpIcon" data-dojo-attach-point="moveUpNode" role="button" aria-label="${messages.move_up_selected_tooltip}" title="${messages.move_up_selected_tooltip}" tabindex="0">
+			<span class="iconText">[&#8593;]</span>
+		</span>
+		<span class="dijitInline moveDownIcon" data-dojo-attach-point="moveDownNode" role="button" aria-label="${messages.move_down_selected_tooltip}" title="${messages.move_down_selected_tooltip}" tabindex="0">
+			<span class="iconText">[&#8595;]</span>
+		</span>
+		<span class="dijitInline optionIcon" data-dojo-attach-point="optionNode" role="button" aria-label="${messages.advanced_search_options_tooltip}" title="${messages.advanced_search_options_tooltip}" tabindex="0" >
+			<span data-dojo-attach-point="optionText" class="iconText">[*]</span>
+		</span>
+		<span class="dijitInline removeIcon" data-dojo-attach-point="removeNode" role="button" aria-label="${messages.remove_from_selected_tooltip}" title="${messages.remove_from_selected_tooltip}" tabindex="0" data-dojo-attach-event="onblur: _onCheckBlur, onkeydown: _onKeyDownRemoveNode">
+			<span data-dojo-attach-point="removeText" class="iconText">[x]</span>
+		</span>
+	</div>
+</div>

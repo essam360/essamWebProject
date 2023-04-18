@@ -1,0 +1,58 @@
+<div class="ecmWorkspaceBuilderPane usersPane">	
+    <h1 data-dojo-attach-point="heading">${messages.workspacebuilder_users_pane}</h1>
+    
+    <div class="container1">	
+    	<div class="builderIntroText" id="${id}_introText" tabindex=0>
+	    	${messages.workspacebuilder_instance_users_introText}
+	    	<a href="#" data-dojo-attach-event="onclick: onHelp">${messages.learn_more}</a>
+    	</div>	
+    	
+    	<table border="0" cellpadding="0" cellspacing="0" role="presentation">
+    		<tr>
+    			<td class="usersArea">
+    			
+    					<div data-dojo-attach-point="userGridBcontainer"	data-dojo-type="idx.layout.BorderContainer"  data-dojo-props="gutters:false" style="width:100%;height:100%">
+									
+							<div	data-dojo-type="idx.layout.ContentPane"  data-dojo-props="region:'top'" style="width:100%;">
+								<div style="font-weight: bold; padding-bottom:5px;">${messages.workspacebuilder_users_selected_users_and_groups_label}</div>
+								<div class="buttonArea">
+									<div class="headerActionButtons">
+										<div class="leadingArea">
+											<div data-dojo-attach-point="removeButton" disabled
+												data-dojo-attach-event="onClick : onRemoveUser" data-dojo-type="dijit.form.Button">
+												${messages.workspacebuilder_selection_remove}</div>
+										</div>												
+										<div class="trailingArea">
+											<div data-dojo-attach-point="addButton"
+												data-dojo-attach-event="onClick : onAddUser"
+												data-dojo-type="dijit.form.Button">
+												${messages.workspacebuilder_users_add_users_and_groups_button}</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div data-dojo-attach-point="userGridContainer" data-dojo-type="idx.layout.ContentPane"  data-dojo-props="region:'center'" style="width:100%">
+							</div>
+						</div>
+					
+	   			</td>
+    			<td class="availableRolesArea">
+    			
+    					<div	data-dojo-attach-point="roleSection"  data-dojo-type="idx.layout.BorderContainer"  data-dojo-props="gutters:false" style="width:100%;height:100%">
+									
+							<div	data-dojo-type="idx.layout.ContentPane"  data-dojo-props="region:'top'" style="width:100%;">
+								<div style="font-weight: bold; padding-bottom: 5px;">${messages.workspacebuilder_users_available_roles_label}</div>
+							</div>
+							<div	data-dojo-type="idx.layout.ContentPane"  data-dojo-props="region:'center'" style="width:100%">
+								<table data-dojo-type="dojox.grid.DataGrid" selectionMode="none"
+      						canSort="(function(){return false;})" style="width: 100%;" 
+      						data-dojo-attach-point="roleGrid">
+   							</table>
+							</div>
+						</div>
+    			</td>
+   			</tr>
+		</table>
+		
+    </div>
+</div>

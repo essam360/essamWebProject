@@ -1,0 +1,24 @@
+<div class="ecmAdminTab ecmAdminUsers" style="padding: 0;">
+  <div data-dojo-type="idx/layout/BorderContainer" data-dojo-attach-point="borderContainer" data-dojo-props="gutters: false, style: { width: '100%', height: '100%' }">
+	<div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'center'" style="padding: 0;">
+		<div class="categoryInstructions" id="${id}_intro" data-dojo-attach-point="instructions">${messages.admin_adminusers_heading_text_single}</div>
+		<div style="height: 300px; min-width: 300px; padding-bottom: 15px;">
+			<div data-dojo-type="idx/layout/BorderContainer" data-dojo-attach-point="gridBorderContainer" data-dojo-props="gutters: false, 'class': 'ecmAdminSubTabContainer', region: 'center'">
+			    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'top'">
+				   <div style="margin-bottom: 15px;"> 
+				   		<label for="${id}_new-user-field">${messages.admin_adminusers_newuser}</label><br />
+				   		<input data-dojo-attach-point="newUser" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="id: '${id}_new-user-field', trim: true, propercase: false" />
+						<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="addUserButton" data-dojo-attach-event="onClick: _onAddUser" data-dojo-props="disabled: true, style: { 'margin-left': '5px' }">
+							${messages.admin_adminusers_add}
+						</button>
+			     	</div>
+		  	    </div>
+				<div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'bottom'">
+					<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="removeUserButton" style="margin-top: 15px;" data-dojo-attach-event="onClick: _onRemoveUser" data-dojo-props="disabled: true">
+						${messages.admin_adminusers_remove}
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

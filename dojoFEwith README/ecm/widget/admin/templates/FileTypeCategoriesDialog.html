@@ -1,0 +1,44 @@
+<div class="ecmAdminTab ecmIconMappingDialog">  
+    <table class="propertyTable" role="presentation">
+        <tr>
+            <td class="propertyRowLabel">
+                <span class="required">*</span>
+                <label for="${id}_name-field">${messages.name}</label>&nbsp;
+            </td>
+            <td class="propertyRowValue">
+               <input data-dojo-attach-point="nameField" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="required: true, trim: true, propercase: false, maxLength: 64, id: '${id}_name-field'" />
+            </td>        
+        </tr>
+        <tr>
+            <td class="propertyRowLabel">
+                <label for="${id}_desc-field">${messages.description_label}</label>&nbsp;
+            </td>
+            <td class="propertyRowValue">
+               <input data-dojo-attach-point="descriptionField" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="required: false, trim: true, propercase: false, id: '${id}_desc-field'" />
+            </td>
+        </tr>
+    </table>
+    <table role="presentation" width="700px" cellpadding="0" cellmargin="0" >
+        <tr>
+            <td valign="bottom" width="238px">
+                &nbsp;
+            </td>
+            <td width="245px" valign="bottom" style="padding-left:40px;">
+                <label for="${id}_inputMime-field">${messages.mime_type_input}</label>
+            </td>
+        </tr>
+        <tr>    
+            <td width="238px">
+                <label for="${id}_filter-field" style="display: none;">${messages.admin_file_type_filter_place_holder}</label>
+                <input data-dojo-attach-point="filterField" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="required: false, trim: true, propercase: false, id: '${id}_filter-field', style: { width: '180px !important' }" />
+            </td>
+            <td width="245px" style="padding-left:40px;">
+                <input class="newMimeField" data-dojo-attach-point="inputMimeField" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="trim: true, propercase: false, id: '${id}_inputMime-field', style: { width: '180px !important', height: '20px' }" />
+                <span data-dojo-type="dijit/form/Button" data-dojo-attach-point="addMimeTypeButton" data-dojo-attach-event="onClick: _onClickAddMimeType">${messages.add_document_add_label}</span>
+            </td>
+        </tr>
+    </table>    
+    <div style="width: 720px;">
+        <div data-dojo-type="idx/widget/SloshBucket" data-dojo-attach-point="sloshBucket" data-dojo-props="canReorderSelectedGridData: false, style: { height: '180px' }"></div>
+    </div>    
+</div>

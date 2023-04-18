@@ -1,0 +1,137 @@
+<div class="ecmAdminTab ecmAdminPlugin">
+  <div data-dojo-type="idx/layout/BorderContainer" data-dojo-attach-point="borderContainer" data-dojo-props="gutters: false, style: { width: '100%', height: '100%' }">
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'top'">	
+	  <div class="ecmAdminTabButtonBar">
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="saveAndCloseButton" data-dojo-attach-event="onClick: _onSaveAndClose" data-dojo-props="disabled: true">
+			${_messages.save_and_close}
+		</button>
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="saveButton" data-dojo-attach-event="onClick: onSave" data-dojo-props="disabled: true">
+			${_messages.save}
+		</button>
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="resetButton" data-dojo-attach-event="onClick: _onReset" data-dojo-props='disabled: true'>
+			${_messages.reset}
+		</button>
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="closeButton" data-dojo-attach-event="onClick: _onClose">
+			${_messages.close}
+		</button>
+  	  </div>
+	  <div class="ecmAdminTabHeading" data-dojo-attach-point="headingText">
+	  </div>
+	  <div class="ecmAdminTabInstructions" data-dojo-attach-point="instructions" id="${id}_intro">
+	  </div>
+    </div>
+	<div data-dojo-type="dijit/layout/ContentPane" class="ecmAdminSubTabContainer" data-dojo-props="region: 'center', style: { padding: '5px' }">
+		<div class="inlineMessage" data-dojo-attach-point="inlineMessage" style="display: none">
+			<div class="messageIcon">
+			</div>
+			<div class="messageText" data-dojo-attach-point="messageText" role="alert" id="${id}_messageText">
+			</div>
+		</div>
+		<fieldset>
+		<legend style="display: none;">${_messages.plugin_jarfile_path_label} ${_messages.plugin_classfolder_path_label}</legend>
+		<table class="propertyTable" style="padding-left: 5px;" role="presentation" data-dojo-attach-point="pluginProperties">
+			<tr>
+				<td class="propertyRowLabel">
+				    <div data-dojo-attach-point="_disableclass" data-dojo-props="id: '${id}_disable_accessclass', type: 'radio', name: '${id}_accessCondition', 'class': 'radioButton2'" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:_onDisableClass"></div>
+					<label for="${id}_disable_accessclass" style="display: none">${_messages.plugin_jarfile_path_label}</label>
+					<label for="${id}_file-field">${_messages.plugin_jarfile_path_label}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="fileNameFieldHoverHelp">${messages.admin_plugin_file_hover}</div>
+				</td>
+				<td class="propertyRowValue">
+				   <input data-dojo-attach-point="fileField" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="id: '${id}_file-field', required: true, trim: true, propercase: false" />
+				   <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="loadPluginButton" data-dojo-attach-event="onClick: _onLoadPlugin">${_messages.admin_plugin_load}</button>
+				</td>
+			</tr>
+			<tr>
+				<td class="propertyRowLabel">
+					<div data-dojo-attach-point="_disableFile" data-dojo-props="id: '${id}_disable_access', type: 'radio', name: '${id}_accessCondition', 'class': 'radioButton2'" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:_onDisableFile"></div>			
+					<label for="${id}_disable_access" style="display: none">${_messages.plugin_classfolder_path_label}</label>
+					<label for="${id}_file-field-pluginclz">${_messages.plugin_classfolder_path_label}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="classFileNameFieldHoverHelp">${messages.admin_plugin_classfolderpath_hover}</div>
+					<br />
+					<div class="pluginClassName"><label for="${id}_file-field-pluginclzname">${_messages.plugin_classname_label}</label>&nbsp;
+						<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="fileNameFieldHoverHelp_pcn">${messages.admin_plugin_classfoldername_hover}</div>
+					</div> 
+				</td>
+				<td class="propertyRowValue">
+				   <div data-dojo-attach-point="fileFieldClass" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="id: '${id}_file-field-pluginclz', required: true, trim: true, propercase: false"></div>
+				   <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="loadPluginClassButton" data-dojo-attach-event="onClick: _onLoadPlugin">${_messages.admin_plugin_load}
+				   </button>
+				   <div style="margin-top: 10px">
+				      <div data-dojo-attach-point="fileFieldClassName" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="id: '${id}_file-field-pluginclzname', required: true, trim: true, propercase: false"></div>
+				   </div>
+				</td>
+			</tr>
+			<tr>
+				<td class="propertyRowValue pluginData">
+					<span id="${id}_name-fieldLabel" class="ecmLabel">${_messages.name}</span>&nbsp;
+				</td>
+				<td class="propertyRowValue pluginData">
+					<span tabindex=0 aria-describedby="${id}_name-fieldLabel" data-dojo-attach-point="nameField" class="ecmValue"></span>
+				</td>
+			</tr>
+			<tr>
+				<td class="propertyRowValue pluginData">
+					<span id="${id}_version-fieldLabel" class="ecmLabel">${_messages.admin_plugins_version}</span>&nbsp;
+				</td>
+				<td class="propertyRowValue pluginData">
+				   <span tabindex=0 aria-describedby="${id}_version-fieldLabel" data-dojo-attach-point="versionField" class="ecmValue"></span>
+				</td>
+			</tr>
+			<tr>
+				<td class="propertyRowValue pluginData">
+					<span id="${id}_repository-types-fieldLabel" class="ecmLabel">${_messages.admin_plugin_repository_types}</span>&nbsp;
+				</td>
+				<td class="propertyRowValue pluginData">
+				   <span tabindex=0 aria-describedby="${id}_repository-types-fieldLabel" data-dojo-attach-point="repositoryTypesField" class="ecmValue"></span>
+				</td>
+			</tr>
+			<tr>
+				<td class="propertyRowValue pluginData">
+					<span id="${id}_actions-fieldLabel" class="ecmLabel">${_messages.actions_label}</span>&nbsp;
+				</td>
+				<td class="propertyRowValue pluginData">
+				   <span tabindex=0 aria-describedby="${id}_actions-fieldLabel" data-dojo-attach-point="actionsField" class="ecmValue"></span>
+				</td>
+			</tr>
+			<tr>
+				<td class="propertyRowValue pluginData">
+					<span id="${id}_open-actions-fieldLabel" class="ecmLabel">${_messages.open_actions_label}</span>&nbsp;
+				</td>
+				<td class="propertyRowValue pluginData">
+				   <span tabindex=0 aria-describedby="${id}_open-actions-fieldLabel" data-dojo-attach-point="openActionsField" class="ecmValue"></span>
+				</td>
+			</tr>
+			<tr>
+				<td class="propertyRowValue pluginData">
+					<span id="${id}_viewers-fieldLabel" class="ecmLabel">${_messages.admin_plugin_viewers}</span>&nbsp;
+				</td>
+				<td class="propertyRowValue pluginData">
+				   <span tabindex=0 aria-describedby="${id}_viewers-fieldLabel" data-dojo-attach-point="viewersField" class="ecmValue"></span>
+				</td>
+			</tr>
+			<tr>
+				<td class="propertyRowValue pluginData">
+					<span id="${id}_features-fieldLabel" class="ecmLabel">${_messages.admin_plugin_features}</span>&nbsp;
+				</td>
+				<td class="propertyRowValue pluginData">
+				   <span tabindex=0 aria-describedby="${id}_features-fieldLabel" data-dojo-attach-point="featuresField" class="ecmValue"></span>
+				</td>
+			</tr>
+			<tr>
+				<td class="propertyRowValue pluginData">
+					<span id="${id}_layouts-fieldLabel" class="ecmLabel">${_messages.admin_plugin_layouts}</span>&nbsp;
+				</td>
+				<td class="propertyRowValue pluginData">
+				   <span tabindex=0 aria-describedby="${id}_layouts-fieldLabel" data-dojo-attach-point="layoutsField" class="ecmValue"></span>
+				</td>
+			</tr>
+		</table>
+		</fieldset>
+		<div data-dojo-attach-point="_pluginConfigParamsPane" style="margin-top:10px; margin-left: -0px">
+			<div id="${id}_pluginConfigParams" class="" data-dojo-attach-point="pluginConfigParams"> 
+			</div>	
+		</div>
+	</div>
+  </div>
+</div>

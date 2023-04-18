@@ -1,0 +1,36 @@
+<div class="ecmSearchForm" role="search" tabindex="-1">
+	<form id="${id}_ECMSearchForm" class="ecmSearchFormArea">
+		<div class="textSearch dijitHidden" data-dojo-attach-point="_textSearchNode" tabindex="-1">
+			<div>
+				<span class="required dijitHidden" data-dojo-attach-point="textSearchRequiredNode">*</span>
+				<label>${messages.text_search_label}</label>
+				<div id="${id}_textSearchHoverHelp" data-dojo-attach-point="_textSearchHoverHelp" data-dojo-type="ecm.widget.HoverHelp" hrefLabel="${messages.learn_more}" href="euche012.htm"></div>
+			</div>
+			<div data-dojo-attach-point="textSearchFormInputArea" id="${id}_textSearch"></div>
+		</div>
+		<table class="ecmSearchFormInputArea" data-dojo-attach-point="searchFormInputArea" role="presentation"></table>
+		<div class="ecmSearchFormButtonArea" data-dojo-attach-point="ecmSearchFormButtonArea">
+			<button id="${id}_SearchFormButton"
+					data-dojo-type="dijit.form.Button"
+					data-dojo-attach-point="searchButton" 
+					data-dojo-attach-event="onClick: _search">
+				${messages.search}
+			</button>
+			<div data-dojo-attach-point="searchButtonTooltip" data-dojo-type="dijit.Tooltip" connectId="${id}_SearchFormButton" label="${messages.search_button_tooltip}"></div>
+			<button id="${id}_ResetSearchFormButton"
+					data-dojo-type="dijit.form.Button"
+					data-dojo-attach-point="resetButton"
+					data-dojo-attach-event="onClick: _reset">
+				${messages.reset}
+			</button>
+			<div data-dojo-attach-point="resetButtonTooltip" data-dojo-type="dijit.Tooltip" connectId="${id}_ResetSearchFormButton" label="${messages.reset_button_tooltip}"></div>
+			<button id="${id}_ClearSearchFormButton"
+					data-dojo-type="dijit.form.Button"
+					data-dojo-attach-point="clearButton"
+					data-dojo-attach-event="onClick: _clear">
+				${messages.clear}
+			</button>
+			<div data-dojo-attach-point="clearButtonTooltip" data-dojo-type="dijit.Tooltip" connectId="${id}_ClearSearchFormButton" label="${messages.clear_button_tooltip}"></div>
+		</div>
+	</form>
+</div>

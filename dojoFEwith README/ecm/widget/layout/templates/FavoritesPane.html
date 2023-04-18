@@ -1,0 +1,12 @@
+<div class="ecmCenterPane" style="margin-top: 5px;">
+	<div data-dojo-type="idx.layout.BorderContainer" data-dojo-attach-point="container" class="contentPane" gutters="false">
+		<div data-dojo-type="dijit.layout.ContentPane" region="center" data-dojo-attach-point="contentPane">
+			<div data-dojo-attach-point="favoritesContent" data-dojo-type="ecm.widget.listView.ContentList"
+				emptyMessage="${messages.folder_is_empty}">
+			</div>
+			<div data-dojo-attach-point="favoritesContentEmpty" data-dojo-type="dijit.layout.ContentPane">
+				<div class="gridxBodyEmpty">${messages.favorites_empty}</div>
+			</div>
+		</div>
+	</div>
+</div>

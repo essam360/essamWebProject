@@ -1,0 +1,76 @@
+<div class="ecmUserGroupSelector">
+    <div data-dojo-attach-point="_topPane" class="topPane" >
+   		<fieldset data-dojo-attach-point="_pseudoUserOptionsNode" class="pseudoUserOptions" style="display: none;">
+			<input data-dojo-type="dijit.form.RadioButton" data-dojo-attach-point="_meRadioButton" id="${id}_me" name="${id}_pseudo_users"/>
+			<label for="${id}_me" style="line-height:20px;">${_messages.me}</label>
+			<br/>
+			<input data-dojo-type="dijit.form.RadioButton" data-dojo-attach-point="_anyoneRadioButton" id="${id}_anyone" name="${id}_pseudo_users" checked="true"/>
+			<label for="${id}_anyone" style="line-height:20px;">${_messages.anyone}</label>
+			<br/>
+			<input data-dojo-type="dijit.form.RadioButton" data-dojo-attach-point="_specificUsersRadioButton" data-dojo-attach-event="onChange: _handleSpecificUsersRadioButtonChange" id="${id}_specificUsers" name="${id}_pseudo_users"/>
+			<label for="${id}_specificUsers" style="line-height:20px;">${_messages.specific_users}</label>
+		</fieldset>
+        <div data-dojo-attach-point="_infoPane" class="inlineMessage inlineMessageWarning infoClass">
+            <div class="messageIcon"></div>
+            <div class="messageText" role="alert" data-dojo-attach-point="_infoText" ></div>
+        </div>       
+        <div data-dojo-attach-point="_directorySection" class="directorySection">      
+            <div id="${id}_directoryLabel" class="headingLabel">${_messages.directory_label}</div>
+            <div id="${id}_directory" data-dojo-attach-point="_directoryName" data-dojo-type="dijit.form.Select" class="selectBox" aria-labelledby="${id}_directoryLabel" data-dojo-attach-event="onChange: _onDirectoryNameChange"></div>      
+        </div>      
+        <div data-dojo-attach-point="_scopeSection" class="scopeSection" >
+            <label for="${id}_scope">${_messages.scope_label}</label>             
+            <select id="${id}_scope" data-dojo-attach-point="_scope" data-dojo-type="dijit.form.Select"  data-dojo-attach-event="onChange: _onChange" >
+                <option value="users">${_messages.users_label}</option>
+                <option value="groups" selected="selected">${_messages.groups_label}</option>                                       
+            </select>                                           
+        </div>      
+        <div data-dojo-attach-point="_roleSection" class="scopeSection" >
+            <label for="${id}_scope">${_messages.entry_template_security_class_role_search_title}</label>                                                  
+        </div>    
+        <div class="searchSection" data-dojo-attach-point="_searchSection">
+            <label id="${id}_searchTypeLabel" data-dojo-attach-point="_searchTypeLabel" for="${id}_crit" style="display: none;" data-dojo-attach-event="onChange: _onChange">${_messages.name_starts_with_label}</label> 
+            <div id="${id}_crit" class="criteria" data-dojo-type="dijit.form.TextBox" trim="true" propercase="false" placeholder="" data-dojo-attach-point="_criteriaTextBox" data-dojo-attach-event="onKeyPress: _onKeyPress, onMouseOut: _onMouseOut" trim="true"></div>               
+            <div id="${id}_searchButton" class="iconButton" title="${_messages.search_tooltip}" showLabel="false" iconClass="searchButton"  data-dojo-attach-point="_searchButton" data-dojo-type="dijit.form.Button" data-dojo-attach-event="onClick: _onSearch" disabled="disabled"></div>                                                                                                                                                                                                     
+        </div>
+        <div class="addSection dijitHidden" data-dojo-attach-point="_addSection">
+			<div class="nameType" data-dojo-attach-point="_nameType">
+				<label class="nameTypeLabel">${_messages.add_label}</label>
+				<input data-dojo-type="dijit.form.RadioButton" data-dojo-attach-point="_nameTypeUserRadioButton" id="${id}_nameTypeUserRadioButton" name="${id}_nameTypeRadioButton" data-dojo-attach-event="onChange: _onNameTypeChanged"/>
+				<label for="${id}_userRadioButton">${_messages.user}</label>
+				<input data-dojo-type="dijit.form.RadioButton" data-dojo-attach-point="_nameTypeGroupRadioButton" id="${id}_nameTypeGroupRadioButton" name="${id}_nameTypeRadioButton" data-dojo-attach-event="onChange: _onNameTypeChanged"/>
+				<label for="${id}_groupRadioButton">${_messages.group}</label>
+			</div>
+			<br/>
+           	<label for="${id}_addName" data-dojo-attach-point="_addNameLabel">${_messages.user_or_group_name_label}</label>
+		    <div class="dijitInline" data-dojo-attach-point="_hoverHelpContainer"></div>
+   	        <div id="${id}_addName" class="criteria" data-dojo-type="dijit.form.TextBox" trim="true" propercase="false" data-dojo-attach-point="_addNameTextBox" data-dojo-attach-event="onKeyUp: _onAddNameTextChange" trim="true"></div>               
+            <div id="${id}_addButton" data-dojo-attach-point="_addArbitraryButton" data-dojo-type="dijit.form.Button" data-dojo-attach-event="onClick: _onAddArbitrary" disabled="disabled">${_messages.add_document_add_label}</div>
+        </div>
+    </div>            
+    <div data-dojo-attach-point="_leadingPane" class="leadingPane" >                                        
+        <div data-dojo-attach-point="_resultGridContainer">                         
+            <div class="resultGrid" data-dojo-attach-point="_resultDataGrid"></div>             
+        </div>                                         
+    </div>          
+    <div data-dojo-attach-point="_centerPane" class="centerPane" >
+        <div class="buttonPane" data-dojo-attach-point="_buttonPane">
+            <div>
+                <div id="ADD_${id}" showLabel="false" iconClass="addButton" data-dojo-attach-point="_addButton" data-dojo-type="dijit.form.Button" data-dojo-attach-event="onClick: _onAdd" disabled="disabled"></div>                                          
+            </div>
+            <div>                                          
+                <div id="REMOVE_${id}" showLabel="false" iconClass="removeButton" data-dojo-attach-point="_removeButton" data-dojo-type="dijit.form.Button" data-dojo-attach-event="onClick: _onRemove" disabled="disabled"></div>
+            </div>
+        </div>
+        <div class="selectedGridContainer" data-dojo-attach-point="_selectedDataGridContainer">                     
+            <div data-dojo-attach-point="_selectedDataGrid" class="selectedGrid"></div>
+        </div>
+        <div class="moveUpDownButtons" data-dojo-attach-point="_moveUpDownButtonContainer">
+          <div title="${_messages.move_up_selected_tooltip}" showLabel="false" iconClass="moveUpButton" data-dojo-attach-point="_upButton" data-dojo-type="dijit.form.Button" data-dojo-attach-event="onClick: _onClickUp">&#8743;</div>
+          <div title="${_messages.move_down_selected_tooltip}" showLabel="false" iconClass="moveDownButton" data-dojo-attach-point="_downButton" data-dojo-type="dijit.form.Button" data-dojo-attach-event="onClick: _onClickDown">&#8744;</div>
+        </div>
+    </div>
+	<div class="buttonPane2" data-dojo-attach-point="_buttonPane2">
+		<div id="${id}_removeButton2" data-dojo-type="dijit.form.Button" data-dojo-attach-point="_removeButton2" data-dojo-attach-event="onClick: _onRemove"  disabled="disabled">${_messages.remove_label}</div>
+	</div>
+</div>

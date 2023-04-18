@@ -1,0 +1,53 @@
+<div class="ecmStartWorkflow">
+	<table class="ecmStartWorkflowInputArea" data-dojo-attach-point="_startWorflowInputArea" role="presentation">
+		<tr class="ecmStartWorkflowInputField" data-dojo-attach-point="_workflowSelectRow">
+			<td class="ecmStartWorkflowFieldLabel">
+				<label for="${id}_workflowSelect">
+					<span class="required">*</span>
+					${messages.workflow_field_label}
+				</label>
+			</td>
+			<td class="ecmStartWorkflowFieldValue">
+				<div data-dojo-attach-point="_workflowSelect"
+					data-dojo-attach-event="onKeyUp: onInputChange, onChange: onInputChange"
+					data-dojo-type=ecm.widget.FilteringSelect
+					id="${id}_workflowSelect"
+					readOnly=false>
+				</div>	
+			</td>
+		</tr>
+		<tr class="ecmStartWorkflowInputField" data-dojo-attach-point="_priorityInputRow">
+			<td class="ecmStartWorkflowFieldLabel">
+				<label for="${id}_priorityInput"><span class="required">*</span>${messages.priority_field_label}</label>
+				<div data-dojo-attach-point="_priorityHoverHelp"
+                    data-dojo-type="ecm.widget.HoverHelp">
+                </div>
+			</td>
+			<td class="ecmStartWorkflowFieldValue">
+ 				<div data-dojo-attach-point="_priorityInput"
+					data-dojo-attach-event="onKeyUp: onInputChange, onChange: onInputChange"
+					data-dojo-type="ecm.widget.RangeBoundTextBox"
+					id="${id}_priorityInput">
+				</div>	
+			</td>
+		</tr>
+		<tr class="ecmStartWorkflowInputField" data-dojo-attach-point="_ownerSelectRow">
+			<td class="ecmStartWorkflowFieldLabel">
+				<span class="ecmStartWorkflowFieldRequired"> </span>
+				<label for="${id}_ownerSelect">${messages.owner_field_label}</label>
+				<div data-dojo-attach-point="_ownerHoverHelp"
+                    data-dojo-type="ecm.widget.HoverHelp">
+                </div>
+			</td>
+			<td class="ecmStartWorkflowFieldValue">
+				<div data-dojo-attach-point="_ownerSelect"
+					data-dojo-attach-event="onKeyUp: onInputChange, onChange: onInputChange"
+					data-dojo-type=ecm.widget.ComboBox
+					id="${id}_ownerSelect"
+					readOnly=false
+					maxlength=32>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>

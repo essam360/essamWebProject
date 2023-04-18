@@ -1,0 +1,48 @@
+<div class="ecmDecommission decommissionTeamspace">
+	<div data-dojo-attach-point="_borderContainer" gutters="false"  class="contentPane" style="min-width: 1em; min-height: 1em; position: absolute; padding:0; width:100%; height:100%" data-dojo-type="idx.layout.BorderContainer"	splitter="false">
+		<div class="topPane" data-dojo-attach-point="_topPane" data-dojo-type="idx.layout.ContentPane" region="top" splitter="false" >
+			<div class="decommissionToolbar">
+				<h1 data-dojo-attach-point="heading"></h1>
+				<div class="buttonArea">
+					<button data-dojo-attach-event="onClick : onFinish" data-dojo-attach-point="finishButton" data-dojo-type="dijit.form.Button" type="button" disabled>
+					  ${messages.workspacebuilder_navigation_finish}
+					</button>
+					<button data-dojo-attach-event="onClick : onCancel" data-dojo-attach-point="cancelButton" data-dojo-type="dijit.form.Button" type="button">
+					   ${messages.workspacebuilder_navigation_cancel}
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="bottomPane" data-dojo-attach-point="_bottomPane" data-dojo-type="idx.layout.ContentPane"	splitter="false" region="center"	>
+			<form>
+			<div class="nameSection">
+				<h1><div class="name label">${messages.teamspaceDecommissionLabel}&nbsp;&nbsp;</div><div data-dojo-attach-point="teamspaceName" class="name value"></div></h1>					
+			</div>
+			<div class="descriptionSection" >
+				<div class="description" style="display: block;" >${messages.teamspaceDecommissionDescription}</div>					
+			</div>	
+			<div class="radioButtons" >
+               <div class="property optionsLeftColumn" >
+	               <fieldset>
+	               		<legend>${messages.teamspaceDecommissionOptions}</legend>
+	                    <input checked data-dojo-props="type: 'radio', name: '${id}_decommissionOption', id: '${id}_deleteAllItems'" data-dojo-attach-point="_deleteAll" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:onDeleteAll, onChange: _onFieldChange" >
+	   	                <label for="${id}_deleteAllItems">${messages.teamspaceDecommissionDeleteAll}</label>
+	                    <br></br><br></br>
+	                     <input data-dojo-props="type: 'radio', name: '${id}_decommissionOption', id: '${id}_refileAllItems'" data-dojo-attach-point="_refileAll" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:onRifileAll, onChange: _onFieldChange" >
+	                     <label for="${id}_refileAllItems">${messages.teamspaceDecommissionReFileAll}</label>
+	               </fieldset>  
+               </div>
+				<div class="property optionsRightColumn" data-dojo-attach-point="fileIn">
+				   <label id="${id}_filein_label" for="${id}_filein-field">${messages.teamspaceDecommissionReFileDestination}</label>&nbsp;
+				   <div data-dojo-type="ecm/widget/search/SearchInDropDown" data-dojo-attach-event="onFolderSelected: _onFileInChange" data-dojo-attach-point="fileInDropDown"
+						 data-dojo-props='selectRootInitially: false, displayRepositoryDropDownList: false, displaySelectRepositoriesNode: false, showRepositoryTeamspace: true, isRequired: true, "class": "folderSelectorControl", dropdownid: "${id}_filein-field", arialabelledby: "${id}_filein_label"'>
+				   </div>
+				</div>				
+			</div>
+			</form>	
+		<div>
+
+	</div>
+
+</div>

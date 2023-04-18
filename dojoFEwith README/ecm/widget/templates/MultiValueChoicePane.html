@@ -1,0 +1,12 @@
+<div class="ecmMultiValueChoicePane">
+  <div data-dojo-attach-point="_infoPane" class="inlineMessage inlineMessageWarning infoClass" style="display: none">
+      <div data-dojo-attach-point="_infoImage" class="messageIcon"></div>
+      <div data-dojo-attach-point="_infoText" role="alert" class="messageText"></div>
+  </div>              
+  <div class="filterDiv" data-dojo-attach-point="_filterDiv">
+      <label for="${id}_filter">${messages.filter}</label>
+      <div data-dojo-attach-point="_filter" data-dojo-type="ecm.widget.FilterTextBox" id="${id}_filter"></div>
+  </div>
+  <div data-dojo-type="ecm.widget.SloshBucket" data-dojo-attach-point="_sloshBucket" class="sloshBucket" availableLabel="${messages.available_label}">
+  </div>
+</div>

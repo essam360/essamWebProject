@@ -1,0 +1,35 @@
+<div style="overflow: auto; height: 100%; width: 100%;">
+  <div style="padding: 7px 0;">
+	<div>
+	  <label for="${id}_language_locale-field">${messages.change_locale_language_locale}</label>
+	  <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_languageLocaleHoverHelp">${messages.change_locale_language_locale_hover}</div>
+	</div>   
+	<div data-dojo-type="ecm/widget/Select" maxHeight=200 data-dojo-attach-point="_languageLocale" data-dojo-attach-event="onChange: _onLanguageLocaleChange" id="${id}_language_locale-field"></div>
+  </div>
+  <div style="padding: 7px 0;">	
+	<div>
+	  <label for="${id}_value_format_locale-field">${messages.change_locale_value_format_locale}</label>
+	  <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_valueFormatLocaleHoverHelp">${messages.change_locale_value_format_locale_hover}</div>
+	</div>   
+	<div data-dojo-type="ecm/widget/Select" maxHeight=200 data-dojo-attach-point="_valueFormatLocale" data-dojo-attach-event="onChange: _onValueFormatLocaleChange" id="${id}_value_format_locale-field"></div>
+  </div>	
+  <div style="padding: 7px 0;">		
+	<div>
+	  <label for="${id}_calendar_type-field">${messages.change_locale_calendar_type}</label>
+	  <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_calendarTypeHoverHelp">${messages.change_locale_calendar_type_hover}</div>
+	</div>   
+	<div data-dojo-type="ecm/widget/Select" maxHeight=200 data-dojo-attach-point="_calendarType" data-dojo-attach-event="onChange: _onCalendarTypeChange" id="${id}_calendar_type-field"></div>
+  </div>
+  <div style="padding: 7px 0;">			  
+	  <input id="${id}_bidi_support_flag-field" data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-point="_bidiSupportFlag" data-dojo-attach-event="onChange: _onBidiSupportFlagChange"></input>	
+	  <label for="${id}_bidi_support_flag-field">${messages.change_locale_bidi_support_flag}</label>
+	  <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_bidiSupportFlagHoverHelp">${messages.change_locale_bidi_support_flag_hover}</div>	
+  </div>
+  <div class="ecmBidiPrefsPanel">		
+	<div>
+	  <label for="${id}_base_text_direction-field">${messages.change_locale_base_text_direction}</label>
+	  <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_baseTextDirectionHoverHelp">${messages.change_locale_base_text_direction_hover}</div>
+	</div>   
+	<div data-dojo-type="ecm/widget/Select" maxHeight=200 data-dojo-attach-point="_baseTextDirection" data-dojo-attach-event="onChange: _onBaseTextDirectionChange" id="${id}_base_text_direction-field"></div>
+  </div>
+</div>

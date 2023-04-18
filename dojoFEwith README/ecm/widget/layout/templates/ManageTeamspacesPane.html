@@ -1,0 +1,12 @@
+<div class="ecmManageTeamspace manageTeamspaces">
+	<div data-dojo-type="dijit.layout.BorderContainer" data-dojo-attach-point="teamspaceListContainer" class="contentPane" gutters="true" style="height:100%;width:100%" >
+		<div data-dojo-type="ecm.widget.teamspace.TeamspaceTabContainer" region="center" data-dojo-attach-point="_tabContainer" style="width:100%;">
+			<div data-dojo-type="dijit.layout.ContentPane" data-dojo-attach-point="_teamspaceTab" class="teamspacesList" data-dojo-props="closable:false, tabType: 'teamspacesList'" title="${_teamspaces_label}" style="padding: 0;">
+				<div data-dojo-type="ecm.widget.listView.ContentList" data-dojo-attach-point="teamspaceContents" multiSelect=false emptyMessage="${messages.no_results_were_found}"></div>
+			</div>
+			<div data-dojo-type="dijit.layout.ContentPane" data-dojo-attach-point="_templateTab" class="templatesList" data-dojo-props="closable:false, tabType: 'templatesList'" title="${_templates_label}" style="padding: 0;">
+				<div data-dojo-type="ecm.widget.listView.ContentList" data-dojo-attach-point="templateContents"  emptyMessage="${messages.no_results_were_found}"></div>
+			</div>
+		</div>
+	</div>
+</div>

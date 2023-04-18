@@ -1,0 +1,13 @@
+<select data-dojo-type="dijit.form.Select" data-dojo-attach-point="_searchRepositorySelect" data-dojo-attach-event="onChange: _handleSearchRepositoryChange"></select>
+<div class="propertiesAndNameContainer">
+	<div class="filterSection">
+		<label for="${id}_filter" style="display: none;">${messages.unified_search_filter_available_properties}</label>
+		<div data-dojo-type="ecm.widget.FilterTextBox" data-dojo-attach-point="_filterTextBox" data-dojo-props="placeholder: this.messages.name_contains_label" id="${id}_filter" style="float: none;"></div>
+	</div>
+	<div data-dojo-type="idx.widget.SloshBucket" data-dojo-attach-point="_sloshBucket" data-dojo-props="canReorderSelectedGridData: false" class="sloshBucket"></div>
+	<div class="nameSection">
+		<span class="required">*</span>
+		<label for="${id}_label">${messages.name}</label>
+		<input data-dojo-attach-point="_nameTextBox" data-dojo-type="ecm.widget.ValidationTextBox" data-dojo-props="required: true, trim: true, propercase: false" data-dojo-attach-event="onKeyUp: _updateOkButtonState" />
+	</div>
+</div>

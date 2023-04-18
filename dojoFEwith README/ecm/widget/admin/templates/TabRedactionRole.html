@@ -1,0 +1,143 @@
+<div class="ecmAdminTab">
+  <div data-dojo-type="idx/layout/BorderContainer" data-dojo-attach-point="borderContainer" data-dojo-props="gutters: false, style: { width: '100%', height: '100%' }" class="ecmTheme">
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'top'">	
+   	  <div class="ecmAdminTabHeading ecmPolicyRepositoryHeading" data-dojo-attach-point="headingText"></div>
+   	  <div data-dojo-attach-point="repositoryText"></div>
+	  <div class="ecmAdminTabButtonBar">
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="saveAndCloseButton" data-dojo-attach-event="onClick: _onSaveAndClose" data-dojo-props="disabled: true">
+			${messages.save_and_close}
+		</button>
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="saveButton" data-dojo-attach-event="onClick: onSave" data-dojo-props="disabled: true">
+			${messages.save}
+		</button>
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="resetButton" data-dojo-attach-event="onClick: _onReset" data-dojo-props='disabled: true'>
+			${messages.reset}
+		</button>
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="closeButton" data-dojo-attach-event="onClick: _onClose">
+			${messages.close}
+		</button>
+  	  </div>
+	  <div class="ecmAdminTabInstructions" data-dojo-attach-point="instructions" id="${id}_intro">
+	  </div>
+    </div>
+	<div data-dojo-type="dijit/layout/ContentPane" class="ecmAdminSubTabContainer" data-dojo-props="region: 'center', style: { padding: '5px' }, tabindex: '-1'">
+		<table class="propertyTable" role="presentation">
+			<tr>
+				<td class="propertyRowValue">
+					<span class="required">*</span>
+					<label for="${id}_name-field">${messages.name}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="nameFieldHoverHelp">${messages.admin_reason_code_name_hover}</div>
+				</td>
+				<td class="propertyRowValue">
+				   <input data-dojo-attach-point="nameField" 
+				   			data-dojo-attach-event="onKeyUp: _onFieldChange" 
+				   			data-dojo-type="ecm/widget/ValidationTextBox" 
+				   			data-dojo-props="id: '${id}_name-field', 'aria-labelledby': '${id}_name-field', required: true, trim: true, propercase: false, maxLength: 64" />
+				</td>
+			</tr>
+			<tr>
+				<td class="propertyRowLabel">
+					<span class="ecmLabel">${messages.admin_repository_redaction_roles_type}</span>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="typeFieldHoverHelp">${messages.admin_repository_redaction_roles_type_hover}</div>
+				</td>
+				<td class="propertyRowValue">  
+					<fieldset> 
+					<legend style="display: none;">${messages.admin_repository_redaction_roles_type}</legend>
+				   		<input data-dojo-attach-point="enableTypeEditor" data-dojo-attach-event="onChange: _onTypeChange"
+				   		       data-dojo-props="id:'${id}_enableTypeEditor-field', type: 'radio', name: '${id}_roles_type', value: 'enable', checked: true"
+				   		       data-dojo-type="ecm/widget/RadioButton" />
+				   		<label for="${id}_enableTypeEditor-field">${messages.admin_repository_redaction_roles_type_editor}</label>
+				   		<input data-dojo-attach-point="enableTypeViewer" data-dojo-attach-event="onChange: _onTypeChange"
+				   		       data-dojo-props="id: '${id}_enableTypeViewer-field', type: 'radio', name: '${id}_roles_type', value: 'disable', 'class': 'radioButton1'"
+				   		       data-dojo-type="ecm/widget/RadioButton" />
+				   		<label for="${id}_enableTypeViewer-field">${messages.admin_repository_redaction_roles_type_viewer}</label>
+				   	</fieldset>
+				</td>
+			</tr>			
+			<tr>
+				<td class="propertyRowValue">
+					<label for="${id}_description-field">${messages.admin_reason_code_description}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="descriptionFieldHoverHelp">${messages.admin_reason_code_description_hover}</div>
+				</td>
+				<td class="propertyRowValue">
+				   <input data-dojo-attach-point="descriptionField" 
+				   			data-dojo-attach-event="onKeyUp: _onFieldChange" 
+				   			data-dojo-type="ecm/widget/ValidationTextBox" 
+				   			data-dojo-props="id: '${id}_description-field', 'aria-labelledby': '${id}_id-field', required: false, trim: true, propercase: false, maxLength: 64" />
+				</td>
+			</tr>
+			<tr style="border-bottom: none;">
+				<td class="propertyRowValue">
+				<span class="required">*</span>
+					<label for="${id}_application-field">${messages.admin_repository_redaction_roles_membership}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="membershipFieldHoverHelp">${messages.admin_repository_redaction_roles_membership_hover}</div>
+				</td>
+				<td class="propertyRowValue">
+					<fieldset data-dojo-attach-point="typeMemberSection" style="display: none;"> 
+					<legend style="display: none;">${messages.admin_repository_redaction_roles_membership}</legend>
+				   		<input data-dojo-attach-point="typeUser" data-dojo-attach-event="onChange: _onUserTypeChange"
+				   		       data-dojo-props="id:'${id}typeUser-field', type: 'radio', name: '${id}_member_type', value: 'enable', checked: true"
+				   		       data-dojo-type="ecm/widget/RadioButton" />
+				   		<label for="${id}typeUser-field">${messages.admin_repository_redaction_role_users}</label>
+				   		<input data-dojo-attach-point="typeGroup" data-dojo-attach-event="onChange: _onUserTypeChange"
+				   		       data-dojo-props="id: '${id}typeGroup-field', type: 'radio', name: '${id}_member_type', value: 'disable', 'class': 'radioButton1'"
+				   		       data-dojo-type="ecm/widget/RadioButton" />
+				   		<label for="${id}typeGroup-field">${messages.admin_repository_redaction_role_groups}</label>
+				   		<input data-dojo-attach-point="typeEditor" data-dojo-attach-event="onChange: _onUserTypeChange"
+				   		       data-dojo-props="id: '${id}typeEditor-field', type: 'radio', name: '${id}_member_type', value: 'disable', 'class': 'radioButton1'"
+				   		       data-dojo-type="ecm/widget/RadioButton" />
+				   		<label for="${id}typeEditor-field">${messages.admin_repository_redaction_role_editors}</label>
+				   	</fieldset>
+				</td>
+			</tr>
+			<tr style="border-bottom: none;">
+				<td></td>
+				<td class="propertyRowValue">
+					 <div class="filterDiv" data-dojo-attach-point="_filterDiv">
+				       <label for="${id}_filter" class="dijitHidden">${messages.process_filter_label}</label>
+				       <div style="float: none;" data-dojo-attach-point="_filter" data-dojo-type="ecm/widget/FilterTextBox" data-dojo-props='"class": "filter", id: "${id}_filter"'></div>
+				    </div>
+				    <div data-dojo-attach-point="userGroupSearchSection" style="display: none">
+					    <div data-dojo-attach-point="_directorySection" class="directorySection">      
+	            			<div id="${id}_directoryLabel" class="headingLabel dijitInline">${messages.directory_label}</div>
+	            			<div id="${id}_directory" data-dojo-attach-point="_directoryName" data-dojo-type="dijit.form.Select" class="selectBox dijitInline" aria-labelledby="${id}_directoryLabel"></div>      
+	        			</div>
+	        			<div class="searchSection" data-dojo-attach-point="_searchSection">
+	            			<span id="${id}_crit" class="criteria" data-dojo-type="dijit.form.TextBox" trim="true" propercase="false" placeholder="${messages.name_starts_with_label}" data-dojo-attach-point="_criteriaTextBox" data-dojo-attach-event="onKeyPress: _onSearchKeyPress, onMouseOut: _onSearchMouseOut" trim="true"></span>               
+	            			<div id="${id}_searchButton" title="${_messages.search_tooltip}" showLabel="false" class="ecmUserGroupSelector iconButton" iconClass="searchButton"  data-dojo-attach-point="_searchButton" data-dojo-type="dijit.form.Button" data-dojo-attach-event="onClick: _onSearch" disabled="disabled"></div>                                                                                                                                                                                                     
+	        			</div>   
+	        		</div>  		   
+				</td>
+			</tr>	
+   			<tr style="border-bottom: none;">
+				<td class="propertyRowValue"> </td>
+				<td> 
+				    <div data-dojo-type="idx/widget/SloshBucket" data-dojo-props="'class': 'sloshBucket ecmRoleSloshBucket'" data-dojo-attach-point="sloshBucket">
+				    </div>					
+				</td>
+			</tr>
+			<tr>
+				<td/>
+				<td>
+					<span>
+                   	 	<label for="${id}_add-as-field">${messages.admin_repository_redaction_role_add_as}</label>&nbsp;
+						<select data-dojo-type="ecm/widget/Select" data-dojo-attach-point="addAs" data-dojo-props="id: '${id}_add-as-field'"></select>
+					</span>
+					<span style="white-space: nowrap; margin-right: 10px;">
+                   	 	<span style="float: right; margin-right: 50px" class="dijitInline">
+                   	 		<label for="${id}_access-field">${messages.admin_repository_redaction_role_access_type}</label>&nbsp;
+							<select data-dojo-type="ecm/widget/Select" data-dojo-attach-point="access" data-dojo-attach-event="onChange: _onAccessChange" data-dojo-props="id: '${id}_access-field', disabled: true"></select>
+							<button data-dojo-type="dijit/form/Button" class="dijitInline ecmRoleNewEditorButton" data-dojo-props="id: '${id}_cmRedactionAccessControlButton'" data-dojo-attach-point="_cmRedactionAccessControlButton" data-dojo-attach-event="onClick: _selectRedactionUserGroupClick">
+		            			${messages.admin_repository_redaction_role_add_editor}
+		  	        		</button>
+						</span>
+					</span>
+					<div data-dojo-attach-point="_searchMessageSection" style="display: none";>
+						<label data-dojo-attach-point="_searchMessageLabel"></label>&nbsp;
+					</div>
+					<div data-dojo-attach-point="_p8RedactionPolicyEditorDataPane" data-dojo-type="ecm/widget/UserGroupPrivilegePane"></div>
+				</td>
+		</table>
+	</div>
+  </div>
+</div>

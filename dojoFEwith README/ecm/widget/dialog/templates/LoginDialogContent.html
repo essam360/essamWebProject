@@ -1,0 +1,35 @@
+<div class="ecmLoginDialog">
+    <div data-dojo-attach-point="userPwDiv">
+	    <div class="field">
+		    <label for="${id}_username"> ${messages.username} </label> 
+		    <input
+		    data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="username" name="${id}_username" id="${id}_username"
+		    type="text" value=""  data-dojo-props="trim: true, required: true, intermediateChanges: true" missingMessage="${missingUsernameMessage}"
+		    data-dojo-attach-event="onChange:_enableLogin" />
+	    </div>
+	    <div class="field">
+		    <label for="${id}_password"> ${messages.password} </label> 
+		    <input
+		    data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="password" name="${id}_password" id="${id}_password"
+		    type="password" value="" data-dojo-props="trim: false, required: true, intermediateChanges: true" missingMessage="${missingPasswordMessage}"
+		    data-dojo-attach-event="onChange:_enableLogin" />
+	    </div>
+    </div>
+    <div data-dojo-attach-point="oauthDiv" style="display: none">
+	    <div data-dojo-attach-point="oauthLastUserDiv" class="field">
+		    <label for="${id}_lastUserName"> ${messages.username} </label> 
+		    <input
+		    data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="lastUserName" name="${id}_lastUserName" id="${id}_lastUserName"
+		    type="text" value="" data-dojo-props="trim: true, required: true, intermediateChanges: true" missingMessage="${missingUsernameMessage}"
+		    data-dojo-attach-event="onChange:_enableLogin" />
+	    </div>
+        <div data-dojo-attach-point="oauthSSLMessage" style="display: none">${messages.login_ssl_connection_required}</div>
+        <div>
+        <div data-dojo-attach-point="oauthPopupMessage" style="display: none">${messages.login_oauth_popup_blocked}</div>
+        <div>
+        <br>
+        <a data-dojo-type="idx/form/Link" data-dojo-attach-point="_oauthFocusLink" data-dojo-attach-event="onClick: _onOAuthFocus">${messages.login_oauth_click_here}</a>
+		<div data-dojo-type="dijit/form/Button" data-dojo-attach-point="_oauthClearButton" data-dojo-attach-event="onClick: _onOAuthClear" style="display: none">If this is not you, click here.</div>
+        </div>
+    </div>
+</div>

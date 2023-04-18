@@ -1,0 +1,16 @@
+<div class="ecmTags"
+	><div data-dojo-type="ecm/widget/DropDownLink" data-dojo-attach-point="_editLink" class="dropDownLink"
+		><div data-dojo-attach-point="_dropdownDialog" data-dojo-type="ecm/widget/DropDownDialog" hideCancelButton=true class="ecmTags dropDownDialog"
+			><div data-dojo-attach-point="_tagsNode" class="tagsNode"
+				><span data-dojo-attach-point="_tagsNodeNone" style="display: none">${messages.tags_none}</span
+			></div
+			><div data-dojo-attach-point="_newTagsNode" class="newTagsNode"
+				><div data-dojo-attach-point="_newTagsTextBoxLabel"
+					><label id="${id}_newTagsTextBox_label" class="label">${messages.tags_add}</label
+					><span id="${id}_newTagsTextBox_hoverHelp" data-dojo-attach-point="_newTagsTextBoxHoverHelp" data-dojo-type="ecm/widget/HoverHelp" message="${messages.tags_hover_help}"></span
+				></div
+				><div data-dojo-attach-point="_newTagsTextBox" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props='trim: true, disabled: true' aria-labelledby="${id}_newTagsTextBox_label"></div
+			></div
+		></div
+	></div
+></div>

@@ -1,0 +1,31 @@
+<div class="ecmTreeSloshBucket">
+  <div class="mainBorder">
+    <div class="leftPane">
+      <div class="availableDataAndButtonsBorder">
+        <div class="availableContentPane" data-dojo-attach-point="_availableContentPane">
+          <div class="availableLabel" data-dojo-attach-point="_availableLabel">${availableLabel}</div>
+          <div class="availableDataContainer" data-dojo-attach-point="_availableContainer"></div>
+        </div>
+        <div class="addRemoveButtonPane">
+          <div title="${messages.add_to_selected_tooltip}" showLabel="false" iconClass="addButton" data-dojo-attach-point="_addButton" data-dojo-type="dijit.form.Button" data-dojo-attach-event="onClick: _onClickAdd">&#8250;</div>
+          <div title="${messages.remove_from_selected_tooltip}" showLabel="false" iconClass="removeButton" data-dojo-attach-point="_removeButton" data-dojo-type="dijit.form.Button" data-dojo-attach-event="onClick: _onClickRemove">&#8249;</div>
+        </div>    
+      </div>    
+    </div>    
+    
+    <div class="rightPane">
+      <div class="selectedDataAndButtonsBorder">
+        <div class="selectedContentPane" data-dojo-attach-point="_selectedContentPane">
+          <div class="selectedLabel" data-dojo-attach-point="_selectedLabel">${selectedLabel}</div>
+          <div class="selectedContainer" data-dojo-attach-point="_selectedContainer"></div>
+	    </div>
+        <div class="moveUpDownButtons" data-dojo-attach-point="_moveUpDownButtonContainer">
+          <div title="${messages.move_up_selected_tooltip}" showLabel="false" iconClass="moveUpButton" data-dojo-attach-point="_upButton" data-dojo-type="dijit.form.Button" data-dojo-attach-event="onClick: _onClickUp">&#8743;</div>
+          <div title="${messages.move_down_selected_tooltip}" showLabel="false" iconClass="moveDownButton" data-dojo-attach-point="_downButton" data-dojo-type="dijit.form.Button" data-dojo-attach-event="onClick: _onClickDown">&#8744;</div>
+          <div title="${messages.move_right_selected_tooltip}" showLabel="false" iconClass="moveRightButton" data-dojo-attach-point="_rightButton" data-dojo-type="dijit.form.Button" data-dojo-attach-event="onClick: _onClickRight">&#8250;</div>
+          <div title="${messages.move_left_selected_tooltip}" showLabel="false" iconClass="moveLeftButton" data-dojo-attach-point="_leftButton" data-dojo-type="dijit.form.Button" data-dojo-attach-event="onClick: _onClickLeft">&#8249;</div>
+	    </div>
+      </div>
+    </div>
+  </div>
+</div>

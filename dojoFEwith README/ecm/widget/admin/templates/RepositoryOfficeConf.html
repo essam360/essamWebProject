@@ -1,0 +1,281 @@
+<div class="adminRepository" data-dojo-type="dijit/layout/BorderContainer" gutters="false" data-dojo-attach-point="_repositoryOfficeConfBorderContainer">
+	<div data-dojo-type="idx/layout/TitlePane" data-dojo-props='"aria-describedby": "${id}_officeInstructions1", style: { "margin-top": "5px", "margin-bottom": "5px", "margin-left": "0px"}' data-dojo-attach-point="_propertyMappingTitlePane1">
+    <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="gutters: false, style: { width: '100%', height: '375px' }" data-dojo-attach-point="_propertyMappingBorderContainer1">
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'top'">
+	<div class="ecmAdminTabInstructions" id="${id}_intro" data-dojo-attach-point="_instructions">${messages.admin_repository_office_conf_class_instruction}</div>
+	<div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'center', style: { 'margin-top': '5px' }" data-dojo-attach-point="repositoryOfficeConfContainer">
+		<table class="propertyTable" role="presentation" data-dojo-attach-point="defaultClasses">
+			<tbody class="propertyTable">
+				<tr>
+					<td class="propertyRowLabel" valign="middle">
+						<label for="${id}_emailClassSelectorDD" id="${id}_defaultEmailClasssLabel">${messages.admin_ms_default_email_class}</label>
+						<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="defaultEmailClassForAddHoverHelp">${messages.admin_ms_default_email_class_hover_help}</div>
+					</td>
+					<td class="propertyRowValue">
+					    <span data-dojo-attach-point="offEmailClass">
+	                	<div data-dojo-type="ecm/widget/ContentClassSelector" 
+							 data-dojo-props="id: '${id}_emailClassSelector', dropdownid: '${id}_emailClassSelectorDD', 'arialabelledby': '${id}_defaultEmailClasssLabel', defaultToFirstItem: false, onlySelectable: true, hasAll: false, selectorStyle: 'dropdown'" 
+							 data-dojo-attach-point="_emailClassSelector"></div>
+						</span>	 
+						<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="clearEmailButton" data-dojo-attach-event="onClick: _onClearEmailClass">${messages.clear}</button>
+					</td>
+				</tr>		
+				<tr>
+					<td class="propertyRowLabel" valign="middle">
+						<label for="${id}_FolderClassSelectorDD" id="${id}_defaultFolderClasssLabel">${messages.admin_ms_default_folder_class}</label>
+						<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="defaultFolderClassForAddHoverHelp">${messages.admin_ms_default_folder_class_hover_help}</div>
+					</td>
+					<td class="propertyRowValue">
+					    <span data-dojo-attach-point="offContentClass">
+		               	<div data-dojo-type="ecm/widget/ContentClassSelector" 
+							 data-dojo-props="id: '${id}_folderClassSelector', dropdownid: '${id}_FolderClassSelectorDD', 'arialabelledby': '${id}_defaultFolderClasssLabel', defaultToFirstItem: false, onlySelectable: true, hasAll: false, selectorStyle: 'dropdown'" 
+							 data-dojo-attach-point="_folderClassSelector"></div>
+						</span>	 
+						<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="clearFolderButton" data-dojo-attach-event="onClick: _onClearFolderClass">${messages.clear}</button>
+					</td>
+				</tr>					
+			</tbody>
+		</table>
+		  <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="gutters: false, style: { width: '100%', height: '325px' }" data-dojo-attach-point="_propertyMappingBorderContainer">
+		    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'top'">
+		      <div class="categoryInstructions" id="${id}_officeInstructions" data-dojo-attach-point="_titlePaneInstructions">${messages.admin_repository_office_conf_instruction}</div>
+		      <table class="propertyTable" role="presentation" data-dojo-attach-point="delemiterClasses">
+			      <tbody class="propertyTable">
+				       <tr>
+					       <td class="propertyRowLabel" valign="top">
+						       <label for="${id}_delimiterForOfficeProperty">${_messages.admin_ms_delimiter_for_office_properties}</label>&nbsp;
+						       <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="delimiterHoverHelp">${_messages.admin_ms_delimiter_for_office_properties_hover_help}</div>																	
+					       </td>
+					       <td class="propertyRowValue">
+						       <div>
+							        <input data-dojo-attach-point="delimiter" data-dojo-attach-event="onKeyUp: _onFieldDelimiterChange" data-dojo-type="ecm/widget/ValidationTextBox"
+									     data-dojo-props="id: '${id}_delimiterForOfficeProperty', required: false, trim: true, maxLength: 1, propercase: false" />	
+						       </div>
+					       </td>
+				      </tr>
+			      </tbody>
+		      </table>
+		      <div class="adminToolbar" data-dojo-attach-point="_buttonArea">
+		         <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="newButton" data-dojo-attach-event="onClick: _onNew">
+		            ${messages.admin_new_button_label}
+		         </button>
+		         <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="openButton" data-dojo-attach-event="onClick: _onOpen" data-dojo-props="disabled: true">
+		            ${messages.admin_edit_button_label}
+		         </button>
+		         <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="deleteButton" data-dojo-attach-event="onClick: _onDelete" data-dojo-props="disabled: true">
+		            ${messages.admin_delete_button_label}
+		         </button>
+		         <label for="${id}_filter" style="display: none;">${messages.process_filter_label}</label>
+		         <div data-dojo-attach-point="_filter" data-dojo-props='id: "${id}_filter", "class": "filter", style: { "margin-right": "5px" }' data-dojo-type="ecm/widget/FilterTextBox"></div>
+		      </div>         
+		    </div>
+		  </div>
+    </div>    
+    </div>
+    </div>
+    </div>
+    <div data-dojo-type="idx/layout/TitlePane" data-dojo-props='"aria-describedby": "${id}_officeInstructions2", style: { "margin-top": "5px", "margin-bottom": "5px", "margin-left": "0px" }' data-dojo-attach-point="_propertyMappingTitlePane2">
+    <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="gutters: false, style: { width: '100%', height: '1300px' }" data-dojo-attach-point="_propertyMappingBorderContainer2">
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'top'">
+    	<table class="propertyTable" role="presentation" data-dojo-attach-point="defaultClasses1">
+			<tbody class="propertyTable">
+                <tr>
+                    <td class="propertyRowLabel">
+		                <label>${messages.admin_office_online_server_enable}</label>&nbsp;
+		                <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="rcp8EnableOOFieldHoverHelp">${messages.admin_repcfg_office_online_service_p8_hover}</div>
+		            </td>
+		            <td class="propertyRowValue">
+                        <fieldset>
+                            <legend style="display: none;">${messages.admin_office_online_server_enable}</legend>
+                            <input data-dojo-attach-point="p8EnableOOService" data-dojo-attach-event="onClick: _onEnableOOClick"  
+		                           data-dojo-props="id: '${id}_p8-enableOOService-field', type: 'radio', name: '${id}_p8EnbaleOOService', value: 'enable'"
+		                           data-dojo-type="ecm/widget/RadioButton" />
+                            <label for="${id}_p8-enableOOService-field">${messages.admin_repcfg_enable}</label>
+                            <input data-dojo-attach-point="p8DisableOOService" data-dojo-attach-event="onClick: _onDisableOOClick" 
+		                           data-dojo-props="id:'${id}_p8-disableOOService-field', type: 'radio', name: '${id}_p8EnbaleOOService', value: 'disable', 'class': 'radioButton1'"
+		                           data-dojo-type="ecm/widget/RadioButton" />
+                            <label for="${id}_p8-disableOOService-field">${messages.admin_repcfg_disable}</label>
+		                </fieldset>
+		                <div class="inlineMessage inlineMessageWarning dijitHidden" data-dojo-attach-point="officeOnlineInlineMessage">
+                            <div class="messageIcon"></div>
+                            <div class="messageText" data-dojo-attach-point="officeOnlineMessageText" role="alert">${_messages.admin_repcfg_office_online_service_url_not_set_warning}</div>
+                        </div>                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="inlineMessage inlineMessageInfo" style="margin-left:15px;" data-dojo-attach-point="officeOnlineClassesConfigInlineMessage" >
+			  <div class="messageIcon"></div>
+			  <div class="messageText" role="status" data-dojo-attach-point="officeOnlineClassesConfigInlineMessageText">${messages.admin_repcfg_classes_and_roles_warning}</div>
+			  <a href="javascript:;"  data-dojo-attach-event="onClick: _scrolldown" data-dojo-attach-point="scrollLinkOO">${messages.admin_repcfg_classes_and_roles_click_warning}</a> 
+		</div>
+		<div class="adminToolbar" data-dojo-attach-point="_buttonArea1">
+			 <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="newButton1" data-dojo-attach-event="onClick: _onWordAdd">
+	            ${messages.action_add_template}
+	         </button>
+	         <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="openButton1" data-dojo-attach-event="onClick: _onWordChange" data-dojo-props="disabled: true">
+	            ${messages.action_change_template}
+	         </button>
+	         <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="viewButton1" data-dojo-attach-event="onClick: _onViewWordProperties" data-dojo-props="disabled: true">
+                ${messages.action_edit_template_properties}
+             </button>
+	         <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="deleteButton1" data-dojo-attach-event="onClick: _onWordDelete" data-dojo-props="disabled: true">
+	            ${messages.admin_repcfg_delete_button_label}
+	         </button>
+	         <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="defaultButton1" data-dojo-attach-event="onClick: _onSetWordDefault" data-dojo-props="disabled: true">
+	            ${messages.workspacebuilder_makeDefault_list}
+	         </button>
+		</div>
+		<div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="gutters: false, style: { width: '100%', height: '100px' }" data-dojo-attach-point="_gridArea1">
+        </div>        
+        <div class="adminToolbar" data-dojo-attach-point="_buttonArea2">
+			 <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="newButton2" data-dojo-attach-event="onClick: _onExcelAdd">
+	            ${messages.action_add_template}
+	         </button>
+	         <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="openButton2" data-dojo-attach-event="onClick: _onExcelChange" data-dojo-props="disabled: true">
+	            ${messages.action_change_template}
+	         </button>
+	         <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="viewButton2" data-dojo-attach-event="onClick: _onViewExcelProperties" data-dojo-props="disabled: true">
+                ${messages.action_edit_template_properties}
+             </button>
+	         <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="deleteButton2" data-dojo-attach-event="onClick: _onExcelDelete" data-dojo-props="disabled: true">
+	            ${messages.admin_repcfg_delete_button_label}
+	         </button>
+	         <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="defaultButton2" data-dojo-attach-event="onClick: _onSetExcelDefault" data-dojo-props="disabled: true">
+	            ${messages.workspacebuilder_makeDefault_list}
+	         </button>
+		</div>
+		<div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="gutters: false, style: { width: '100%', height: '100px' }" data-dojo-attach-point="_gridArea2">
+        </div>       
+       <div class="adminToolbar" data-dojo-attach-point="_buttonArea3">
+			 <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="newButton3" data-dojo-attach-event="onClick: _onPowerpointAdd">
+	            ${messages.action_add_template}
+	         </button>
+	         <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="openButton3" data-dojo-attach-event="onClick: _onPowerpointChange" data-dojo-props="disabled: true">
+	            ${messages.action_change_template}
+	         </button>
+	         <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="viewButton3" data-dojo-attach-event="onClick: _onViewPowerpointProperties" data-dojo-props="disabled: true">
+                ${messages.action_edit_template_properties}
+             </button>
+	         <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="deleteButton3" data-dojo-attach-event="onClick: _onPowerpointDelete" data-dojo-props="disabled: true">
+	            ${messages.admin_repcfg_delete_button_label}
+	         </button>
+	         <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="defaultButton3" data-dojo-attach-event="onClick: _onSetPowerpointDefault" data-dojo-props="disabled: true">
+	            ${messages.workspacebuilder_makeDefault_list}
+	         </button>
+		</div>
+		<div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="gutters: false, style: { width: '100%', height: '100px' }" data-dojo-attach-point="_gridArea3">
+        </div>
+        
+   
+    </div>
+    </div>
+    </div>
+ <div data-dojo-type="idx/layout/TitlePane" data-dojo-props='"aria-describedby": "${id}_editServiceIntegration", style: { "margin-top": "5px", "margin-bottom": "5px", "margin-left": "0px" }' data-dojo-attach-point="_editServiceIntegrationTitlePane">
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="style: { width: '100%', height: '100%' }" data-dojo-attach-point="_editServiceIntegrationContentPane" >
+    	<table class="propertyTable" role="presentation" data-dojo-attach-point="editServiceIntegrationTable">
+			<tbody class="propertyTable">
+				<tr>
+				        <div class="inlineMessage inlineMessageInfo" data-dojo-attach-point="editServiceClassesConfigInlineMessage" style="margin-left:15px;">
+			               <div class="messageIcon"></div>
+			               <div class="messageText" role="status" data-dojo-attach-point="editServiceClassesConfigInlineMessageText">${messages.admin_repcfg_classes_and_roles_warning}</div>
+			               <a href="javascript:;"  data-dojo-attach-event="onClick: _scrolldown" data-dojo-attach-point="scrollLinkEdit">${messages.admin_repcfg_classes_and_roles_click_warning}</a>
+		               </div>
+				</tr>
+				<tr data-dojo-attach-point="editServiceIntegrationIntro">
+					<td colspan="2" class="categoryInstructions">${messages.admin_icn_edit_service_integration_intro}</td>
+				</tr>
+                <tr>
+                    <td class="propertyRowLabel">
+		                <label>${messages.admin_icn_edit_service}</label>&nbsp;
+		                <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="ICNEditEnableHoverHelp">${messages.admin_icn_edit_enable_hover}</div>
+		            </td>
+		            <td class="propertyRowValue">
+                        <fieldset>
+                            <legend style="display: none;">${messages.admin_icn_edit_service}</legend>
+                            <input data-dojo-attach-point="p8EnableEditService" data-dojo-attach-event="onClick: _onEnableEditServiceClick"  
+		                           data-dojo-props="id: '${id}_p8-enableEditService-field', type: 'radio', name: '${id}_p8EnbaleEditService', value: 'enable'"
+		                           data-dojo-type="ecm/widget/RadioButton" />
+                            <label for="${id}_p8-enableEditService-field">${messages.admin_icn_edit_enable}</label>
+                            <input data-dojo-attach-point="p8DisableEditService" data-dojo-attach-event="onClick: _onDisableEditServiceClick" 
+		                           data-dojo-props="id:'${id}_p8-disableEditService-field', type: 'radio', name: '${id}_p8EnbaleEditService', value: 'disable', 'class': 'radioButton1'"
+		                           data-dojo-type="ecm/widget/RadioButton" />
+                            <label for="${id}_p8-disableEditService-field">${messages.admin_icn_edit_disable}</label>
+		                </fieldset>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="adminToolbar" data-dojo-attach-point="_CreateCategoryArea">
+			 <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="createCategoryButton" data-dojo-attach-event="onClick: _onNewCategory">
+	            ${messages.admin_icn_edit_create_new_category}
+	         </button>
+		</div>
+		<div  data-dojo-attach-point="_editCategoriesDiv">
+			
+        </div>
+      </div>  
+    </div>
+    
+    <div data-dojo-type="idx/layout/TitlePane" data-dojo-props='"aria-describedby": "${id}_classesAndRolesSettings", style: { "margin-top": "5px", "margin-bottom": "5px", "margin-left": "0px" }' data-dojo-attach-point="_classesAndRolesSettingsTitlePane">
+        <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="style: { width: '100%', height: '100%' }" data-dojo-attach-point="_classesAndRolesSettingsContentPane" >      
+           <div data-dojo-attach-point="_cmTemplateClassesArea">
+        	<table class="propertyTable" role="presentation" data-dojo-attach-point="_cmTemplateClassesTable">
+        	  <tbody class="propertyTable">
+				    <tr data-dojo-attach-point="_cmEntryTemplateEnabledClassesContainer" style="display:table-row;">
+			            <td colspan=2>
+							<span class="required">&nbsp;</span>
+			                <label>${messages.admin_repcfg_oos_enable_classes_label}</label>&nbsp;
+			                <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-props="isFocusable: true" data-dojo-attach-point="_cmEntryTemplateEnabledClassesHoverHelp">${messages.admin_repcfg_oos_enable_classes_warning}</div>
+			    		    <div class="inlineMessage inlineMessageInfo" style="margin-left:15px;">
+			    		    <div class="messageIcon"></div>
+			    		    	<div class="messageText" role="status">${messages.admin_repcfg_oos_enable_classes_warning}</div>
+			    		    </div>
+			    		    <div class="filterArea">
+			   					<label for="${id}_filter_it" style="display: none;">${messages.class_contains_label}</label>
+			               		<div data-dojo-type="ecm/widget/FilterTextBox" data-dojo-attach-point="_cmTemplateEnabledClassesAreaFilter" data-dojo-props='id: "${id}_filter_it", "class": "filter", style: {  float: "none" }'></div>
+			       				<div class="cmEntryTemplateEnabledClasses" data-dojo-type="idx/widget/SloshBucket" data-dojo-attach-point="_cmEntryTemplateEnabledClasses" data-dojo-props="canReorderSelectedGridData: false"></div>
+			           		</div>
+			           		<span>&nbsp;</span>			           	
+			            </td>
+			        </tr>
+			        <tr data-dojo-attach-point="_cmOffficeTemplateAccessControlContainer" style="display: table-row;">
+			            <td  class="propertyRowLabel">
+							<span class="required">&nbsp;</span>
+							<label for="${id}_cmOfficeTemplateAccessControlButton">${messages.admin_repcfg_office_template_permission_text}</label>
+						     	<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-props="isFocusable: true" data-dojo-attach-point="cmOfficeTemplateAccessControlHover">${messages.admin_repcfg_office_template_permission_hover_cm}</div><br>
+			            </td>
+			            <td class="propertyRowValue">
+			                <div class="accessControlContainer">
+						     	
+					 		   	<button data-dojo-type="dijit/form/Button" data-dojo-props="id: '${id}_cmOfficeTemplateAccessControlButton'" data-dojo-attach-point="_cmOfficeTemplateAccessControlButton" data-dojo-attach-event="onClick: _selectOfficeTemplateUserGroupClick">
+				            		${messages.select_users_groups_label}
+				  	            </button>
+				  	            <div data-dojo-attach-point="_cmOfficeTemplateCreatorDataPane" data-dojo-type="ecm/widget/UserGroupPrivilegePane"></div>
+							</div>
+			            </td>
+			        </tr>
+			        <tr data-dojo-attach-point="_cmDraftAccessControlContainer" style="display: table-row;">
+			            <td  class="propertyRowLabel">
+							<span class="required">&nbsp;</span>
+							<label for="${id}_cmDraftAccessControlButton">${messages.admin_repcfg_draft_permission_text}</label>
+						     	<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-props="isFocusable: true" data-dojo-attach-point="cmDraftAccessControlHover">${messages.admin_repcfg_draft_permission_hover_cm}</div><br>
+			            </td>
+			            <td class="propertyRowValue">
+			                <div class="accessControlContainer">
+						     	
+					 		   	<button data-dojo-type="dijit/form/Button" data-dojo-props="id: '${id}_cmDraftAccessControlButton'" data-dojo-attach-point="_cmDraftAccessControlButton" data-dojo-attach-event="onClick: _selectDraftUserGroupClick">
+				            		${messages.select_users_groups_label}
+				  	            </button>
+				  	            <div data-dojo-attach-point="_cmDraftCreatorDataPane" data-dojo-type="ecm/widget/UserGroupPrivilegePane"></div>
+							</div>
+			            </td>
+			        </tr>
+		        </tbody>   	
+        	</table> 
+        </div>
+        
+        
+        </div>
+    </div>
+</div>

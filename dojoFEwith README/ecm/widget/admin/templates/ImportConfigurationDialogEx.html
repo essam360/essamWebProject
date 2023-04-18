@@ -1,0 +1,26 @@
+<div data-dojo-type="dijit/layout/BorderContainer" class="ecmAdminPage ecmContentList ecmImportConfigurationDialogBorderContainer" data-dojo-attach-point="_dialogContent" data-dojo-props="'gutters': false">
+	<div data-dojo-type="dijit.layout.ContentPane" region="top">
+        <div data-dojo-attach-point="_keyConflictInstruction" class="inlineMessage inlineMessageWarning importDesktopConflictWarning">
+            <img style="" src="/navigator/ecm/widget/resources/images/warning24.png" alt="${messages.admin_import_warning_message}"/>
+            <span style="padding: 5px; vertical-align: super;">${messages.admin_import_short_warning_message}</span>
+        </div>
+        <div data-dojo-attach-point="_fileInputArea">
+	        <table class="propertyTable" role="presentation">
+	            <tr>
+	                <td class="propertyRowLabel">
+	                    <span class="required">*</span>
+	                    <label for="${id}_fileInput">${messages.admin_file_name_label}</label>
+	                </td>
+	                <td class="propertyRowValue">
+	                    <form data-dojo-attach-point="_fileInputForm" name="fileUploadForm" enctype="multipart/form-data" accept-charset="UTF-8" method="post" action="dummyUploadUrl" target="${id}_fileInputIFrame">
+	                        <input type="file" size="60" multiple="false" id="${id}_fileInput" accept="*.properties" name="uploadFile" class="fileInput" data-dojo-attach-point="_fileInput" data-dojo-attach-event="onchange: onFileInputChange"/>
+	                        <iframe name="${id}_fileInputIFrame" id="${id}_fileInputIFrame" style="display: none"></iframe>
+	                    </form>
+	                </td>
+	            </tr>
+	        </table>
+	    </div>          
+	</div>
+	<div data-dojo-type="dijit/layout/TabContainer" data-dojo-attach-point="_tabsContainer" class="ecmImportTabs" region="center">
+	</div>
+</div>     

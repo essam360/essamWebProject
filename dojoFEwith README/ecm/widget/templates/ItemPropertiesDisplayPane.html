@@ -1,0 +1,16 @@
+<div class="ecmItemPropertiesDisplayPane">
+	<div data-dojo-attach-point="displayPropertiesTopPanel" data-dojo-type="dijit/layout/ContentPane" splitter="false" region="top" style="padding: 0;">
+		<span data-dojo-attach-point="previewNode" data-dojo-type="ecm/widget/ItemPreviewPane"></span>
+	</div>
+   	<div data-dojo-type="dijit/layout/ContentPane" splitter="false" class="propertiesContainer" data-dojo-attach-point="propertiesContainer">
+		<!-- R2 style readonly properties -->
+		<div data-dojo-type="dijit/layout/ContentPane" splitter="false" data-dojo-attach-point="propertiesNodePane">
+			<span data-dojo-attach-point="propertiesNode" class="propertiesArea">
+			</span>
+		</div>
+		<!--  R3 edit properties -->
+		<div data-dojo-type="dijit/layout/ContentPane" splitter="false" data-dojo-attach-point="propertiesPaneEditable" style="display: none;">
+		</div>
+   	</div>
+</div>
+

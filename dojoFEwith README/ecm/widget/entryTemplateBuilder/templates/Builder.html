@@ -1,0 +1,50 @@
+<div class="ecmEntryTemplateBuilder">
+    <div data-dojo-type="idx/layout/BorderContainer" data-dojo-attach-point="borderContainer" data-dojo-props="'class': 'borderContainer', gutters: false"> 
+	    <div data-dojo-type="dijit/layout/StackContainer" data-dojo-attach-point="stackContainer" data-dojo-props="region: 'center'" style="visibility: visible;">
+		    <div data-dojo-type="idx/layout/BorderContainer" data-dojo-attach-point="builderBorderContainer" data-dojo-props="'class': 'borderContainer', gutters: false">
+				<div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'">
+				    <div class="buttonToolbar">
+					    <div data-dojo-type="dijit/form/Button" data-dojo-attach-point="saveAndCloseButton" data-dojo-attach-event="onClick: _onSaveAndClose">
+						    ${messages.save_and_close}
+					    </div>
+					    <div data-dojo-type="dijit/form/Button" data-dojo-attach-point="copyButton" data-dojo-attach-event="onClick: _onCopy">
+						    ${messages.admin_action_copy}
+					    </div>
+					    <div data-dojo-type="dijit/form/Button" data-dojo-attach-point="cancelButton" data-dojo-attach-event="onClick: _onCancel">
+						    ${messages.cancel}
+					    </div>
+				    </div>
+				    <div class="inlineMessage dijitHidden" data-dojo-attach-point="inlineMessage">
+				    	<div class="messageIcon"></div>
+				    	<div class="messageText" role="alert" data-dojo-attach-point="messageText"></div>
+				    </div>
+				</div>  
+				<div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'">
+					<div class="intro dijitHiden" data-dojo-attach-point="intro"  id="${id}_intro">
+						<span class="introText" data-dojo-attach-point="introText">
+						</span>
+						<span class="introTextRef" data-dojo-attach-point="introTextRef">
+						</span>
+					</div>
+				    <div data-dojo-type="ecm/widget/entryTemplateBuilder/SettingsPane" data-dojo-attach-point="settingsPane"></div>
+				</div>
+		    </div>	
+		    <div data-dojo-type="idx/layout/BorderContainer" data-dojo-attach-point="designerBorderContainer" data-dojo-props="'class': 'borderContainer', gutters: false, style: { 'width': '100%', 'height': '100%' }">
+				<div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'" style="width: 100%; height: 100%;">
+				    <div class="buttonToolbar">
+					    <div data-dojo-type="dijit/form/Button" data-dojo-attach-point="saveAndCloseDesignerButton" data-dojo-attach-event="onClick: _onSaveAndCloseDesigner" data-dojo-props="disabled: true">
+						    ${messages.save_and_close}
+					    </div>
+					    <div data-dojo-type="dijit/form/Button" data-dojo-attach-point="saveDesignerButton" data-dojo-attach-event="onClick: _onSaveDesigner" data-dojo-props="disabled: true">
+						    ${messages.save}
+					    </div>
+					    <div data-dojo-type="dijit/form/Button" data-dojo-attach-point="cancelDesignerButton" data-dojo-attach-event="onClick: _onCancelDesigner">
+						    ${messages.cancel}
+					    </div>
+				    </div>
+				    <div data-dojo-type="ecm/widget/entryTemplateBuilder/DesignerPane" data-dojo-attach-point="designerPane"></div>
+				</div>  
+		    </div>
+	    </div>
+	</div>
+</div>

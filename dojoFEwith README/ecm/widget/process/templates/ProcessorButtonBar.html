@@ -1,0 +1,23 @@
+<div class="ecmProcessorButtonBar">
+	<div class="dijitHidden ecmGetNextCheckbox" data-dojo-attach-point="getNextNode" >
+	    <input id="${id}_get_next" data-dojo-attach-point="getNextCheckbox" data-dojo-type="ecm.widget.CheckBox" name="${id}_get_next"/>
+	    <label for="${id}_get_next">${_messages.process_get_next_label}</label>
+	</div>
+	<div class="ecmProcessorButtons"> 
+	    <div class="ecmProcessButton" style="display: inline;" data-dojo-attach-point="buttonBar"></div>
+	    <button class="dijitHidden dijitButton"
+		    id="${id}_SaveButton1"
+		    data-dojo-type="dijit.form.Button" 
+		    data-dojo-attach-point="saveButton"
+		    data-dojo-attach-event="onClick: onSave">
+		    ${_messages.process_save_button_label}
+		</button>
+		<button class="dijitButton"
+		    id="${id}_CancelButton1"
+		    data-dojo-type="dijit.form.Button"
+		    data-dojo-attach-point="cancelButton"
+		    data-dojo-attach-event="onClick: onCancel">            
+		    ${_messages.cancel}
+		</button>		
+	</div>  
+</div>

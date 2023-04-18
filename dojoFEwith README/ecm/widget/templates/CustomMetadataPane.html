@@ -1,0 +1,17 @@
+<div class="ecmCustomMetadataPropertiesPane" data-dojo-attach-point="containerNode">
+  <div data-dojo-type="ecm.widget.TitlePane" data-dojo-attach-point="_titlePane" collapsible=true>
+     <table role="presentation" data-dojo-attach-point="_buttonTable" class="buttonTable">
+     	<tr>
+     		<td>
+       			<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="_addButton" data-dojo-attach-event="onClick: _onClickNew">${_messages.properties_new_row}</div>
+       		</td>
+       		<td>
+       			<div data-dojo-type="dijit.form.Button" disabled=true data-dojo-attach-point="_deleteButton" data-dojo-attach-event="onClick: _onClickDelete">${_messages.delete_text}</div>
+       		</td>
+       	</tr>
+     </table>
+     <div data-dojo-type="dijit.layout.BorderContainer" class="borderContainer" gutters=false data-dojo-attach-point="_borderContainer">
+       <div class="tableContainer" data-dojo-attach-point="_tableContainer" data-dojo-type="dijit.layout.ContentPane" region="center"></div>
+     </div>
+  </div>
+</div>

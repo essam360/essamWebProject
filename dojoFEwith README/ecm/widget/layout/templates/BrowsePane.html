@@ -1,0 +1,16 @@
+<div class="ecmBrowsePane ecmCenterPane">
+	<div data-dojo-type="idx.layout.BorderContainer" data-dojo-attach-point="browseTreeContainer" class="contentPane" gutters="false" design="sidebar">
+		<div data-dojo-type="dijit.layout.ContentPane" region="leading" class="paneNoOverflow" data-dojo-attach-point="treeContainer" splitter="true">
+			<div data-dojo-type="dijit.layout.BorderContainer" gutters="false" class="navContainer">
+				<div data-dojo-attach-point="repositorySelectorArea" class="navContainerTopBar" data-dojo-type="dijit.layout.ContentPane" region="top">
+				</div>
+				<div data-dojo-attach-point="searchSelectorArea" class="navContainerBottomBar" data-dojo-type="dijit.layout.ContentPane" region="center">
+					<div data-dojo-type="ecm.widget.FolderTree" aria-label="${messages.browse_tree_label}" data-dojo-attach-point="folderTree" showFoldersOnly=true></div>
+				</div>
+			</div>
+		</div>
+		<div data-dojo-attach-point="folderContents" data-dojo-type="ecm.widget.listView.ContentList" 
+				emptyMessage="${messages.folder_is_empty}" region="center">
+		</div>
+	</div>
+</div>

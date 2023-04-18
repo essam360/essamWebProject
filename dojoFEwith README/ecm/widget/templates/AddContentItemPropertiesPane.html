@@ -1,0 +1,30 @@
+<div class="ecmAddContentItemPropertiesPane">
+	<div class="documentClassDiv" data-dojo-attach-point="_documentClassDiv">
+		<div data-dojo-attach-point="_contentClassSelectorDiv">
+			<span class="required">*</span>
+			<label class="dijitInline" id="${id}_contentClassSelectorLabel" for="${id}_contentClassSelector">${_messages.document_type}:</label>
+			<span dropdownid="${id}_contentClassSelector"
+				ariaLabelledBy="${id}_contentClassSelectorLabel"
+				data-dojo-type="ecm.widget.ContentClassSelector" 
+				data-dojo-attach-point="_contentClassSelector" 
+				selectorStyle="dropdown" 
+				hasAll=false
+				onlySelectable=true>
+			</span>
+		</div>
+		<div data-dojo-attach-point="_contentClassNameDiv" style="display: none;">
+			<span class="required">*</span>
+			<label for="${id}_contentClassNameTextBox">${_messages.document_type}:</label>
+			<div id="${id}_contentClassNameTextBox"
+				name="${id}_contentClassNameTextBox"
+				class="contentClassNameTextBox"
+				data-dojo-type="dijit.form.TextBox"
+				data-dojo-attach-point="_contentClassNameTextBox"
+				value readonly aria-readonly="true">
+			</div>
+		</div>
+	</div>
+	<div class="commonPropertiesDiv">
+	    <div data-dojo-type="dijit.layout.ContentPane" tabindex="0" data-dojo-attach-point="_commonPropertiesContainer"></div>
+	</div>
+</div>

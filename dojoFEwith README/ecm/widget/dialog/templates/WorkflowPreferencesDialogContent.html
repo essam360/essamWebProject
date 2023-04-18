@@ -1,0 +1,210 @@
+<div data-dojo-attach-point="_preferencesContainer" class="preferencesContainer" data-dojo-type="dijit.layout.ContentPane">                            
+    <table class="propertyTable" role="presentation">
+    <tbody data-dojo-attach-point="prefData">
+        <tr>
+            <td class="propertyRowLabelCategory"  colspan="2">
+                <label>${messages.workflow_pref_general}</label>
+            </td>
+        </tr>   
+        <tr>
+            <td class="propertyRowLabel">
+                <label for="${id}_emailAddress-field">${messages.workflow_pref_email_address}</label>&nbsp;
+                <div data-dojo-type="ecm.widget.HoverHelp" data-dojo-attach-point="rcEmailAddressHoverHelp" message="${messages.workflow_pref_email_address_hover}"></div>
+            </td>
+            <td class="propertyRowValue">
+                <div id="${id}_emailAddress-field" data-dojo-type="ecm.widget.TextBox" data-dojo-attach-point="emailAddress">&nbsp;
+            </td>
+        </tr>       
+        <tr>
+            <td class="propertyRowLabel">
+                <label for="${id}_preferredLocale-field">${messages.workflow_pref_preferred_locale}</label>&nbsp;
+                <div data-dojo-type="ecm.widget.HoverHelp" data-dojo-attach-point="rcPreferredLocaleHoverHelp" message="${messages.workflow_pref_preferred_locale_hover}"></div>
+            </td>
+            <td class="propertyRowValue">
+                <div id=${id}_preferredLocale-field data-dojo-attach-point="preferredLocale" data-dojo-attach-event="onChange: _onFieldChange" data-dojo-type="ecm.widget.FilteringSelect" labelType="text" label="label" searchAttr="label" identifier="value" required=false maxHeight=200></div>
+            </td>
+        </tr>    
+        <tr>
+            <td class="propertyRowLabelCategory"  colspan="2">
+                <label>${messages.workflow_pref_work_item_notice}</label>
+            </td>
+        </tr>   
+        <tr>
+            <td class="propertyRowLabel">
+                <label>${messages.workflow_pref_step_new_assignment}</label>&nbsp;
+                <div data-dojo-type="ecm.widget.HoverHelp" data-dojo-attach-point="rcStepNewAssignmentFieldHoverHelp" message="${messages.workflow_pref_step_new_assignment_hover}"></div>
+            </td>
+            <td class="propertyRowValue">
+                <fieldset>
+                <legend style="display: none;">${messages.workflow_pref_workflow}</legend>
+                    <input id="${id}_p8-enableStepNewAssignment-field" data-dojo-attach-point="enableStepNewAssignment" data-dojo-attach-event="onClick: _onFieldChange" type="radio" data-dojo-type="ecm.widget.RadioButton" name="stepNewAssignment" value="enable">
+                    <label for="${id}_p8-enableStepNewAssignment-field">${messages.workflow_pref_on}</label>
+                    <input id="${id}_p8-disableStepNewAssignment-field" data-dojo-attach-point="disableStepNewAssignment" data-dojo-attach-event="onClick: _onFieldChange" type="radio" data-dojo-type="ecm.widget.RadioButton" name="stepNewAssignment" value="disable" class="radioButton1">
+                    <label for="${id}_p8-disableStepNewAssignment-field">${messages.workflow_pref_off}</label>
+                </fieldset>
+            </td>
+        </tr>     
+        <tr>
+            <td class="propertyRowLabel">
+                <label>${messages.workflow_pref_step_expired_deadline}</label>&nbsp;
+                <div data-dojo-type="ecm.widget.HoverHelp" data-dojo-attach-point="rcStepExpiredDeadlineFieldHoverHelp" message="${messages.workflow_pref_step_expired_deadline_hover}"></div>
+            </td>
+            <td class="propertyRowValue">
+                <fieldset>
+                <legend style="display: none;">${messages.workflow_pref_workflow}</legend>
+                    <input id="${id}_p8-enableStepExpiredDeadline-field" data-dojo-attach-point="enableStepExpiredDeadline" data-dojo-attach-event="onClick: _onFieldChange" type="radio" data-dojo-type="ecm.widget.RadioButton" name="stepExpiredDeadline" value="enable">
+                    <label for="${id}_p8-enableStepExpiredDeadline-field">${messages.workflow_pref_on}</label>
+                    <input id="${id}_p8-disableStepExpiredDeadline-field" data-dojo-attach-point="disableStepExpiredDeadline" data-dojo-attach-event="onClick: _onFieldChange" type="radio" data-dojo-type="ecm.widget.RadioButton" name="stepExpiredDeadline" value="disable" class="radioButton1">
+                    <label for="${id}_p8-disableStepExpiredDeadline-field">${messages.workflow_pref_off}</label>
+                </fieldset>
+            </td>
+        </tr>       
+        <tr>
+            <td class="propertyRowLabel">
+                <label>${messages.workflow_pref_step_reminders}</label>&nbsp;
+                <div data-dojo-type="ecm.widget.HoverHelp" data-dojo-attach-point="rcStepRemindersFieldHoverHelp" message="${messages.workflow_pref_step_reminders_hover}"></div>
+            </td>
+            <td class="propertyRowValue">
+                <fieldset>
+                <legend style="display: none;">${messages.workflow_pref_workflow}</legend>
+                    <input id="${id}_p8-enableStepReminders-field" data-dojo-attach-point="enableStepReminders" data-dojo-attach-event="onClick: _onFieldChange" type="radio" data-dojo-type="ecm.widget.RadioButton" name="stepReminders" value="enable">
+                    <label for="${id}_p8-enableStepReminders-field">${messages.workflow_pref_on}</label>
+                    <input id="${id}_p8-disableStepReminders-field" data-dojo-attach-point="disableStepReminders" data-dojo-attach-event="onClick: _onFieldChange" type="radio" data-dojo-type="ecm.widget.RadioButton" name="stepReminders" value="disable" class="radioButton1">
+                    <label for="${id}_p8-disableStepReminders-field">${messages.workflow_pref_off}</label>
+                </fieldset>
+            </td>
+        </tr>       
+        <tr>
+            <td class="propertyRowLabelCategory" colspan="2">
+                <label>${messages.workflow_pref_originator_notice}</label>
+            </td>
+        </tr>   
+        <tr>
+            <td class="propertyRowLabel">
+                <label>${messages.workflow_pref_milestone_reached}</label>&nbsp;
+                <div data-dojo-type="ecm.widget.HoverHelp" data-dojo-attach-point="rcStepMilestoneReachedFieldHoverHelp" message="${messages.workflow_pref_milestone_reached_hover}"></div>
+            </td>
+            <td class="propertyRowValue">
+                <fieldset>
+                <legend style="display: none;">${messages.workflow_pref_workflow}</legend>
+                    <input id="${id}_p8-enableStepMilestoneReached-field" data-dojo-attach-point="enableStepMilestoneReached" data-dojo-attach-event="onClick: _onFieldChange" type="radio" data-dojo-type="ecm.widget.RadioButton" name="stepMilestoneReached" value="enable">
+                    <label for="${id}_p8-enableStepMilestoneReached-field">${messages.workflow_pref_on}</label>
+                    <input id="${id}_p8-disableStepMilestoneReached-field" data-dojo-attach-point="disableStepMilestoneReached" data-dojo-attach-event="onClick: _onFieldChange" type="radio" data-dojo-type="ecm.widget.RadioButton" name="stepMilestoneReached" value="disable" class="radioButton1">
+                    <label for="${id}_p8-disableStepMilestoneReached-field">${messages.workflow_pref_off}</label>
+                </fieldset>
+            </td>
+        </tr>       
+        <tr>
+            <td class="propertyRowLabelCategory" colspan="2">
+                <label>${messages.workflow_pref_tracker_notice}</label>
+            </td>
+        </tr>   
+        <tr>
+            <td class="propertyRowLabel">
+                <label>${messages.workflow_pref_tracker_new_assignment}</label>&nbsp;
+                <div data-dojo-type="ecm.widget.HoverHelp" data-dojo-attach-point="rcTrackerNewAssignmentFieldHoverHelp" message="${messages.workflow_pref_tracker_new_assignment_hover}"></div>
+            </td>
+            <td class="propertyRowValue">
+                <fieldset>
+                <legend style="display: none;">${messages.workflow_pref_workflow}</legend>
+                    <input id="${id}_p8-enableTrackerNewAssignment-field" data-dojo-attach-point="enableTrackerNewAssignment" data-dojo-attach-event="onClick: _onFieldChange" type="radio" data-dojo-type="ecm.widget.RadioButton" name="trackerNewAssignment" value="enable">
+                    <label for="${id}_p8-enableTrackerNewAssignment-field">${messages.workflow_pref_on}</label>
+                    <input id="${id}_p8-disableTrackerNewAssignment-field" data-dojo-attach-point="disableTrackerNewAssignment" data-dojo-attach-event="onClick: _onFieldChange" type="radio" data-dojo-type="ecm.widget.RadioButton" name="trackerNewAssignment" value="disable" class="radioButton1">
+                    <label for="${id}_p8-disableTrackerNewAssignment-field">${messages.workflow_pref_off}</label>
+                </fieldset>
+            </td>
+        </tr>       
+        <tr>
+            <td class="propertyRowLabel">
+                <label>${messages.workflow_pref_tracker_deadline_reminders}</label>&nbsp;
+                <div data-dojo-type="ecm.widget.HoverHelp" data-dojo-attach-point="rcTrackerDeadlineRemindersFieldHoverHelp" message="${messages.workflow_pref_tracker_deadline_reminders_hover}"></div>
+            </td>
+            <td class="propertyRowValue">
+                <fieldset>
+                <legend style="display: none;">${messages.workflow_pref_workflow}</legend>
+                    <input id="${id}_p8-enableTrackerDeadlineReminders-field" data-dojo-attach-point="enableTrackerDeadlineReminders" data-dojo-attach-event="onClick: _onFieldChange" type="radio" data-dojo-type="ecm.widget.RadioButton" name="trackerDeadlineReminders" value="enable">
+                    <label for="${id}_p8-enableTrackerDeadlineReminders-field">${messages.workflow_pref_on}</label>
+                    <input id="${id}_p8-disableTrackerDeadlineReminders-field" data-dojo-attach-point="disableTrackerDeadlineReminders" data-dojo-attach-event="onClick: _onFieldChange" type="radio" data-dojo-type="ecm.widget.RadioButton" name="trackerDeadlineReminders" value="disable" class="radioButton1">
+                    <label for="${id}_p8-disableTrackerDeadlineReminders-field">${messages.workflow_pref_off}</label>
+                </fieldset>
+            </td>
+        </tr>       
+        <tr>
+            <td class="propertyRowLabel">
+                <label>${messages.workflow_pref_tracker_deadline_expired}</label>&nbsp;
+                <div data-dojo-type="ecm.widget.HoverHelp" data-dojo-attach-point="rcTrackerDeadlineExpiredFieldHoverHelp" message="${messages.workflow_pref_tracker_deadline_expired_hover}"></div>
+            </td>
+            <td class="propertyRowValue">
+                <fieldset>
+                <legend style="display: none;">${messages.workflow_pref_workflow}</legend>
+                    <input id="${id}_p8-enableTrackerDeadlineExpired-field" data-dojo-attach-point="enableTrackerDeadlineExpired" data-dojo-attach-event="onClick: _onFieldChange" type="radio" data-dojo-type="ecm.widget.RadioButton" name="trackerDeadlineExpired" value="enable">
+                    <label for="${id}_p8-enableTrackerDeadlineExpired-field">${messages.workflow_pref_on}</label>
+                    <input id="${id}_p8-disableTrackerDeadlineExpired-field" data-dojo-attach-point="disableTrackerDeadlineExpired" data-dojo-attach-event="onClick: _onFieldChange" type="radio" data-dojo-type="ecm.widget.RadioButton" name="trackerDeadlineExpired" value="disable" class="radioButton1">
+                    <label for="${id}_p8-disableTrackerDeadlineExpired-field">${messages.workflow_pref_off}</label>
+                </fieldset>
+            </td>
+        </tr>       
+        <tr>
+            <td class="propertyRowLabel">
+                <label>${messages.workflow_pref_tracker_exception}</label>&nbsp;
+                <div data-dojo-type="ecm.widget.HoverHelp" data-dojo-attach-point="rcTrackerExceptionFieldHoverHelp" message="${messages.workflow_pref_tracker_exception_hover}"></div>
+            </td>
+            <td class="propertyRowValue">
+                <fieldset>
+                <legend style="display: none;">${messages.workflow_pref_workflow}</legend>
+                    <input id="${id}_p8-enableTrackerException-field" data-dojo-attach-point="enableTrackerException" data-dojo-attach-event="onClick: _onFieldChange" type="radio" data-dojo-type="ecm.widget.RadioButton" name="trackerException" value="enable">
+                    <label for="${id}_p8-enableTrackerException-field">${messages.workflow_pref_on}</label>
+                    <input id="${id}_p8-disableTrackerException-field" data-dojo-attach-point="disableTrackerException" data-dojo-attach-event="onClick: _onFieldChange" type="radio" data-dojo-type="ecm.widget.RadioButton" name="trackerException" value="disable" class="radioButton1">
+                    <label for="${id}_p8-disableTrackerException-field">${messages.workflow_pref_off}</label>
+                </fieldset>
+            </td>
+        </tr>       
+        <tr>
+            <td class="propertyRowLabel">
+                <label>${messages.workflow_pref_tracker_expired_deadline}</label>&nbsp;
+                <div data-dojo-type="ecm.widget.HoverHelp" data-dojo-attach-point="rcTrackerExpiredDeadlineFieldHoverHelp" message="${messages.workflow_pref_tracker_expired_deadline_hover}"></div>
+            </td>
+            <td class="propertyRowValue">
+                <fieldset>
+                <legend style="display: none;">${messages.workflow_pref_workflow}</legend>
+                    <input id="${id}_p8-enableTrackerExpiredDeadline-field" data-dojo-attach-point="enableTrackerExpiredDeadline" data-dojo-attach-event="onClick: _onFieldChange" type="radio" data-dojo-type="ecm.widget.RadioButton" name="trackerExpiredDeadline" value="enable">
+                    <label for="${id}_p8-enableTrackerExpiredDeadline-field">${messages.workflow_pref_on}</label>
+                    <input id="${id}_p8-disableTrackerExpiredDeadline-field" data-dojo-attach-point="disableTrackerExpiredDeadline" data-dojo-attach-event="onClick: _onFieldChange" type="radio" data-dojo-type="ecm.widget.RadioButton" name="trackerExpiredDeadline" value="disable" class="radioButton1">
+                    <label for="${id}_p8-disableTrackerExpiredDeadline-field">${messages.workflow_pref_off}</label>
+                </fieldset>
+            </td>
+        </tr>       
+        <tr>
+            <td class="propertyRowLabel">
+                <label>${messages.workflow_pref_tracker_milestone_reached}</label>&nbsp;
+                <div data-dojo-type="ecm.widget.HoverHelp" data-dojo-attach-point="rcTrackerMilestoneReachedFieldHoverHelp" message="${messages.workflow_pref_tracker_milestone_reached_hover}"></div>
+            </td>
+            <td class="propertyRowValue">
+                <fieldset>
+                <legend style="display: none;">${messages.workflow_pref_workflow}</legend>
+                    <input id="${id}_p8-enableTrackerMilestoneReached-field" data-dojo-attach-point="enableTrackerMilestoneReached" data-dojo-attach-event="onClick: _onFieldChange" type="radio" data-dojo-type="ecm.widget.RadioButton" name="trackerMilestoneReached" value="enable">
+                    <label for="${id}_p8-enableTrackerMilestoneReached-field">${messages.workflow_pref_on}</label>
+                    <input id="${id}_p8-disableTrackerMilestoneReached-field" data-dojo-attach-point="disableTrackerMilestoneReached" data-dojo-attach-event="onClick: _onFieldChange" type="radio" data-dojo-type="ecm.widget.RadioButton" name="trackerMilestoneReached" value="disable" class="radioButton1">
+                    <label for="${id}_p8-disableTrackerMilestoneReached-field">${messages.workflow_pref_off}</label>
+                </fieldset>
+            </td>
+        </tr>       
+        <tr>
+            <td class="propertyRowLabelCategory" colspan="2">
+                <label>${messages.workflow_pref_out_notice}</label>
+            </td>
+        </tr>   
+        <tr>
+            <td class="propertyRowLabel">
+                <label for="${id}_proxyUser-field">${messages.workflow_pref_proxy_user}</label>&nbsp;
+                <div data-dojo-type="ecm.widget.HoverHelp" isFocusable=true data-dojo-attach-point="rcProxyUserHoverHelp" message="${messages.workflow_pref_proxy_user_hover}"></div>
+            </td>
+            <td class="propertyRowValue">
+                <div data-dojo-attach-point="_userNameNode" class="ecmWorkflowUserNameNone">    
+                </div>
+                <div id="${id}_proxyUser-field" data-dojo-attach-point="_selectUserButton" data-dojo-type="ecm.widget.Button" data-dojo-attach-event="onClick: _onSelectUser" disabled>${messages.select_members_label}</div>
+            </td>
+        </tr>               
+    </tbody>
+    </table> 
+</div>

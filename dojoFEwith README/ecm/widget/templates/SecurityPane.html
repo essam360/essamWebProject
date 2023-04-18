@@ -1,0 +1,25 @@
+<div class="ecmSecurityPane">	
+	<div data-dojo-attach-point="_topPane" class="topPane">
+	   	<div data-dojo-attach-point="_noteSection" class="infoSection dijitHidden">
+	   		<span>${_messages.note_label}</span>
+	   		<span data-dojo-attach-point="_noteText">
+				<span data-dojo-attach-point="_noteValue" class="infoText"></span>
+			</span>
+		</div> 	
+	   	<div data-dojo-attach-point="_policySection" class="infoSection dijitHidden">
+	   		<span>${_messages.security_policy_label}</span>
+	   		<span data-dojo-attach-point="_securityPolicyLabel"></span>
+			<span data-dojo-attach-point="_securityPolicyName" class="infoText"></span>
+		</div> 		    	
+		<div>
+			<span data-dojo-attach-point="_shareWith" class="ecmLabel" tabindex="0">${_messages.share_with_label}</span>
+			<span class="ecmValue membersLabel" data-dojo-attach-point="_members" tabindex=0>${_messages.members_label}</span>
+            <span id="${id}_addButton" data-dojo-attach-point="_addButton" data-dojo-type="ecm/widget/Button" data-dojo-attach-event="onClick: _onAdd" disabled>${_messages.select_members_label}</span>
+            <span data-dojo-attach-point="_securityRolesection" class="dijitHidden">
+            	<span class="ecmValue membersLabel" data-dojo-attach-point="_securityRole" tabindex=0>${_messages.entry_template_security_class_role_piker_title}</span>
+            	<span id="${id}_addRoleButton"   data-dojo-attach-point="_addRoleButton" data-dojo-type="ecm/widget/Button" data-dojo-attach-event="onClick: _onRoleAdd" disabled>${_messages.select_members_label}</span>    
+            </span>        
+		</div>
+	</div>		
+	<div data-dojo-attach-point="_centerPane" class="centerPane" ></div>	
+</div>

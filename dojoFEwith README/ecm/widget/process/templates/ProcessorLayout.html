@@ -1,0 +1,25 @@
+<div class="ecmProcessorLayout" data-dojo-attach-point="containerNode" role="region" aria-label="${_messages.process_step_processor}">
+    <div data-dojo-type="dijit.layout.BorderContainer" class="contentPane" gutters="false" data-dojo-attach-point="mainBorderContainer"> 
+       <div data-dojo-attach-point="mainStackContainer" data-dojo-type="dijit.layout.StackContainer" region="center" style="visibility: visible">
+            <div data-dojo-attach-point="loginPane" data-dojo-type="ecm.widget.LoginPane" id="${id}_LoginPane"></div>
+            <div data-dojo-attach-point="closePane" data-dojo-type="dijit.layout.BorderContainer" id="${id}_ClosePane">
+                <div style="height: 50%"></div>
+                <div data-dojo-attach-point="closeMessage" class="ecmProcessorCloseMessage">
+                    ${_messages.process_close_window}
+                </div>
+            </div>
+            <div data-dojo-attach-point="mainPane" data-dojo-type="dijit.layout.BorderContainer"
+                 id="${id}_StepPane"
+                 class="contentPane" 
+                 style="height:300px"
+                 gutters="false"
+                 aria-label="${_messages.product_name}">
+                <div data-dojo-attach-point="contentArea" style="position: relative"
+                ><!--
+                    Layout specific content will insert here 
+                --></div
+                >
+           </div>
+       </div> 
+    </div>
+</div>

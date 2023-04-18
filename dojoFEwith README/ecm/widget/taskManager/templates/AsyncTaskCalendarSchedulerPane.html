@@ -1,0 +1,53 @@
+<div class="asyncTaskSchedulerPane ecmCommonPropertiesPane">
+	<div data-dojo-type="idx.layout.TitlePane"
+		title="${messages.taskSchedulerPane_scheduleInformation}" data-dojo-attach-point="scheduleInformationTitlePane">
+		<div data-dojo-attach-point="scheduleInformationSection" data-dojo-type="dijit/layout/ContentPane" style="padding: 0; margin: 0;">
+			<table border="0" cellpadding="3px" cellspacing="0" style="border-collapse: collapse;" class="propertyTable" role="presentation">
+				<tbody>
+					<tr>
+						<td class="propertyRowLabel">
+							<span class="ecmLabeledInputFieldRequired">*</span>
+							<label for="${id}_nameTextBox">${messages.Name}:</label>
+						</td>
+						<td class="propertyRowValue">
+							<div data-dojo-attach-point="nameTextBox" data-dojo-type="ecm/widget/ValidationTextBox"
+							id="${id}_nameTextBox" name="${id}_nameTextBox" data-dojo-props="trim: true, required: true, intermediateChanges: true" 
+							data-dojo-attach-event="onChange:onChange"></div>
+						</td>
+					</tr>
+					<tr data-dojo-attach-point="descriptionRow">
+						<td class="propertyRowLabel">
+							<label for="${id}_descriptionTextBox">${messages.description_label}</label>
+						</td>
+						<td class="propertyRowValue">
+							<div data-dojo-attach-point="descriptionTextBox" data-dojo-type="ecm/widget/ValidationSimpleTextarea"
+								id="${id}_descriptionTextBox" name="${id}_descriptionTextBox" data-dojo-props="trim: true, value: '',intermediateChanges: true" 
+							data-dojo-attach-event="onChange:onChange"></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<div class="calendarTaskScheduler" data-dojo-attach-point="calendarScheduler" data-dojo-type="ecm/widget/taskManager/CalendarScheduler"></div>
+		</div>
+	</div>
+	<div data-dojo-type="idx.layout.TitlePane" data-dojo-attach-point="notificationTitlePane"
+		title="${messages.taskSchedulerPane_notification}">
+		<div data-dojo-attach-point="notificationSection" data-dojo-type="dijit/layout/ContentPane"">
+			<table border="0" cellpadding="3px" cellspacing="0" style="border-collapse: collapse" class="propertyTable" role="presentation">
+				<tbody>
+					<tr>
+						<td class="propertyRowLabel">
+							<label for="${id}_emailAddressTextBox">${messages.taskSchedulerPane_emailAddress}:</label>
+						</td>
+						<td class="propertyRowValue" style="padding-bottom: 10px;">
+							<div data-dojo-attach-point="emailAdressTextBox" data-dojo-type="ecm/widget/ValidationTextBox" id="${id}_emailAddressTextBox" name="${id}_emailAddressTextBox"
+								data-dojo-props="trim: true,intermediateChanges: true" 
+								data-dojo-attach-event="onChange:onChange"></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,18 @@
+<div
+	><fieldset
+		><legend style="display: none;">${_messages.text_search_options}</legend><input id="${id}_text_search_any" data-dojo-attach-point="any" data-dojo-type="dijit.form.RadioButton" name="${id}_textsearchoptions_operator"
+		/><label for="${id}_text_search_any">${_messages.text_search_option_any}</label><br/
+		><input id="${id}_text_search_all" data-dojo-attach-point="all" data-dojo-type="dijit.form.RadioButton" name="${id}_textsearchoptions_operator"
+		/><label for="${id}_text_search_all">${_messages.text_search_option_all}</label><br/
+		><input id="${id}_text_search_proximity" data-dojo-attach-point="proximity" data-dojo-type="ecm.widget.RadioButton" name="${id}_textsearchoptions_operator"
+		/><label for="${id}_text_search_proximity">${_messages.text_search_option_proximity}</label
+		><label for="${id}_text_search_proximity_distance" style="display: none;">${_messages.text_search_option_proximity}</label
+		> <input id="${id}_text_search_proximity_distance" data-dojo-attach-point="distance" data-dojo-type="dijit.form.NumberTextBox" constraints="{min:1,places:0,pattern:'####'}" maxlength="4" name="${id}_textsearchoptions_distance"
+		><div class="dijitHidden" data-dojo-attach-point="nearHoverHelp" id="${id}_text_search_cascade_proximity_hover_help" data-dojo-type="ecm.widget.HoverHelp" message="${_messages.text_search_option_cascade_proximity_hover_help}" hrefLabel="${_messages.learn_more}" href="euche012.htm"></div><br/
+		><input id="${id}_text_search_none" data-dojo-attach-point="none" data-dojo-type="ecm.widget.RadioButton" name="${id}_textsearchoptions_operator"
+		/><label for="${id}_text_search_none">${_messages.text_search_option_none}</label
+		><div id="${id}_text_search_none_hover_help" class="textSearchNoneHoverHelp" data-dojo-type="ecm.widget.HoverHelp" data-dojo-attach-point="noneHoverHelp" message="${_messages.text_search_option_none_hover_help}"></div
+		><div class="hideTextCriteria dijitHidden" data-dojo-attach-point="_hideTextCriteriaNode"><label for="${id}_text_search_authoring">${_messages.text_search_option_authoring}</label
+		><input id="${id}_textSearchAuthoringFlag" data-dojo-attach-point="authoring" data-dojo-type="ecm.widget.Select" /><div id="${id}_text_search_authoring_hover_help" data-dojo-type="ecm.widget.HoverHelp" data-dojo-attach-point="authoringHoverHelp" message="${_messages.text_search_option_authoring_hover_help}"></div></div
+	></fieldset
+></div>

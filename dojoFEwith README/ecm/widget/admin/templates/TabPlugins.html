@@ -1,0 +1,45 @@
+<div class="ecmAdminTab ecmTabPlugins">
+  <div data-dojo-type="idx/layout/BorderContainer" data-dojo-attach-point="borderContainer" data-dojo-props="gutters: false, style: { width: '100%', height: '100%' }">
+	<div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'top', 'class': 'ecmAdminTabButtonBar'">
+		<div class="categoryInstructions" id="${id}_intro" data-dojo-attach-point="instructions">${_messages.admin_plugin_list_instructions}</div>
+		
+		<div class="adminToolbar">
+			<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="newButton" data-dojo-attach-event="onClick: _onNew">
+				${_messages.admin_new_plugin}
+			</button>
+			<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="openButton" data-dojo-attach-event="onClick: _onOpen" data-dojo-props="disabled: true">
+				${_messages.admin_action_edit}
+			</button>
+			
+			<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="enableButton" data-dojo-attach-event="onClick: _onEnable" data-dojo-props="disabled: true">
+				${_messages.enable}
+			</button>
+			<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="disableButton" data-dojo-attach-event="onClick: _onDisable" data-dojo-props="disabled: true">
+				${_messages.disable}
+			</button>
+			
+			<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="deleteButton" data-dojo-attach-event="onClick: _onDelete" data-dojo-props="disabled: true">
+				${_messages.delete_text}
+			</button>
+			<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="resetButton" data-dojo-attach-event="onClick: _onReset">
+				${_messages.refresh}
+			</button>
+			<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="moveUpMappingButton" data-dojo-attach-event="onClick: _onMoveUpMapping" data-dojo-props="disabled: true">
+			    ${_messages.workspacebuilder_selection_moveup}
+			</button>
+			<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="moveDownMappingButton" data-dojo-attach-event="onClick: _onMoveDownMapping" data-dojo-props="disabled: true">
+			    ${_messages.workspacebuilder_selection_movedown}
+			</button>
+			<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="saveButton" data-dojo-attach-event="onClick: onSave" data-dojo-props="disabled:true">
+				${_messages.admin_plugin_save_order}
+			</button>
+			<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="closeButton" data-dojo-attach-event="onClick: _onClose">
+				${_messages.close}
+			</button>
+	     	<label for="${id}_filter" style="display: none;">${_messages.name_contains_label}</label>
+			<div data-dojo-attach-point="_filter" data-dojo-props='id: "${id}_filter", "class": "filter"' data-dojo-type="ecm/widget/FilterTextBox"></div>		
+		</div>
+	</div>
+	<div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="gridContainer" data-dojo-props="'region':'center','class': 'ecmAdminSubTabContainer'">
+	</div>
+</div>

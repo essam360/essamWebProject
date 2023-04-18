@@ -1,0 +1,89 @@
+<div class="workspaceBuilder">
+	<div data-dojo-attach-point="teamspaceBuilderContainer" class="contentPane" data-dojo-type="idx.layout.BorderContainer"
+		persist="false" gutters="true" style="min-width: 1em; min-height: 1em; top: 0px; bottom: 0; left: 0; right: 0; position: absolute; padding:0;" design="headline">
+		<div data-dojo-type="idx.layout.ContentPane" region="top" splitter="false" style="padding: 10px 0 0 10px;">
+			<div class="workspaceNavigation">
+				<h1 data-dojo-attach-point="heading"></h1>
+				<div class="buttonArea">
+					<button data-dojo-attach-event="onClick : onPreviousButton" data-dojo-attach-point="previousButton" data-dojo-type="dijit.form.Button" type="button">
+					  ${messages.workspacebuilder_navigation_previous}
+					</button>
+					<button data-dojo-attach-event="onClick : onNextButton" data-dojo-attach-point="nextButton" data-dojo-type="dijit.form.Button" type="button" disabled>
+					  ${messages.workspacebuilder_navigation_next}
+					</button>
+					<button data-dojo-attach-event="onClick : onFinish" data-dojo-attach-point="finishButton" data-dojo-type="dijit.form.Button" type="button" disabled>
+					  ${_teamspaceFinishLabel}
+					</button>
+					<button data-dojo-attach-event="onClick : onCancel" data-dojo-attach-point="cancelButton" data-dojo-type="dijit.form.Button" type="button">
+					   ${messages.workspacebuilder_navigation_cancel}
+					</button>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="leadingPane" data-dojo-type="idx.layout.ContentPane"
+			extractcontent="false" preventcache="false"  region="leading" splitter="false"  style="width: 210px; padding: 0px;" dolayout="false">
+
+			<ul class="navList" data-dojo-attach-point="navList">
+				<li role="button" class="navListItem" tabindex=0 data-dojo-attach-point="nav_addProperties" data-dojo-attach-event="onclick: onAddProperties, onkeypress: onAddPropertiesKeyPressed">${_teamspacePropertiesLabel}</li>
+				<li role="button" class="navListItem" tabindex=0 data-dojo-attach-point="nav_addSearchTemplates" data-dojo-attach-event="onclick: onAddSearchTemplates, onkeypress: onAddSearchTemplatesKeyPressed">${messages.workspacebuilder_search_templates_pane}</li>
+				<li role="button" class="navListItem" tabindex=0 data-dojo-attach-point="nav_addClasses" data-dojo-attach-event="onclick: onAddClasses, onkeypress: onAddClassesKeyPressed">${_docTypesEntryTemplates}</li>
+				<li role="button" class="navListItem" tabindex=0 data-dojo-attach-point="nav_addFolders" data-dojo-attach-event="onclick: onAddFolders, onkeypress: onAddFoldersKeyPressed">${messages.workspacebuilder_document_folders_pane}</li>
+				<li role="button" class="navListItem" tabindex=0 data-dojo-attach-point="nav_addRolesOrUsers" data-dojo-attach-event="onclick: onAddRolesOrUsers, onkeypress: onAddRolesOrUsersKeyPressed">${_rolesOrUsersLabel}</li>
+			</ul>
+
+		</div>
+
+		<div data-dojo-attach-point="wizardPaneContainer" data-dojo-type="idx.layout.ContentPane"
+			extractcontent="false" preventcache="false" preload="false" refreshonshow="false" region="center"
+			splitter="false"  background-color: white; padding: 0px;">
+
+			<div data-dojo-attach-point="teamspaceBuilderStackContainer" data-dojo-type="dijit.layout.StackContainer" region="center"  class="stackContainer">
+
+				<div data-dojo-attach-point="addPropertiesContentPane" data-dojo-type="idx.layout.ContentPane" tabIndex=-1
+					extractcontent="false" preventcache="false" preload="false" refreshonshow="false" region="center" splitter="false" dolayout="false">
+					<div parentId="${id}" data-dojo-attach-point="teamspaceBuilderProperties" type="${type}"
+						data-dojo-type="ecm.widget.teamspaceBuilder.PropertiesPane"></div>
+				</div>
+
+				<div data-dojo-attach-point="addSearchTemplates" data-dojo-type="idx.layout.ContentPane" style="padding: 0;" tabIndex=-1
+					extractcontent="false" preventcache="false" preload="false" refreshonshow="false" region="center" splitter="false" dolayout="false">
+					<div parentId="${id}" style="padding: 10px;"
+						data-dojo-attach-point="teamspaceBuilderSearchTemplates" type="${type}"
+						data-dojo-type="ecm.widget.teamspaceBuilder.SearchTemplatesPane"></div>
+				</div>
+
+				<div data-dojo-attach-point="addClasses" data-dojo-type="idx.layout.ContentPane" tabIndex=-1
+					extractcontent="false" preventcache="false" preload="false" refreshonshow="false" region="center" splitter="false" dolayout="false">
+					<div parentId="${id}" data-dojo-attach-point="teamspaceBuilderClasses"
+						type="${type}" data-dojo-type="ecm.widget.teamspaceBuilder.ClassesPane"></div>
+				</div>
+
+				<div data-dojo-attach-point="addFolders" data-dojo-type="idx.layout.ContentPane" tabIndex=-1
+					extractcontent="false" preventcache="false" preload="false" refreshonshow="false" region="center" splitter="false" dolayout="false">
+					<div parentId="${id}" data-dojo-attach-point="teamspaceBuilderFolders"
+						type="${type}" data-dojo-type="ecm.widget.teamspaceBuilder.FoldersAndDocsPane"></div>
+				</div>
+
+				<!--  only for template builder  -->
+				<div data-dojo-attach-point="addRoles" data-dojo-type="idx.layout.ContentPane" style="padding: 0;" tabIndex=-1
+					extractcontent="false" preventcache="false" preload="false" refreshonshow="false" region="center" splitter="false" dolayout="false">
+					<div style="padding: 10px;" parentId="${id}" data-dojo-attach-point="teamspaceBuilderRoles"
+						type="${type}" data-dojo-type="ecm.widget.teamspaceBuilder.RolesPane"></div>
+				</div>
+
+				<!--  only for instance builder  -->
+				<div data-dojo-attach-point="addUsers" data-dojo-type="idx.layout.ContentPane" style="padding: 0;" tabIndex=-1
+					extractcontent="false" preventcache="false" preload="false" refreshonshow="false" region="center" splitter="false" dolayout="false">
+					<div style="padding: 10px;" parentId="${id}" data-dojo-attach-point="teamspaceBuilderUsers"
+						type="${type}" data-dojo-type="ecm.widget.teamspaceBuilder.UsersPane"></div>
+				</div>
+
+			</div>
+
+		<div>
+
+	</div>
+
+</div>

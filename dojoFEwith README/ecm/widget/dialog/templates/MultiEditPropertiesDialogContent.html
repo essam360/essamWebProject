@@ -1,0 +1,34 @@
+<div data-dojo-attach-point=_introTable id="${id}_introTable">
+	<table role="presentation">
+		<tr>
+			<td><label data-dojo-attach-point="_classLabel" for="${id}_className"></label></td>
+			<td class="ecmDataCell">
+				<input id="${id}_className" 
+						class="ecmReadOnlyTextBox" 
+						data-dojo-attach-point="_className" 
+						readOnly="true" 
+						data-dojo-type="dijit/form/TextBox"> 
+				</input>
+			</td>
+		</tr>
+		<tr>
+			<td><label data-dojo-attach-point="_itemNamesLabel" for="${id}_itemNames"></label></td>
+			<td class="ecmDataCell">
+				<input 
+					id="${id}_itemNames" 
+					class="ecmReadOnlyTextBox" 
+					data-dojo-attach-point="_itemNames" 
+					readOnly="true" 
+					data-dojo-type="dijit/form/TextBox">
+				</input>
+			</td>
+		</tr>
+		<tr>
+			<td><label data-dojo-attach-point="_propertiesLabel" for="${id}_propertiesContainer"></label></td>
+			<td/>
+		</tr>
+	</table>
+</div>
+<div id="${id}_propertiesContainer" data-dojo-attach-point="_propertiesContainer" class="ecmMultiSelectPropertiesContainer" tabIndex=0>
+	<div data-dojo-type="ecm.widget.CommonPropertiesPane" data-dojo-attach-point="_commonProperties"></div>
+</div>

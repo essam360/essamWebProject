@@ -1,0 +1,34 @@
+<div data-dojo-type="dijit.layout.BorderContainer"  data-dojo-attach-point="_borderContainer" gutters="false">
+	<div data-dojo-type="dijit.layout.ContentPane" region="top" class="ecmFolderNameArea" data-dojo-attach-point="_folderNameArea">
+		<table role="presentation" data-dojo-attach-point="_moveFromArea"><tr><td nowrap>
+			<div class="dijitInline">${messages.move_from_folder_label}</div>
+			<div class="dijitInline" data-dojo-attach-point="_folderNameLabel" id="${id}_folderNameLabel" style="display:none"></div>
+			</td></tr></table>
+	</div>
+	<div region="top" data-dojo-type="dijit.layout.ContentPane" class="destinationLabel" >
+		<span data-dojo-attach-point="_destinationLabel" tabindex="0"></span>
+	</div>
+
+	<div region="center" data-dojo-type="dijit.layout.ContentPane" class="destinationSelection">
+		<div class="property filein" data-dojo-attach-point="fileIn">
+		   <label id="${id}_filein_label" for="${id}_filein-field">${messages.teamspaceDecommissionReFileDestination}</label>&nbsp;
+			   <div data-dojo-type="ecm/widget/search/SearchInDropDown" data-dojo-attach-event="onFolderSelected: _onFileInChange" data-dojo-attach-point="fileInDropDown"
+					 data-dojo-props='selectRootInitially: true, displayRepositoryDropDownList: true, displaySelectRepositoriesNode: true, showRepositoryTeamspace: true, isRequired: true, "class": "folderSelectorControl", dropdownid: "${id}_filein-field", arialabelledby: "${id}_filein_label"'>
+		   </div>
+		</div>	
+		<div>
+			<div class="property" data-dojo-attach-point="inheritSecuritySection">
+			    <div data-dojo-props="id: '${id}_inherit-security-field'" data-dojo-attach-point="inheritSecurity" data-dojo-attach-event="onClick: _onFieldChange" data-dojo-type="ecm/widget/CheckBox"></div>
+			    <label for="${id}_inherit-security-field">${messages.moveTeamspaceDocuments_security_inherit}</label>
+			 </div>
+		    <div class="property border">
+			    <div data-dojo-props="id: '${id}_select-user-groups-field'" data-dojo-attach-point="overrideClassSecurity" data-dojo-attach-event="onClick: _onChangeOverrideClassSecurity" data-dojo-type="ecm/widget/CheckBox"></div>
+			    <label for="${id}_select-user-groups-field">${messages.moveTeamspaceDocuments_security_change}</label>
+		    </div>
+		    <div>
+			    <div  data-dojo-attach-point="_securityPane" data-dojo-type="ecm/widget/SecurityPane"></div>
+		    </div>
+		</div>
+	</div>
+
+</div>

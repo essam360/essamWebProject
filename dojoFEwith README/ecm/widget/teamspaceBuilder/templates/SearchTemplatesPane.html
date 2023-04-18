@@ -1,0 +1,23 @@
+<div class="ecmWorkspaceBuilderPane">
+	<h1>${messages.workspacebuilder_search_templates}</h1>
+	<div class="container1">
+		<div class="builderIntroText" id="${id}_introText" tabindex=0>${_searchTemplatesIntroText}</div>
+		 <div data-dojo-attach-point="_infoPane" style="display: none;" class="inlineMessage inlineMessageWarning infoClass invalidItems">
+            <div data-dojo-attach-point="_infoImage" class="messageIcon"></div>
+            <div data-dojo-attach-point="_infoText" style="font-weight: bold" class="messageText"></div>
+            <div data-dojo-attach-point="_items" ></div>
+        </div>  
+		<div data-dojo-type="ecm.widget.VerticalSloshBucket"
+			style="visibility:hidden;"
+			availableHeight="205px"
+			selectedHeight="205px"
+			addButtonLabel="${messages.workspacebuilder_search_add}"
+			showAddButton="${showAddButton}"
+			availableListLabel="${messages.workspacebuilder_available_templates}"
+			selectedListLabel="${messages.workspacebuilder_selected_templates}"
+			createButtonLabel="${messages.workspacebuilder_selection_create_new_search}"
+			doubleClickAddSelection="false"
+			doubleClickAddAvailable="false"
+		 	data-dojo-attach-point="sloshBucket"></div>
+	</div>
+</div>

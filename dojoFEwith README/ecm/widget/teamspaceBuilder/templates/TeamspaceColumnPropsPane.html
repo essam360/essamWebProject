@@ -1,0 +1,10 @@
+<div class="ecmTeamspaceColumnPropsPane">
+	<div class="headingArea" data-dojo-attach-point="headingArea">
+		<div>${_messages.teamspace_props_sel_cols_hdr}</div>
+	</div>
+	<div class="useDefaultArea" data-dojo-attach-point="useDefaultArea">
+		<div id="${id}_useDefault" data-dojo-attach-point="_useDefault" data-dojo-attach-event="onClick: _onUseDefaultClick" data-dojo-type="dijit.form.CheckBox"></div>
+		<label for="${id}_useDefault">${_messages.teamspace_props_sel_cols_use_default_label}</label>	
+	</div>	
+	<div data-dojo-type="ecm.widget.search._SearchResultsDisplayPane" data-dojo-attach-point="_columnSelector"></div>
+</div>

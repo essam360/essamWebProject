@@ -1,0 +1,17 @@
+<div class="ecmFlyoutPane teamspaceFlyoutPane">
+	<div data-dojo-attach-point="borderContainer" data-dojo-type="dijit.layout.BorderContainer" class="flyoutContainer" gutters="false">
+		<div data-dojo-attach-point="topPane" data-dojo-type="dijit.layout.ContentPane" region="top" class="flyoutContainerTop">
+			<span class="title">${title}</span>
+		</div>
+		<div data-dojo-attach-point="bottomPane" data-dojo-type="dijit.layout.ContentPane" region="center" class="flyoutContainerBottom" style="display: none;">
+			<div data-dojo-type="dijit.layout.TabContainer"  data-dojo-attach-point="_tabContainer" data-dojo-props="nested:true">
+				<div data-dojo-type="dijit.layout.ContentPane" class="teamspacesList" title="${_teamspaces_label}">
+					<div data-dojo-type="ecm.widget.listView.ContentList" data-dojo-attach-point="teamspaceContents" multiSelect=false emptyMessage="${messages.no_results_were_found}"></div>
+				</div>
+				<div data-dojo-type="dijit.layout.ContentPane" class="templatesList" title="${_templates_label}">
+					<div data-dojo-type="ecm.widget.listView.ContentList" data-dojo-attach-point="templateContents" multiSelect=false emptyMessage="${messages.no_results_were_found}"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

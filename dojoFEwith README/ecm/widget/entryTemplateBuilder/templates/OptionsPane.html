@@ -1,0 +1,95 @@
+<div class="entryTemplateOptionsPane entryTemplatePane">
+    <div class="property" data-dojo-attach-point="docTypeShowDiv">
+	   <fieldset>
+       <legend class="dijitHidden">${messages.entry_template_document_type_show}</legend>
+           <input data-dojo-props="type: 'radio', name: '${id}_docTypeShow', id: '${id}_doc_type_show'" data-dojo-attach-point="docTypeShow" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick: _onDocTypeShow" >
+   	       <label for="${id}_doc_type_show">${messages.entry_template_document_type_show}</label>
+   	       <div data-dojo-type="ecm/widget/HoverHelp" class="radioLabel" data-dojo-attach-point="docTypeShowHoverHelp">${messages.entry_template_document_type_show_hover}</div>
+           <input data-dojo-props="type: 'radio', name: '${id}_docTypeShow', id: '${id}_doc_type_hide'" data-dojo-attach-point="docTypeHide" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick: _onDocTypeHide" >
+           <label for="${id}_doc_type_hide">${messages.entry_template_document_type_hide}</label>
+   	       <div data-dojo-type="ecm/widget/HoverHelp" class="radioLabel" data-dojo-attach-point="docTypeHideHoverHelp">${messages.entry_template_document_type_hide_hover}</div>
+       </fieldset>                    
+    </div>
+    <div class="property indented" data-dojo-attach-point="docTypeDiv">
+       <span class="required">*</span>
+       <label>${messages.entry_template_document_type}</label>
+       <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="docTypeHover">${messages.entry_template_document_type_hover}</div>
+	   <div data-dojo-attach-point="docTypeCheckboxes">
+		   <div class="indented">
+		     <div data-dojo-props="id: '${id}_doc-type-local-field'" data-dojo-attach-point="docTypeLocal" data-dojo-attach-event="onClick: _onFieldChange" data-dojo-type="ecm/widget/CheckBox"></div>
+	    	 <label for="${id}_doc-type-local-field">${messages.add_document_localfile_label}</label>
+		   </div>  
+		   <div class="indented">
+	    	 <div data-dojo-props="id: '${id}_doc-type-metadata-field'" data-dojo-attach-point="docTypeMetadata" data-dojo-attach-event="onClick: _onFieldChange" data-dojo-type="ecm/widget/CheckBox"></div>
+		     <label for="${id}_doc-type-metadata-field">${messages.add_document_metadata_label}</label>
+		   </div>  
+		   <div class="indented" data-dojo-attach-point="docTypeExternalDiv" >
+		     <div data-dojo-props="id: '${id}_doc-type-external-field'" data-dojo-attach-point="docTypeExternal" data-dojo-attach-event="onClick: _onFieldChange" data-dojo-type="ecm/widget/CheckBox"></div>
+	    	 <label for="${id}_doc-type-external-field">${messages.add_document_external_label}</label>
+		   </div>
+	   </div>  
+	   <div data-dojo-attach-point="docTypeRadio" class="dijitHidden indented">
+		   <fieldset>
+    	   <legend class="dijitHidden">${messages.entry_template_document_type}</legend>
+        	   <input data-dojo-props="type: 'radio', name: '${id}_docTypeRadio', id: '${id}_doc_type_local_radio'" data-dojo-attach-point="docTypeLocalRadio" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange" >
+	   	       <label for="${id}_doc_type_local_radio">${messages.add_document_localfile_label}</label><br>
+    	       <input data-dojo-props="type: 'radio', name: '${id}_docTypeRadio', id: '${id}_doc_type_metadata_radio'" data-dojo-attach-point="docTypeMetadataRadio" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange" >
+        	   <label for="${id}_doc_type_metadata_radio">${messages.add_document_metadata_label}</label><br>
+		   	   <div data-dojo-attach-point="docTypeExternalRadioDiv">
+		   	       <input data-dojo-props="type: 'radio', name: '${id}_docTypeRadio', id: '${id}_doc_type_external_radio'" data-dojo-attach-point="docTypeExternalRadio" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange" >
+	        	   <label for="${id}_doc_type_external_radio">${messages.add_document_external_label}</label>
+        	   </div>
+	       </fieldset>                    
+	   </div>
+    </div>
+	<div  class="property" data-dojo-attach-point="checkinVersionShowDiv">
+	  <fieldset>
+      <legend class="dijitHidden">${messages.entry_template_checkin_version_show}</legend>
+        <input data-dojo-props="type: 'radio', name: '${id}_checkinVersionShow', id: '${id}_checkin_version_show'" data-dojo-attach-point="checkinVersionShow" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange" >
+   	    <label for="${id}_checkin_version_show" class="radioLabel">${messages.entry_template_checkin_version_show}</label>
+        <input data-dojo-props="type: 'radio', name: '${id}_checkinVersionShow', id: '${id}_checkin_version_hide'" data-dojo-attach-point="checkinVersionHide" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange" >
+        <label for="${id}_checkin_version_hide" class="radioLabel">${messages.entry_template_checkin_version_hide}</label>
+      </fieldset>                    
+	</div>  
+	<div  class="property indented" data-dojo-attach-point="checkinVersionDiv">
+	  <label for="${id}_create-replace-field">${messages.entry_template_version_default}</label>
+	  <div data-dojo-attach-point="createReplaceVersionSelect" data-dojo-attach-event="onChange: _onFieldChange" data-dojo-type="ecm/widget/FilteringSelect" 
+	       data-dojo-props="id: '${id}_create-replace-field', labelType: 'text', label: 'label', searchAttr: 'label', maxHeight: 200, style: { width: '300px' }"></div>
+      <div class="dijitHidden inlineMessage inlineMessageInfo" data-dojo-attach-point="checkinVersionInlineMessageDiv">
+        <div class="messageIcon"></div>
+        <div class="messageText" role="status" data-dojo-attach-point="checkinVersionInlineMessageText"></div>
+      </div>
+	</div>
+    <div class="property" data-dojo-attach-point="p8MiscellaneousDiv">
+	   <label>${messages.entry_template_misc}</label>
+	   
+	   <div class="indented" data-dojo-attach-point="autoClassifyShowDiv" >
+	     <div data-dojo-props="id: '${id}_auto-classify-show-field'" data-dojo-attach-point="autoClassifyShow" data-dojo-attach-event="onClick: _onFieldChange" data-dojo-type="ecm/widget/CheckBox"></div>
+	     <label for="${id}_auto-classify-show-field">${messages.entry_template_auto_classify_show}</label>
+	     <div data-dojo-type="ecm/widget/HoverHelp" class="radioLabel" data-dojo-attach-point="autoClassifyShowHoverHelp">${messages.entry_template_auto_classify_show_hover}</div>
+	   </div>  
+	   <div class="indented" data-dojo-attach-point="allowDupFileNamesDiv">
+	     <div data-dojo-props="id: '${id}_allow-dup-file-names-field'" data-dojo-attach-point="allowDupFileNames" data-dojo-attach-event="onClick: _onFieldChange" data-dojo-type="ecm/widget/CheckBox"></div>
+	     <label for="${id}_allow-dup-file-names-field">${messages.entry_template_allow_duplicate_file_names}</label>
+	     <div data-dojo-type="ecm/widget/HoverHelp" class="radioLabel" data-dojo-attach-point="allowDupFileNamesHoverHelp">${messages.entry_template_allow_duplicate_file_names_hover}</div>
+	   </div>  
+	   <div class="indented" data-dojo-attach-point="allowCompoundDocsDiv">
+	     <div data-dojo-props="id: '${id}_allow-compound-docs-field'" data-dojo-attach-point="allowCompoundDocs" data-dojo-attach-event="onClick: _onFieldChange" data-dojo-type="ecm/widget/CheckBox"></div>
+	     <label for="${id}_allow-compound-docs-field">${messages.entry_template_allow_compound_documents}</label>
+	   </div>  
+	   <div class="indented" data-dojo-attach-point="majorVersionShowDiv">
+	     <fieldset>
+         <legend class="dijitHidden">${messages.entry_template_version_show}</legend>
+           <input data-dojo-props="type: 'radio', name: '${id}_majorVersionShow', id: '${id}_major_version_show'" data-dojo-attach-point="majorVersionShow" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange" >
+   	       <label for="${id}_major_version_show" class="radioLabel">${messages.entry_template_version_show}</label>
+           <input data-dojo-props="type: 'radio', name: '${id}_majorVersionShow', id: '${id}_major_version_hide'" data-dojo-attach-point="majorVersionHide" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange" >
+           <label for="${id}_major_version_hide" class="radioLabel">${messages.entry_template_version_hide}</label>
+         </fieldset>                    
+	   </div>  
+	   <div class="indented" data-dojo-attach-point="majorVersionDiv">
+	     <label for="${id}_major_minor-field">${messages.entry_template_version_to_add_as}</label>
+	     <div data-dojo-attach-point="majorMinorVersionSelect" data-dojo-attach-event="onChange: _onFieldChange" data-dojo-type="ecm/widget/FilteringSelect" 
+	          data-dojo-props="id: '${id}_major_minor-field', labelType: 'text', label: 'label', searchAttr: 'label', maxHeight: 200, style: { width: '300px' }"></div>
+	   </div>
+    </div>
+</div>

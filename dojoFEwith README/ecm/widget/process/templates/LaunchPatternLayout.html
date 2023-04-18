@@ -1,0 +1,36 @@
+<div>
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="stepSummary" region="top" class="ecmStepTabContainer">        
+        <div data-dojo-attach-point="systemInfo" class="ecmProcessSystemInformation">
+            <div class="ecmProcessSystemLabel">${_messages.process_launchedby}</div>
+            <div data-dojo-attach-point="launchedby" class="ecmProcessSystemFieldEnd"></div>
+        </div>              
+        <div class="ecmProcessInstructions" style="padding-bottom: 10px;"></div>
+    </div>    
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="stepContentPane" region="center" >        
+        <div data-dojo-attach-point="viewTabContainer" data-dojo-type="dijit/layout/TabContainer" region="center" class="ecmStepTabContainer">
+            <div data-dojo-attach-point="launchPatternPropertiesContainer" 
+                 data-dojo-type="dijit/layout/ContentPane" 
+                 region="center"
+                 title="${_messages.process_properties}">
+                <div data-dojo-attach-point="launchPatternPropertiesPane"
+                    data-dojo-type="ecm/widget/process/LaunchPatternPropertiesPane"
+                    region="center"
+                    class="centerPane">
+                </div>
+            </div>
+            <div data-dojo-attach-point="attachmentsContainer" 
+                 data-dojo-type="dijit/layout/ContentPane" 
+                 region="center"
+                 title="${_messages.process_attachments}">
+                <div data-dojo-attach-point="workItemAttachmentsPane"
+                     data-dojo-type="ecm/widget/process/WorkItemAttachmentsPane"
+                     region="center"
+                     class="centerPane">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-dojo-type="dijit/layout/ContentPane" region="bottom">
+        <div class="dijitDialogPaneActionBar" data-dojo-attach-point="processorButtonBar" data-dojo-type="ecm/widget/process/ProcessorButtonBar" data-dojo-attach-event="onCancel: onCancel"></div>
+    </div>
+</div>

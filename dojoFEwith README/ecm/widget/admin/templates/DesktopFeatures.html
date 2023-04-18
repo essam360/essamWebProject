@@ -1,0 +1,153 @@
+<div class="ecmDesktopFeatures">
+	<div data-dojo-type="idx/layout/TitlePane" data-dojo-props='style: { "margin-top": "10px" }' data-dojo-attach-point="_featureTitlePane">
+		<div class="ecmAdminTabInstructions">${messages.admin_layout_features_instructions}</div>
+		<table class="layoutTable" role="presentation">
+			<tr>
+				<td class="layoutPane">
+					<table class="propertyTable" role="presentation">
+						<tr data-dojo-attach-point="layoutRow">
+							<td class="propertyRowLabel"><span class="required">*</span>
+								<label id="${id}_layoutLabel">${messages.admin_desktop_layout}</label>&nbsp;
+								<div data-dojo-type="ecm/widget/HoverHelp"
+									data-dojo-attach-point="_layout_field_hover_help">${messages.admin_desktop_layout_hover}</div>
+							</td>
+							<td class="propertyRowValue">
+								<div
+									data-dojo-props="id: '${id}_layout_dropdown', maxHeight: 150, style: { width: '300px' }"
+									data-dojo-type="ecm/widget/Select"
+									data-dojo-attach-point="_layoutDropdown"
+									aria-labelledby="${id}_layoutLabel"
+									data-dojo-attach-event="onChange: onLayoutDropdownChange"></div>
+							</td>
+						</tr>
+						<tr>
+							<td class="propertyRowLabel"><span class="required">*</span>
+								<label>${messages.admin_desktop_layout_features}</label>&nbsp;
+								<div data-dojo-type="ecm/widget/HoverHelp"
+									data-dojo-attach-point="_layout_features_field_hover_help"
+									data-dojo-props="isFocusable: true">${messages.admin_desktop_layout_features_hover}</div>
+							</td>
+							<td class="propertyRowValue">
+								<div style="padding-bottom: 10px;">
+									<button data-dojo-type="dijit/form/Button"
+										data-dojo-attach-point="_moveUpButton"
+										data-dojo-attach-event="onClick: _onClickUp"
+										data-dojo-props="disabled: true">
+										${messages.admin_mobile_move_up_button_label}</button>
+									<button data-dojo-type="dijit/form/Button"
+										data-dojo-attach-point="_moveDownButton"
+										data-dojo-attach-event="onClick: _onClickDown"
+										data-dojo-props="disabled: true">
+										${messages.admin_mobile_move_down_button_label}</button>
+								</div>
+								<div class="dijitInline"
+									data-dojo-attach-point="_featuresGridArea"></div>
+							</td>
+						</tr>
+						<tr>
+							<td class="propertyRowLabel"><span data-dojo-attach-point="_defaultFeatureDropRequired" class="required">*</span>
+								<label for="${id}_layout_default_feature">${messages.admin_layout_default_feature}</label>
+								<div data-dojo-type="ecm/widget/HoverHelp"
+									data-dojo-attach-point="_default_feature_hover_help">${messages.admin_layout_default_feature_hover}</div>
+							</td>
+							<td class="propertyRowValue">
+								<div data-dojo-attach-point="_defaultFeature"
+									data-dojo-attach-event="onChange: _onDefaultFeatureChange"
+									data-dojo-type="ecm/widget/FilteringSelect"
+									data-dojo-props='style: { width: "300px"}, id: "${id}_layout_default_feature", labelType: "text", label: "label", searchAttr: "label", maxHeight: 200'></div>
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td class="featureConfigPane"
+					data-dojo-attach-point="featureConfigContainer"
+					style="padding-top: 13px;">
+					<div class="ecmDesktopFeatureConfigPanelTitle"
+						data-dojo-attach-point="_panelTitle">${messages.admin_layout_featureconfig_title}</div>
+					<div class="ecmConfigPaneInstructions"
+						data-dojo-attach-point="_configPaneInstructions">${messages.admin_layout_featureconfig_instructions}</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div data-dojo-type="idx/layout/TitlePane" data-dojo-props='style: { "margin-top": "10px" }' data-dojo-attach-point="_layoutTitlePane">
+		<div class="ecmAdminTabInstructions">${messages.admin_layout_components_instructions}</div>
+		<table class="propertyTable" role="presentation">
+			<tr data-dojo-attach-point="thumbnailRow">
+				<td class="propertyRowLabel" valign="top"><label>${messages.admin_desktop_layout_document_thumbnails}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp"
+						data-dojo-attach-point="_layout_document_thumbnails_hover_help"
+						data-dojo-props="isFocusable: true">${messages.admin_desktop_layout_document_thumbnails_hover}</div>
+				</td>
+				<td class="propertyRowValue"
+					style="padding-left: 12px; padding-right: 12px;">
+					<fieldset>
+						<legend style="display: none;">${messages.admin_desktop_layout_document_thumbnails}</legend>
+						<div
+							data-dojo-props="type: 'radio', name: '${id}_thumbNails', id: '${id}_thumbnails_enabled'"
+							data-dojo-attach-point="_thumbNailsEnabled"
+							data-dojo-type="ecm/widget/RadioButton"
+							data-dojo-attach-event="onClick:_onFieldChange"></div>
+						<label for="${id}_thumbnails_enabled">${messages.admin_show}</label>
+						<div
+							data-dojo-props="type: 'radio', name: '${id}_thumbNails', id: '${id}_thumbnails_disabled', 'class': 'radioButton1'"
+							data-dojo-attach-point="_thumbNailsDisabled"
+							data-dojo-type="ecm/widget/RadioButton"
+							data-dojo-attach-event="onClick:_onFieldChange"></div>
+						<label for="${id}_thumbnails_disabled">${messages.admin_hide}</label>
+					</fieldset>
+				</td>
+			</tr>
+			<tr data-dojo-attach-point="globalToolbarRow">
+				<td class="propertyRowLabel" valign="top"><label>${messages.admin_layout_show_globaltoolbar}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp"
+						data-dojo-attach-point="_layout_show_globaltoolbar_hover_help"
+						data-dojo-props="isFocusable: true">${messages.admin_layout_show_globaltoolbar_hover}</div>
+				</td>
+				<td class="propertyRowValue"
+					style="padding-left: 12px; padding-right: 12px;">
+					<fieldset>
+						<legend style="display: none;">${messages.admin_layout_show_globaltoolbar}</legend>
+						<input
+							data-dojo-props="type: 'radio', name: '${id}_globalToolbar', id: '${id}_show_globaltoolbar_enabled'"
+							data-dojo-attach-point="_showGlobalToolBarEnabled"
+							data-dojo-type="ecm/widget/RadioButton"
+							data-dojo-attach-event="onClick:_onFieldChange"> <label
+							for="${id}_show_globaltoolbar_enabled">${messages.admin_show}</label>
+						<input
+							data-dojo-props="type: 'radio', name: '${id}_globalToolbar', id: '${id}_show_globaltoolbar_disabled', 'class': 'radioButton1'"
+							data-dojo-attach-point="_showGlobalToolBarDisabled"
+							data-dojo-type="ecm/widget/RadioButton"
+							data-dojo-attach-event="onClick:_onFieldChange"> <label
+							for="${id}_show_globaltoolbar_disabled">${messages.admin_hide}</label>
+					</fieldset>
+				</td>
+			</tr>
+			<tr data-dojo-attach-point="statusbarRow">
+				<td class="propertyRowLabel" valign="top"><label>${messages.admin_layout_show_statusbar}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp"
+						data-dojo-attach-point="_layout_show_statusbar_hover_help"
+						data-dojo-props="isFocusable: true">${messages.admin_layout_show_statusbar_hover}</div>
+				</td>
+				<td class="propertyRowValue"
+					style="padding-left: 12px; padding-right: 12px;">
+					<fieldset>
+						<legend style="display: none;">${messages.admin_layout_show_statusbar}</legend>
+						<input
+							data-dojo-props="type: 'radio', name: '${id}_show_statusbar', id: '${id}_show_statusbar_enabled'"
+							data-dojo-attach-point="_showStatusbarEnabled"
+							data-dojo-type="ecm/widget/RadioButton"
+							data-dojo-attach-event="onClick:_onFieldChange"> <label
+							for="${id}_show_statusbar_enabled">${messages.admin_show}</label>
+						<input
+							data-dojo-props="type: 'radio', name: '${id}_show_statusbar', id: '${id}_show_stausbar_disabled', 'class': 'radioButton1'"
+							data-dojo-attach-point="_showStatusbarDisabled"
+							data-dojo-type="ecm/widget/RadioButton"
+							data-dojo-attach-event="onClick:_onFieldChange"> <label
+							for="${id}_show_stausbar_disabled">${messages.admin_hide}</label>
+					</fieldset>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

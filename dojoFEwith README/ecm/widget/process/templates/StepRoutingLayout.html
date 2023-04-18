@@ -1,0 +1,54 @@
+<div>
+	<div data-dojo-type="dijit.layout.ContentPane" data-dojo-attach-point="stepSummary" region="top" class="ecmStepTabContainer">
+        <div class="ecmProcessWorkItemLabel">${_messages.process_workitem}</div>
+	    <div data-dojo-attach-point="workItemText" class="ecmProcessWorkItemField"></div>
+	    <div data-dojo-attach-point="systemInfo" class="ecmProcessSystemInformation" gutter="true">
+	        <div data-dojo-attach-point="processNameLabel" class="ecmProcessSystemLabel"></div>
+	        <div data-dojo-attach-point="processName" class="ecmProcessSystemField"></div>
+	        <div data-dojo-attach-point="stepNameLabel" class="ecmProcessSystemLabel"></div>
+	        <div data-dojo-attach-point="stepName" class="ecmProcessSystemField"></div>
+	        <div data-dojo-attach-point="statusLabel" class="ecmProcessSystemLabel"></div>
+	        <div data-dojo-attach-point="status" class="ecmProcessSystemField"></div>
+	        <div data-dojo-attach-point="notifyDateLabel" class="ecmProcessSystemLabel"></div>
+            <div data-dojo-attach-point="notifyDate" class="ecmProcessSystemFieldEnd"></div>
+	        <br><div class="ecmProcessSystemFieldRowBelow">
+		        <div data-dojo-attach-point="lastMovedByLabel" class="ecmProcessSystemLabel"></div>
+	            <div data-dojo-attach-point="lastMovedBy" class="ecmProcessSystemField"></div>
+	            <div data-dojo-attach-point="lastMovedDateLabel" class="ecmProcessSystemLabel"></div>
+	            <div data-dojo-attach-point="lastMovedDate" class="ecmProcessSystemField"></div>
+		        <div data-dojo-attach-point="resumeDateLabel" class="ecmProcessSystemLabel"></div>
+	            <div data-dojo-attach-point="resumeDate" class="ecmProcessSystemFieldEnd"></div>
+            </div>
+	    </div>
+        <div class="ecmProcessInstructions"></div>
+        <div class="dijitDialogPaneActionBar ecmProcessorActionBar" style="padding-top:0px !important" data-dojo-attach-point="processorActionButtonBar" data-dojo-type="ecm.widget.process.ProcessorActionButtonBar" region="top"></div>
+	</div>
+	<div data-dojo-type="dijit.layout.ContentPane" data-dojo-attach-point="stepContentPane" region="center" >
+	    <div data-dojo-attach-point="viewTabContainer" data-dojo-type="dijit.layout.TabContainer" region="center" class="ecmStepTabContainer ecmStepTabContainerBorder">
+            <div data-dojo-attach-point="propertiesContainer" 
+	             data-dojo-type="dijit.layout.ContentPane" 
+	             region="center"
+	             title="${_messages.process_properties}">
+                <div data-dojo-attach-point="workItemPropertiesPane"
+                    data-dojo-type="ecm.widget.process.WorkItemPropertiesPane"
+                    region="center"
+                    class="centerPane">
+                </div>
+	        </div>
+	         <div data-dojo-attach-point="attachmentsContainer" 
+	             data-dojo-type="dijit.layout.ContentPane" 
+	             region="center"
+	             title="${_messages.stepprocessor_attachments_title}">
+	            <div data-dojo-attach-point="workItemAttachmentsPane"
+	                 data-dojo-type="ecm.widget.process.WorkItemAttachmentsPane"
+	                 region="center"
+	                 class="centerPane ecmAttachments">
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<div data-dojo-type="dijit.layout.ContentPane" region="bottom">
+	   <div class="dijitDialogPaneActionBar" data-dojo-attach-point="processorButtonBar"  data-dojo-type="ecm.widget.process.ProcessorButtonBar" data-dojo-attach-event="onSave: onSave, onCancel: onCancel">  
+	</div>
+</div>
+    

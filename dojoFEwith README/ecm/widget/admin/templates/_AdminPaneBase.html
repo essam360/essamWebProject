@@ -1,0 +1,10 @@
+<div class="ecmAdminPage" data-dojo-attach-point="containerNode">
+	<div data-dojo-type="idx/layout/BorderContainer" data-dojo-props="gutters: false, region: 'center', style: { width: '100%', height: '100%' }">
+		<div data-dojo-type="idx/layout/TitlePane" data-dojo-props='title: "${_labelTitle}", region: "leading", splitter: true, style: { width: "25%", overflow: "auto" }'>
+			<div data-dojo-type="ecm/widget/admin/AdminTree" data-dojo-attach-point="adminTreeWidget">
+			</div>
+		</div>
+		<div data-dojo-type="ecm/widget/admin/AdminTabs" data-dojo-attach-point="adminTabsWidget" data-dojo-props="region: 'center'">
+		</div>
+	</div>
+</div>

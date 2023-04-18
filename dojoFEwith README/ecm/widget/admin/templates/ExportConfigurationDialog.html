@@ -1,0 +1,31 @@
+<div data-dojo-attach-point="borderContainer" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="'class': 'ecmAdminPage ecmContentList ecmExportConfigurationDialogContent'">
+      <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'top'">
+          <table class="propertyTable" role="presentation">
+              <tr>
+                  <td class="propertyRowLabel">
+                      <span class="required">*</span>
+                      <label for="${id}_name-field">${messages.admin_file_name_label}</label>
+                  </td>
+                  <td class="propertyRowValue">
+                     <input data-dojo-attach-point="fileNameField" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="id: '${id}_name-field', style: { width: '300px' }, maxLength: 64, required: true, trim: true, propercase: false" />
+                  </td>
+              </tr>
+              <tr>
+                  <td class="propertyRowLabel">
+                      &nbsp;
+                  </td>
+			      <td class="propertyRowValue">
+			    	<div id="${id}_exportSecurity" data-dojo-props="name: '${id}_exportSecurity'" data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-point="exportSecurityCheckbox"></div>
+			    	<label for="${id}_exportSecurity">${messages.admin_exportconfiguration_security_label}</label>
+			      </td>
+              </tr>
+          </table>
+      </div>
+      <!-- class="ecmAdminSubTabContainer" -->
+      <div data-dojo-type="dijit/layout/TabContainer" data-dojo-attach-point="_tabContainer" data-dojo-props="style: { width: '100%', padding: '10px 5px 20px 5px', 'margin-top': '5px' }, region: 'center'">
+         <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props='style: { overflow: "hidden" }' data-dojo-attach-point="_desktopPane"></div>
+	     <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props='style: { overflow: "hidden" }' data-dojo-attach-point="_repositoryPane"></div>
+         <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props='style: { overflow: "hidden" }' data-dojo-attach-point="_pluginPane"></div>
+         <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props='style: { overflow: "hidden" }' data-dojo-attach-point="_themePane"></div>		
+     </div>
+</div>

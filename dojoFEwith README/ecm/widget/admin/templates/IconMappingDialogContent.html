@@ -1,0 +1,48 @@
+<div class="ecmAdminTab ecmIconMappingDialog">	
+  <div data-dojo-type="idx/layout/BorderContainer" data-dojo-attach-point="borderContainer" data-dojo-props="gutters: false, style: { width: '100%', height: '100%' }">
+   <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'top'">
+    <div>
+      <label>${messages.admin_icon_mapping_icon_label}</label>
+      <fieldset>
+	  <legend style="display: none;" id="${id}-icon-label">${messages.admin_icon_mapping_icon_label}</legend>
+	  <table class="propertyTable" role="presentation">
+		<tr>
+			<td class="propertyRowLabel">
+				<input data-dojo-attach-point="radioClassName" data-dojo-props="id: '${id}_radioClassName', type: 'radio', value: 'radioClassName', checked: true" data-dojo-type="dijit/form/RadioButton" data-dojo-attach-event="onClick:_onUseClassName" >
+				<label for="${id}_radioClassName">${messages.admin_icon_mapping_class_name}</label>
+				<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="classNameFieldHoverHelp">${messages.admin_icon_mapping_class_name_hover}</div>
+			</td>
+			<td class="propertyRowValue">
+			   <div data-dojo-attach-point="classNameField" data-dojo-props='id: "${id}_className-field", maxHeight: 200' data-dojo-attach-event="onChange: _onClassNameChange,onKeyUp: _onClassNameChange" data-dojo-type="ecm/widget/Select"></div>
+			</td>
+		</tr>
+		<tr>
+			<td class="propertyRowLabel">
+				<input data-dojo-attach-point="radioFileName" data-dojo-props="id: '${id}_radioFileName', type: 'radio', value: 'radioFileName'" data-dojo-type="dijit/form/RadioButton" data-dojo-attach-event="onClick:_onUseFileName" >
+				<label for="${id}_radioFileName">${messages.admin_icon_mapping_file_name}</label>
+				<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="fileNameFieldHoverHelp">${messages.admin_icon_mapping_file_name_hover}</div>
+			</td>
+			<td class="propertyRowValue">
+			   <input data-dojo-attach-point="fileNameField" data-dojo-attach-event="onChange: _onFileNameChange,onKeyUp: _onFileNameChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props='id: "${id}_fileName-field", trim: true, propercase: false' />
+			</td>
+		</tr>
+	  </table>
+	  </fieldset>
+	</div>  
+	<div class="inputMimeFieldDivContainer">
+	      <div class="inputMimeFieldDiv">
+			<div>
+			  <label for="${id}_inputMime-field">${messages.mime_type_input}</label>
+			</div>
+			<input data-dojo-attach-point="inputMimeField" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="id: '${id}_inputMime-field', trim: true, propercase: false" />
+			<div data-dojo-type="dijit/form/Button" data-dojo-attach-point="addMimeTypeButton" data-dojo-attach-event="onClick: _onClickAddMimeType">
+				${messages.add_document_add_label}
+			</div>
+	      </div>
+	</div>	
+   </div>	
+   <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'center'">
+	<div data-dojo-type="idx/widget/SloshBucket" data-dojo-attach-point="sloshBucket" data-dojo-props="canReorderSelectedGridData: false, style: { margin: '0' }"></div>
+  </div>
+ </div>	
+</div>

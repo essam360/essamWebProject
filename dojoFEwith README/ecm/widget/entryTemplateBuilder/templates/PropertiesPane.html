@@ -1,0 +1,36 @@
+<div class="entryTemplatePropertiesPane entryTemplatePane">
+    <div class="property">
+	   <fieldset>
+       <legend class="dijitHidden">${messages.entry_template_properties_show}</legend>
+           <input data-dojo-props="type: 'radio', name: '${id}_propertiesShow', id: '${id}_properties_show'" data-dojo-attach-point="propertiesShow" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange" >
+   	       <label for="${id}_properties_show">${messages.entry_template_properties_show}</label>
+   	       <div data-dojo-type="ecm/widget/HoverHelp" class="radioLabel" data-dojo-attach-point="propertiesShowHoverHelp">${messages.entry_tempalte_properties_show_hover}</div>
+           <input data-dojo-props="type: 'radio', name: '${id}_propertiesShow', id: '${id}_properties_hide'" data-dojo-attach-point="propertiesHide" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange" >
+           <label for="${id}_properties_hide">${messages.entry_template_properties_hide}</label>
+   	       <div data-dojo-type="ecm/widget/HoverHelp" class="radioLabel" data-dojo-attach-point="propertiesHideHoverHelp">${messages.entry_template_properties_hide_hover}</div>
+       </fieldset>                    
+    </div>
+	<div class="property border">
+		<label class="dijitInline" id="${id}_contentClassSelectorLabel" data-dojo-attach-point="contentClassLabel" for="${id}_contentClassSelector">${messages.document_type}:</label>
+		<div data-dojo-type="ecm/widget/ContentClassSelector" data-dojo-attach-point="contentClassSelector"
+	    	data-dojo-props="dropdownid: '${id}_contentClassSelector', ariaLabelledBy: '${id}_contentClassSelectorLabel', selectorStyle: 'dropdown', hasAll: false, onlySelectable: true">
+		</div>
+		<!-- This is used in cases where the content class is not loaded immediately with a repository and class.  It will display this disabled text box instead -->
+		<div data-dojo-type="dijit/form/TextBox" 
+				disabled="disabled"
+				style="display: none; width: 300px;"
+				data-dojo-attach-point="contentClassSelectorDisabled" aria-label="${messages.document_type}">
+		</div>
+    	<div data-dojo-type="dijit/form/Button" data-dojo-attach-point="editLayout" data-dojo-attach-event="onClick: _onEditLayout">
+    		${messages.entry_template_properties_edit_layout}
+		</div>
+    	<div data-dojo-type="dijit/form/Button" data-dojo-attach-point="clearLayout" data-dojo-attach-event="onClick: _onClearLayout" data-dojo-props="disabled: true">
+    		${messages.clear}
+		</div>
+		<div class="dijitHidden inlineMessage inlineMessageInfo appliedToInlineMessage" data-dojo-attach-point="applyToInlineMessageDiv">
+	      <div class="messageIcon"></div>
+	      <div class="messageText" role="status" data-dojo-attach-point="applyToInlineMessageText"></div>
+	    </div>
+	</div>
+	<div class="indented" data-dojo-type="ecm/widget/CommonPropertiesPane" data-dojo-attach-point="_commonProperties"></div>
+</div>

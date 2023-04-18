@@ -1,0 +1,12 @@
+<div class="adminRepository ecmRepositoryFolders" data-dojo-type="dijit/layout/BorderContainer" gutters="false" data-dojo-attach-point="repositoryFolderBorderContainer">
+    <div class="ecmAdminTabInstructions" id="${id}_intro" data-dojo-attach-point="_instructions">${messages.admin_folder_instruction}</div>
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'center', 'class': 'mainContentPane'" data-dojo-attach-point="repositoryBrowseContainer">
+	    <div class="adminPaddingLeft">
+            <div class="filterArea" data-dojo-attach-point="browseDefaultColsArea">
+      			<label for="${id}_filter" style="display: none;">${messages.property_contains_label}</label>
+                <div data-dojo-type="ecm/widget/FilterTextBox" data-dojo-attach-point="browseDefaultColsAreaFilter" data-dojo-props='id: "${id}_filter", "class": "filter", style: {  float: "none" }'></div>
+            </div>
+        </div>
+        <div data-dojo-type="idx/widget/SloshBucket" data-dojo-attach-point="_browseDefaultCols" data-dojo-props="style: { height: '300px', width: '90%', 'padding-left': '5px' }"></div>
+	</div>
+</div>

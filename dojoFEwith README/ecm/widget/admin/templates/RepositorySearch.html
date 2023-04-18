@@ -1,0 +1,205 @@
+<div class="adminRepository ecmRepositorySearch" data-dojo-type="dijit/layout/BorderContainer" gutters="false" data-dojo-attach-point="repositorySearchBorderContainer">
+    <div class="ecmAdminTabInstructions" id="${id}_intro" data-dojo-attach-point="_instructions">${messages.admin_search_instruction}</div>
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'center', 'class': 'mainContentPane'" data-dojo-attach-point="repositorySearchContainer">
+	    <table class="propertyTable" role="presentation">
+	    	<tr style="height:20px" data-dojo-attach-point="unifiedSearchesRow">
+	            <td class="propertyRowLabel" valign="middle">
+	                <span class="ecmLabel">${messages.unified_searches}</span>&nbsp;
+	                <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="unifiedSearchesHoverHelp">${messages.admin_unified_searches_hover}</div>
+	            </td>
+	            <td class="propertyRowValue">
+					<fieldset>
+						<legend style="display: none;">${messages.unified_searches}</legend>
+				   		<input data-dojo-attach-point="enableUnifiedSearchesRadioButton" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick: _onFieldChange" 
+				   		       data-dojo-props="id: '${id}_enableUnifiedSearches', type: 'radio', name: '${id}_unifiedSearches'" />
+			   			<label for="${id}_enableUnifiedSearches">${messages.admin_repcfg_enable}</label>
+			   			<input data-dojo-attach-point="disableUnifiedSearchesRadioButton" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick: _onFieldChange"
+				   		       data-dojo-props="id: '${id}_disableUnifiedSearches', type: 'radio', name: '${id}_unifiedSearches', 'class': 'radioButton1'" />
+			   			<label for="${id}_disableUnifiedSearches">${messages.admin_repcfg_disable}</label>
+			   		</fieldset>
+	            </td>
+	        </tr>
+	        <tr style="height:20px" data-dojo-attach-point="maxResults_row">
+	            <td class="propertyRowLabel" valign="middle">
+	                <label for="${id}_max-results-field">${messages.max_results}</label>&nbsp;
+	                <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_max_results_field_hover_help">${messages.admin_max_results_hover}</div>
+	            </td>
+	            <td class="propertyRowValue">
+		            <fieldset>
+		            <legend style="display: none;">${messages.max_results}</legend>
+	                    <div data-dojo-props="id: '${id}_max_results_unlimited', type: 'radio', name: '${id}_maxResultsType'" data-dojo-attach-point="maxResultsUnlimited" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:_onUseMaxResultsUnlimited"></div>
+	                    <label for="${id}_max_results_unlimited">${messages.admin_unlimited}</label>
+	                    <div data-dojo-props="id: '${id}_max_results_limit', type: 'radio', name: '${id}_maxResultsType', 'class': 'radioButton1'" data-dojo-attach-point="maxResultsLimit" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:_onUseMaxResultsLimit"></div>
+	                    <label for="${id}_max_results_limit">${messages.admin_limit}</label>
+	                    <div data-dojo-props='id: "${id}_max-results-field", style: { "margin-left": "5px", width: "100px" }, required: true, constraints: { min:1, max:1000000000, places:0 }' 
+	                         data-dojo-attach-point="_maxResults" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/NumberTextBox"></div>
+	               </fieldset>
+	            </td>
+	        </tr>
+	        <tr style="height:20px" data-dojo-attach-point="timeout_row">
+	            <td class="propertyRowLabel" valign="middle">
+	                <label for="${id}_timeout-field">${messages.timeout_in_seconds}</label>&nbsp;
+	                <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_timeout_field_hover_help">${messages.admin_timeout_hover}</div>
+	            </td>
+	            <td class="propertyRowValue">
+                    <fieldset>
+                    <legend style="display: none;">${messages.timeout_in_seconds}</legend>
+                        <div data-dojo-props="id: '${id}_timeout_unlimited', type: 'radio', name: '${id}_timeoutType'" data-dojo-attach-point="timeoutUnlimited" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:_onUseTimeoutUnlimited" ></div>
+                        <label for="${id}_timeout_unlimited">${messages.admin_unlimited}</label>
+                        <div data-dojo-props="id: '${id}_timeout_limit', type: 'radio', name: '${id}_timeoutType', 'class': 'radioButton1'" data-dojo-attach-point="timeoutLimit" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:_onUseTimeoutLimit"></div>
+                        <label for="${id}_timeout_limit">${messages.admin_limit}</label>
+                        <div data-dojo-props='id: "${id}_timeout-field", required: true, constraints: { min:1, max:1000000000, places:0 }, style: { "margin-left": "5px", width: "100px" }'
+                             data-dojo-attach-point= "_timeoutInSeconds" data-dojo-type="ecm/widget/NumberTextBox" data-dojo-attach-event="onKeyUp: _onFieldChange"></div>
+                   </fieldset>	            
+	            </td>
+	        </tr> 
+            <tr style="height:20px" data-dojo-attach-point="match_row">
+                <td class="propertyRowLabel" valign="middle">
+                    <span class="ecmLabel">${messages.admin_search_match}</span>&nbsp;
+                    <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-props="isFocusable: true" data-dojo-attach-point="_search_match_help">${messages.admin_search_match_hover}</div>
+                </td>
+                <td class="propertyRowValue">
+                    <fieldset>
+                    <legend style="display: none;">${messages.admin_search_match}</legend>
+                        <div data-dojo-props="id: '${id}_match_all', type: 'radio', name: '${id}_matchCondition'" data-dojo-attach-point="matchAll" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:_onFieldChange"></div>
+                        <label for="${id}_match_all">${messages.admin_search_match_all}</label>
+                        <div data-dojo-props="id: '${id}_match_any', type: 'radio', name: '${id}_matchCondition', 'class': 'radioButton2'" data-dojo-attach-point="matchAny" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:_onFieldChange"></div>
+                        <label for="${id}_match_any">${messages.admin_search_match_any}</label>
+                   </fieldset>              
+                </td>
+            </tr> 	       
+                <tr style="height:20px; display: none;" data-dojo-attach-point="restricted_search_type_row">
+                <td class="propertyRowLabel" valign="middle">
+                    <span class="ecmLabel">${messages.admin_restricted_search_type}</span>&nbsp;
+                    <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-props="isFocusable: true" data-dojo-attach-point="_restricted_search_type_help">${messages.admin_restricted_search_type_hover}</div>
+                </td>
+                <td class="propertyRowValue">
+                    <fieldset>
+                    <legend style="display: none;">${messages.admin_default_search_type}</legend>
+                        <div data-dojo-props="id: '${id}_restricted_search_type_documents', name: '${id}_restricted_search_type_Condition'" data-dojo-attach-point="restricted_search_type_Documents"  
+                             data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-event="onClick:_onFieldChange"></div>
+                        <label for="${id}_restricted_search_type_documents">${messages.admin_restricted_search_type_documents}</label>
+                        <div data-dojo-props="id: '${id}_restricted_search_type_folders', name: '${id}_restricted_search_type_Condition', 'class': 'radioButton1'" data-dojo-attach-point="restricted_search_type_Folders" data-dojo-type="ecm/widget/CheckBox" data-dojo-attach-event="onClick:_onFieldChange"></div>
+                        <label for="${id}_restricted_search_type_folders">${messages.admin_restricted_search_type_folders}</label>                    
+                   </fieldset>              
+                </td>
+            </tr>
+            <tr style="height:20px; display: none;" data-dojo-attach-point="default_search_type_row">
+                <td class="propertyRowLabel" valign="middle">
+                    <span class="ecmLabel">${messages.admin_default_search_type}</span>&nbsp;
+                    <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-props="isFocusable: true" data-dojo-attach-point="_default_search_type_help">${messages.admin_default_search_type_hover}</div>
+                </td>
+                <td class="propertyRowValue">
+                    <fieldset>
+                    <legend style="display: none;">${messages.admin_default_search_type}</legend>
+                        <span data-dojo-attach-point="default_search_type_Documents_control">
+                        <div data-dojo-props="id: '${id}_default_search_type_documents', type: 'radio', name: '${id}_default_search_type_Condition'" data-dojo-attach-point="default_search_type_Documents"  
+                             data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:_onFieldChange"></div>
+                        <label for="${id}_default_search_type_documents">${messages.admin_default_search_type_documents}</label>
+                        </span>
+                        <span data-dojo-attach-point="default_search_type_Folders_control">
+                        <div data-dojo-props="id: '${id}_default_search_type_folders', type: 'radio', name: '${id}_default_search_type_Condition', 'class': 'radioButton2'" data-dojo-attach-point="default_search_type_Folders" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:_onFieldChange"></div>
+                        <label for="${id}_default_search_type_folders">${messages.admin_default_search_type_folders}</label>
+                        </span>
+                        <span data-dojo-attach-point="default_search_type_Folders_and_Documents_control">
+                        <div data-dojo-props="id: '${id}_default_search_type_folders_and_documents', type: 'radio', name: '${id}_default_search_type_Condition', 'class': 'radioButton2'" data-dojo-attach-point="default_search_type_Folders_and_Documents" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:_onFieldChange"></div>
+                        <label for="${id}_default_search_type_folders_and_documents">${messages.admin_default_search_type_folders_and_documents}</label>
+                        </span>
+                   </fieldset>              
+                </td>
+            </tr>
+ 
+            <tr style="height: 20px; display: none;" data-dojo-attach-point="_searchVersionNode">
+                <td class="propertyRowLabel" valign="middle">
+                    <span class="ecmLabel">${messages.admin_default_search_version}</span>&nbsp;
+                    <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-props="isFocusable: true" data-dojo-attach-point="_searchVersionHoverHelp">${messages.admin_default_search_version_hover}</div>
+                </td>
+                <td class="propertyRowValue">
+                    <fieldset>
+                        <legend style="display: none;">${messages.admin_default_search_version}</legend>
+                        <span data-dojo-attach-point="_releasedVersionNode">
+                            <div data-dojo-props="id: '${id}_default_search_version_released', type: 'radio', name: '${id}_default_search_version'" data-dojo-attach-point="_releasedVersionRadioButton"  
+                                 data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:_onFieldChange"></div>
+                            <label for="${id}_default_search_version_released">${messages.search_released_version}</label>
+                        </span>
+                        <div data-dojo-props="id: '${id}_default_search_version_current', type: 'radio', name: '${id}_default_search_version'" data-dojo-attach-point="_currentVersionRadioButton"  
+                             data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:_onFieldChange"></div>
+                        <label for="${id}_default_search_version_current">${messages.search_current_version}</label>
+                        <span data-dojo-attach-point="_allVersionsNode">
+                            <div data-dojo-props="id: '${id}_default_search_version_all', type: 'radio', name: '${id}_default_search_version', 'class': 'radioButton2'" data-dojo-attach-point="_allVersionsRadioButton"  
+                                 data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onClick:_onFieldChange"></div>
+                            <label for="${id}_default_search_version_all">${messages.search_all_versions}</label>
+                        </span>
+                    </fieldset>              
+                </td>
+            </tr>  	        
+	    	<tr style="height:20px;" data-dojo-attach-point="allClassesSearch_row">
+	            <td class="propertyRowLabel" valign="middle" style="padding-top: 13px;">
+	                <span class="ecmLabel">${messages.admin_all_classes_search}</span>&nbsp;
+	                <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_allClassesSearchHoverHelp">${messages.admin_all_classes_search_hover}</div>
+	            </td>
+	            <td class="propertyRowValue">
+	            <select data-dojo-type="ecm/widget/Select" data-dojo-attach-point="_allClassesSearch" data-dojo-props="id: '${id}_allClassesSearch-field', style: { width: '550px' }">
+	                <option value="hidden">${messages.admin_all_classes_search_hide}</option>
+	                <option value="documentsIncludesOnlyDocuments">${messages.admin_all_classes_search_documents_only_documents}</option>
+	                <option value="documentsIncludesNonFolders">${messages.admin_all_classes_search_documents_non_folders}</option>
+	            </select>
+	            </td>
+	        </tr>
+	    </table>
+	    
+	    <div data-dojo-type="idx/layout/TitlePane" data-dojo-props='"aria-describedby": "${id}_search_permission_instruction", style: { width: "100%", "margin-top": "10px", "margin-left": "0px" }' data-dojo-attach-point="_searchPermissionsTitlePane">
+	    	<div id="${id}_search_permission_instruction" class="categoryInstructions">${messages.admin_repcfg_search_permission_intro_text}</div><br />
+	    	<label for="${id}_searchPermissionsButton">${messages.admin_repcfg_search_permission_text}</label>
+	    	<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="searchAccessControlHover" data-dojo-props="isFocusable: true"></div>		    
+ 		   	<button data-dojo-type="dijit/form/Button" data-dojo-props="id: '${id}_searchPermissionsButton'" data-dojo-attach-point="_searchPermissionsButton" data-dojo-attach-event="onClick: _searchPermissionsButtonClick">
+          		${messages.select_users_groups_label}
+	        </button>
+ 	        <div data-dojo-attach-point="_searchPermissionsDataPane" data-dojo-type="ecm/widget/UserGroupPrivilegePane"></div>
+		</div>
+	    
+	    <div data-dojo-type="idx/layout/TitlePane" data-dojo-props='"aria-describedby": "${id}_search_properties_instruction", style: { width: "100%", "margin-top": "10px", "margin-left": "0px" }' data-dojo-attach-point="_searchPropertiesTitlePane">
+	        <div id="${id}_search_properties_instruction" class="categoryInstructions" data-dojo-attach-point="_searchPropertiesInstruction">${messages.admin_search_filtered_properties_instruction}</div>
+	        <div style="padding: 5px;" data-dojo-attach-point="_searchPropertiesType">
+	            <div>
+	                <label for="${id}_objectType-field">${messages.admin_searchable_properties_for}</label>
+	            </div>  
+	            <select data-dojo-type="dijit/form/Select" data-dojo-attach-point="_objectTypeSelect" data-dojo-attach-event="onChange: _onObjectTypeChange" data-dojo-props="id: '${id}_objectType-field', style: { width: '200px', 'margin-top': '5px' }">
+	                <option value="document" selected="selected">${messages.object_type_document}</option>
+	                <option value="folder">${messages.object_type_folder}</option>
+	            </select>
+	        </div>
+	        <div style="padding: 5px;" data-dojo-attach-point="_searchPropertiesFilterArea">
+	            <div class="filterArea">
+     				<label for="${id}_filter" style="display: none;">${messages.property_contains_label}</label>
+	                <div data-dojo-type="ecm/widget/FilterTextBox" data-dojo-attach-point="_searchPropertiesFilter" 
+	                     data-dojo-props='id: "${id}_filter", "class": "filter", style: { width: "200px" }'></div>
+	            </div>
+	        </div>
+	        <div data-dojo-type="idx/widget/SloshBucket" data-dojo-attach-point="_searchProperties" data-dojo-props="canReorderSelectedGridData: false, style: { height: '200px', width: '600px', 'padding-left': '5px', 'padding-bottom': '15px' }"></div>
+	    </div>
+	    
+	    <div data-dojo-type="idx/layout/TitlePane" data-dojo-props='"aria-describedby": "${id}_search_operators_instruction", "class": "addContentItemGeneralTitlePane", style: { width: "100%", "margin-top": "10px", "margin-left": "0px" }' data-dojo-attach-point="_searchOperatorsTitlePane">
+	        <div class="categoryInstructions" id="${id}_search_operators_instruction" data-dojo-attach-point="_searchOperatorsInstruction">${messages.admin_search_filtered_operators_instruction}</div>
+	        <div style="padding: 5px;" data-dojo-attach-point="_searchOperatorsType">
+	            <div>
+	                <label for="${id}_dataType-field">${messages.operators_for}</label>
+	            </div>  
+	            <select data-dojo-type="dijit/form/Select" data-dojo-attach-point="_dataTypeSelect" data-dojo-attach-event="onChange: _onDataTypeChange" data-dojo-props="id: '${id}_dataType-field', style: { 'margin-top': '5px' }">
+	            </select>
+	        </div>
+	        <div data-dojo-type="idx/widget/SloshBucket" data-dojo-attach-point="_searchOperators" data-dojo-props="canReorderSelectedGridData: false, style: { height: '200px', width: '600px', 'padding-left': '5px', 'padding-bottom': '15px' }"></div>
+	    </div>       
+	    
+	    <div data-dojo-type="idx/layout/TitlePane" data-dojo-props='"aria-describedby": "${id}_search_results_instruction", "class": "addContentItemGeneralTitlePane", style: { width: "100%", "margin-top": "10px", "margin-left": "0px" }' data-dojo-attach-point="_defaultSearchResultsTitlePane">
+	        <div id="${id}_search_results_instruction" data-dojo-attach-point="_defaultSearchResultsInstructions" class="categoryInstructions">${messages.admin_search_default_search_results_instruction}</div>
+	        <div style="padding: 5px;" data-dojo-attach-point="_defaultSearchResultColsFilterArea">
+	            <div class="filterArea" data-dojo-attach-point="_defaultSearchResultsArea">
+     				<label for="${id}_filter2" style="display: none;">${messages.property_contains_label}</label>
+	                <div data-dojo-type="ecm/widget/FilterTextBox" data-dojo-attach-point="_defaultSearchResultsFilter" data-dojo-props='id: "${id}_filter2", "class": "filter", style: { width: "200px" }'></div>
+	            </div>
+	        </div>
+	        <div data-dojo-type="idx/widget/SloshBucket" data-dojo-attach-point="_defaultSearchResultCols" data-dojo-props="style: { height: '200px', width: '600px', 'padding-left': '5px', 'padding-bottom': '15px' }"></div>
+	    </div>      
+    </div>
+</div>

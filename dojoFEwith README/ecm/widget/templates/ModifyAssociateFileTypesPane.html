@@ -1,0 +1,62 @@
+<div class="ecmModifyAssociateFileTypesPane" data-dojo-attach-point="containerNode" data-dojo-type="dijit.layout.BorderContainer" gutters="false">
+	<div class="ecmEntryTemplateItemInfoArea" data-dojo-type="dijit.layout.ContentPane" data-dojo-attach-point="_top" data-dojo-props="region:'top'">
+		<div style="white-space:nowrap;overflow: hidden;">
+		<!-- Item Information icons -->
+		<div class="dijitInline" data-dojo-attach-point="_itemInfoPrefix"><span>${messages.entry_tempalte_folder_associations_entrytemplate}</span></div>
+		<div class="dijitInline" data-dojo-attach-point="_itemInfoIcon"></div>
+		<div class="dijitInline" data-dojo-attach-point="_itemInfoName" style="white-space:nowrap;width:90%"></div>
+		</div>
+		<div style="padding-top:5px; padding-bottom:5px;">
+		<table style="width:100%"  role="presentation">
+		<tr>
+			<td>
+			<label>${messages.entry_template_destination_label}</label>
+			<div id="${id}_folderDestination_help" data-dojo-attach-point="_folderDestinationHelp" data-dojo-type="ecm.widget.HoverHelp" message="${messages.entry_template_destination_help}"></div>
+			</td>
+		</tr>
+		<!-- Radio buttons -->
+		<tr>
+			<td style="padding-left: 30px;">
+			<fieldset  >
+			<input name="${id}_destinations"  id="${id}_folderDestination" class="dijitInline" data-dojo-attach-point="_folderDestination" data-dojo-type="dijit.form.RadioButton"/>
+			<label for="${id}_folderDestination">${messages.entry_template_radioButton_folder_destination}</label><br>
+			<input name="${id}_destinations" id="${id}_ETDestination" class="dijitInline" data-dojo-attach-point="_ETDestination" data-dojo-type="dijit.form.RadioButton"/>
+			<label for="${id}_ETDestination">${messages.entry_template_radioButton_template_destination}</label>
+			</fieldset>
+			</td>
+		</tr>
+		
+		</table>
+		</div>		
+	</div>
+	<!-- Content Lists -->
+	<div class="ecmAvailableFileTypeslistsArea" data-dojo-type="dijit.layout.ContentPane"  data-dojo-props="region:'center'" >
+		<div class = "ecmFileTypesIntroArea"  data-dojo-type="dijit.layout.BorderContainer" data-dojo-props="region:'center'" gutters="false">
+			<div data-dojo-type="dijit.layout.ContentPane" style="margin: 0px; padding: 0px; overflow:hidden" splitter="false" toggleSplitterOpen="false" region="center" minSize="10"  >
+				${messages.entry_template_fileTypes_intro_title}
+				<div id="${id}_filetype_help" data-dojo-attach-point="_filetypeHelp" data-dojo-type="ecm.widget.HoverHelp" message="${messages.entry_template_fileTypes_intro}"></div>
+			</div>
+			
+		</div>
+		<div class="ecmFileTypesSelectArea" data-dojo-type="dijit.layout.BorderContainer"  data-dojo-props="region:'bottom'" gutters="false">
+			<div class = "ecmSelectedFileTypesArea" "data-dojo-type="dijit.layout.BorderContainer" data-dojo-props="region:'top'" gutters="false">
+					<div region="center" style="height:100%;width:100%;" data-dojo-type="ecm.widget.listView.ContentList" data-dojo-attach-point="_fileTypesSelected" multiSelect=false" emptyMessage="${messages.entry_template_fileTypes_any_type_of_file}"></div>
+					<div data-dojo-type="dijit.layout.ContentPane" style="margin: 0px; padding: 0px;" splitter="false" toggleSplitterOpen="false" region="trailing" minSize="10"  data-dojo-attach-point="_belowButtons">
+					<table style='height:100%' ><tr><td>
+				    	<div style="display: block" data-dojo-attach-point="_removeButton" data-dojo-type="dijit.form.Button" data-dojo-attach-event="onClick: _onClickRemove" data-dojo-props="disabled: true" showLabel="false" iconClass="moveDownButton" >${messages.entry_template_removeButton_title}</div>
+				    	<div style="display: block" data-dojo-attach-point="_viewSelected" data-dojo-type="dijit.form.Button" data-dojo-attach-event="onClick: _onClickViewSelected" showLabel="false" iconClass="informationIcon" data-dojo-props="disabled: true">${messages.entry_template_view_minetypes}</div>
+					</td></tr></table>			    	
+					 </div>
+			</div>
+			<div class = "ecmAvailableFileTypesArea" data-dojo-type="dijit.layout.BorderContainer" data-dojo-props="region:'bottom'" gutters="false">
+				<div region="center" style="height:100%;width:100%;" data-dojo-type="ecm.widget.listView.ContentList" data-dojo-attach-point="_fileTypessAvailable" multiSelect=true"></div>
+				<div data-dojo-type="dijit.layout.ContentPane" style="margin: 0px; padding: 0px;" splitter="false" toggleSplitterOpen="false" region="trailing" minSize="10"  data-dojo-attach-point="_aboveButtons">
+				<table style='height:100%' ><tr><td>
+					<div  style="display: block" data-dojo-type="dijit.form.Button" data-dojo-attach-point="_addButton" data-dojo-props="disabled: true" data-dojo-attach-event="onClick:_onClickAdd" showLabel="false" iconClass="moveUpButton">${messages.entry_template_addButton_title}</div>
+					<div  style="display: block" data-dojo-type="dijit.form.Button" data-dojo-attach-point="_viewAvailable" data-dojo-props="disabled: true" showLabel="false" iconClass="informationIcon" data-dojo-attach-event="onClick:_onClickViewAvailable">${messages.entry_template_view_minetypes}</div>
+				</td></tr></table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

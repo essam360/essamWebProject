@@ -1,0 +1,105 @@
+<div class="ecmAdminTab">
+  <div data-dojo-type="idx/layout/BorderContainer" data-dojo-props="gutters: false, style: { width: '100%', height: '100%' }" data-dojo-attach-point="borderContainer">
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'top'">	
+	  <div class="ecmAdminTabButtonBar">
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="saveAndCloseButton" data-dojo-attach-event="onClick: _onSaveAndClose">
+			${_messages.save_and_close}
+		</button>
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="saveButton" data-dojo-attach-event="onClick: onSave">
+			${_messages.save}
+		</button>
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="resetButton" data-dojo-attach-event="onClick: _onReset">
+			${_messages.reset}
+		</button>
+		<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="closeButton" data-dojo-attach-event="onClick: _onClose">
+			${_messages.close}
+		</button>
+  	  </div>
+  	  
+	  <div class="ecmAdminTabHeading" data-dojo-attach-point="headingText">
+	  </div>
+	  
+	  <div class="ecmAdminTabInstructions" data-dojo-attach-point="instructions" id="${id}_intro">${_messages.admin_menu_toolbar_instructions}</div>
+	  
+	  <div>
+		<table class="propertyTable" style="padding-left: 5px;" role="presentation">
+			<tr>
+				<td class="propertyRowLabel">
+					<span class="required">*</span>
+					<label for="${id}_name-field">${_messages.name}</label>&nbsp;
+				</td>
+				<td class="propertyRowValue">
+				   <input data-dojo-attach-point="nameField" data-dojo-attach-event="onKeyUp: _onNameChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="id: '${id}_name-field', maxLength: '64', required: true, trim: true, propercase: false" />
+				   <span class="ecmValue" data-dojo-attach-point="nameFieldDisplay"></span>
+				</td>
+			</tr>
+			<tr>
+				<td class="propertyRowLabel">
+					<span class="required">*</span>
+					<label for="${id}_id-field">${_messages.id_label}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="idFieldHoverHelp">${_messages.admin_menu_id_hover}</div>
+				</td>
+				<td class="propertyRowValue">
+				   <div data-dojo-attach-point="idField" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/admin/ValidationMenuIDTextBox" data-dojo-props="id: '${id}_id-field', required: true, trim: true, propercase: false"></div>
+				   <span class="ecmValue" data-dojo-attach-point="idFieldDisplay"></span>
+				</td>
+			</tr>
+			<tr>
+				<td class="propertyRowLabel">
+					<label for="${id}_description-field">${_messages.description_label}</label>&nbsp;
+				</td>
+				<td class="propertyRowValue">
+				   <input data-dojo-attach-point="descriptionField" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="trim: true, propercase: false, id: '${id}_description-field'" />
+				   <span class="ecmValue" data-dojo-attach-point="descriptionFieldDisplay"></span>
+				</td>
+			</tr> 
+			<tr>
+				<td class="propertyRowLabel">
+					<label for="${id}_type-field">${_messages.type_label}</label>&nbsp;
+				</td>
+				<td class="propertyRowValue">
+				   <input data-dojo-attach-point="typeField" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="id: '${id}_type-field', disabled: true" />
+				   <span class="ecmValue" data-dojo-attach-point="typeFieldDisplay"></span>
+				</td>
+			</tr> 
+			<tr style="display: none;">
+				<td class="propertyRowLabel">
+					<label for="${id}_typeid-field">${_messages.type_id_label}</label>&nbsp;
+				</td>
+				<td class="propertyRowValue">
+				   <input data-dojo-attach-point="typeIDField" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="id: '${id}_typeid-field', disabled: true" />
+				</td>
+			</tr> 
+		</table>	
+	  </div>
+	  
+      <div class="ecmAdminTabMenuSloshBucketButtonBar">
+		  <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="addSeparatorButton" data-dojo-attach-event="onClick: _onAddSeparator">
+			${_messages.add_separator}
+		  </button>
+		  <button data-dojo-type="ecm/widget/DropDownButton" data-dojo-attach-point="addLabelButton">
+			<span>${_messages.add_menu_label}</span>
+			<div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="style: { display: 'none', background: 'white' }">
+			   <div style="padding: 8px;">
+			      <div><label for="${id}_labelComboBox-field">${_messages.menu_label}</label></div>
+			      <div data-dojo-attach-point="labelComboBox" data-dojo-type="dijit/form/ComboBox" data-dojo-props='id: "${id}_labelComboBox-field", labelType: "text", label: "label", searchAttr: "label", maxHeight: "200", style: { width: "350px" }'></div>
+			      
+			      <div style="padding-top: 10px;">
+				    <div data-dojo-type="dijit/form/Button" data-dojo-attach-point="addLabelOKButton" data-dojo-attach-event="onClick: _onAddLabel">
+					  ${_messages.ok_button_label}
+				    </div>
+				    <div data-dojo-type="dijit/form/Button" data-dojo-attach-point="addLabelCancelButton" data-dojo-attach-event="onClick: _onCancelLabel">
+					  ${_messages.cancel}
+				    </div>
+				  </div>
+			  </div>	
+			</div>
+		  </button>
+	  </div>
+    </div>
+	<div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="'class': 'ecmAdminSubTabContainer', region: 'center', style: { padding: '5px', overflow: 'auto' }">
+	   <div data-dojo-type="ecm/widget/TreeSloshBucket" data-dojo-attach-point="_menuItemsSloshBucket" data-dojo-props='"class": "sloshBucket", style: { height: "250px", width: "90%" }'>
+	   </div>
+	</div>
+  </div>
+</div>

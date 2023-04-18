@@ -1,0 +1,33 @@
+<div class="ecmAdminTab ecmIconMappingDialog">  
+    <fieldset>
+        <table role="presentation">
+            <tr>
+                <td>
+                    <span class="required">*</span>
+                    <label for="${id}_name-field">${messages.name}</label>&nbsp;
+                </td>
+                <td>
+                    <input data-dojo-attach-point="nameField" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="required: true, trim: true, propercase: false, id: '${id}_name-field', maxLength: 64" />
+                </td>        
+            </tr>
+            <tr>
+                <td>
+                    <span class="required">*</span>
+                    <label for="${id}_desc-field">${messages.admin_mobile_feature_dialog_icon_file_label}</label>&nbsp;
+                </td>
+                <td>
+                    <input data-dojo-attach-point="iconFileField" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props='required: true, trim: true, propercase: false, style: { "text-overflow": "ellipsis" }, id: "${id}_iconFile-field"' />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="required">*</span>
+                    <label for="${id}_desc-field">${messages.admin_mobile_feature_dialog_url_label}</label>&nbsp;
+                </td>
+                <td>
+                    <input data-dojo-attach-point="urlField" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-props='id: "${id}_url-field", style: { "text-overflow": "ellipsis" }, required: true, trim: true, propercase: false' data-dojo-type="ecm/widget/ValidationTextBox" />
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+</div>

@@ -1,0 +1,47 @@
+<div class="ecmWorkspaceBuilderPane">
+	<h1 data-dojo-attach-point="titleElement">${_propertiesTitle}</h1>	
+	<div class="container1" >	
+		<div class="builderIntroText"><span data-dojo-attach-point="introText" tabindex=0>${_propertiesIntroText}</span>&nbsp;<a href="#" data-dojo-attach-event="onclick: onHelp">${messages.learn_more}</a></div>
+		
+		<div class="field teamspaceNameField">
+		   <label for="${id}_name">
+			  <span class="required" >*</span><span data-dojo-attach-point="teamspaceName">${_propertiesTeamspaceName}</span>
+			  <div id="${id}_nameTooltip" data-dojo-type="ecm.widget.HoverHelp" data-dojo-attach-point="nameHoverHelp" message="${_teamspaceNameTooltip}"></div>
+		   </label>
+		   <input id="${id}_name" data-dojo-attach-point="name" maxLength="128" type="text" value="" regExp='([^"*|<>?:\\/])*'  invalidMessage="${_invalidName}" missingMessage="${_missingName}" data-dojo-type="ecm.widget.ValidationTextBox" required="true" trim="true" propercase="false" />
+	    </div>
+	    
+	    <div class="field teamspaceDescriptionField">
+		   <label for="${id}_description">
+			  <span class="required" ></span><span data-dojo-attach-point="descriptionLabel">${_propertiesTeamspaceDescription}</span>
+			  <div id="${id}_descriptionTooltip" data-dojo-type="ecm.widget.HoverHelp" data-dojo-attach-point="descriptionHoverHelp" message="${_teamspaceDescriptionTooltip}"></div>
+		   </label> 
+		   <input id="${id}_description" data-dojo-attach-point="description" maxLength="255" class="input" type="text" value="" data-dojo-type="ecm.widget.ValidationTextBox" trim="true" propercase="false" />
+	    </div>
+	    
+	    	
+	    <div data-dojo-attach-point="instance" style="float: left; clear: both;">					    
+		    <div class="field2">
+			   <span for="${id}_workspaceTemplateList"><span class="required" >*</span>${messages.workspacebuilder_properties_workspaceTemplate}</span>
+			   <div id="${id}_selectedTemplateName" style="display: inline;"></div>
+		    </div>	
+		    <div>
+				<div style="visibility:hidden;" class="workspaceTemplateList" label="${messages.workspacebuilder_properties_templates}" 
+					 id="${id}_workspaceTemplateList" data-dojo-type="ecm.widget.MultiColumnList" aria-label="${messages.workspacebuilder_properties_templates}"
+					 plugins="{dnd: false, indirectSelection: false}"
+					 rowSelector="20px">
+				</div>
+		    </div>
+		</div>
+		
+		<div data-dojo-attach-point="templateSection">
+			<div class="field" style="clear:both;">
+				<label for="${id}_accessType"><span class="required" >*</span>${messages.workspacebuilder_properties_security}</label>
+				<input data-dojo-type="dijit.form.Select" data-dojo-attach-point="_accessTypeSelect" data-dojo-attach-event="onChange: _onAccessTypeChange" id="${id}_accessType"/>
+				<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="_selectMembersButton" data-dojo-attach-event="onClick:_onSelectMembers" id="${id}_selectMembersButton" disabled="true">${messages.select_members_label}</div>
+				<div data-dojo-attach-point="_membersNode" class="members" style="display: none;"></div>
+			</div>
+		</div>
+	</div>
+</div>
+

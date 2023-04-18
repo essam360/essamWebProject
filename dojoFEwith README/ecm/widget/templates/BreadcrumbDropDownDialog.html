@@ -1,0 +1,15 @@
+<div role="dialog" tabIndex="-1" class="ecmDropDownDialog" style="width: 100%; height: 100%">
+	<div data-dojo-attach-point="containerButtonNode" class="dijitTooltipContainer" style="width: 100%; height: 100%">
+		<div class ="dijitTooltipContents" data-dojo-attach-point="containerNode">
+        	<div style="width: 100%; height: 100%" data-dojo-attach-point="childDocumentResults" data-dojo-type="ecm/widget/listView/ContentList" multiSelect="false" 
+        	    data-dojo-attach-event="onRowClick: onRowClick">
+	        </div>
+		</div>
+        <div data-dojo-attach-point="buttonNode" class="buttonDiv">
+          <button id="${id}_okButton" data-dojo-type="dijit.form.Button" data-dojo-attach-point="_okButton" data-dojo-attach-event="onClick: onClickOK">${okButtonLabel}</button>
+          <button id="${id}_applyButton" data-dojo-type="dijit.form.Button" data-dojo-attach-point="_applyButton" data-dojo-attach-event="onClick: onClickApply">${applyButtonLabel}</button>
+          <button id="${id}_cancelButton" data-dojo-type="dijit.form.Button" data-dojo-attach-point="_cancelButton" data-dojo-attach-event="onClick: onClickCancel">${messages.cancel}</button>
+        </div>
+	</div>
+	<div class="dijitTooltipConnector" role="presentation" style="display: none;"></div>
+</div>

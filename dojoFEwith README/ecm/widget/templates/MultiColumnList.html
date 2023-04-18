@@ -1,0 +1,15 @@
+<div class="ecmMultiColumnList" data-dojo-attach-point="containerNode">
+  
+  <div class="ecmBorderBaseClass" data-dojo-type="idx.layout.BorderContainer"
+       style="height: ${borderHeight}" data-dojo-attach-point="borderContainer" gutters="false">
+  	<div data-dojo-attach-point="topPane" style="height:40px;" region="top" data-dojo-type="idx.layout.ContentPane" extractcontent="false" preventcache="false" preload="false" refreshonshow="false" splitter="false"   dolayout="false">
+	  	    <div>
+		  	    <div class="dijitInline" style="font-weight: bold; margin-top:20px;">${label}</div>
+		  		<div style="margin-top:12px;" class="filter dijitInline">
+		  		    <label for="${id}_filter" style="display: none;">${messages.multicolumn_list_filter_text}</label>
+			  		<input id="${id}_filter" type="text" data-dojo-attach-point="filter" value="" data-dojo-type="ecm.widget.FilterTextBox" trim="true" propercase="false" placeholder="${_filterText}" />
+		  		</div>
+	  		</div>
+  	</div> 
+  </div>
+</div>

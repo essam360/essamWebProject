@@ -1,0 +1,29 @@
+<div class="entryTemplateWorkflowPane entryTemplatePane">
+    <div class="property">
+	   <label for="${id}_workflowType-field">${messages.workflow_field_label}</label>&nbsp;
+       <div data-dojo-attach-point="workflowType" data-dojo-attach-event="onChange: _onSelectWorkflow" data-dojo-type="ecm/widget/FilteringSelect" data-dojo-props="id: '${id}_workflowType-field', labelType: 'text', label: 'label', searchAttr: 'label', maxHeight: 200, 'class': 'selectWorkflow'"></div>
+       <div data-dojo-type="dijit/form/Button" data-dojo-attach-point="selectExistingWorkflowButton" data-dojo-attach-event="onClick: _onClickSelectWorkflow">
+			${messages.select_members_label}
+	   </div>
+	</div>
+	<div class="property">     
+	   <div class="dijitInline label ecmLabel">${messages.workflow_field_label}</div>&nbsp;
+	   <div data-dojo-attach-point="selectedWorkflowDiv" class="dijitInline value ecmValue"></div>&nbsp;
+	   <div data-dojo-attach-point="selectedWorkflowVersionText" class="dijitInline label ecmLabel">${messages.search_version}</div>&nbsp;
+	   <div data-dojo-attach-point="selectedWorkflowVersionValue" class="dijitInline value ecmValue"></div>
+    </div>
+    <div class="property indented">
+	   <fieldset>
+       <legend class="dijitHidden">${messages.entry_template_workflow_launch_prompt}</legend>
+           <input data-dojo-props="type: 'radio', disabled: true, name: '${id}_launch', id: '${id}_launch_prompt'" data-dojo-attach-point="launchPrompt" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange" >
+   	       <label for="${id}_launch_prompt" class="radioLabel" data-dojo-attach-point="launchPromptLabel">${messages.entry_template_workflow_launch_prompt}</label>
+           <input data-dojo-props="type: 'radio', disabled: true, name: '${id}_launch', id: '${id}_launch_auto'" data-dojo-attach-point="launchAuto" data-dojo-type="ecm/widget/RadioButton" data-dojo-attach-event="onChange: _onFieldChange" >
+           <label for="${id}_launch_auto" class="radioLabel" data-dojo-attach-point="launchAutoLabel">${messages.entry_template_workflow_launch_auto}</label>
+       </fieldset>                    
+    </div>
+    <div class="property indented">
+	   <div data-dojo-props="id: '${id}_modify-launch-field', disabled: true" data-dojo-attach-point="modifyLaunch" data-dojo-attach-event="onClick: _onFieldChange" data-dojo-type="ecm/widget/CheckBox"></div>
+	   <label for="${id}_modify-launch-field" data-dojo-attach-point="modifyLaunchLabel">${messages.entry_template_workflow_modify_launch}</label>
+	   <div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="modifyLaunchHoverHelp">${messages.entry_template_workflow_modify_launch_hover}</div>
+    </div>
+</div>

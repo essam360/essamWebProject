@@ -1,0 +1,10 @@
+<div class="ecmTrackerHistoryPane" data-dojo-attach-point="containerNode">
+    <div data-dojo-type="dijit.layout.BorderContainer" data-dojo-attach-point="historyBorderContainer" gutters="false">                    
+        <div data-dojo-type="idx.layout.ContentPane" data-dojo-attach-point="_selectorArea" region="top" splitter="false" class="ecmTrackerSelectorArea"> 
+           <label for="${id}_mapSelector_Select">${_messages.process_tracker_map_selector_label}</label>
+	       <div id="${id}_mapSelector" data-dojo-attach-point="_mapSelector" class="ecmTrackerSelectorInput"></div> 
+        </div>
+        <div data-dojo-type="idx.layout.ContentPane" data-dojo-attach-point="_historyArea" region="center" class="ecmTrackerContentArea">
+        </div>
+	</div> 
+</div>

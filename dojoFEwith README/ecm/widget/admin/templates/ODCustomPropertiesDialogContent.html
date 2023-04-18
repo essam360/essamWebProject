@@ -1,0 +1,24 @@
+<div class="ecmAdminTab ecmViewerMappingDialog">	
+	<table class="propertyTable" role="presentation">
+		<tr>
+			<td class="propertyRowLabel">
+				<span class="required">*</span>
+				<label for="${id}_name-field">${messages.admin_repcfg_ecpdialog_name}</label>
+				<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="nameFieldHoverHelp">${messages.admin_repcfg_od_custom_properties_name_hover}</div>
+			</td>
+			<td class="propertyRowValue">
+			   <input data-dojo-attach-point="nameField" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="id: '${id}_name-field', required: true, trim: true, maxLength: 240, propercase: false" />
+			</td>
+		</tr>
+		<tr>
+			<td class="propertyRowLabel">
+				<span class="required">*</span>
+				<label for="${id}_value-field">${messages.admin_repcfg_ecpdialog_value}</label>
+				<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="valueFieldHoverHelp">${messages.admin_repcfg_od_custom_properties_value_hover}</div>
+			</td>
+			<td class="propertyRowValue">
+			   <input data-dojo-attach-point="valueField" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="id: '${id}_value-field', required: true, trim: true, maxLength: 240, propercase: false" />
+			</td>
+		</tr>
+	</table>
+</div>

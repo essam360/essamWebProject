@@ -1,0 +1,76 @@
+<span class="ecmSearchMoreOptions"
+	><span data-dojo-type="ecm.widget.DropDownLink" data-dojo-attach-point="_optionsLink" label="${label}" id="${id}_moreOptionsLink"
+		><div data-dojo-type="ecm.widget.DropDownDialog" data-dojo-attach-point="_optionsDialog" id="${id}_moreOptionsDialog"
+			><div class="ecmSearchOptionsDialog"
+				><table class="searchMoreOptionsContent" role="presentation">
+					<tr data-dojo-attach-point="_objectTypeOptionNode">
+						<td class="optionLabel">
+							<label id="${id}_objectTypeOption_label" for="${id}_objectTypeOption_select">${_messages.search_for}</label>
+						</td>
+						<td class="optionValue">
+							<div data-dojo-type="ecm.widget.search._ObjectTypeOption" data-dojo-attach-point="_objectTypeOption" id="${id}_objectTypeOption" data-dojo-attach-event="onChange: _handleObjectTypeChange" ></div>
+						</td>
+					</tr>
+					<tr data-dojo-attach-point="_versionOptionNode">
+						<td class="optionLabel">
+							<label id="${id}_versionOption_label" for="${id}_versionOption_select">${_messages.search_version}</label>
+							<div data-dojo-type="ecm.widget.HoverHelp" data-dojo-attach-point="_versionHoverHelp" id="${id}_versionHoverHelp"></div>
+						</td>
+						<td class="optionValue">
+							<div data-dojo-type="ecm.widget.search._VersionOption" data-dojo-attach-point="_versionOption" data-dojo-attach-event="onChange: _handleVersionOptionChange" id="${id}_versionOption"></div>
+						</td>
+					</tr>
+					<tr data-dojo-attach-point="_propertyTextReadOnlyOptionNode"  class="dijitHidden">
+						<td colspan="2">
+							<span class="ecmLabel" data-dojo-attach-point="_propertyTextReadOnlyOptionLabel"></span>
+						</td>
+					</tr>
+					<tr data-dojo-attach-point="_propertyTextOptionNode">
+						<td class="optionLabel">
+							<label>${_messages.search_using}</label>
+						</td>
+						<td class="optionValue">
+							<div class="optionWrapper">
+								<div data-dojo-type="ecm.widget.search._PropertyTextOption" data-dojo-attach-point="_propertyTextOption" id="${id}_propertyTextOption"></div>
+							</div>
+						</td>
+					</tr>
+					<tr data-dojo-attach-point="_fileTypeOptionNode">
+						<td class="optionLabel">
+							<label id="${id}_fileTypeOption_label" for="${id}_fileTypeOption">${_messages.search_file_type_filter}</label>
+						</td>
+						<td class="optionValue">
+							<div data-dojo-type="ecm.widget.search._FileTypeOption" data-dojo-attach-point="_fileTypeOption" id="${id}_fileTypeOption"></div>
+						</td>
+					</tr>
+					<tr data-dojo-attach-point="_userActionOptionNode">
+						<td class="optionLabel">
+							<label>${_messages.search_action_filter}</label>
+							<div data-dojo-type="ecm.widget.HoverHelp" data-dojo-attach-point="_userActionHoverHelp" message="${_messages.search_action_filter_hover_help}" data-dojo-props="isFocusable: true"></div>
+						</td>
+						<td class="optionValue">
+							<div data-dojo-type="ecm.widget.search._UserActionOption" data-dojo-attach-point="_userActionOption" data-dojo-attach-event="onChange: _handleUserActionOptionChange" id="${id}_userActionOption"></div>
+						</td>
+					</tr>
+					<tr data-dojo-attach-point="_workOptionNode">
+						<td class="optionLabel">
+							<label>${_messages.search_work_filter}</label>
+							<div data-dojo-type="ecm.widget.HoverHelp" data-dojo-attach-point="_workHoverHelp" message="${_messages.search_work_filter_hover_help}"></div>
+						</td>
+						<td class="optionValue">
+							<div data-dojo-type="ecm.widget.search._WorkOption" data-dojo-attach-point="_workOption" data-dojo-attach-event="onChange: _handleWorkOptionChange" id="${id}_workOption"></div>
+						</td>
+					</tr>
+					<tr data-dojo-attach-point="_contentSizeOptionNode">
+						<td class="optionLabel">
+							<label id="${id}_contentSizeOption_label" for="${id}_contentSizeOption_select">${_messages.search_content_size_filter}</label>
+						</td>
+						<td class="optionValue">
+							<div data-dojo-type="ecm.widget.search._ContentSizeOption" data-dojo-attach-point="_contentSizeOption" id="${id}_contentSizeOption"></div>
+						</td>
+					</tr>
+				</table
+			></div
+		></div
+	></span
+></span>

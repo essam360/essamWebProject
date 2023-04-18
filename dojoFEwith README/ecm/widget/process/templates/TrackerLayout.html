@@ -1,0 +1,45 @@
+<div>
+	<div data-dojo-type="dijit.layout.ContentPane" data-dojo-attach-point="trackerSummary" region="top" class="ecmStepTabContainer">
+	    <div data-dojo-attach-point="subjectText" class="ecmProcessSubjectLabel">&nbsp;
+	    </div>
+	    <div data-dojo-attach-point="systemInfo" class="ecmProcessSystemInformation">
+	        <div class="ecmProcessSystemLabel">${_messages.process_deadline}</div>
+	        <div data-dojo-attach-point="deadline" class="ecmProcessSystemField"></div>
+	        <div class="ecmProcessSystemLabel">${_messages.process_launchedby}</div>
+	        <div data-dojo-attach-point="launchedby" class="ecmProcessSystemField"></div>
+	        <div class="ecmProcessSystemLabel">${_messages.process_receivedon}</div>
+	        <div data-dojo-attach-point="receivedOn" class="ecmProcessSystemFieldEnd"></div>
+	    </div>
+	    <div class="ecmTrackerSeparator"></div>
+	</div>
+	<div data-dojo-type="dijit.layout.ContentPane" data-dojo-attach-point="trackerContentPane" region="center">
+	    <div data-dojo-attach-point="viewTabContainer" data-dojo-type="dijit.layout.TabContainer" region="center" class="ecmTrackerTabContainer ecmStepTabContainer ecmStepTabContainerBorder">
+			<div data-dojo-attach-point="trackerHistoryPane"
+		          data-dojo-type="ecm.widget.process.TrackerHistoryPane"
+		          class="ecmTrackerCenterPane"
+		          title="${_messages.process_tracker_history}">
+		    </div>
+            <div data-dojo-attach-point="trackerMilestonesPane"
+                 data-dojo-type="ecm.widget.process.TrackerMilestonesPane"
+                 class="ecmTrackerCenterPane"
+                 title="${_messages.process_tracker_milestones}">
+            </div>
+		</div>
+	</div>
+	<div data-dojo-type="dijit.layout.ContentPane" region="bottom">
+	    <div data-dojo-attach-point="buttonBar" class="ecmProcessButtonBar dijitDialogPaneActionBar">
+	    	<button class="dijitButton"
+	            id="${id}_DeleteButton1"
+	            data-dojo-type="dijit.form.Button"
+	            data-dojo-attach-event="onClick: onDelete">            
+	            ${_messages.process_finish_button_label}
+	        </button>       
+	        <button class="dijitButton"
+	            id="${id}_CloseButton1"
+	            data-dojo-type="dijit.form.Button"
+	            data-dojo-attach-event="onClick: onClose">            
+	            ${_messages.close}
+	        </button>       
+	    </div>  
+	</div>
+</div>

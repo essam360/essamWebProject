@@ -1,0 +1,22 @@
+<div data-dojo-type="dijit.layout.TabContainer"  data-dojo-attach-point="_tabContainer">
+	<div data-dojo-type="dijit.layout.ContentPane" class="searchTemplatesTab" title="${messages.manage_teamspace_search_tab_title}" data-dojo-attach-point="_searchTemplatesTab">
+		<div data-dojo-type="ecm.widget.teamspaceBuilder.SearchTemplatesPane"
+			parentId="${id}" data-dojo-attach-point="searchTemplatesPane" type="${type}">
+		</div>
+	</div>
+	<div data-dojo-type="dijit.layout.ContentPane" class="classesTab" title="${messages.manage_teamspace_classes_tab_title}" data-dojo-attach-point="_classesTab">
+		<div data-dojo-type="ecm.widget.teamspaceBuilder.ClassesPane"
+			parentId="${id}" data-dojo-attach-point="classesPane" type="${type}">
+		</div>
+	</div>
+	<div data-dojo-type="dijit.layout.ContentPane" class="manageTeamTab" title="${messages.manage_teamspace_team_tab_title}" data-dojo-attach-point="_manageTeamTab" style="display:hidden">
+		<div data-dojo-type="ecm.widget.teamspaceBuilder.UsersPane"
+			parentId="${id}" data-dojo-attach-point="usersPane" type="${type}">
+		</div>
+	</div>
+	<div data-dojo-type="dijit.layout.ContentPane" class="manageRolesTab" title="${messages.manage_teamspace_roles_tab_title}" data-dojo-attach-point="_manageRolesTab" style="display:hidden">
+		<div data-dojo-type="ecm.widget.teamspaceBuilder.RolesPane"
+			parentId="${id}" data-dojo-attach-point="rolesPane" type="${type}">
+		</div>
+	</div>	
+</div>

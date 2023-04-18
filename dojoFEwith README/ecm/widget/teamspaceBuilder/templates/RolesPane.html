@@ -1,0 +1,36 @@
+<div class="ecmWorkspaceBuilderPane">
+    <h1 data-dojo-attach-point="rolesTitle">${messages.workspacebuilder_roles_title}</h1>
+
+    <div class="container1">
+    	<div class="builderIntroText" id="${id}_introText" data-dojo-attach-point="introText" tabindex=0>${messages.workspacebuilder_template_roles_introText}
+    	<a href="#" data-dojo-attach-event="onclick: onHelp">${messages.learn_more}</a></div>
+
+    	<table border="0" cellpadding="0" cellspacing="0" role="presentation">
+    		<tr>
+    			<td>
+    				<div data-dojo-type="ecm.widget.teamspaceBuilder.RoleSloshBucket"
+    					style="visibility: hidden;"
+    					selectedListLabel="${messages.workspacebuilder_roles_selected_roles}"
+    					availableListLabel="${messages.workspacebuilder_roles_available_roles}"
+    					createButtonLabel="${messages.workspacebuilder_selection_create_new_role}"
+
+    					showEditButton="true"
+    					showMakeAvailableButton="true"
+    				 	data-dojo-attach-point="sloshBucket"></div>
+    			</td>
+
+    			<td style="vertical-align: top; padding-left: 20px;">
+  					<div data-dojo-attach-point="privSection" style="display: none;">
+	  					<div style="font-weight: bold; padding-bottom:5px;" data-dojo-attach-point="privHeader"></div>
+
+	  					<div data-dojo-attach-point="privGridContainer"></div>
+
+	  					<div data-dojo-type="dijit.layout.BorderContainer"  data-dojo-attach-point="borderContainer" gutters="false" baseClass="ecmBorderBaseClass">
+	  					</div>
+       				</div>
+    			</td>
+   			</tr>
+		</table>
+
+    </div>
+</div>

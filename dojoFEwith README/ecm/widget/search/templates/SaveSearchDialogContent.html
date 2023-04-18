@@ -1,0 +1,51 @@
+<table class="generalTable" role="presentation" data-dojo-attach-point="_saveSearchTable">
+	<tr>
+		<td class="labelCell">
+			<span class="required">*</span>
+			<label for="${id}_name">${messages.search_template_name}</label>
+		</td>
+		<td>
+			<input data-dojo-type="ecm.widget.ValidationTextBox" data-dojo-attach-point="_nameTextBox" id="${id}_name" trim="true" required="true"/>
+		</td>
+	</tr>
+	<tr>
+		<td class="labelCell">
+			<label for="${id}_description">${messages.search_template_desc}</label>
+		</td>
+		<td>
+			<input data-dojo-type="dijit.form.TextBox"  data-dojo-attach-point="_descriptionTextBox" id="${id}_description" trim="true"/>
+		</td>
+	</tr>
+	<tr data-dojo-attach-point="_folderSelectorNode">
+		<td class="labelCell">
+			<label for="${id}_folder">${messages.add_document_location_label}</label>
+		</td>
+		<td>				
+			<div class="folderSelector" data-dojo-attach-point="_saveInSelector" id="${id}_folder"></div>
+		</td>
+	</tr>
+	<tr data-dojo-attach-point="_autoRunNode">
+		<td></td>
+		<td>
+			<input data-dojo-type="dijit.form.CheckBox"  data-dojo-attach-point="_autoRunCheckBox" id="${id}_autoRun" type="checkbox" value=""/>
+			<label for="${id}_autoRun">${messages.auto_run}</label>
+		</td>
+	</tr>
+	<tr data-dojo-attach-point="_showInTreeNode">
+		<td></td>
+		<td>
+			<input data-dojo-type="dijit.form.CheckBox"  data-dojo-attach-point="_showInTreeCheckBox" id="${id}_showInTree" type="checkbox" value="" disabled="true"/>
+			<label for="${id}_showInTree">${messages.show_in_tree}</label>
+			<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="_showInTreeHoverHelp" data-dojo-props="isFocusable: true">${messages.show_in_tree_hover_help}</div>
+		</td>
+	</tr>
+	<tr data-dojo-attach-point="_securityNode" class="securityNode">
+		<td class="labelCell">
+			<label id="${id}_securityAccess-label" for="${id}_securityAccess-field">${messages.share_search_with}</label>
+		</td>
+		<td>
+			<div data-dojo-type="ecm.widget.SecurityAccessPane" data-dojo-attach-point="_securityAccessPane" data-dojo-attach-event="onAccessTypeChange: _onAccessTypeChange"
+			     data-dojo-props="labelId: '${id}_securityAccess-label', dropdownid: '${id}_securityAccess-field'"></div>
+		</td>
+	</tr>
+</table>

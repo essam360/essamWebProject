@@ -1,0 +1,121 @@
+<div class="ecmAdminTab ecmOnDemand">
+  <div data-dojo-type="idx/layout/BorderContainer" data-dojo-attach-point="borderContainer" data-dojo-props="gutters: false, style: { width: '100%', height: '100%'}">
+	<div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'center'">
+		<div>
+		  <table class="propertyTable" role="presentation">
+			<tr>
+				<td class="propertyRowLabel">
+					<span class="required" data-dojo-attach-point="odLanguageRequired">*</span>
+					<label for="${id}_language-field">${messages.admin_ondemand_language}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="odLanguageHoverHelp">${messages.admin_ondemand_language_hover}</div>
+				</td>
+				<td class="propertyRowValue">
+				   <div data-dojo-attach-point="odLanguage" data-dojo-type="ecm/widget/ComboBox" data-dojo-attach-event="onChange: _onFieldChange" 
+				        data-dojo-props="id: '${id}_language-field', labelType: 'text', label: 'label', searchAttr: 'label', identifier: 'value'"></div>
+				</td>
+			</tr>	
+			<tr>
+				<td class="propertyRowLabel">
+					<span class="required" data-dojo-attach-point="odTempdirRequired">*</span>
+					<label for="${id}_tempdir-field">${messages.admin_ondemand_tempdir}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="odTempdirHoverHelp">${messages.admin_ondemand_tempdir_hover}</div>
+				</td>
+				<td class="propertyRowValue">
+			  		<div data-dojo-attach-point="odTempdir" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" 
+			  		     data-dojo-props="id: '${id}_tempdir-field', trim: true, propercase: false, required: true, maxLength: 240, style: { 'min-width': '300px' }"></div>
+				</td>
+			</tr>	
+		  </table>
+		</div>  
+	    <div data-dojo-type="idx/layout/TitlePane" data-dojo-attach-point="_traceSettingsTitlePane" data-dojo-props='style: { "margin-top": "0px", "margin-left": "0px", "margin-right": "0px" }'> 
+		  <table class="propertyTable" role="presentation">
+			<tr>
+				<td class="propertyRowLabel">
+					<span class="required" data-dojo-attach-point="odTracelevelRequired">*</span>
+					<label for="${id}_tracelevelField">${messages.admin_ondemand_tracelevel}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="odTracelevelHoverHelp">${messages.admin_ondemand_tracelevel_hover}</div>
+				</td>
+				<td class="propertyRowValue">
+					<div data-dojo-attach-point="odTracelevel" data-dojo-type="ecm/widget/Select" data-dojo-attach-event="onChange: _onFieldChange" 
+					     data-dojo-props="id: '${id}_tracelevelField', labelType: 'text', label: 'label', searchAttr: 'label'"></div>
+				</td>
+			</tr>
+			<tr>
+				<td class="propertyRowLabel">
+					<span class="required" data-dojo-attach-point="odTracedirRequired">*</span>
+					<label for="${id}_tracedir-field">${messages.admin_ondemand_tracedir}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="odTracedirHoverHelp">${messages.admin_ondemand_tracedir_hover}</div>
+				</td>
+				<td class="propertyRowValue">
+			   		<div data-dojo-attach-point="odTracedir" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" 
+			   		     data-dojo-props="id: '${id}_tracedir-field', trim: true, propercase: false, required: true, maxLength: 240, style: { 'min-width': '300px' }"></div>
+				</td>
+			</tr>	
+			<tr>
+				<td class="propertyRowLabel" valign="top" style="margin-top:+14px;">
+					<label for="${id}_max-trace-filesize-qty-field">${messages.admin_ondemand_max_trace_filesize}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="odMaxTraceFilesizeFieldHoverHelp">${messages.admin_ondemand_max_trace_filesize_hover}</div>
+				</td>
+				<td class="propertyRowValue">
+					<fieldset>
+					<legend style="display: none;">${messages.admin_ondemand_max_trace_filesize}</legend>
+		   				<div data-dojo-attach-point="odTraceUnlimited" data-dojo-attach-event="onClick: _onUnlimited, onChange: _onFieldChange" data-dojo-type="ecm/widget/RadioButton" 
+		   				     data-dojo-props="id: '${id}_max-trace-filesize-unlimited-field', type: 'radio', name: '${id}_odMaxTraceFilesize', value: 'enable'"></div>
+		   				<label for="${id}_max-trace-filesize-unlimited-field">${messages.admin_ondemand_max_trace_filesize_unlimited}</label>
+		   				<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="odMaxTraceFilesizeUnlimitedFieldHoverHelp">${messages.admin_ondemand_max_trace_unlimited_hover}</div>
+		   				<br>
+		   				<div data-dojo-attach-point="odTraceLimited" data-dojo-attach-event="onClick: _onLimited, onChange: _onFieldChange" data-dojo-type="ecm/widget/RadioButton" 
+		   				     data-dojo-props="id: '${id}_max-trace-filesize-limited-field', type: 'radio', name: '${id}_odMaxTraceFilesize', value: 'disable'"></div>
+		   				<label for="${id}_max-trace-filesize-limited-field">${messages.admin_ondemand_max_trace_filesize_limited}</label>
+		   				<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="odMaxTraceFilesizeLimitedFieldHoverHelp">${messages.admin_ondemand_max_trace_limited_hover}</div>
+			   			<br />
+ 						<div data-dojo-attach-point="odTraceQty" data-dojo-attach-event="onKeyUp: onMarkDirty" data-dojo-type="ecm/widget/NumberTextBox" 
+ 						     data-dojo-props='id: "${id}_max-trace-filesize-qty-field", "aria-describedby": "${id}_max-trace-filesize-qty-field_meg", required: false, style: { "margin-left": "30px", "margin-right": "5px", width: "100px" }, constraints: { min: 1, max: 1000000, places: 0 }'></div>
+			   			<span id="${id}_max-trace-filesize-qty-field_meg">${messages.admin_ondemand_max_trace_filesize_meg}</span>
+		   			</fieldset>
+				</td>
+			</tr>		
+		  </table>
+		</div>
+		<div>		
+		  <table class="propertyTable" role="presentation">
+			<tr>
+				<td class="propertyRowLabel">
+					<label for="${id}_afp2pdf_installdir-field">${messages.admin_ondemand_afp2pdf_installdir}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-attach-point="odAfp2pdfInstalldirHoverHelp">${messages.admin_ondemand_afp2pdf_installdir_hover}</div>
+				</td>
+				<td class="propertyRowValue">
+			   		<div data-dojo-attach-point="odAfp2pdfInstalldir" data-dojo-attach-event="onKeyUp: _onFieldChange" data-dojo-type="ecm/widget/ValidationTextBox" 
+			   		     data-dojo-props="id: '${id}_afp2pdf_installdir-field', trim: true, propercase: false, maxLength: 240, style: { 'min-width': '300px' }"></div>
+				</td>
+			</tr>	
+			<tr>
+			    <td class="propertyRowLabel">
+					<label>${messages.admin_repcfg_custom_properties_label}</label>&nbsp;
+					<div data-dojo-type="ecm/widget/HoverHelp" data-dojo-props="isFocusable: true" data-dojo-attach-point="rcodAdvancedPropertiesHelp">${messages.admin_repcfg_od_custom_properties_hover}</div>
+			    </td>
+		    </tr>
+		    <tr>
+			    <td colspan="2" style="height: 400px; width: 400px; padding: 15px 0;">
+				  <div data-dojo-type="idx/layout/BorderContainer" data-dojo-attach-point="gridBorderContainer" data-dojo-props="'class': 'ecmAdminSubTabContainer', region: 'center', gutters: false">
+				    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'top'">
+					   <div style="margin-bottom: 15px;"> 
+						  <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="newPropertyButton" data-dojo-attach-event="onClick: _onNewProperty" data-dojo-props="disabled: true">
+							${messages.admin_repcfg_new_button_label}
+					  	  </button>
+					      <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="editPropertyButton" data-dojo-attach-event="onClick: _onEditProperty" data-dojo-props="disabled: true">
+						   ${messages.admin_repcfg_edit_button_label}
+					      </button>
+					      <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="deletePropertyButton" data-dojo-attach-event="onClick: _onDeleteProperty" data-dojo-props="disabled: true">
+						   ${messages.admin_repcfg_delete_button_label}
+					      </button>
+				       </div>
+			  	    </div>
+				  </div>
+			    </td>
+		    </tr>
+		  </table>
+	    </div>	
+	</div>
+  </div>
+</div> 

@@ -1,0 +1,16 @@
+<div class="ecmProcessApprovalOptionPane"
+	><fieldset
+		><legend style="display: none;">${_messages.process_approval_options}</legend 
+		><input id="${id}_all" data-dojo-attach-point="_allRadioButton" data-dojo-type="dijit.form.RadioButton" name="${id}_ApprovalRequiredOption" data-dojo-attach-event="onClick: _onAllRadioButtonClick"></input
+        ><label for="${id}_all">&nbsp;${_messages.process_all}</label
+        ><br
+		/><input id="${id}_by_count" data-dojo-attach-point="_countRadioButton" data-dojo-type="dijit.form.RadioButton" name="${id}_ApprovalRequiredOption" data-dojo-attach-event="onClick: _onCountRadioButtonClick"></input
+		><label for="${id}_by_count">&nbsp;${_messages.process_at_least}</label
+		>&nbsp;<input data-dojo-type="ecm.widget.RangeBoundTextBox" data-dojo-props="regExp:'[0-9]*'" data-dojo-attach-point="_countTextBox"></input
+		><br
+		/><input id="${id}_by_percent" data-dojo-attach-point="_percentageRadioButton" data-dojo-type="dijit.form.RadioButton" name="${id}_ApprovalRequiredOption" data-dojo-attach-event="onClick: _onPercentageRadioButtonClick"></input
+		><label for="${id}_by_percent">&nbsp;${_messages.process_at_least}</label
+		>&nbsp;<input data-dojo-type="ecm.widget.RangeBoundTextBox" data-dojo-props=" maxLength:'3', regExp:'[0-9]*'" data-dojo-attach-point="_percentageTextBox"></input
+		><span>&nbsp;%</span
+	></fieldset
+></div>

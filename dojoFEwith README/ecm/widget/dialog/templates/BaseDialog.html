@@ -1,0 +1,53 @@
+<div class="ecmBaseDialog" role="dialog" aria-labelledby="${id}_title" aria-describedby="${id}_intro">
+	<div data-dojo-attach-point="containerNode" style="position: relative;" class="dijitDialogPaneContent">
+		<div data-dojo-attach-point="titleBar" class="dijitDialogTitleBar">
+			<span data-dojo-attach-point="titleNode" class="dijitDialogTitle" id="${id}_title">
+			</span>
+			<span data-dojo-attach-point="closeButtonNode" class="dijitDialogCloseIcon" data-dojo-attach-event="ondijitclick: onCancel" title="${buttonCancel}" role="button" tabIndex="-1">
+				<span data-dojo-attach-point="closeText" class="closeText" title="${buttonCancel}">
+				</span>
+			</span>
+			<div data-dojo-attach-point="toolbarNode" class="dijitDialogToolbarContent">
+			</div>
+			<div data-dojo-attach-point="intro"  id="${id}_intro" class="dialogIntro">
+				<span class="introText" data-dojo-attach-point="introText">
+				</span>
+				<span class="introTextRef" data-dojo-attach-point="introTextRef">
+				</span>
+			</div>
+		</div>
+		<div class="inlineMessage" data-dojo-attach-point="inlineMessage" style="display: none">
+			<div class="messageIcon">
+			</div>
+			<div class="messageText" data-dojo-attach-point="messageText" role="alert" id="${id}_messageText">
+			</div>
+		</div>
+		<div data-dojo-attach-point="secondaryInlineMessagesArea" style="display: none">
+		</div>
+		<div data-dojo-attach-point="contentArea" style="position: relative" class="dijitDialogPaneContentArea">
+			<!--
+			
+			Dialog specific content will insert here 
+			 
+			-->
+		</div>
+		<div data-dojo-attach-point="actionBar" class="dijitDialogPaneActionBar ecmDialogPaneActionBar">
+			<span class="messageRef" data-dojo-attach-point="messageRef">
+			</span>
+			<!--
+		
+			Dialog specific buttons will insert here
+		 
+			-->
+			<div id="CANCEL_${id}" data-dojo-attach-point="cancelButton" data-dojo-type="dijit/form/Button" data-dojo-attach-event="onClick: onCancel">
+				${messages.close}
+			</div>
+		</div>
+		<div data-dojo-type="dijit/form/Button" data-dojo-attach-point="_maximizeButton" data-dojo-attach-event="onClick: _onMaximize" 
+		     data-dojo-props="showLabel: false, 'iconClass': 'maximizeIcon', 'class': 'maximizeButton'">${messages.maximize}</div>
+		<div data-dojo-type="dijit/form/Button" data-dojo-attach-point="_restoreButton" data-dojo-attach-event="onClick: _onRestore" 
+			 data-dojo-props="showLabel: false, 'iconClass': 'restoreIcon', 'class': 'dijitHidden restoreButton'">${messages.restore}</div>
+	</div>
+	<div data-dojo-attach-point="resizeHandle" data-dojo-type="dojox/layout/ResizeHandle" targetId="${id}" style="visibility: hidden">
+	</div>
+</div>

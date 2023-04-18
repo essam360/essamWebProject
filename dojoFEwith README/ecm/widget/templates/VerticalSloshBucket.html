@@ -1,0 +1,31 @@
+<div class="ecmVerticalSloshBucket">
+	<div borderHeight="${selectedHeight}" 
+		class="workspaceSelectionList"
+		selectionLabel="${selectedListLabel}" 
+		data-dojo-type="ecm.widget.MultiColumnList"
+		data-dojo-attach-point="selectionList" 
+		selectionMode="extended" 
+		plugins="{dnd: false, indirectSelection: false}"
+		rowSelector="20px"
+		data-dojo-attach-event="onSelection : onSelectSelection"></div>
+	
+    <div class="middleButtons">
+    	<button data-dojo-attach-point="addButton" data-dojo-attach-event="onClick : onAddItem" data-dojo-type="dijit.form.Button" type="button" disabled="true">
+			${messages.workspacebuilder_add_list}
+		</button> 
+    	<button data-dojo-attach-point="removeButton" data-dojo-attach-event="onClick : onMoveItemFromSelectedToAvailable" data-dojo-type="dijit.form.Button" type="button" disabled="true" style="display: none;">
+			${messages.remove_label}
+		</button> 
+	</div>
+    
+	<div borderHeight="${availableHeight}" 
+		class="workspaceTemplateList" 
+		label="${availableListLabel}" 
+		data-dojo-type="ecm.widget.MultiColumnList" 
+		data-dojo-attach-point="availableList"
+		selectionMode="extended" 
+		plugins="{dnd: false, indirectSelection: false}"
+		rowSelector="20px"
+		data-dojo-attach-event="onSelection : onSelectAvailable"></div>
+
+</div>

@@ -1,0 +1,8 @@
+<div data-dojo-attach-point="containerNode" class="ecmAttributeMappingsPane">
+	<div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'top'" style="padding-bottom: 7px;">
+		<button dojoType="dijit/form/Button" data-dojo-attach-point="_addButton" data-dojo-attach-event="onClick: _onAddButtonClick" type="button">${messages.unified_search_add_mapping}</button>
+		<button dojoType="dijit/form/Button" data-dojo-attach-point="_editButton" data-dojo-attach-event="onClick: _onEditButtonClick" type="button">${messages.edit}</button>
+		<button dojoType="dijit/form/Button" data-dojo-attach-point="_deleteButton" data-dojo-attach-event="onClick: _onDeleteButtonClick" type="button">${messages.delete_text}</button>
+	</div>
+	<div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="_gridPane" data-dojo-props="region: 'center'" class="compact gridxWholeRow gridxAlternatingRows"></div>
+</div>

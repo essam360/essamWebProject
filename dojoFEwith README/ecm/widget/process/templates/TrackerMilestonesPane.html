@@ -1,0 +1,17 @@
+<div class="ecmTrackerMilestonePane" data-dojo-attach-point="containerNode">
+	<div data-dojo-type="dijit.layout.BorderContainer" data-dojo-attach-point="milestonesBorderContainer" class="ecmTrackerBorderContainer" region="center" gutters="false" > 						
+        <div data-dojo-type="idx.layout.ContentPane" 
+             data-dojo-attach-point="_levelSelectorArea" 
+             region="top" 
+             splitter="false"
+             class="ecmTrackerSelectorArea"> 
+	        <label for="${id}_levelSelect" class="ecmTrackerSelectorLabel">${_messages.process_tracker_level_selector_label}</label>
+	        <div data-dojo-attach-point="_levelSelector" class="ecmTrackerSelectorInput"></div>
+        </div>
+        <div data-dojo-type="idx.layout.ContentPane" 
+             data-dojo-attach-point="_milestonesArea"
+             region="center"
+             class="ecmTrackerContentArea">
+        </div>
+	</div>
+</div>

@@ -1,0 +1,36 @@
+<div>
+<p class="daejaSubPageTitle" dojoAttachPoint="daejaConfigTitle">ViewOne Platform Configuration Parameters<p> 
+
+   <!-- Use attachpoint on table to make it easily accessible in ConfigurationPane.js  -->
+	<table id="daejaPluginConfigTable" class="propertyTable" role="presentation">
+		<tbody dojoAttachPoint="daejaPluginConfigTable">
+	   	<tr>
+            <td class="propertyRowLabel propertyRowHeaderLabel" >
+               <label dojoAttachPoint="daejaAddParamLabel" for="configPropertySelect">Add Parameter</label>&nbsp;
+            </td>
+            <td class="propertyRowValue propertyRowHeaderValue" colspan="2">
+               <div id="configPropertySelect" dojoAttachPoint="daejaConfigProperties" dojoAttachEvent="onChange: _addServerConfigProperty,onSelect: _addServerConfigProperty" dojoType="dijit.form.ComboBox">
+               </div>
+               <!-- button dojoType="dijit.form.Button" onClick="_addConfigProperty()" label="Add Parameter"/-->
+            </td>
+         </tr>
+		 <!-- config items added in here via javascript -->
+      </tbody>
+	</table>
+<p class="daejaSubPageTitle" dojoAttachPoint="daejaViewerConfigTitle">ViewOne Viewer Configuration Parameters<p> 
+	<table id="daejaViewerConfigTable" class="propertyTable" role="presentation">
+      <tbody dojoAttachPoint="daejaViewerConfigTable">
+         <tr>
+            <td class="propertyRowLabel propertyRowHeaderLabel" >
+               <label dojoAttachPoint="daejaAddClientParamLabel" for="viewoneConfigPropertySelect">Add Parameter</label>&nbsp;
+            </td>
+            <td class="propertyRowValue propertyRowHeaderValue" colspan="2">
+               <div id="viewoneConfigPropertySelect" dojoAttachPoint="daejaClientConfigProperties" dojoAttachEvent="onChange: _addClientConfigProperty,onSelect: _addClientConfigProperty" dojoType="dijit.form.ComboBox">
+               </div>
+               <!-- button dojoType="dijit.form.Button" onClick="_addConfigProperty()" label="Add Parameter"/-->
+            </td>
+         </tr>
+       <!-- config items added in here via javascript -->
+      </tbody>
+   </table>
+</div>

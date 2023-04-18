@@ -1,0 +1,12 @@
+<div class="dijit dijitReset launchBarButton" >
+	<span class="dijitReset dijitInline launchBarButtonNode" data-dojo-attach-point="_buttonNode" data-dojo-attach-event="ondijitclick:_onClick">
+		<span tabindex=0 class="dijitReset dijitStretch dijitButtonContents" data-dojo-attach-point="focusNode,titleNode,_arrowWrapperNode" role="button" aria-haspopup="true" aria-labelledby="${id}_label">
+			<span class="dijitReset dijitInline dijitIcon selectedIcon dijitButtonText" data-dojo-attach-point="selectedIcon">
+				<span class="a11yLabel">*</span>
+			</span>
+			<span class="dijitReset dijitInline dijitIcon iconNode" data-dojo-attach-point="iconNode"></span>
+			<span class="dijitReset dijitInline dijitButtonText" data-dojo-attach-point="containerNode,_popupStateNode" id="${id}_label"></span>
+		</span>
+	</span>
+	<input ${!nameAttrSetting} type="${type}" value="${value}" class="dijitOffScreen" tabIndex="-1" data-dojo-attach-point="valueNode"/>
+</div>
