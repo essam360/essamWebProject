@@ -1,0 +1,159 @@
+<html lang="en">
+<head>
+<title>Mo JS</title>
+<style type="text/css" media="screen">
+    body{
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+    .disclaimer{
+        display:none;
+    }
+    #editor { 
+        /* position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0; */
+        width:50vw;
+        height: 100%;
+        overflow-wrap: break-word;
+    }
+    .console{
+        width: 50vw;
+        height: 100%;
+        background-color: #282a36;
+        overflow-wrap: break-word;
+    }
+    .console pre{
+        margin: 0;
+        padding: 0;
+    }
+    .consoleItem{
+        font-size: 1rem;
+        margin: 5px;
+    }
+    .consoleItem.string,.consoleItem.number,.consoleItem.array{
+        color: rgb(195, 218, 224);
+    }
+    .consoleItem.boolean{
+        color: rgb(159, 159, 238);
+    }
+     .consoleItem.error{
+        color: rgb(245, 145, 78);
+    }
+
+
+
+
+    .main{
+        display: flex;
+        flex-direction: row;
+        background-color: #282a36;
+    }
+    .codeEditor{
+        background-color: aqua;
+        max-width:50vw ;
+        min-height: 100vh;
+        overflow-x: scroll;
+    }
+    .consoleScreen{
+        background-color:#282a36;
+        max-width:50vw;
+        overflow-wrap: break-word;
+        margin-left: 10px;
+        border-left: 0.5px solid red;
+        padding-left: 10px;
+        
+    }
+
+    .jsonClass{
+        padding: 5px;
+        margin-top: 10px;
+    }
+    .mainNav{
+        background-color: #1b1b1dda;
+        width: 100vw;
+        display: flex;
+        flex-direction: row;
+       
+    }
+</style>
+</head>
+<body>
+<nav class="mainNav">
+    <div class="fontSize">
+        <select name="" id="fontSize">
+            <option >font size</option>
+            <option value="10px">10</option>
+            <option value="15px">15</option>
+            <option value="20px">20</option>
+            <option value="25px">25</option>
+            <option value="30px">30</option>
+        </select>
+    </div>
+    <div class="theme">
+        <select name="" id="theme">
+            <option >theme</option>
+            <option value="ambiance">ambiance</option>
+            <option value="chaos">chaos</option>
+            <option value="chrome">chrome</option>
+            <option value="clouds">clouds</option>
+            <option value="clouds_midnight">clouds_midnight</option>
+            <option value="cobalt">cobalt</option>
+            <option value="crimson_editor">crimson_editor</option>
+            <option value="dawn">dawn</option>
+            <option value="dracula">dracula</option>
+            <option value="dreamweaver">dreamweaver</option>
+            <option value="eclipse">eclipse</option>
+            <option value="github">github</option>
+            <option value="gob">gob</option>
+            <option value="gruvbox">gruvbox</option>
+            <option value="idle_fingers">idle_fingers</option>
+            <option value="iplastic">iplastic</option>
+            <option value="katzenmilch">katzenmilch</option>
+            <option value="kr_theme">kr_theme</option>
+            <option value="kuroir">kuroir</option>
+            <option value="merbivore">merbivore</option>
+            <option value="merbivore_soft">merbivore_soft</option>
+            <option value="mono_industrial">mono_industrial</option>
+            <option value="monokai">monokai</option>
+            <option value="nord_dark">nord_dark</option>
+            <option value="one_dark">one_dark</option>
+            <option value="pastel_on_dark">pastel_on_dark</option>
+            <option value="solarized_dark">solarized_dark</option>
+            <option value="solarized_light">solarized_light</option>
+            <option value="sqlserver">sqlserver</option>
+            <option value="terminal">terminal</option>
+            <option value="textmate">textmate</option>
+            <option value="tomorrow">tomorrow</option>
+            <option value="tomorrow_night">tomorrow_night</option>
+            <option value="tomorrow_night_blue">tomorrow_night_blue</option>
+            <option value="tomorrow_night_bright">tomorrow_night_bright</option>
+            <option value="tomorrow_night_eighties">tomorrow_night_eighties</option>
+            <option value="twilight">twilight</option>
+            <option value="vibrant_ink">vibrant_ink</option>
+            <option value="xcode">xcode</option>
+        </select>
+    </div>
+</nav>
+<div class="main">
+    <div class="codeEditor">
+        <div id="editor">console.log("hi");</div>
+    </div>
+    <div class="consoleScreen">
+        <div class="console" id="console"></div>
+    </div>
+</div>
+    
+<script src="js/src-min/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/src-min/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/editor.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/console.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="json-viewer-master/src/json-viewer.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="json-viewer-master/src/json-viewer.css">
+</body>
+</html>
+
